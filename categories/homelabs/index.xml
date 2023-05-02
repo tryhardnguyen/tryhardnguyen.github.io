@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - SecurityNguyen Blog</title>
-        <link>http://tryhardnguyen.github.io/posts/</link>
-        <description>All Posts | SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 02 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://tryhardnguyen.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <title>Homelabs - Category - SecurityNguyen Blog</title>
+        <link>http://tryhardnguyen.github.io/categories/homelabs/</link>
+        <description>Homelabs - Category - SecurityNguyen Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 02 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
     <title>Installing Attacker Machine - Kali Linux</title>
     <link>http://tryhardnguyen.github.io/posts/installing-kali-linux-attacker-cybersecurity-homelab/</link>
     <pubDate>Tue, 02 May 2023 00:00:00 &#43;0000</pubDate>
@@ -22,17 +22,6 @@ VmwareWe will be keeping the VM on NAT to imitate an attacker from the outside.
     <description><![CDATA[Firewall LayoutOn our previous project: We learned how to create a captive portal How to create user role management How to implement least privilege roles Creates Firewall Rules So what next? Our next step is incorporating Suricata with pfSense, installing DVWA into the tech subnet, and attacking it from the WAN (Outside).
 What is the goal of this project:
 To learn how some of these attacks look like from a PCAP perspective Get a refresher on what these attacks are Write Suricata rules to detect these attacks Write Suricata rules to block these attacks Our next step is Installing DVWA For DVWA installation, I recommend you follow this video:]]></description>
-</item>
-<item>
-    <title>Basic Markdown Syntax</title>
-    <link>http://tryhardnguyen.github.io/posts/my-first-post/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>SecurityNguyen</author>
-    <guid>http://tryhardnguyen.github.io/posts/my-first-post/</guid>
-    <description><![CDATA[Hello This is my first post
-1 Headings Headings from h2 through h6 are constructed with a # for each level:
-## h2 Heading ### h3 Heading #### h4 Heading ##### h5 Heading ###### h6 Heading Testing Python
-print(&#34;Hello World&#34;) ]]></description>
 </item>
 </channel>
 </rss>

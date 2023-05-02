@@ -3,5 +3,13 @@
         <title>Tags - Tag - SecurityNguyen Blog</title>
         <link>http://tryhardnguyen.github.io/tags/</link>
         <description>Tags - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://tryhardnguyen.github.io/tags/" rel="self" type="application/rss+xml" /></channel>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 02 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://tryhardnguyen.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>OWASP</title>
+    <link>http://tryhardnguyen.github.io/tags/owasp/</link>
+    <pubDate>Tue, 02 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>http://tryhardnguyen.github.io/tags/owasp/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
