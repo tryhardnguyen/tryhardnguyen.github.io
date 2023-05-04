@@ -2,15 +2,25 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://tryhardnguyen.github.io/posts/installing-kali-linux-attacker-cybersecurity-homelab/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/posts/owasp-top-10-vulnerabilities-project/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/posts/my-first-post/</loc><lastmod>2020-01-01T16:45:40&#43;08:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/categories/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/categories/homelabs/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/tags/owasp/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/posts/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>http://tryhardnguyen.github.io/tags/</loc><lastmod>2023-05-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/phishinganalysis1/</loc><lastmod>2023-02-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/sunnystation-malwaretraffic/</loc><lastmod>2022-12-31T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/burnincandle-malwaretraffic/</loc><lastmod>2022-12-23T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/scan-windows-10/</loc><lastmod>2022-12-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/</loc><lastmod>2022-12-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/</loc><lastmod>2022-12-14T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/</loc><lastmod>2022-12-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/</loc><lastmod>2022-12-07T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/installing-kali-linux-attacker-cybersecurity-homelab/</loc><lastmod>2022-12-01T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/owasp-top-10-vulnerabilities-project/</loc><lastmod>2022-11-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/categories/</loc><lastmod>2023-02-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/categories/homelabs/</loc><lastmod>2023-02-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/tags/phishing-analysis/</loc><lastmod>2023-02-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/posts/</loc><lastmod>2023-02-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/</loc><lastmod>2023-02-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/tags/</loc><lastmod>2023-02-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/tags/packet-analysis/</loc><lastmod>2022-12-31T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/tags/vulnerability-management/</loc><lastmod>2022-12-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>http://tryhardnguyen.github.io/tags/owasp/</loc><lastmod>2022-12-14T00:00:00&#43;00:00</lastmod></url><url>
             <loc>http://tryhardnguyen.github.io/about/</loc><lastmod>2019-08-02T11:04:49&#43;08:00</lastmod></url><url>
             <loc>http://tryhardnguyen.github.io/categories/documentation/</loc></url><url>
             <loc>http://tryhardnguyen.github.io/tags/</loc></url></urlset>

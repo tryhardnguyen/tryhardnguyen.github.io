@@ -3,10 +3,41 @@
         <title>OWASP - Tag - SecurityNguyen Blog</title>
         <link>http://tryhardnguyen.github.io/tags/owasp/</link>
         <description>OWASP - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 02 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://tryhardnguyen.github.io/tags/owasp/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://tryhardnguyen.github.io/tags/owasp/" rel="self" type="application/rss+xml" /><item>
+    <title>OWASP TOP 10: SQL Injection</title>
+    <link>http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/</link>
+    <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/</guid>
+    <description><![CDATA[Today, we will be covering SQL Injection. Our goal for today is
+Learn the methodology behind SQL Injection How to carry out SQL Injection Attack? Network Perspective How to detect a SQL Injection Attack using snort? SQL injection can be known as SQLi attack.
+Methodology: A SQL injection attack consists of the insertion or &ldquo;injection&rdquo; of a SQL query via the input data from the client to the application.
+A successful SQL injection can read sensitive data from the database, modify database data (Insert/Update/Delete), execute administration operations on the database (such as shutdown the DBMS), recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system.]]></description>
+</item>
+<item>
+    <title>OWASP TOP 10: CSRF (Cross Site Request Forgery)</title>
+    <link>http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/</link>
+    <pubDate>Sat, 10 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/</guid>
+    <description><![CDATA[Today, we will be covering Cross-site Request Forgery. Our goal for today is
+Learn the methodology behind Cross-site Request Forgery How to carry out Cross-site Request Forgery? How to know if the attack was successful? How to detect a Cross-site Request Forgery using Snort? Methodology Cross-site Request Forgery is an attack that forces an end user to execute unwanted actions on a web application where they&rsquo;re currently authenticated. How to carry out the attack: Here we have a prompt that is used to change a user password.]]></description>
+</item>
+<item>
+    <title>OWASP TOP 10: XSS (DOM) Attack - DVWA</title>
+    <link>http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/</link>
+    <pubDate>Wed, 07 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/</guid>
+    <description><![CDATA[NOTE: Click on the photo to zoom in.
+Today, we will be covering XSS (DOM). Our goal for today is
+Learn the methodology behind XSS (DOM) How to carry out an XSS (DOM) Attack Network Perspective How to detect an XSS (DOM) Attack using snort? Before we move into XSS (DOM), We need to know what XSS is.
+XSS stands for Cross-site scripting. Attackers would send victims links that contain malicious scripts.]]></description>
+</item>
+<item>
     <title>Installing Attacker Machine - Kali Linux</title>
     <link>http://tryhardnguyen.github.io/posts/installing-kali-linux-attacker-cybersecurity-homelab/</link>
-    <pubDate>Tue, 02 May 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Thu, 01 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>http://tryhardnguyen.github.io/posts/installing-kali-linux-attacker-cybersecurity-homelab/</guid>
     <description><![CDATA[In this topic:
@@ -16,7 +47,7 @@ VmwareWe will be keeping the VM on NAT to imitate an attacker from the outside.
 <item>
     <title>OWASP TOP 10 Vulnerabilities Project</title>
     <link>http://tryhardnguyen.github.io/posts/owasp-top-10-vulnerabilities-project/</link>
-    <pubDate>Tue, 02 May 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 30 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>http://tryhardnguyen.github.io/posts/owasp-top-10-vulnerabilities-project/</guid>
     <description><![CDATA[Firewall LayoutOn our previous project: We learned how to create a captive portal How to create user role management How to implement least privilege roles Creates Firewall Rules So what next? Our next step is incorporating Suricata with pfSense, installing DVWA into the tech subnet, and attacking it from the WAN (Outside).

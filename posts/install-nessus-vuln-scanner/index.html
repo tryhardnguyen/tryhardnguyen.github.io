@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How to install Nessus essentials vulnerability scanner - SecurityNguyen Blog</title><meta name="Description" content="Step by Step guide to install Nessus"><meta property="og:title" content="How to install Nessus essentials vulnerability scanner" />
+<meta property="og:description" content="Step by Step guide to install Nessus" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-18T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to install Nessus essentials vulnerability scanner"/>
+<meta name="twitter:description" content="Step by Step guide to install Nessus"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/" /><link rel="prev" href="http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" /><link rel="next" href="http://tryhardnguyen.github.io/posts/scan-windows-10/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to install Nessus essentials vulnerability scanner",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/tryhardnguyen.github.io\/posts\/install-nessus-vuln-scanner\/"
+        },"genre": "posts","keywords": "Vulnerability Management","wordcount":  309 ,
+        "url": "http:\/\/tryhardnguyen.github.io\/posts\/install-nessus-vuln-scanner\/","datePublished": "2022-12-18T00:00:00+00:00","dateModified": "2022-12-18T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Step by Step guide to install Nessus"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to install Nessus essentials vulnerability scanner</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-18">2022-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;309 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>Nessus is a free-ish open-source vulnerability scanner. You can find more information here: <a href="https://www.tenable.com/products/nessus" target="_blank" rel="noopener noreffer ">https://www.tenable.com/products/nessus</a></p>
+<p>First, we will need to download a copy of Ubuntu 20.04.5. This will be the operating system that we will install, Nessus.<br>
+Ubuntu 20.04.5 LTS (Focal Fossa)
+(<a href="https://releases.ubuntu.com/focal/" target="_blank" rel="noopener noreffer ">https://releases.ubuntu.com/focal/</a>)</p>
+<p>Once you have the iso downloaded, create a VM with it. I&rsquo;m just going
+<a class="lightgallery" href="/images/image-422.webp" title="/images/image-422.webp" data-thumbnail="/images/image-422.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-422.webp"
+            data-srcset="/images/image-422.webp, /images/image-422.webp 1.5x, /images/image-422.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-422.webp" width="428" height="430" />
+    </a></p>
+<p>(Select the Ubuntu version we just downloaded) -&gt; Next
+<a class="lightgallery" href="/images/image-423.webp" title="/images/image-423.webp" data-thumbnail="/images/image-423.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-423.webp"
+            data-srcset="/images/image-423.webp, /images/image-423.webp 1.5x, /images/image-423.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-423.webp" width="428" height="430" />
+    </a></p>
+<p>Create your own account.<br>
+<a class="lightgallery" href="/images/image-424.webp" title="/images/image-424.webp" data-thumbnail="/images/image-424.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-424.webp"
+            data-srcset="/images/image-424.webp, /images/image-424.webp 1.5x, /images/image-424.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-424.webp" width="428" height="430" />
+    </a></p>
+<a class="lightgallery" href="/images/image-425.webp" title="/images/image-425.webp" data-thumbnail="/images/image-425.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-425.webp"
+            data-srcset="/images/image-425.webp, /images/image-425.webp 1.5x, /images/image-425.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-425.webp" width="428" height="430" />
+    </a>
+<p><a class="lightgallery" href="/images/image-426.webp" title="/images/image-426.webp" data-thumbnail="/images/image-426.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-426.webp"
+            data-srcset="/images/image-426.webp, /images/image-426.webp 1.5x, /images/image-426.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-426.webp" width="428" height="430" />
+    </a>
+<a class="lightgallery" href="/images/image-427.webp" title="/images/image-427.webp" data-thumbnail="/images/image-427.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-427.webp"
+            data-srcset="/images/image-427.webp, /images/image-427.webp 1.5x, /images/image-427.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-427.webp" width="1716" height="520" />
+    </a></p>
+<p>Now, let&rsquo;s configure our Network Adapter to Tech Subnet since that is where our web application lies.
+<a class="lightgallery" href="/images/image-428.webp" title="/images/image-428.webp" data-thumbnail="/images/image-428.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-428.webp"
+            data-srcset="/images/image-428.webp, /images/image-428.webp 1.5x, /images/image-428.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-428.webp" width="767" height="376" />
+    </a></p>
+<p>Our Ubuntu installation will start
+<a class="lightgallery" href="/images/image-429.webp" title="/images/image-429.webp" data-thumbnail="/images/image-429.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-429.webp"
+            data-srcset="/images/image-429.webp, /images/image-429.webp 1.5x, /images/image-429.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-429.webp" width="1280" height="768" />
+    </a>
+<a class="lightgallery" href="/images/image-430.webp" title="/images/image-430.webp" data-thumbnail="/images/image-430.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-430.webp"
+            data-srcset="/images/image-430.webp, /images/image-430.webp 1.5x, /images/image-430.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-430.webp" width="675" height="336" />
+    </a></p>
+<p>Make sure to install a snapshot and navigate to the Nessus download page.</p>
+<p>Download Nessus</p>
+<p>Download Nessus and Nessus Manager<br>
+<a href="https://www.tenable.com/downloads/nessus" target="_blank" rel="noopener noreffer ">https://www.tenable.com/downloads/nessus</a></p>
+<p>Make sure to install the Linux - Ubuntu - amd64
+<a class="lightgallery" href="images/image-431.webp" title="images/image-431.webp" data-thumbnail="images/image-431.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="images/image-431.webp"
+            data-srcset="images/image-431.webp, images/image-431.webp 1.5x, images/image-431.webp 2x"
+            data-sizes="auto"
+            alt="images/image-431.webp" />
+    </a></p>
+<a class="lightgallery" href="/images/image-432.webp" title="/images/image-432.webp" data-thumbnail="/images/image-432.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-432.webp"
+            data-srcset="/images/image-432.webp, /images/image-432.webp 1.5x, /images/image-432.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-432.webp" width="1122" height="673" />
+    </a>
+<p>Open the command prompt and go to downloads.
+<a class="lightgallery" href="/images/image-433.webp" title="/images/image-433.webp" data-thumbnail="/images/image-433.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-433.webp"
+            data-srcset="/images/image-433.webp, /images/image-433.webp 1.5x, /images/image-433.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-433.webp" width="737" height="187" />
+    </a></p>
+<p>Then, what you can do is type <code>sudo dpkg -i Nessus-10.4.1-ubuntu1404_amd64.deb</code>
+<a class="lightgallery" href="/images/image-434.webp" title="/images/image-434.webp" data-thumbnail="/images/image-434.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-434.webp"
+            data-srcset="/images/image-434.webp, /images/image-434.webp 1.5x, /images/image-434.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-434.webp" width="1117" height="361" />
+    </a></p>
+<p>Once that is done installing, we can type: <code>sudo systemctl start nessusd.service</code></p>
+<p>To make sure Nessus is started, you can do the following command:</p>
+<p><code>systemctl status nessusd.service</code>
+<a class="lightgallery" href="/images/image-435.webp" title="/images/image-435.webp" data-thumbnail="/images/image-435.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-435.webp"
+            data-srcset="/images/image-435.webp, /images/image-435.webp 1.5x, /images/image-435.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-435.webp" width="731" height="196" />
+    </a></p>
+<p>Now, we need to permit the default HTTPS web port for Nessus.</p>
+<p><code>sudo ufw allow 8834/tcp</code></p>
+<a class="lightgallery" href="/images/image-436.webp" title="/images/image-436.webp" data-thumbnail="/images/image-436.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-436.webp"
+            data-srcset="/images/image-436.webp, /images/image-436.webp 1.5x, /images/image-436.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-436.webp" width="467" height="131" />
+    </a>
+<p>Now, let&rsquo;s see what our IP for this VM.</p>
+<pre tabindex="0"><code>ip a
+</code></pre><a class="lightgallery" href="/images/image-437.webp" title="/images/image-437.webp" data-thumbnail="/images/image-437.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-437.webp"
+            data-srcset="/images/image-437.webp, /images/image-437.webp 1.5x, /images/image-437.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-437.webp" width="929" height="280" />
+    </a>
+<p>Mine is 172.20.25.18</p>
+<p>So to reach Nessus, we have to go to the following link:</p>
+<p><code>https://172.20.25.18:8834/</code></p>
+<p>We will reach this page:</p>
+<a class="lightgallery" href="/images/image-438.webp" title="/images/image-438.webp" data-thumbnail="/images/image-438.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-438.webp"
+            data-srcset="/images/image-438.webp, /images/image-438.webp 1.5x, /images/image-438.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-438.webp" width="1718" height="920" />
+    </a>
+<p>We will install Nessus Essentials since it is free for educators, students, and hobbyists.</p>
+<p>You will get the following, enter your name and email</p>
+<a class="lightgallery" href="/images/image-439.webp" title="/images/image-439.webp" data-thumbnail="/images/image-439.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-439.webp"
+            data-srcset="/images/image-439.webp, /images/image-439.webp 1.5x, /images/image-439.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-439.webp" width="385" height="493" />
+    </a>
+<p>You should get an activation code sent to you to your email. Input the activation code.</p>
+<a class="lightgallery" href="/images/image-440.webp" title="/images/image-440.webp" data-thumbnail="/images/image-440.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-440.webp"
+            data-srcset="/images/image-440.webp, /images/image-440.webp 1.5x, /images/image-440.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-440.webp" width="1478" height="42" />
+    </a>
+<a class="lightgallery" href="/images/image-441.webp" title="/images/image-441.webp" data-thumbnail="/images/image-441.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-441.webp"
+            data-srcset="/images/image-441.webp, /images/image-441.webp 1.5x, /images/image-441.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-441.webp" width="370" height="436" />
+    </a>
+<p>Create an account</p>
+<a class="lightgallery" href="/images/image-442.webp" title="/images/image-442.webp" data-thumbnail="/images/image-442.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-442.webp"
+            data-srcset="/images/image-442.webp, /images/image-442.webp 1.5x, /images/image-442.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-442.webp" width="388" height="483" />
+    </a>
+<p>Wait for the installation to be finished.<br>
+<a class="lightgallery" href="/images/image-443.webp" title="/images/image-443.webp" data-thumbnail="/images/image-443.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-443.webp"
+            data-srcset="/images/image-443.webp, /images/image-443.webp 1.5x, /images/image-443.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-443.webp" width="335" height="334" />
+    </a></p>
+<a class="lightgallery" href="/images/image-444.webp" title="/images/image-444.webp" data-thumbnail="/images/image-444.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-444.webp"
+            data-srcset="/images/image-444.webp, /images/image-444.webp 1.5x, /images/image-444.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-444.webp" width="1718" height="920" />
+    </a>
+<p>To make compiling faster, I will try to meet the system requirement. Let change the spec.</p>
+<a class="lightgallery" href="/images/image-445.webp" title="/images/image-445.webp" data-thumbnail="/images/image-445.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-445.webp"
+            data-srcset="/images/image-445.webp, /images/image-445.webp 1.5x, /images/image-445.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-445.webp" width="403" height="147" />
+    </a>
+<a class="lightgallery" href="/images/image-446.webp" title="/images/image-446.webp" data-thumbnail="/images/image-446.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-446.webp"
+            data-srcset="/images/image-446.webp, /images/image-446.webp 1.5x, /images/image-446.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-446.webp" width="402" height="150" />
+    </a>
+<a class="lightgallery" href="/images/image-447.webp" title="/images/image-447.webp" data-thumbnail="/images/image-447.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-447.webp"
+            data-srcset="/images/image-447.webp, /images/image-447.webp 1.5x, /images/image-447.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-447.webp" width="402" height="143" />
+    </a>
+<p>New setting
+<a class="lightgallery" href="/images/image-448.webp" title="/images/image-448.webp" data-thumbnail="/images/image-448.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-448.webp"
+            data-srcset="/images/image-448.webp, /images/image-448.webp 1.5x, /images/image-448.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-448.webp" width="736" height="261" />
+    </a></p>
+<a class="lightgallery" href="/images/image-449.webp" title="/images/image-449.webp" data-thumbnail="/images/image-449.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-449.webp"
+            data-srcset="/images/image-449.webp, /images/image-449.webp 1.5x, /images/image-449.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-449.webp" width="1234" height="194" />
+    </a>
+<p>Guess we have to wait for it to be finished. Once it finishes, it should look something like this.</p>
+<a class="lightgallery" href="/images/image-450.webp" title="/images/image-450.webp" data-thumbnail="/images/image-450.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-450.webp"
+            data-srcset="/images/image-450.webp, /images/image-450.webp 1.5x, /images/image-450.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-450.webp" width="1284" height="798" />
+    </a>
+<p>We have completed our installation portion.</p>
+<hr>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-12-18</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/" data-title="How to install Nessus essentials vulnerability scanner" data-hashtags="Vulnerability Management"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vulnerability-management/">Vulnerability Management</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/owasp-top10-sql-injection/" class="prev" rel="prev" title="OWASP TOP 10: SQL Injection"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>OWASP TOP 10: SQL Injection</a>
+            <a href="/posts/scan-windows-10/" class="next" rel="next" title="How to Scan for Windows 10 Vulnerability using Nessus">How to Scan for Windows 10 Vulnerability using Nessus<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

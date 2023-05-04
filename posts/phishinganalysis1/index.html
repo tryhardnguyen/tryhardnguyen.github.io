@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Analyzing Malicious Email - Phishing Analysis #1 - SecurityNguyen Blog</title><meta name="Description" content="Analyzing Phishing Email - SANS 2021 Contest"><meta property="og:title" content="Analyzing Malicious Email - Phishing Analysis #1" />
+<meta property="og:description" content="Analyzing Phishing Email - SANS 2021 Contest" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tryhardnguyen.github.io/posts/phishinganalysis1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-02T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Analyzing Malicious Email - Phishing Analysis #1"/>
+<meta name="twitter:description" content="Analyzing Phishing Email - SANS 2021 Contest"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://tryhardnguyen.github.io/posts/phishinganalysis1/" /><link rel="prev" href="http://tryhardnguyen.github.io/posts/sunnystation-malwaretraffic/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Analyzing Malicious Email - Phishing Analysis #1",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/tryhardnguyen.github.io\/posts\/phishinganalysis1\/"
+        },"genre": "posts","keywords": "Phishing Analysis","wordcount":  974 ,
+        "url": "http:\/\/tryhardnguyen.github.io\/posts\/phishinganalysis1\/","datePublished": "2023-02-02T00:00:00+00:00","dateModified": "2023-02-02T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Analyzing Phishing Email - SANS 2021 Contest"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Analyzing Malicious Email - Phishing Analysis #1</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-02">2023-02-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;974 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#source">Source:</a></li>
+    <li><a href="#second-malicious-email">Second Malicious Email</a>
+      <ul>
+        <li><a href="#was-the-email-sent-from-the-correct-smtp-server">Was the email sent from the correct SMTP server?</a></li>
+        <li><a href="#are-the-data-from-and-return-path--reply-to-the-same">Are the data &ldquo;From&rdquo; and &ldquo;Return-Path / Reply-To&rdquo; the same?</a></li>
+        <li><a href="#look-up-the-ip-that-the-email-was-sent-from">Look up the IP that the email was sent from</a></li>
+        <li><a href="#are-there-any-grammar-mistakes">Are there any grammar mistakes?</a></li>
+        <li><a href="#analyze-the-attachments">Analyze the attachments</a></li>
+        <li><a href="#result">Result:</a></li>
+        <li><a href="#third-malicious-email">Third Malicious Email</a></li>
+        <li><a href="#was-the-email-sent-from-the-correct-smtp-server-1">Was the email sent from the correct SMTP server?</a></li>
+        <li><a href="#are-the-data-from-and-return-path--reply-to-the-same-1">Are the data &ldquo;From&rdquo; and &ldquo;Return-Path / Reply-To&rdquo; the same?</a></li>
+        <li><a href="#look-up-the-ip-that-the-email-was-sent-from-1">Look up the IP that the email was sent from</a></li>
+        <li><a href="#are-there-any-grammar-mistakes-1">Are there any grammar mistakes?</a></li>
+        <li><a href="#analyze-the-attachments-1">Analyze the attachments</a></li>
+        <li><a href="#conclusion">Conclusion:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="source">Source:</h2>
+<p>InfoSec Handlers Diary Blog - SANS Internet Storm Center
+<a href="https://isc.sans.edu/diary/October&#43;2021&#43;Contest&#43;Forensic&#43;Challenge/27960" target="_blank" rel="noopener noreffer ">https://isc.sans.edu/diary/October+2021+Contest+Forensic+Challenge/27960</a><br>
+October 2021 Contest: Forensic Challenge, Author: Brad Duncan</p>
+<p>Malware-Traffic-Analysis.net - 2021-10-22 - Files for an ISC diary (October 2021 Forensic Contest)<br>
+<a href="https://www.malware-traffic-analysis.net/2021/10/22/index.html" target="_blank" rel="noopener noreffer ">https://www.malware-traffic-analysis.net/2021/10/22/index.html</a></p>
+<p>Malicious Emails can be found above ☝️</p>
+<p>2021-10-21-malicious-email-1102-UTC.eml
+<a class="lightgallery" href="/images2/image-39.webp" title="/images2/image-39.webp" data-thumbnail="/images2/image-39.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-39.webp"
+            data-srcset="/images2/image-39.webp, /images2/image-39.webp 1.5x, /images2/image-39.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-39.webp" width="616" height="284" />
+    </a>
+<a class="lightgallery" href="/images2/image-40.webp" title="/images2/image-40.webp" data-thumbnail="/images2/image-40.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-40.webp"
+            data-srcset="/images2/image-40.webp, /images2/image-40.webp 1.5x, /images2/image-40.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-40.webp" width="848" height="112" />
+    </a></p>
+<p>Email header:</p>
+<pre tabindex="0"><code>Return-Path: &lt;karen.marshall@olympus.co.uk&gt;
+Delivered-To: macrus.cobb@enemywatch.net
+Authentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=fail 
+(mail.enemywatch.net: domain of karen.marshall@olympus.co.uk does not designate 37.0.10.22 as
+permitted sender) smtp.mailfrom=karen.marshall@olympus.co.uk
+Received: from olympus.co.uk (unknown [37.0.10.22])
+by mail.enemywatch.net (Postfix) with ESMTP id 4HZl1q6rCqz9sVx
+for &lt;macrus.cobb@enemywatch.net&gt;; Thu, 21 Oct 2021 11:02:34 +0000 (UTC)
+From: KAREN MARSHALL
+To: macrus.cobb@enemywatch.net
+Subject: RE:New Order
+Date: 21 Oct 2021 04:02:30 -0700
+Message-ID: &lt;20211021040230.7ED68DD78D4A19F2@olympus.co.uk&gt;
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+boundary=&#34;----=_NextPart_000_0012_D6D683E4.D392FCEB&#34;
+
+This is a multi-part message in MIME format.
+</code></pre><p>The processes of analyzing phishing emails:</p>
+<ol>
+<li>Was the email sent from the correct SMTP server?</li>
+</ol>
+<p>For instance: The person who sent the email was from: olympus.co.uk</p>
+<p>I would pull up the <a href="https://mxtoolbox.com/SuperTool.aspx" target="_blank" rel="noopener noreffer ">MX toolbox</a> and search: olympus.co.uk.</p>
+<p>The IP of the olympus.co.uk (104.47.56.110)
+<a class="lightgallery" href="/images2/image-41.webp" title="/images2/image-41.webp" data-thumbnail="/images2/image-41.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-41.webp"
+            data-srcset="/images2/image-41.webp, /images2/image-41.webp 1.5x, /images2/image-41.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-41.webp" width="868" height="80" />
+    </a></p>
+<p>Then I would compare the IP that I have in my email.</p>
+<p>If the IP doesn&rsquo;t align, that&rsquo;s a sign that the email got spoofed.</p>
+<p>In this case, IP is 37.0.10.22, which tells us that the address was spoofed. That&rsquo;s a red flag.
+<a class="lightgallery" href="/images2/image-42.webp" title="/images2/image-42.webp" data-thumbnail="/images2/image-42.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-42.webp"
+            data-srcset="/images2/image-42.webp, /images2/image-42.webp 1.5x, /images2/image-42.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-42.webp" width="377" height="93" />
+    </a></p>
+<hr>
+<p>2. Are the data &ldquo;From&rdquo; and &ldquo;Return-Path / Reply-To&rdquo; the same?
+<a class="lightgallery" href="/images2/image-43.webp" title="/images2/image-43.webp" data-thumbnail="/images2/image-43.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-43.webp"
+            data-srcset="/images2/image-43.webp, /images2/image-43.webp 1.5x, /images2/image-43.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-43.webp" width="567" height="215" />
+    </a></p>
+<p>In this case, yes.</p>
+<hr>
+<p>3. Look up the IP that it was sent from.</p>
+<p>For this case, the IP was flagged as malicious in virus total.
+<a class="lightgallery" href="/images2/image-44.webp" title="/images2/image-44.webp" data-thumbnail="/images2/image-44.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-44.webp"
+            data-srcset="/images2/image-44.webp, /images2/image-44.webp 1.5x, /images2/image-44.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-44.webp" width="1397" height="603" />
+    </a></p>
+<p>Alienvault:
+<a class="lightgallery" href="/images2/image-45.webp" title="/images2/image-45.webp" data-thumbnail="/images2/image-45.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-45.webp"
+            data-srcset="/images2/image-45.webp, /images2/image-45.webp 1.5x, /images2/image-45.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-45.webp" width="926" height="246" />
+    </a>
+<a class="lightgallery" href="/images2/image-46.webp" title="/images2/image-46.webp" data-thumbnail="/images2/image-46.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-46.webp"
+            data-srcset="/images2/image-46.webp, /images2/image-46.webp 1.5x, /images2/image-46.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-46.webp" width="542" height="492" />
+    </a></p>
+<p>VirusTotal, AbuseIPDB, and AlienVault are indicating that the IP is malicious</p>
+<p>4.  Are there any grammar mistakes?
+<a class="lightgallery" href="/images2/image-47.webp" title="/images2/image-47.webp" data-thumbnail="/images2/image-47.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-47.webp"
+            data-srcset="/images2/image-47.webp, /images2/image-47.webp 1.5x, /images2/image-47.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-47.webp" width="590" height="286" />
+    </a></p>
+<p>The use of Co-ordinator instead of coordinator and PLS instead of &ldquo;please&rdquo;.</p>
+<p>Down under the job title of Karen Marshall, I&rsquo;m assuming OMEA is a company and that the adversary forgot to change it to olympus.co.uk. The story doesn&rsquo;t add up.</p>
+<p>5. Suspicious Attachments</p>
+<p>Attachments in a legitimate email are usually alluded to within the body. The sender may say, for instance, “I am attaching the report.” This makes it easy to check the attachment because its name should correlate with what was mentioned in the message.</p>
+<p>With a phishing email, the attachment may have nothing to do with the contents of the body of the email. It may also be unnecessary—for example, an email about a report but with an attachment containing instructions on resetting your password.</p>
+<p>Source: <a href="https://www.fortinet.com/resources/cyberglossary/phishing-email-analysis?ref=securitynguyen.com" target="_blank" rel="noopener noreffer ">Fortinet</a></p>
+<p>For this email, the attachment fits the story of the body.</p>
+<p>6. Usually, in an Isolated environment, I would download the attachment, get the hash value of the attachment, and plug the hash into an OSINT website.</p>
+<p>In this case, MD5 hash of Order.7z is <code>734e991a781c52b6441526029efa8da1</code>
+<a href="https://www.virustotal.com/gui/file/c7b83c5b3ab7114127fac61933145960b3b4e580eeab2f88eb31880fa447b910" target="_blank" rel="noopener noreffer ">https://www.virustotal.com/gui/file/c7b83c5b3ab7114127fac61933145960b3b4e580eeab2f88eb31880fa447b910</a>
+<a class="lightgallery" href="/images/image-48.webp" title="/images/image-48.webp" data-thumbnail="/images/image-48.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-48.webp"
+            data-srcset="/images/image-48.webp, /images/image-48.webp 1.5x, /images/image-48.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-48.webp" width="933" height="179" />
+    </a></p>
+<p>Hybrid Analysis:<br>
+<a href="https://www.hybrid-analysis.com/sample/5bf04dc0a6c58392ab02344da78d8cf471f522f94a845974f33dac13a1e51af2/6186eaf1c76b4005501f68d4" target="_blank" rel="noopener noreffer ">https://www.hybrid-analysis.com/sample/5bf04dc0a6c58392ab02344da78d8cf471f522f94a845974f33dac13a1e51af2/6186eaf1c76b4005501f68d4</a></p>
+<hr>
+<h2 id="second-malicious-email">Second Malicious Email</h2>
+<p>2021-10-21-malicious-email-1739-UTC.eml
+<a class="lightgallery" href="/images2/image-49.webp" title="/images2/image-49.webp" data-thumbnail="/images2/image-49.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-49.webp"
+            data-srcset="/images2/image-49.webp, /images2/image-49.webp 1.5x, /images2/image-49.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-49.webp" width="855" height="416" />
+    </a></p>
+<p>Email Header:</p>
+<pre tabindex="0"><code>Return-Path: &lt;info@bardsirishbar.com&gt;
+Delivered-To: agnes.warren@enemywatch.net
+X-NCJF-Version: 12
+Authentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=none 
+(mail.enemywatch.net: domain of info@bardsirishbar.com has no SPF policy when checking 52.168.183.87) 
+smtp.mailfrom=info@bardsirishbar.com
+Received: from mail.travelserver.net (mail.travelserver.net [52.168.183.87])
+(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+(No client certificate requested)
+by mail.enemywatch.net (Postfix) with ESMTPS id 4HZvqh41vfzBrtj
+for &lt;agnes.warren@enemywatch.net&gt;; Thu, 21 Oct 2021 17:39:23 +0000 (UTC)
+Received: from localhost (135.red-2-136-209.staticip.rima-tde.net [2.136.209.135])
+by mail.travelserver.net with ESMTPA
+; Thu, 21 Oct 2021 17:39:11 +0000
+Message-ID: &lt;1F1E1CA5-0BA0-4B43-A68C-7B5E502B9724@mail.travelserver.net&gt;
+From: &#34;Roger Morganheimer&#34; &lt;info@bardsirishbar.com&gt;
+Date: Thu, 21 Oct 2021 17:39:11 +0000
+To: agnes.warren@enemywatch.net
+Subject: =?UTF-8?B?UmU6IFJlOiBOZXh0IG1vbnRoJ3MgbWVldGluZw==?=
+MIME-Version: 1.0
+X-Mailer: Microsoft Outlook 16.0
+Content-Type: multipart/mixed; boundary=89a9d21c64b4fa2232a01489a02e26cd
+</code></pre><p>The process:</p>
+<ol>
+<li>Was the email sent from the correct SMTP server?</li>
+<li>Are the data &ldquo;From&rdquo; and &ldquo;Return-Path / Reply-To&rdquo; the same?</li>
+<li>Look up the IP that the email was sent from.</li>
+<li>Are there any grammar mistakes?</li>
+<li>Analyze the attachments</li>
+</ol>
+<h3 id="was-the-email-sent-from-the-correct-smtp-server">Was the email sent from the correct SMTP server?</h3>
+<p>I tried looking up bardsirish.com, but there&rsquo;s no site record.
+<a class="lightgallery" href="/images2/image-50.webp" title="/images2/image-50.webp" data-thumbnail="/images2/image-50.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-50.webp"
+            data-srcset="/images2/image-50.webp, /images2/image-50.webp 1.5x, /images2/image-50.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-50.webp" width="1558" height="340" />
+    </a></p>
+<p>Additionally, if we look at the Received Section, the email came from: mail.travelserver.net [52.168.183.87].</p>
+<p>bardsirishbar.com is an entirely different domain than mail.travelserver.net. For me, that&rsquo;s a red flag.</p>
+<h3 id="are-the-data-from-and-return-path--reply-to-the-same">Are the data &ldquo;From&rdquo; and &ldquo;Return-Path / Reply-To&rdquo; the same?</h3>
+<p>From: <code>&quot;Roger Morganheimer&quot; info@bardsirishbar.com</code></p>
+<p>Return Path: <code>info@bardsirishbar.com</code></p>
+<p>Result: Yes</p>
+<h3 id="look-up-the-ip-that-the-email-was-sent-from">Look up the IP that the email was sent from</h3>
+<p>mail.travelserver.net [52.168.183.87]</p>
+<p>VirusTotal:<br>
+<a class="lightgallery" href="/images2/image-51.webp" title="/images2/image-51.webp" data-thumbnail="/images2/image-51.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-51.webp"
+            data-srcset="/images2/image-51.webp, /images2/image-51.webp 1.5x, /images2/image-51.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-51.webp" width="576" height="206" />
+    </a>
+<a class="lightgallery" href="/images2/image-53.webp" title="/images2/image-53.webp" data-thumbnail="/images2/image-53.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-53.webp"
+            data-srcset="/images2/image-53.webp, /images2/image-53.webp 1.5x, /images2/image-53.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-53.webp" width="565" height="114" />
+    </a></p>
+<p>According to VirusTotal, the domain is clean. However, a malicious WIN32 executable has been communicating with the domain since 2019-10-06.</p>
+<p>AbuseIPDB:<br>
+<a class="lightgallery" href="/images2/image-55.webp" title="/images2/image-55.webp" data-thumbnail="/images2/image-55.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-55.webp"
+            data-srcset="/images2/image-55.webp, /images2/image-55.webp 1.5x, /images2/image-55.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-55.webp" width="510" height="410" />
+    </a></p>
+<p>AlienVault:
+<a class="lightgallery" href="/images2/image-56.webp" title="/images2/image-56.webp" data-thumbnail="/images2/image-56.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-56.webp"
+            data-srcset="/images2/image-56.webp, /images2/image-56.webp 1.5x, /images2/image-56.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-56.webp" width="1281" height="604" />
+    </a></p>
+<a class="lightgallery" href="/images2/image-57.webp" title="/images2/image-57.webp" data-thumbnail="/images2/image-57.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-57.webp"
+            data-srcset="/images2/image-57.webp, /images2/image-57.webp 1.5x, /images2/image-57.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-57.webp" width="1281" height="604" />
+    </a>
+<p>Even though none of the OSINT websites flag the domain as malicious, there were executables communications to the domain, which raises suspicion.</p>
+<hr>
+<p>2.136.209.135</p>
+<p>AbuseIPDB:<br>
+<a class="lightgallery" href="/images2/image-58.webp" title="/images2/image-58.webp" data-thumbnail="/images2/image-58.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-58.webp"
+            data-srcset="/images2/image-58.webp, /images2/image-58.webp 1.5x, /images2/image-58.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-58.webp" width="502" height="285" />
+    </a></p>
+<p>However, if you look up the actual domain&hellip;
+<a class="lightgallery" href="/images2/image-59.webp" title="/images2/image-59.webp" data-thumbnail="/images2/image-59.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-59.webp"
+            data-srcset="/images2/image-59.webp, /images2/image-59.webp 1.5x, /images2/image-59.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-59.webp" width="562" height="494" />
+    </a></p>
+<p>VirusTotal:<br>
+<a class="lightgallery" href="/images2/image-61.webp" title="/images2/image-61.webp" data-thumbnail="/images2/image-61.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-61.webp"
+            data-srcset="/images2/image-61.webp, /images2/image-61.webp 1.5x, /images2/image-61.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-61.webp" width="602" height="203" />
+    </a>
+<a class="lightgallery" href="/images2/image-60.webp" title="/images2/image-60.webp" data-thumbnail="/images2/image-60.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-60.webp"
+            data-srcset="/images2/image-60.webp, /images2/image-60.webp 1.5x, /images2/image-60.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-60.webp" width="892" height="326" />
+    </a></p>
+<p>AlienVault:
+<a class="lightgallery" href="/images2/image-62.webp" title="/images2/image-62.webp" data-thumbnail="/images2/image-62.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-62.webp"
+            data-srcset="/images2/image-62.webp, /images2/image-62.webp 1.5x, /images2/image-62.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-62.webp" width="1798" height="633" />
+    </a></p>
+<p>Even though the domain is clean on alien vault. AbuseIPDB and VirusTotal saw the domain as malicious, and a bunch of malicious files was communicating with telefonica.com</p>
+<h3 id="are-there-any-grammar-mistakes">Are there any grammar mistakes?</h3>
+<p>Nope, I don&rsquo;t see any grammar mistakes.</p>
+<h3 id="analyze-the-attachments">Analyze the attachments</h3>
+<p>VirusTotal
+<a href="https://www.virustotal.com/gui/file/705166d5a107122554448752482515ac0a4a6aeffcdd668625db55d9f84f2af4" target="_blank" rel="noopener noreffer ">https://www.virustotal.com/gui/file/705166d5a107122554448752482515ac0a4a6aeffcdd668625db55d9f84f2af4</a></p>
+<p>MD5: <code>8a184c701108cb94056055da8f026db7</code>
+<a class="lightgallery" href="/images2/image-63.png" title="/images2/image-63.png" data-thumbnail="/images2/image-63.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-63.png"
+            data-srcset="/images2/image-63.png, /images2/image-63.png 1.5x, /images2/image-63.png 2x"
+            data-sizes="auto"
+            alt="/images2/image-63.png" width="719" height="53" />
+    </a></p>
+<p>According to VirusTotal, inside the .zip file is an excel spreadsheet with a malicious macro.
+<a class="lightgallery" href="/images2/image-64.webp" title="/images2/image-64.webp" data-thumbnail="/images2/image-64.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-64.webp"
+            data-srcset="/images2/image-64.webp, /images2/image-64.webp 1.5x, /images2/image-64.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-64.webp" width="693" height="166" />
+    </a></p>
+<h3 id="result">Result:</h3>
+<p>After going through the process and especially analyzing the attachment, I can surely say this email is malicious.</p>
+<hr>
+<h3 id="third-malicious-email">Third Malicious Email</h3>
+<a class="lightgallery" href="/images2/image-65.webp" title="/images2/image-65.webp" data-thumbnail="/images2/image-65.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-65.webp"
+            data-srcset="/images2/image-65.webp, /images2/image-65.webp 1.5x, /images2/image-65.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-65.webp" width="671" height="444" />
+    </a>
+<h3 id="was-the-email-sent-from-the-correct-smtp-server-1">Was the email sent from the correct SMTP server?</h3>
+<p>There&rsquo;s no mail server for enemywatch.net
+<a class="lightgallery" href="/images2/image-66.webp" title="/images2/image-66.webp" data-thumbnail="/images2/image-66.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-66.webp"
+            data-srcset="/images2/image-66.webp, /images2/image-66.webp 1.5x, /images2/image-66.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-66.webp" width="924" height="440" />
+    </a></p>
+<p>But the email came from 198.71.247.251, which is an email server.
+<a class="lightgallery" href="/images2/image-67.webp" title="/images2/image-67.webp" data-thumbnail="/images2/image-67.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-67.webp"
+            data-srcset="/images2/image-67.webp, /images2/image-67.webp 1.5x, /images2/image-67.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-67.webp" width="695" height="317" />
+    </a></p>
+<h3 id="are-the-data-from-and-return-path--reply-to-the-same-1">Are the data &ldquo;From&rdquo; and &ldquo;Return-Path / Reply-To&rdquo; the same?</h3>
+<p>From: Enemy Watch <a href="mailto:webmaster@enemywatch.net" rel="">webmaster@enemywatch.net</a></p>
+<p>Return-Path: <a href="mailto:webservices@webserver.enemywatch.net" rel="">webservices@webserver.enemywatch.net</a></p>
+<p>Reply To: <a href="mailto:kweigandphotography@yahoo.ca" rel="">kweigandphotography@yahoo.ca</a></p>
+<p>The data from the &ldquo;FROM&rdquo; field match with &ldquo;Return-Path&rdquo;. But the &ldquo;reply-to&rdquo; is entirely different, primarily the domain. Instead of  o com, it&rsquo;s yahoo.ca</p>
+<h3 id="look-up-the-ip-that-the-email-was-sent-from-1">Look up the IP that the email was sent from</h3>
+<p>VirusTotal:<br>
+<a class="lightgallery" href="/images2/image-69.webp" title="/images2/image-69.webp" data-thumbnail="/images2/image-69.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-69.webp"
+            data-srcset="/images2/image-69.webp, /images2/image-69.webp 1.5x, /images2/image-69.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-69.webp" width="593" height="205" />
+    </a></p>
+<p>AbuseIPDB:<br>
+<a class="lightgallery" href="/images2/image-70.webp" title="/images2/image-70.webp" data-thumbnail="/images2/image-70.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-70.webp"
+            data-srcset="/images2/image-70.webp, /images2/image-70.webp 1.5x, /images2/image-70.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-70.webp" width="544" height="633" />
+    </a></p>
+<h3 id="are-there-any-grammar-mistakes-1">Are there any grammar mistakes?</h3>
+<p>No grammar mistakes.</p>
+<h3 id="analyze-the-attachments-1">Analyze the attachments</h3>
+<p>For this email, instead of having attachments in the email, there&rsquo;s a link.</p>
+<p>VirusTotal
+<a href="https://www.virustotal.com/gui/url/aaec52ae21b00d2d2f2feab0d0390386df16648dc1439a628266fa3dda2f6451/detection" target="_blank" rel="noopener noreffer ">https://www.virustotal.com/gui/url/aaec52ae21b00d2d2f2feab0d0390386df16648dc1439a628266fa3dda2f6451/detection</a></p>
+<p>According to VirusTotal, the URL is malicious.
+<a class="lightgallery" href="/images2/image-71.webp" title="/images2/image-71.webp" data-thumbnail="/images2/image-71.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images2/image-71.webp"
+            data-srcset="/images2/image-71.webp, /images2/image-71.webp 1.5x, /images2/image-71.webp 2x"
+            data-sizes="auto"
+            alt="/images2/image-71.webp" width="1118" height="194" />
+    </a></p>
+<h3 id="conclusion">Conclusion:</h3>
+<p>This malicious mail was well written. However, the thing that gave it away was the link.</p>
+<p>The link redirects to stoage.googleapis.com. But if you were sharing a document with someone, why would you share a link that goes to googleapis and not google drive?</p>
+<p>Furthermore, the &ldquo;reply-to&rdquo; email address was yahoo.ca instead of yahoo.com, which is a red flag. This is an example of TypoSquatting.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-02-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://tryhardnguyen.github.io/posts/phishinganalysis1/" data-title="Analyzing Malicious Email - Phishing Analysis #1" data-hashtags="Phishing Analysis"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://tryhardnguyen.github.io/posts/phishinganalysis1/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/phishing-analysis/">Phishing Analysis</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/sunnystation-malwaretraffic/" class="prev" rel="prev" title="SunnyStation (Malware Traffic Analysis)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>SunnyStation (Malware Traffic Analysis)</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

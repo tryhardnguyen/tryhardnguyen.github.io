@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>OWASP TOP 10: SQL Injection - SecurityNguyen Blog</title><meta name="Description" content="OWASP TOP 10 Project"><meta property="og:title" content="OWASP TOP 10: SQL Injection" />
+<meta property="og:description" content="OWASP TOP 10 Project" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-14T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OWASP TOP 10: SQL Injection"/>
+<meta name="twitter:description" content="OWASP TOP 10 Project"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" /><link rel="prev" href="http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/" /><link rel="next" href="http://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OWASP TOP 10: SQL Injection",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/tryhardnguyen.github.io\/posts\/owasp-top10-sql-injection\/"
+        },"genre": "posts","keywords": "OWASP","wordcount":  1197 ,
+        "url": "http:\/\/tryhardnguyen.github.io\/posts\/owasp-top10-sql-injection\/","datePublished": "2022-12-14T00:00:00+00:00","dateModified": "2022-12-14T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "OWASP TOP 10 Project"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">OWASP TOP 10: SQL Injection</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-14">2022-12-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1197 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#methodology">Methodology:</a></li>
+    <li><a href="#threat-modeling"><strong>Threat Modeling</strong></a></li>
+    <li><a href="#how-to-carry-out-sql-injection-attack">How to carry out SQL Injection Attack?</a>
+      <ul>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#medium">Medium:</a></li>
+        <li><a href="#high">High</a></li>
+      </ul>
+    </li>
+    <li><a href="#network-perspective">Network Perspective</a>
+      <ul>
+        <li><a href="#how-to-detect-a-sql-injection-attack-using-snort">How to detect a SQL Injection Attack using snort?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Today, we will be covering SQL Injection. Our goal for today is</p>
+<ul>
+<li>Learn the methodology behind SQL Injection</li>
+<li>How to carry out SQL Injection Attack?</li>
+<li>Network Perspective</li>
+<li>How to detect a SQL Injection Attack using snort?</li>
+</ul>
+<p>SQL injection can be known as SQLi attack.</p>
+<h2 id="methodology">Methodology:</h2>
+<p>A SQL injection attack consists of the insertion or &ldquo;injection&rdquo; of a SQL query via the input data from the client to the application.</p>
+<p>A successful SQL injection can read sensitive data from the database, modify database data (Insert/Update/Delete), execute administration operations on the database (such as shutdown the DBMS), recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system.</p>
+<h2 id="threat-modeling"><strong>Threat Modeling</strong></h2>
+<ul>
+<li>SQL injection attacks allow attackers to spoof identity, tamper with existing data, cause repudiation issues such as voiding transactions or changing balances, allow the complete disclosure of all data on the system, destroy the data or make it otherwise unavailable, and become administrators of the database server.</li>
+<li>SQL Injection is very common with PHP and ASP applications due to the prevalence of older functional interfaces. Due to the nature of programmatic interfaces available, J2EE and ASP.NET applications are less likely to have easily exploited SQL injections.</li>
+<li>The attacker&rsquo;s skill and imagination limit the severity of SQL Injection attacks and, to a lesser extent, defense in depth countermeasures, such as low privilege connections to the database server.</li>
+</ul>
+<p>In general, consider SQL Injection a high impact severity.</p>
+<h2 id="how-to-carry-out-sql-injection-attack">How to carry out SQL Injection Attack?</h2>
+<p>We are given a UserID prompt and submit button.</p>
+<figure><a class="lightgallery" href="/images/image-252.webp" title="/images/image-252.webp" data-thumbnail="/images/image-252.webp" data-sub-html="<h2>SQL Injection Vulnerability</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-252.webp"
+            data-srcset="/images/image-252.webp, /images/image-252.webp 1.5x, /images/image-252.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-252.webp" width="508" height="241" />
+    </a><figcaption class="image-caption">SQL Injection Vulnerability</figcaption>
+    </figure>
+<h3 id="objective">Objective</h3>
+<p>There are five users in the database, with IDs from 1 to 5—your mission&hellip; to steal their passwords via SQLi.</p>
+<p>Let&rsquo;s look at the source code:</p>
+<p><a href="https://github.com/tryhardnguyen/blog_code_storage/blob/main/SQL_Injection/DVWA_SQL_CODE.php" target="_blank" rel="noopener noreffer ">https://github.com/tryhardnguyen/blog_code_storage/blob/main/SQL_Injection/DVWA_SQL_CODE.php</a></p>
+<p>We can see that in this line: <code>$id = $_REQUEST[ 'id' ];</code> This is where user input will be stored, and the following query will be run.</p>
+<p>$query  = &ldquo;SELECT first_name, last_name FROM users WHERE user_id = &lsquo;$id&rsquo;;&rdquo;;</p>
+<p>Let&rsquo;s replace $id with a 1, so we will have the following query</p>
+<p>$query  = &ldquo;SELECT first_name, last_name FROM users WHERE user_id = &lsquo;1&rsquo;;&rdquo;;</p>
+<p>The query will retrieve only the person with a user_id of 1. But what we can do to run an extra command is do the following:</p>
+<pre tabindex="0"><code>1&#39; or 1 = &#39;1
+</code></pre><p>This is what it would look like in the query.</p>
+<pre tabindex="0"><code>SELECT first_name, last_name FROM users where user_id = &#39;1&#39;&#39; or 1 = &#39;1
+</code></pre><p>What it does is it says return me 1, OR you can return everything.</p>
+<p>You get the following:
+<figure><a class="lightgallery" href="/images/image-253.webp" title="/images/image-253.webp" data-thumbnail="/images/image-253.webp" data-sub-html="<h2>List of Users</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-253.webp"
+            data-srcset="/images/image-253.webp, /images/image-253.webp 1.5x, /images/image-253.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-253.webp" width="383" height="411" />
+    </a><figcaption class="image-caption">List of Users</figcaption>
+    </figure></p>
+<p>Side note: you can check for SQL vulnerabilities by inputting a quote. If a database has an sql vulnerability, it will throw an error message, or an error msg will not appear, which leads to a sql injection (blind).</p>
+<p>An error msg for MySQL could be something like this: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &rsquo;&rsquo;&rsquo;&rsquo; LIMIT 0,1&rsquo; at line 1, or it could be like a redirection to an empty page.</p>
+<p>Another query we can do is:</p>
+<p>&rsquo; UNION SELECT user, password FROM users#</p>
+<p>This retrieves the user and password from the user&rsquo;s database and (#) comments the rest of the line.</p>
+<p>This is the screenshot of the user and the user&rsquo;s password hash.</p>
+<figure><a class="lightgallery" href="/images/image-254.webp" title="/images/image-254.webp" data-thumbnail="/images/image-254.webp" data-sub-html="<h2>List of Users/Password</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-254.webp"
+            data-srcset="/images/image-254.webp, /images/image-254.webp 1.5x, /images/image-254.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-254.webp" width="296" height="263" />
+    </a><figcaption class="image-caption">List of Users/Password</figcaption>
+    </figure>
+<h3 id="medium">Medium:</h3>
+<p>We are given the following:</p>
+<a class="lightgallery" href="/images/image-255.webp" title="/images/image-255.webp" data-thumbnail="/images/image-255.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-255.webp"
+            data-srcset="/images/image-255.webp, /images/image-255.webp 1.5x, /images/image-255.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-255.webp" width="532" height="242" />
+    </a>
+<p>This is the source code we&rsquo;re provided:
+<a href="https://github.com/tryhardnguyen/blog_code_storage/blob/main/SQL_Injection/DVWA_SQL_CODE_2.php" target="_blank" rel="noopener noreffer ">https://github.com/tryhardnguyen/blog_code_storage/blob/main/SQL_Injection/DVWA_SQL_CODE_2.php</a></p>
+<p>The most important line is:</p>
+<p><code>$query  = &quot;SELECT first_name, last_name FROM users WHERE user_id = $id;&quot;;</code></p>
+<p>We can see that variable id is not covered in quotes anymore. So, we can execute a SQL attack using the following: <code>1 or 1=1 UNION SELECT user, password from users#</code></p>
+<p>So what we&rsquo;re going do is inspect the element of 1</p>
+<p><figure><a class="lightgallery" href="/images/image-256.webp" title="/images/image-256.webp" data-thumbnail="/images/image-256.webp" data-sub-html="<h2>Original</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-256.webp"
+            data-srcset="/images/image-256.webp, /images/image-256.webp 1.5x, /images/image-256.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-256.webp" width="594" height="329" />
+    </a><figcaption class="image-caption">Original</figcaption>
+    </figure>
+Replace the value to <code>1 or 1=1 UNION SELECT user, password from users#</code>
+<figure><a class="lightgallery" href="/images/image-257.webp" title="/images/image-257.webp" data-thumbnail="/images/image-257.webp" data-sub-html="<h2>Replaced</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-257.webp"
+            data-srcset="/images/image-257.webp, /images/image-257.webp 1.5x, /images/image-257.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-257.webp" width="609" height="212" />
+    </a><figcaption class="image-caption">Replaced</figcaption>
+    </figure></p>
+<p>Then Click Submit.</p>
+<p>As you can see, the injection work.
+<figure><a class="lightgallery" href="/images/image-258.webp" title="/images/image-258.webp" data-thumbnail="/images/image-258.webp" data-sub-html="<h2>Users/password</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-258.webp"
+            data-srcset="/images/image-258.webp, /images/image-258.webp 1.5x, /images/image-258.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-258.webp" width="468" height="322" />
+    </a><figcaption class="image-caption">Users/password</figcaption>
+    </figure></p>
+<h3 id="high">High</h3>
+<p>This is what we&rsquo;re given.</p>
+<p><a class="lightgallery" href="/images/image-259.webp" title="/images/image-259.webp" data-thumbnail="/images/image-259.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-259.webp"
+            data-srcset="/images/image-259.webp, /images/image-259.webp 1.5x, /images/image-259.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-259.webp" width="531" height="226" />
+    </a>
+<a class="lightgallery" href="/images/image-260.webp" title="/images/image-260.webp" data-thumbnail="/images/image-260.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-260.webp"
+            data-srcset="/images/image-260.webp, /images/image-260.webp 1.5x, /images/image-260.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-260.webp" width="478" height="164" />
+    </a></p>
+<p>This is our source code:</p>
+<pre tabindex="0"><code>&lt;?php
+
+if( isset( $_SESSION [ &#39;id&#39; ] ) ) {
+    // Get input
+    $id = $_SESSION[ &#39;id&#39; ];
+
+    switch ($_DVWA[&#39;SQLI_DB&#39;]) {
+        case MYSQL:
+            // Check database
+            $query  = &#34;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39; LIMIT 1;&#34;;
+            $result = mysqli_query($GLOBALS[&#34;___mysqli_ston&#34;], $query ) or 
+            die( &#39;&lt;pre&gt;Something went wrong.&lt;/pre&gt;&#39; );
+
+            // Get results
+            while( $row = mysqli_fetch_assoc( $result ) ) {
+                // Get values
+                $first = $row[&#34;first_name&#34;];
+                $last  = $row[&#34;last_name&#34;];
+
+                // Feedback for end user
+                echo &#34;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&#34;;
+            }
+
+            ((is_null($___mysqli_res = mysqli_close($GLOBALS[&#34;___mysqli_ston&#34;]))) 
+            ? false : $___mysqli_res);        
+            break;
+        case SQLITE:
+            global $sqlite_db_connection;
+
+            $query  = &#34;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39; LIMIT 1;&#34;;
+            #print $query;
+            try {
+                $results = $sqlite_db_connection-&gt;query($query);
+            } catch (Exception $e) {
+                echo &#39;Caught exception: &#39; . $e-&gt;getMessage();
+                exit();
+            }
+
+            if ($results) {
+                while ($row = $results-&gt;fetchArray()) {
+                    // Get values
+                    $first = $row[&#34;first_name&#34;];
+                    $last  = $row[&#34;last_name&#34;];
+
+                    // Feedback for end user
+                    echo &#34;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&#34;;
+                }
+            } else {
+                echo &#34;Error in fetch &#34;.$sqlite_db-&gt;lastErrorMsg();
+            }
+            break;
+    }
+}
+
+?&gt; 
+</code></pre><p>As we can see, the query starts using quotes again.</p>
+<p>$query  = &ldquo;SELECT first_name, last_name FROM users WHERE user_id = &lsquo;$id&rsquo; LIMIT 1;&rdquo;;</p>
+<p>To exploit this, we will be using the following:</p>
+<pre tabindex="0"><code>1&#39; UNION SELECT user, password from users#
+</code></pre><a class="lightgallery" href="/images/image-261.webp" title="/images/image-261.webp" data-thumbnail="/images/image-261.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-261.webp"
+            data-srcset="/images/image-261.webp, /images/image-261.webp 1.5x, /images/image-261.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-261.webp" width="398" height="441" />
+    </a>
+<h2 id="network-perspective">Network Perspective</h2>
+<p>Let&rsquo;s capture the SQL injection via pfSense.
+<a class="lightgallery" href="/images/image-262.webp" title="/images/image-262.webp" data-thumbnail="/images/image-262.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-262.webp"
+            data-srcset="/images/image-262.webp, /images/image-262.webp 1.5x, /images/image-262.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-262.webp" width="1151" height="814" />
+    </a>
+<a class="lightgallery" href="/images/image-263.webp" title="/images/image-263.webp" data-thumbnail="/images/image-263.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-263.webp"
+            data-srcset="/images/image-263.webp, /images/image-263.webp 1.5x, /images/image-263.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-263.webp" width="1165" height="436" />
+    </a></p>
+<p>Here is a packet capture of the SQL Injection:</p>
+<p>This is what it looks like when we first open it.
+<a class="lightgallery" href="/images/image-264.webp" title="/images/image-264.webp" data-thumbnail="/images/image-264.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-264.webp"
+            data-srcset="/images/image-264.webp, /images/image-264.webp 1.5x, /images/image-264.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-264.webp" width="1303" height="511" />
+    </a></p>
+<p>To clean up a bit, we can filter it using HTTP.</p>
+<p>we see two SQL injection attempts.</p>
+<p>If we were to expand the Hypertext Transfer Protocol -&gt; Expand Request URI -&gt; Request URI Query -&gt; We can see the SQL injection attempt that the adversary made:<code>id=%27+or+1+%3D+%271</code></p>
+<p>Although it&rsquo;s in URL encoding, we can decode using cyber chef.</p>
+<a class="lightgallery" href="/images/image-265.webp" title="/images/image-265.webp" data-thumbnail="/images/image-265.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-265.webp"
+            data-srcset="/images/image-265.webp, /images/image-265.webp 1.5x, /images/image-265.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-265.webp" width="742" height="557" />
+    </a>
+<p>There you go. Now we can read what it says.</p>
+<p>Let&rsquo;s take a look at another example.
+<a class="lightgallery" href="/images/image-266.webp" title="/images/image-266.webp" data-thumbnail="/images/image-266.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-266.webp"
+            data-srcset="/images/image-266.webp, /images/image-266.webp 1.5x, /images/image-266.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-266.webp" width="1055" height="119" />
+    </a></p>
+<p>Let&rsquo;s decode it and see what would happen:
+<a class="lightgallery" href="/images/image-267.webp" title="/images/image-267.webp" data-thumbnail="/images/image-267.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-267.webp"
+            data-srcset="/images/image-267.webp, /images/image-267.webp 1.5x, /images/image-267.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-267.webp" width="979" height="571" />
+    </a></p>
+<p>There you go. Now we can read what it says.</p>
+<h3 id="how-to-detect-a-sql-injection-attack-using-snort">How to detect a SQL Injection Attack using snort?</h3>
+<p>One approach to detecting SQL injection is detecting common keywords that are used in the attack, such as:</p>
+<ol>
+<li>SELECT, FROM</li>
+<li>'</li>
+<li>--</li>
+<li>
+<h1 id="heading"></h1>
+</li>
+<li>OR 1=1</li>
+</ol>
+<p>Let&rsquo;s edit our snort rules</p>
+<pre tabindex="0"><code>sudo nano /etc/snort/rules/local.rules
+</code></pre><p>These are the rule that I wrote for SQL injection:</p>
+<pre tabindex="0"><code>alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;SELECT&#34;; 
+nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000001; rev: 1;)
+alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;FROM&#34;;   
+nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000002; rev: 1;)
+alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;OR&#34;;     
+nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000003; rev: 1;)
+alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;1|3D|&#34;;  
+msg: &#34;SQL Injection Detected&#34;; sid: 1000004; rev: 1;)
+</code></pre><a class="lightgallery" href="/images/image-271.webp" title="/images/image-271.webp" data-thumbnail="/images/image-271.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-271.webp"
+            data-srcset="/images/image-271.webp, /images/image-271.webp 1.5x, /images/image-271.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-271.webp" width="1354" height="96" />
+    </a>
+<p>The last rule is checking for <code>1 =</code> (which is in hex).</p>
+<p>These rules are pretty simple: if any request has SELECT, FROM, OR. Alert me!</p>
+<p>Let&rsquo;s test out our rule</p>
+<pre tabindex="0"><code>sudo snort -c /etc/snort/snort.conf -A console
+</code></pre><p><a class="lightgallery" href="/images/image-268.webp" title="/images/image-268.webp" data-thumbnail="/images/image-268.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-268.webp"
+            data-srcset="/images/image-268.webp, /images/image-268.webp 1.5x, /images/image-268.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-268.webp" width="672" height="285" />
+    </a>
+<a class="lightgallery" href="/images/image-269.webp" title="/images/image-269.webp" data-thumbnail="/images/image-269.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-269.webp"
+            data-srcset="/images/image-269.webp, /images/image-269.webp 1.5x, /images/image-269.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-269.webp" width="520" height="244" />
+    </a>
+<a class="lightgallery" href="/images/image-272.webp" title="/images/image-272.webp" data-thumbnail="/images/image-272.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-272.webp"
+            data-srcset="/images/image-272.webp, /images/image-272.webp 1.5x, /images/image-272.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-272.webp" width="1146" height="58" />
+    </a></p>
+<p>Let&rsquo;s try the other SQL injection query</p>
+<p><code>' UNION SELECT user, password from users#</code></p>
+<p><a class="lightgallery" href="/images/image-273.webp" title="/images/image-273.webp" data-thumbnail="/images/image-273.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-273.webp"
+            data-srcset="/images/image-273.webp, /images/image-273.webp 1.5x, /images/image-273.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-273.webp" width="367" height="398" />
+    </a>
+<a class="lightgallery" href="/images/image-274.webp" title="/images/image-274.webp" data-thumbnail="/images/image-274.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-274.webp"
+            data-srcset="/images/image-274.webp, /images/image-274.webp 1.5x, /images/image-274.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-274.webp" width="391" height="405" />
+    </a>
+<a class="lightgallery" href="/images/image-275.webp" title="/images/image-275.webp" data-thumbnail="/images/image-275.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-275.webp"
+            data-srcset="/images/image-275.webp, /images/image-275.webp 1.5x, /images/image-275.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-275.webp" width="1453" height="255" />
+    </a></p>
+<p>Snort was able to detect the SQL injection!</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-12-14</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" data-title="OWASP TOP 10: SQL Injection" data-hashtags="OWASP"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/owasp/">OWASP</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/owasp-top-10-csrf/" class="prev" rel="prev" title="OWASP TOP 10: CSRF (Cross Site Request Forgery)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>OWASP TOP 10: CSRF (Cross Site Request Forgery)</a>
+            <a href="/posts/install-nessus-vuln-scanner/" class="next" rel="next" title="How to install Nessus essentials vulnerability scanner">How to install Nessus essentials vulnerability scanner<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

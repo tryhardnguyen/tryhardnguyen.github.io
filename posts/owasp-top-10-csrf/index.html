@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>OWASP TOP 10: CSRF (Cross Site Request Forgery) - SecurityNguyen Blog</title><meta name="Description" content="OWASP TOP 10 Project"><meta property="og:title" content="OWASP TOP 10: CSRF (Cross Site Request Forgery)" />
+<meta property="og:description" content="OWASP TOP 10 Project" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-10T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OWASP TOP 10: CSRF (Cross Site Request Forgery)"/>
+<meta name="twitter:description" content="OWASP TOP 10 Project"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/" /><link rel="prev" href="http://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/" /><link rel="next" href="http://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OWASP TOP 10: CSRF (Cross Site Request Forgery)",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/tryhardnguyen.github.io\/posts\/owasp-top-10-csrf\/"
+        },"genre": "posts","keywords": "OWASP","wordcount":  632 ,
+        "url": "http:\/\/tryhardnguyen.github.io\/posts\/owasp-top-10-csrf\/","datePublished": "2022-12-10T00:00:00+00:00","dateModified": "2022-12-10T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "OWASP TOP 10 Project"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">OWASP TOP 10: CSRF (Cross Site Request Forgery)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-10">2022-12-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;632 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#how-to-carry-out-the-attack">How to carry out the attack:</a></li>
+        <li><a href="#how-to-know-if-the-attack-was-successful">How to know if the attack was successful?</a></li>
+        <li><a href="#detecting-cross-site-request-forgery">Detecting Cross-Site Request Forgery</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Today, we will be covering Cross-site Request Forgery. Our goal for today is</p>
+<ul>
+<li>Learn the methodology behind Cross-site Request Forgery</li>
+<li>How to carry out Cross-site Request Forgery?</li>
+<li>How to know if the attack was successful?</li>
+<li>How to detect a Cross-site Request Forgery using Snort?</li>
+</ul>
+<h3 id="methodology">Methodology</h3>
+<p>Cross-site Request Forgery is an attack that forces an end user to execute unwanted actions on a web application where they&rsquo;re currently authenticated.
+<a class="lightgallery" href="/images/image-149.webp" title="/images/image-149.webp" data-thumbnail="/images/image-149.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-149.webp"
+            data-srcset="/images/image-149.webp, /images/image-149.webp 1.5x, /images/image-149.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-149.webp" width="800" height="472" />
+    </a></p>
+<h3 id="how-to-carry-out-the-attack">How to carry out the attack:</h3>
+<p>Here we have a prompt that is used to change a user password. Let&rsquo;s pretend this was like a website for a famous bank ie, Bank of America.
+<a class="lightgallery" href="/images/image-150.webp" title="/images/image-150.webp" data-thumbnail="/images/image-150.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-150.webp"
+            data-srcset="/images/image-150.webp, /images/image-150.webp 1.5x, /images/image-150.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-150.webp" width="629" height="288" />
+    </a></p>
+<p>What we can do is change the current user password to what we want the password to be by simply sending a link</p>
+<p>Here we are verifying that the admin account password is the password.
+<a class="lightgallery" href="/images/image-151.webp" title="/images/image-151.webp" data-thumbnail="/images/image-151.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-151.webp"
+            data-srcset="/images/image-151.webp, /images/image-151.webp 1.5x, /images/image-151.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-151.webp" width="615" height="316" />
+    </a>
+<a class="lightgallery" href="/images/image-153.webp" title="/images/image-153.webp" data-thumbnail="/images/image-153.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-153.webp"
+            data-srcset="/images/image-153.webp, /images/image-153.webp 1.5x, /images/image-153.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-153.webp" width="235" height="278" />
+    </a></p>
+<p>Let&rsquo;s get the request(link) that changes the user password.</p>
+<p>Once we press the change button, we get the following link:</p>
+<pre tabindex="0"><code>http://172.20.25.16/DVWA/vulnerabilities/csrf/?password_new=test123&amp;password_conf=test123&amp;Change=Change#
+</code></pre><p>As you can see in the URL, it shows us what password we change it to. We can replace it with any password. Let&rsquo;s change the password to WOW123 by just using the link.</p>
+<pre tabindex="0"><code>http://172.20.25.16/DVWA/vulnerabilities/csrf/?password_new=WOW123&amp;password_conf=WOW123&amp;Change=Change#
+</code></pre><a class="lightgallery" href="/images/image-154.webp" title="/images/image-154.webp" data-thumbnail="/images/image-154.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-154.webp"
+            data-srcset="/images/image-154.webp, /images/image-154.webp 1.5x, /images/image-154.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-154.webp" width="1085" height="491" />
+    </a>
+<p>Let&rsquo;s verify the credentials by using the Test Credentials.</p>
+<p><a class="lightgallery" href="/images/image-155.webp" title="/images/image-155.webp" data-thumbnail="/images/image-155.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-155.webp"
+            data-srcset="/images/image-155.webp, /images/image-155.webp 1.5x, /images/image-155.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-155.webp" width="230" height="137" />
+    </a><br>
+<a class="lightgallery" href="/images/image-153.webp" title="/images/image-153.webp" data-thumbnail="/images/image-153.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-153.webp"
+            data-srcset="/images/image-153.webp, /images/image-153.webp 1.5x, /images/image-153.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-153.webp" width="235" height="278" />
+    </a></p>
+<p>Now that we know what we can achieve with cross-site request forgery Let&rsquo;s make the link less obvious. We can use shorten our link.</p>
+<pre tabindex="0"><code>http://172.20.25.16/DVWA/vulnerabilities/csrf/?password_new=gotyourpassword&amp;password_conf=gotyourpassword&amp;Change=Change#
+</code></pre><p>I will be using this website:
+https://shortify[.]pro/</p>
+<p>This is my new link:<br>
+https://jx[.]ax/Jk</p>
+<p>Let&rsquo;s pretend I&rsquo;m a customer at bank of America, and I clicked a link within an email: Let&rsquo;s see what happens.
+<a class="lightgallery" href="/images/image-156.webp" title="/images/image-156.webp" data-thumbnail="/images/image-156.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-156.webp"
+            data-srcset="/images/image-156.webp, /images/image-156.webp 1.5x, /images/image-156.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-156.webp" width="718" height="179" />
+    </a>
+<a class="lightgallery" href="/images/image-157.webp" title="/images/image-157.webp" data-thumbnail="/images/image-157.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-157.webp"
+            data-srcset="/images/image-157.webp, /images/image-157.webp 1.5x, /images/image-157.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-157.webp" width="1375" height="516" />
+    </a></p>
+<p>Alright, let&rsquo;s try the original password to see if it works.</p>
+<a class="lightgallery" href="/images/image-158.webp" title="/images/image-158.webp" data-thumbnail="/images/image-158.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-158.webp"
+            data-srcset="/images/image-158.webp, /images/image-158.webp 1.5x, /images/image-158.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-158.webp" width="216" height="163" />
+    </a>
+<p>Let&rsquo;s try the new password (gotyourpassword)</p>
+<a class="lightgallery" href="/images/image-159.webp" title="/images/image-159.webp" data-thumbnail="/images/image-159.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-159.webp"
+            data-srcset="/images/image-159.webp, /images/image-159.webp 1.5x, /images/image-159.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-159.webp" width="254" height="293" />
+    </a>
+<p>Boom. We successfully changed the user password to what we wanted. Let&rsquo;s revert these changes to the original password.</p>
+<p>But first, let&rsquo;s capture this attack with pfsense packet capture, so we can see what the attack would look like in a PCAP.</p>
+<p><a class="lightgallery" href="/images/image-160.webp" title="/images/image-160.webp" data-thumbnail="/images/image-160.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-160.webp"
+            data-srcset="/images/image-160.webp, /images/image-160.webp 1.5x, /images/image-160.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-160.webp" width="1144" height="827" />
+    </a>
+<a class="lightgallery" href="/images/image-161.webp" title="/images/image-161.webp" data-thumbnail="/images/image-161.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-161.webp"
+            data-srcset="/images/image-161.webp, /images/image-161.webp 1.5x, /images/image-161.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-161.webp" width="1141" height="256" />
+    </a>
+<a class="lightgallery" href="/images/image-162.webp" title="/images/image-162.webp" data-thumbnail="/images/image-162.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-162.webp"
+            data-srcset="/images/image-162.webp, /images/image-162.webp 1.5x, /images/image-162.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-162.webp" width="1173" height="138" />
+    </a></p>
+<p>Once that start rolling, we will execute the link to change our current password to the original password</p>
+<pre tabindex="0"><code>http://172.20.25.16/DVWA/vulnerabilities/csrf/?password_new=password&amp;password_conf=password&amp;Change=Change#
+</code></pre><a class="lightgallery" href="/images/image-163.webp" title="/images/image-163.webp" data-thumbnail="/images/image-163.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-163.webp"
+            data-srcset="/images/image-163.webp, /images/image-163.webp 1.5x, /images/image-163.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-163.webp" width="871" height="529" />
+    </a>
+<p>Stop our packet capture
+<a class="lightgallery" href="/images/image-164.webp" title="/images/image-164.webp" data-thumbnail="/images/image-164.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-164.webp"
+            data-srcset="/images/image-164.webp, /images/image-164.webp 1.5x, /images/image-164.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-164.webp" width="1131" height="412" />
+    </a></p>
+<p>Now, let&rsquo;s check our credentials</p>
+<p><a class="lightgallery" href="/images/image-166.webp" title="/images/image-166.webp" data-thumbnail="/images/image-166.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-166.webp"
+            data-srcset="/images/image-166.webp, /images/image-166.webp 1.5x, /images/image-166.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-166.webp" width="220" height="232" />
+    </a><br>
+<a class="lightgallery" href="/images/image-167.webp" title="/images/image-167.webp" data-thumbnail="/images/image-167.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-167.webp"
+            data-srcset="/images/image-167.webp, /images/image-167.webp 1.5x, /images/image-167.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-167.webp" width="225" height="275" />
+    </a></p>
+<p>looks like the password is set to the original password.</p>
+<h3 id="how-to-know-if-the-attack-was-successful">How to know if the attack was successful?</h3>
+<p>For this, we will download our packet capture from pfsense<br>
+<a class="lightgallery" href="/images/image-168.webp" title="/images/image-168.webp" data-thumbnail="/images/image-168.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-168.webp"
+            data-srcset="/images/image-168.webp, /images/image-168.webp 1.5x, /images/image-168.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-168.webp" width="345" height="49" />
+    </a></p>
+<p>Then, the packet capture will be downloaded to the PC.</p>
+<p>Here is the packet capture for the people who can&rsquo;t get it:
+<a class="lightgallery" href="/images/image-169.webp" title="/images/image-169.webp" data-thumbnail="/images/image-169.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-169.webp"
+            data-srcset="/images/image-169.webp, /images/image-169.webp 1.5x, /images/image-169.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-169.webp" width="562" height="383" />
+    </a></p>
+<p>As we can see, the client initiates a GET request with: http://172.20.25.16/DVWA/vulnerabilities/csrf/?password_new=password&amp;password_conf=password&amp;Change=Change#</p>
+<p>Then, the server responds with 200 OKs, and the content length is 1989</p>
+<p>Let&rsquo;s see what a failed CSRF attack looks like using the impossible difficulty
+<a class="lightgallery" href="/images/image-170.webp" title="/images/image-170.webp" data-thumbnail="/images/image-170.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-170.webp"
+            data-srcset="/images/image-170.webp, /images/image-170.webp 1.5x, /images/image-170.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-170.webp" width="608" height="416" />
+    </a></p>
+<p>As we can see, using the Content-Length wouldn&rsquo;t help us. But, there are some other things we can look at:</p>
+<ul>
+<li>Source IP, Is it coming from our IP range or an unknown source?</li>
+<li>For the impossible, does the password_current request match the one with the one we have in the database? If not, then it raises a question.</li>
+<li>What time did the password request was made? Was it out of operating hours?</li>
+</ul>
+<hr>
+<h3 id="detecting-cross-site-request-forgery">Detecting Cross-Site Request Forgery</h3>
+<p>We will write a snort rule that detects when a request to the password page is made.</p>
+<pre tabindex="0"><code>sudo nano /etc/snort/rules/local.rules
+</code></pre><p>This is the rule:</p>
+<pre tabindex="0"><code>alert tcp any any -&gt; 172.20.25.16 80 (content:&#34;GET&#34;; http_method; content:&#34;?password_new=&#34;; http_uri; 
+msg:&#34;Password Request Made&#34;; sid: 1000001; rev: 1;)
+</code></pre><p>Let&rsquo;s explain what we have here.</p>
+<p>Alert me when any TCP connections are going to 172.20.25.16:80 (port 80 is the web server)</p>
+<ul>
+<li>The incoming TCP connection has a &ldquo;GET,&rdquo; and the URI that is getting has a component of: ?password_new</li>
+</ul>
+<p>Now run the snort in IDS mode</p>
+<pre tabindex="0"><code>sudo snort -c /etc/snort/snort.conf -A console
+</code></pre><p><a class="lightgallery" href="/images/image-171.webp" title="/images/image-171.webp" data-thumbnail="/images/image-171.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-171.webp"
+            data-srcset="/images/image-171.webp, /images/image-171.webp 1.5x, /images/image-171.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-171.webp" width="679" height="337" />
+    </a>
+<a class="lightgallery" href="/images/image-172.webp" title="/images/image-172.webp" data-thumbnail="/images/image-172.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-172.webp"
+            data-srcset="/images/image-172.webp, /images/image-172.webp 1.5x, /images/image-172.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-172.webp" width="1178" height="54" />
+    </a>
+<a class="lightgallery" href="/images/image-173.webp" title="/images/image-173.webp" data-thumbnail="/images/image-173.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/image-173.webp"
+            data-srcset="/images/image-173.webp, /images/image-173.webp 1.5x, /images/image-173.webp 2x"
+            data-sizes="auto"
+            alt="/images/image-173.webp" width="298" height="274" />
+    </a></p>
+<p>Now, let&rsquo;s change back the password to password.</p>
+<hr>
+<p>Well, that is all I have for Cross-site request forgery. See you guys at the next one.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-12-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/" data-title="OWASP TOP 10: CSRF (Cross Site Request Forgery)" data-hashtags="OWASP"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://tryhardnguyen.github.io/posts/owasp-top-10-csrf/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/owasp/">OWASP</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/owasp-top-10-xss-stored/" class="prev" rel="prev" title="OWASP TOP 10: XSS (DOM) Attack - DVWA"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>OWASP TOP 10: XSS (DOM) Attack - DVWA</a>
+            <a href="/posts/owasp-top10-sql-injection/" class="next" rel="next" title="OWASP TOP 10: SQL Injection">OWASP TOP 10: SQL Injection<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
