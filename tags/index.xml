@@ -1,38 +1,46 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - Tag - SecurityNguyen Blog</title>
-        <link>http://tryhardnguyen.github.io/tags/</link>
+        <link>https://tryhardnguyen.github.io/tags/</link>
         <description>Tags - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://tryhardnguyen.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Windows</title>
+    <link>https://tryhardnguyen.github.io/tags/windows/</link>
+    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://tryhardnguyen.github.io/tags/windows/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Phishing Analysis</title>
-    <link>http://tryhardnguyen.github.io/tags/phishing-analysis/</link>
+    <link>https://tryhardnguyen.github.io/tags/phishing-analysis/</link>
     <pubDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>http://tryhardnguyen.github.io/tags/phishing-analysis/</guid>
+    <guid>https://tryhardnguyen.github.io/tags/phishing-analysis/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Packet Analysis</title>
-    <link>http://tryhardnguyen.github.io/tags/packet-analysis/</link>
+    <link>https://tryhardnguyen.github.io/tags/packet-analysis/</link>
     <pubDate>Sat, 31 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>http://tryhardnguyen.github.io/tags/packet-analysis/</guid>
+    <guid>https://tryhardnguyen.github.io/tags/packet-analysis/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Vulnerability Management</title>
-    <link>http://tryhardnguyen.github.io/tags/vulnerability-management/</link>
+    <link>https://tryhardnguyen.github.io/tags/vulnerability-management/</link>
     <pubDate>Mon, 19 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>http://tryhardnguyen.github.io/tags/vulnerability-management/</guid>
+    <guid>https://tryhardnguyen.github.io/tags/vulnerability-management/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>OWASP</title>
-    <link>http://tryhardnguyen.github.io/tags/owasp/</link>
+    <link>https://tryhardnguyen.github.io/tags/owasp/</link>
     <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>http://tryhardnguyen.github.io/tags/owasp/</guid>
+    <guid>https://tryhardnguyen.github.io/tags/owasp/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
