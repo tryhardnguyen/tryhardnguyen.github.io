@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Log - Category - SecurityNguyen Blog</title>
+        <link>https://tryhardnguyen.github.io/categories/log/</link>
+        <description>Log - Category - SecurityNguyen Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/log/" rel="self" type="application/rss+xml" /><item>
+    <title>Install Wazuh EDR</title>
+    <link>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</link>
+    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</guid>
+    <description><![CDATA[Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
+This is what you should have:
+Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.
+Open another command promp and type ipconfig.
+Take note of the ip address of your host/agent whatever you want to call it.]]></description>
+</item>
+</channel>
+</rss>
