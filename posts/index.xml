@@ -3,7 +3,26 @@
         <title>All Posts - SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/posts/</link>
         <description>All Posts | SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 16 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Creating a User Account with AD</title>
+    <link>https://tryhardnguyen.github.io/posts/creating-user-account-with-ad/</link>
+    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/creating-user-account-with-ad/</guid>
+    <description><![CDATA[The start In the Server Manager -&gt; Tools -&gt; Active Directory Users and Computers -&gt; Click on Users -&gt; Right click New -&gt; User.
+Then it will ask you to fill in the blank with the user information. You can go to your random name generator to get your pretend users. Here is the link to the random name generator I used: https://randomwordgenerator[.]com/name[.]php
+Then it will ask you to create an password for the user.]]></description>
+</item>
+<item>
+    <title>How to Domain Join - Windows Client</title>
+    <link>https://tryhardnguyen.github.io/posts/domain-join/</link>
+    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/domain-join/</guid>
+    <description><![CDATA[Join the Computer to the Domain On the search bar, type &ldquo;System&rdquo; and click on the icon You should have this GUI appear. Now, let click on &ldquo;Advanced System Settings&rdquo; -&gt; &ldquo;Computer Name&rdquo; -&gt; Then click &ldquo;Change&rdquo;.
+For &ldquo;Computer Name&rdquo; this is what will appear on our host_name. I&rsquo;m going to name it &ldquo;person1&rdquo; so that it easy to reconginze. Then, we are going to click on the circle next to &ldquo;Domain&rdquo; and type in our domain name.]]></description>
+</item>
+<item>
     <title>Configure pfsense firewall</title>
     <link>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</link>
     <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
@@ -79,32 +98,6 @@ Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Conf
     <author>Nguyen Nguyen</author>
     <guid>https://tryhardnguyen.github.io/posts/sysmon-logs/</guid>
     <description><![CDATA[Install Sysmon First, we will have to search up Sysmon. Here the link: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon Then let&rsquo;s search up &ldquo;olaf hartong sysmon&rdquo; and click on link to the github. Once you arrive at the github. Click on Code and click on Download Zip. At this moment, we should have 2 files installed: Sysmon, sysmon-modular-master Now, let go to our files, and go to our C drive, navigate to Program Files, after that create a new folder and name it Sysmon.]]></description>
-</item>
-<item>
-    <title>Install Wazuh EDR</title>
-    <link>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</guid>
-    <description><![CDATA[Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
-This is what you should have:
-Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.
-Open another command promp and type ipconfig.
-Take note of the ip address of your host/agent whatever you want to call it.]]></description>
-</item>
-<item>
-    <title>Analyzing Malicious Email - Phishing Analysis #1</title>
-    <link>https://tryhardnguyen.github.io/posts/phishinganalysis1/</link>
-    <pubDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/phishinganalysis1/</guid>
-    <description><![CDATA[Source: InfoSec Handlers Diary Blog - SANS Internet Storm Center https://isc.sans.edu/diary/October+2021+Contest+Forensic+Challenge/27960
-October 2021 Contest: Forensic Challenge, Author: Brad Duncan
-Malware-Traffic-Analysis.net - 2021-10-22 - Files for an ISC diary (October 2021 Forensic Contest)
-https://www.malware-traffic-analysis.net/2021/10/22/index.html
-Malicious Emails can be found above ☝️☝️
-2021-10-21-malicious-email-1102-UTC.eml Email header:
-Return-Path: &lt;karen.marshall@olympus.co.uk&gt;Delivered-To: macrus.cobb@enemywatch.netAuthentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=fail (mail.enemywatch.net: domain of karen.marshall@olympus.co.uk does not designate 37.0.10.22 aspermitted sender) smtp.mailfrom=karen.marshall@olympus.co.ukReceived: from olympus.co.uk (unknown [37.0.10.22])by mail.]]></description>
 </item>
 </channel>
 </rss>

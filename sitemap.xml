@@ -2,6 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://tryhardnguyen.github.io/posts/creating-user-account-with-ad/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://tryhardnguyen.github.io/posts/domain-join/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</loc><lastmod>2023-05-15T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/posts/sn-winserver/</loc><lastmod>2023-05-14T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
@@ -21,12 +23,12 @@
             <loc>https://tryhardnguyen.github.io/posts/owasp-top-10-xss-stored/</loc><lastmod>2022-12-07T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/posts/installing-kali-linux-attacker-cybersecurity-homelab/</loc><lastmod>2022-12-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/posts/owasp-top-10-vulnerabilities-project/</loc><lastmod>2022-11-30T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://tryhardnguyen.github.io/categories/</loc><lastmod>2023-05-15T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://tryhardnguyen.github.io/categories/homelabs/</loc><lastmod>2023-05-15T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://tryhardnguyen.github.io/tags/modern-cyber-range/</loc><lastmod>2023-05-15T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://tryhardnguyen.github.io/posts/</loc><lastmod>2023-05-15T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://tryhardnguyen.github.io/</loc><lastmod>2023-05-15T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://tryhardnguyen.github.io/tags/</loc><lastmod>2023-05-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://tryhardnguyen.github.io/categories/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://tryhardnguyen.github.io/categories/homelabs/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://tryhardnguyen.github.io/tags/modern-cyber-range/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://tryhardnguyen.github.io/posts/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://tryhardnguyen.github.io/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://tryhardnguyen.github.io/tags/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/categories/detection-tools/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/tags/hids/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://tryhardnguyen.github.io/categories/logs/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
