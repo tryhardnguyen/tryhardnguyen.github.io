@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Detection Tools - Category - SecurityNguyen Blog</title>
+        <link>https://tryhardnguyen.github.io/categories/detection-tools/</link>
+        <description>Detection Tools - Category - SecurityNguyen Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 09 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/detection-tools/" rel="self" type="application/rss+xml" /><item>
+    <title>Install OSquery</title>
+    <link>https://tryhardnguyen.github.io/posts/osquery/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/osquery/</guid>
+    <description><![CDATA[Download OSquery Go to your SecurityOnion -&gt; Downloads -&gt; Under the osquery Packages and Configs -&gt; Click on MSI (Windows) -&gt; Go through the installation phase.]]></description>
+</item>
+</channel>
+</rss>

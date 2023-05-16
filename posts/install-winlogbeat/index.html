@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Enable Firewall Logs - SecurityNguyen Blog</title><meta name="Description" content="Firewall Logs in Windows"><meta property="og:title" content="Enable Firewall Logs" />
-<meta property="og:description" content="Firewall Logs in Windows" />
+        <title>Install Winlogbeat - SecurityNguyen Blog</title><meta name="Description" content="Install Attacker Machine"><meta property="og:title" content="Install Winlogbeat" />
+<meta property="og:description" content="Install Attacker Machine" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tryhardnguyen.github.io/posts/log_firewall/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-05-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-05-08T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta property="og:url" content="https://tryhardnguyen.github.io/posts/install-winlogbeat/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-09T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Enable Firewall Logs"/>
-<meta name="twitter:description" content="Firewall Logs in Windows"/>
+<meta name="twitter:title" content="Install Winlogbeat"/>
+<meta name="twitter:description" content="Install Attacker Machine"/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tryhardnguyen.github.io/posts/log_firewall/" /><link rel="prev" href="https://tryhardnguyen.github.io/posts/log-visibility-powershell/" /><link rel="next" href="https://tryhardnguyen.github.io/posts/install-winlogbeat/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tryhardnguyen.github.io/posts/install-winlogbeat/" /><link rel="prev" href="https://tryhardnguyen.github.io/posts/log_firewall/" /><link rel="next" href="https://tryhardnguyen.github.io/posts/osquery/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Enable Firewall Logs",
+        "headline": "Install Winlogbeat",
         "inLanguage": "en-us",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/tryhardnguyen.github.io\/posts\/log_firewall\/"
-        },"genre": "posts","keywords": "Windows","wordcount":  151 ,
-        "url": "https:\/\/tryhardnguyen.github.io\/posts\/log_firewall\/","datePublished": "2023-05-08T00:00:00+00:00","dateModified": "2023-05-08T00:00:00+00:00","publisher": {
+            "@id": "https:\/\/tryhardnguyen.github.io\/posts\/install-winlogbeat\/"
+        },"genre": "posts","keywords": "Windows","wordcount":  230 ,
+        "url": "https:\/\/tryhardnguyen.github.io\/posts\/install-winlogbeat\/","datePublished": "2023-05-09T00:00:00+00:00","dateModified": "2023-05-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Nguyen Nguyen"
-            },"description": "Firewall Logs in Windows"
+            },"description": "Install Attacker Machine"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -67,10 +67,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Enable Firewall Logs</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Install Winlogbeat</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-08">2023-05-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;151 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-09">2023-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;230 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -78,57 +78,71 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#enable-firewall-logs">Enable Firewall Logs</a></li>
+    <li><a href="#security-onion">Security Onion</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="enable-firewall-logs">Enable Firewall Logs</h2>
-<p>First, let go to the search menu and search up &ldquo;Group Policy&rdquo;. Click on &ldquo;Edit Group Policy&rdquo;.<br>
-Expand Windows Settings -&gt; Expand Security Settings -&gt; Expand Windows Defender Firewall with Advanced Security -&gt; Click on Windows Defender Firewall
-<a class="lightgallery" href="/images/log_firewall.png" title="/images/log_firewall.png" data-thumbnail="/images/log_firewall.png">
+            </div><div class="content" id="content"><p>The purpose of winlogbeat is to ship the logs from Windows to the Elastic Stack. Let get right into installing it.</p>
+<h2 id="security-onion">Security Onion</h2>
+<p>Log into SecurityOnion, and go to Downloads. For me, I&rsquo;m logging into my security onion within my Windows (Victim) machine. Click on Winlogbeat and you should have the downloads.<br>
+This is what the installer look like:<br>
+<a class="lightgallery" href="/images/winlogbeat1.png" title="/images/winlogbeat1.png" data-thumbnail="/images/winlogbeat1.png">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/log_firewall.png"
-            data-srcset="/images/log_firewall.png, /images/log_firewall.png 1.5x, /images/log_firewall.png 2x"
+            data-src="/images/winlogbeat1.png"
+            data-srcset="/images/winlogbeat1.png, /images/winlogbeat1.png 1.5x, /images/winlogbeat1.png 2x"
             data-sizes="auto"
-            alt="/images/log_firewall.png" width="751" height="530" />
-    </a>
-Click on &ldquo;Windows Defender Firewall Properties&rdquo;
-You should see three profile: Domain Profile, Private Profile, Public Profile.
-<br>
-<br>
-For the Domain profile:
-Firewall state: On<br>
-Inbound Connections: Block (Default)<br>
-Outbound connections: Allow (Default)
-<br>
-<br>
-For Private Profile:
-Firewall state: On<br>
-Inbound Connections: Block (Default)<br>
-Outbound connections: Allow (Default)
-<br>
-<br>
-For Public Profile
-Firewall state: On<br>
-Inbound Connections: Block (Default)<br>
-Outbound connections: Allow (Default)
-<br>
-<br>
-Then on the Domain Profile, in the Logging Section, Click customize. Uncheck &ldquo;Not Configured&rdquo; and for the size limit, uncheck &ldquo;Not configured&rdquo;. Then on &ldquo;Log Dropped Packets&rdquo;, Click Yes, and then on &ldquo;Log successful connections&rdquo;, Click Yes. Then press OK.
-<br>
-<br>
-Repeat the same step for the rest of the profile.</p>
+            alt="/images/winlogbeat1.png" width="493" height="389" />
+    </a><br>
+After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat data directory in Windows Explorer&rdquo; after that click Finish.</p>
+<p>A file directory of Winlogbeat should appear. Now, copy winlogbeat.example and rename the <strong>Copy Version</strong> to winlogbeat.yml.</p>
+<p>Now, open Notepad as an <strong>Administrator</strong>. Then go to the location of winlogbeat.yml and open the file.
+<a class="lightgallery" href="/images/winlogbeat2.png" title="/images/winlogbeat2.png" data-thumbnail="/images/winlogbeat2.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/winlogbeat2.png"
+            data-srcset="/images/winlogbeat2.png, /images/winlogbeat2.png 1.5x, /images/winlogbeat2.png 2x"
+            data-sizes="auto"
+            alt="/images/winlogbeat2.png" width="649" height="463" />
+    </a>\</p>
+<p>Now, we&rsquo;re going copy the name. <code>&quot;Microsoft-Windows-PowerShell/Operational&quot;</code> change that to <code>Microsoft-Windows-System/Operational</code> on the new copy. You should have the following:</p>
+<pre tabindex="0"><code>winlogbeat.event_logs:
+  - name: Application
+    ignore_older: 72h
+
+  - name: System
+
+  - name: Security
+
+  - name: ForwardedEvents
+    tags: [forwarded]
+
+  - name: Windows PowerShell
+    event_id: 400, 403, 600, 800
+
+  - name: Microsoft-Windows-PowerShell/Operational
+    event_id: 4103, 4104, 4105, 4106
+
+  - name: Microsoft-Windows-Sysmon/Operational
+
+  - name: Microsoft-Windows-Windows-Defender/Operational
+
+  - name: Microsoft-Windows-Windows Firewall with Advanced Security/Firewall
+</code></pre><p>Go to Elasticsearch output, and comment each line out with <code>#</code>
+Then go to Logstash output, and uncomment hosts: [&ldquo;localhost:5044&rdquo;] and instead of localhost we can put in the IP address of security onion.<br>
+Then we can do <code>net stop winlogbeat</code> and then <code>net start winlogbeat</code></p>
+<p>Now we&rsquo;re finish.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-05-08</span>
+                <span>Updated on 2023-05-09</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tryhardnguyen.github.io/posts/log_firewall/" data-title="Enable Firewall Logs" data-hashtags="Windows"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://tryhardnguyen.github.io/posts/log_firewall/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tryhardnguyen.github.io/posts/install-winlogbeat/" data-title="Install Winlogbeat" data-hashtags="Windows"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://tryhardnguyen.github.io/posts/install-winlogbeat/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -140,8 +154,8 @@ Repeat the same step for the rest of the profile.</p>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/log-visibility-powershell/" class="prev" rel="prev" title="Enable Power Shell Logging"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Enable Power Shell Logging</a>
-            <a href="/posts/install-winlogbeat/" class="next" rel="next" title="Install Winlogbeat">Install Winlogbeat<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/log_firewall/" class="prev" rel="prev" title="Enable Firewall Logs"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Enable Firewall Logs</a>
+            <a href="/posts/osquery/" class="next" rel="next" title="Install OSquery">Install OSquery<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

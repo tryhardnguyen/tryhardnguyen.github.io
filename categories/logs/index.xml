@@ -3,7 +3,26 @@
         <title>Logs - Category - SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/categories/logs/</link>
         <description>Logs - Category - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/logs/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 09 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/logs/" rel="self" type="application/rss+xml" /><item>
+    <title>Install &amp; Enable Windows Defender Audit Logs</title>
+    <link>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</guid>
+    <description><![CDATA[Go to Local Group Policy editor by typing gpedit. Then, expand Windows Settings -&gt; Security Settings -&gt; Local Policies -&gt; Audit Policy -&gt; Then click on Audit object access. Check Success and Failure.]]></description>
+</item>
+<item>
+    <title>Install Winlogbeat</title>
+    <link>https://tryhardnguyen.github.io/posts/install-winlogbeat/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/install-winlogbeat/</guid>
+    <description><![CDATA[The purpose of winlogbeat is to ship the logs from Windows to the Elastic Stack. Let get right into installing it.
+Security Onion Log into SecurityOnion, and go to Downloads. For me, I&rsquo;m logging into my security onion within my Windows (Victim) machine. Click on Winlogbeat and you should have the downloads.
+This is what the installer look like:
+After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat data directory in Windows Explorer&rdquo; after that click Finish.]]></description>
+</item>
+<item>
     <title>Enable Firewall Logs</title>
     <link>https://tryhardnguyen.github.io/posts/log_firewall/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>

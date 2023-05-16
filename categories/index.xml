@@ -3,12 +3,28 @@
         <title>Categories - Category - SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/categories/</link>
         <description>Categories - Category - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/" rel="self" type="application/rss+xml" /><item>
     <title>Homelabs</title>
     <link>https://tryhardnguyen.github.io/categories/homelabs/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
     <guid>https://tryhardnguyen.github.io/categories/homelabs/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Detection Tools</title>
+    <link>https://tryhardnguyen.github.io/categories/detection-tools/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://tryhardnguyen.github.io/categories/detection-tools/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Logs</title>
+    <link>https://tryhardnguyen.github.io/categories/logs/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://tryhardnguyen.github.io/categories/logs/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -17,14 +33,6 @@
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
     <guid>https://tryhardnguyen.github.io/categories/log/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Logs</title>
-    <link>https://tryhardnguyen.github.io/categories/logs/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/categories/logs/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Modern Cyber Range - Tag - SecurityNguyen Blog</title>
+        <link>https://tryhardnguyen.github.io/tags/modern-cyber-range/</link>
+        <description>Modern Cyber Range - Tag - SecurityNguyen Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/modern-cyber-range/" rel="self" type="application/rss+xml" /><item>
+    <title>Configure pfsense firewall</title>
+    <link>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</link>
+    <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</guid>
+    <description><![CDATA[Since, I already installed my pfsense. I just need to configure it. Looking at our Modern Cyber Range Diagram: 192.168.40.1 will have a static IP and will be our gateway to the internet. Then, our Windows Server will lease IP address from 192.168.40.2-192.168.40.254 to our workstation. All that is left is to implement it.
+What I&rsquo;m going to do is change the LAN to 192.168.40.1. I&rsquo;m going enter 2. The GUI will ask me &quot;Enter the number of the interface you wish to configure&quot;, since 1 is our WAN, 2 is LAN.]]></description>
+</item>
+<item>
+    <title>Install Windows Server 2019 - DHCP, DNS, Active Directory</title>
+    <link>https://tryhardnguyen.github.io/posts/sn-winserver/</link>
+    <pubDate>Sun, 14 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/sn-winserver/</guid>
+    <description><![CDATA[Change hostname To help better identify our windows server, I will rename mine to SN-DC1.
+SN = Securitynguyen.com
+DC1= Domain Controller 1
+To change the hostname, we will open our command prompt and type sconfig
+Microsoft (R) Windows Script Host Version 5.812 Copyright (C) Microsoft Corporation. All rights reserved. Inspecting system... =============================================================================== Server Configuration =============================================================================== 1) Domain/Workgroup: Workgroup: WORKGROUP 2) Computer Name: WIN-9JQ1I4F96SE 3) Add Local Administrator 4) Configure Remote Management Enabled 5) Windows Update Settings: DownloadOnly 6) Download and Install Updates 7) Remote Desktop: Disabled 8) Network Settings 9) Date and Time 10) Telemetry settings Unknown 11) Windows Activation 12) Log Off User 13) Restart Server 14) Shut Down Server 15) Exit to Command Line Enter number to select an option: We are going to select 2.]]></description>
+</item>
+</channel>
+</rss>

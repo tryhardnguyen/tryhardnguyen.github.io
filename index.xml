@@ -3,9 +3,57 @@
         <title>SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/</link>
         <description>Cybersecurity Blog filled with CTF Writeups, HomeLabs, Project</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://tryhardnguyen.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Configure pfsense firewall</title>
+    <link>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</link>
+    <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</guid>
+    <description><![CDATA[Since, I already installed my pfsense. I just need to configure it. Looking at our Modern Cyber Range Diagram: 192.168.40.1 will have a static IP and will be our gateway to the internet. Then, our Windows Server will lease IP address from 192.168.40.2-192.168.40.254 to our workstation. All that is left is to implement it.
+What I&rsquo;m going to do is change the LAN to 192.168.40.1. I&rsquo;m going enter 2. The GUI will ask me &quot;Enter the number of the interface you wish to configure&quot;, since 1 is our WAN, 2 is LAN.]]></description>
+</item>
+<item>
+    <title>Install Windows Server 2019 - DHCP, DNS, Active Directory</title>
+    <link>https://tryhardnguyen.github.io/posts/sn-winserver/</link>
+    <pubDate>Sun, 14 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/sn-winserver/</guid>
+    <description><![CDATA[Change hostname To help better identify our windows server, I will rename mine to SN-DC1.
+SN = Securitynguyen.com
+DC1= Domain Controller 1
+To change the hostname, we will open our command prompt and type sconfig
+Microsoft (R) Windows Script Host Version 5.812 Copyright (C) Microsoft Corporation. All rights reserved. Inspecting system... =============================================================================== Server Configuration =============================================================================== 1) Domain/Workgroup: Workgroup: WORKGROUP 2) Computer Name: WIN-9JQ1I4F96SE 3) Add Local Administrator 4) Configure Remote Management Enabled 5) Windows Update Settings: DownloadOnly 6) Download and Install Updates 7) Remote Desktop: Disabled 8) Network Settings 9) Date and Time 10) Telemetry settings Unknown 11) Windows Activation 12) Log Off User 13) Restart Server 14) Shut Down Server 15) Exit to Command Line Enter number to select an option: We are going to select 2.]]></description>
+</item>
+<item>
+    <title>Install &amp; Enable Windows Defender Audit Logs</title>
+    <link>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</guid>
+    <description><![CDATA[Go to Local Group Policy editor by typing gpedit. Then, expand Windows Settings -&gt; Security Settings -&gt; Local Policies -&gt; Audit Policy -&gt; Then click on Audit object access. Check Success and Failure.]]></description>
+</item>
+<item>
+    <title>Install OSquery</title>
+    <link>https://tryhardnguyen.github.io/posts/osquery/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/osquery/</guid>
+    <description><![CDATA[Download OSquery Go to your SecurityOnion -&gt; Downloads -&gt; Under the osquery Packages and Configs -&gt; Click on MSI (Windows) -&gt; Go through the installation phase.]]></description>
+</item>
+<item>
+    <title>Install Winlogbeat</title>
+    <link>https://tryhardnguyen.github.io/posts/install-winlogbeat/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/install-winlogbeat/</guid>
+    <description><![CDATA[The purpose of winlogbeat is to ship the logs from Windows to the Elastic Stack. Let get right into installing it.
+Security Onion Log into SecurityOnion, and go to Downloads. For me, I&rsquo;m logging into my security onion within my Windows (Victim) machine. Click on Winlogbeat and you should have the downloads.
+This is what the installer look like:
+After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat data directory in Windows Explorer&rdquo; after that click Finish.]]></description>
+</item>
+<item>
     <title>Enable Firewall Logs</title>
     <link>https://tryhardnguyen.github.io/posts/log_firewall/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
@@ -59,60 +107,6 @@ https://www.malware-traffic-analysis.net/2021/10/22/index.html
 Malicious Emails can be found above ☝️☝️
 2021-10-21-malicious-email-1102-UTC.eml Email header:
 Return-Path: &lt;karen.marshall@olympus.co.uk&gt;Delivered-To: macrus.cobb@enemywatch.netAuthentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=fail (mail.enemywatch.net: domain of karen.marshall@olympus.co.uk does not designate 37.0.10.22 aspermitted sender) smtp.mailfrom=karen.marshall@olympus.co.ukReceived: from olympus.co.uk (unknown [37.0.10.22])by mail.]]></description>
-</item>
-<item>
-    <title>SunnyStation (Malware Traffic Analysis)</title>
-    <link>https://tryhardnguyen.github.io/posts/sunnystation-malwaretraffic/</link>
-    <pubDate>Sat, 31 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/sunnystation-malwaretraffic/</guid>
-    <description><![CDATA[Reference: https://www.malware-traffic-analysis.net/2022/02/23/index.html
-SCENARIO LAN segment data:
-LAN segment range: 172.16.0.0/24 (172.16.0.0 through 172.16.0.255)Domain: sunnystation.comDomain controller: 172.16.0.52 - SUNNYSTATION-DCFile Server: 172.16.0.53 - SUNNYFILESERVERLAN segment gateway: 172.16.0.1LAN segment broadcast address: 172.16.0.255 Topology View: We will start adding more to this topology as we investigate.
-The aim of this incident response report What hosts/user account names are active on this network?What type of malware are they infected with?]]></description>
-</item>
-<item>
-    <title>Burnincandle (Malware Traffic Analysis)</title>
-    <link>https://tryhardnguyen.github.io/posts/burnincandle-malwaretraffic/</link>
-    <pubDate>Fri, 23 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/burnincandle-malwaretraffic/</guid>
-    <description><![CDATA[SCENARIO LAN segment data:
-LAN segment range: 10.0.19.0/24 (10.0.19.0 through 10.0.19.255) Domain: burnincandle.com Domain controller: 10.0.19.9 - BURNINCANDLE-DC LAN segment gateway: 10.0.19.1 LAN segment broadcast address: 10.0.19.255 Topology (Based on the information we currently know): TASK Write an incident report based on the pcap. The incident report should contain three sections: Executive Summary: State in simple, direct terms what happened (when, who, what). Details: Details of the victim (hostname, IP address, MAC address, Windows user account name).]]></description>
-</item>
-<item>
-    <title>How to Scan for Windows 10 Vulnerability using Nessus</title>
-    <link>https://tryhardnguyen.github.io/posts/scan-windows-10/</link>
-    <pubDate>Mon, 19 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/scan-windows-10/</guid>
-    <description><![CDATA[The goal of this post:
-Run a Nessus Scan on a Windows 10 Machine to find a vulnerability Patch the vulnerability Running a Nessus Scan on a Windows 10 Machine We will start by booting up a Windows 10 machine. I configured it to be in the Tech subnet. Side note: You can install a Windows 10 VM using this link: Download Windows 10 (https://www.microsoft.com/en-us/software-download/windows10)
-Default password: Passw0rd!
-Let&rsquo;s run an ipconfig to see what the IP is.]]></description>
-</item>
-<item>
-    <title>How to install Nessus essentials vulnerability scanner</title>
-    <link>https://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/</link>
-    <pubDate>Sun, 18 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/</guid>
-    <description><![CDATA[Nessus is a free-ish open-source vulnerability scanner. You can find more information here: https://www.tenable.com/products/nessus
-First, we will need to download a copy of Ubuntu 20.04.5. This will be the operating system that we will install, Nessus.
-Ubuntu 20.04.5 LTS (Focal Fossa) (https://releases.ubuntu.com/focal/)
-Once you have the iso downloaded, create a VM with it. I&rsquo;m just going (Select the Ubuntu version we just downloaded) -&gt; Next Create your own account.
-Now, let&rsquo;s configure our Network Adapter to Tech Subnet since that is where our web application lies.]]></description>
-</item>
-<item>
-    <title>OWASP TOP 10: SQL Injection</title>
-    <link>https://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/</link>
-    <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/</guid>
-    <description><![CDATA[Today, we will be covering SQL Injection. Our goal for today is
-Learn the methodology behind SQL Injection How to carry out SQL Injection Attack? Network Perspective How to detect a SQL Injection Attack using snort? SQL injection can be known as SQLi attack.
-Methodology: A SQL injection attack consists of the insertion or &ldquo;injection&rdquo; of a SQL query via the input data from the client to the application.
-A successful SQL injection can read sensitive data from the database, modify database data (Insert/Update/Delete), execute administration operations on the database (such as shutdown the DBMS), recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system.]]></description>
 </item>
 </channel>
 </rss>

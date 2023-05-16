@@ -62,50 +62,51 @@
         alt="/images/SecurityLogo.png"
         title="/images/SecurityLogo.png" width="500" height="500" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/tryhardnguyen" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="https://linkedin.com/in/securitynguyen" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="mailto:tryhardnguyen@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/log-visibility-powershell/">Enable Power Shell Logging</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Introduction The purpose of the post is to show how to enable logging for powershell on a Windows Client.
+Let&rsquo;s start
+Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Configuration -&gt; Administrative Template -&gt; Windows Components -&gt; Find &ldquo;Windows Powershell&rdquo; -&gt; Turn on PowerShell Transcription -&gt; Enabled -&gt; Click on Include invocation headers Click Apply. After that, find Turn on Powershell Script Block Logging Click on enabled and click apply.</div><div class="post-footer">
+        <a href="/posts/log-visibility-powershell/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/sysmon-logs/">Install & Enable Sysmon</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Install Sysmon First, we will have to search up Sysmon. Here the link: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon Then let&rsquo;s search up &ldquo;olaf hartong sysmon&rdquo; and click on link to the github. Once you arrive at the github. Click on Code and click on Download Zip. At this moment, we should have 2 files installed: Sysmon, sysmon-modular-master Now, let go to our files, and go to our C drive, navigate to Program Files, after that create a new folder and name it Sysmon.</div><div class="post-footer">
+        <a href="/posts/sysmon-logs/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/install-wazuh-edr/">Install Wazuh EDR</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/log/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Log</a></span></div><div class="content">Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
+This is what you should have:
+Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.
+Open another command promp and type ipconfig.
+Take note of the ip address of your host/agent whatever you want to call it.</div><div class="post-footer">
+        <a href="/posts/install-wazuh-edr/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a>,&nbsp;<a href="/tags/edr/">EDR</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/phishinganalysis1/">Analyzing Malicious Email - Phishing Analysis #1</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-02-02">2023-02-02</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Source: InfoSec Handlers Diary Blog - SANS Internet Storm Center https://isc.sans.edu/diary/October+2021+Contest+Forensic+Challenge/27960
+October 2021 Contest: Forensic Challenge, Author: Brad Duncan
+Malware-Traffic-Analysis.net - 2021-10-22 - Files for an ISC diary (October 2021 Forensic Contest)
+https://www.malware-traffic-analysis.net/2021/10/22/index.html
+Malicious Emails can be found above ☝️☝️
+2021-10-21-malicious-email-1102-UTC.eml Email header:
+Return-Path: &lt;karen.marshall@olympus.co.uk&gt;Delivered-To: macrus.cobb@enemywatch.netAuthentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=fail (mail.enemywatch.net: domain of karen.marshall@olympus.co.uk does not designate 37.0.10.22 aspermitted sender) smtp.mailfrom=karen.marshall@olympus.co.ukReceived: from olympus.co.uk (unknown [37.0.10.22])by mail.</div><div class="post-footer">
+        <a href="/posts/phishinganalysis1/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/phishing-analysis/">Phishing Analysis</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/sunnystation-malwaretraffic/">SunnyStation (Malware Traffic Analysis)</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-31">2022-12-31</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Reference: https://www.malware-traffic-analysis.net/2022/02/23/index.html
+SCENARIO LAN segment data:
+LAN segment range: 172.16.0.0/24 (172.16.0.0 through 172.16.0.255)Domain: sunnystation.comDomain controller: 172.16.0.52 - SUNNYSTATION-DCFile Server: 172.16.0.53 - SUNNYFILESERVERLAN segment gateway: 172.16.0.1LAN segment broadcast address: 172.16.0.255 Topology View: We will start adding more to this topology as we investigate.
+The aim of this incident response report What hosts/user account names are active on this network?What type of malware are they infected with?</div><div class="post-footer">
+        <a href="/posts/sunnystation-malwaretraffic/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/packet-analysis/">Packet Analysis</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/burnincandle-malwaretraffic/">Burnincandle (Malware Traffic Analysis)</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-23">2022-12-23</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">SCENARIO LAN segment data:
 LAN segment range: 10.0.19.0/24 (10.0.19.0 through 10.0.19.255) Domain: burnincandle.com Domain controller: 10.0.19.9 - BURNINCANDLE-DC LAN segment gateway: 10.0.19.1 LAN segment broadcast address: 10.0.19.255 Topology (Based on the information we currently know): TASK Write an incident report based on the pcap. The incident report should contain three sections: Executive Summary: State in simple, direct terms what happened (when, who, what). Details: Details of the victim (hostname, IP address, MAC address, Windows user account name).</div><div class="post-footer">
         <a href="/posts/burnincandle-malwaretraffic/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/packet-analysis/">Packet Analysis</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/scan-windows-10/">How to Scan for Windows 10 Vulnerability using Nessus</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-19">2022-12-19</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">The goal of this post:
-Run a Nessus Scan on a Windows 10 Machine to find a vulnerability Patch the vulnerability Running a Nessus Scan on a Windows 10 Machine We will start by booting up a Windows 10 machine. I configured it to be in the Tech subnet. Side note: You can install a Windows 10 VM using this link: Download Windows 10 (https://www.microsoft.com/en-us/software-download/windows10)
-Default password: Passw0rd!
-Let&rsquo;s run an ipconfig to see what the IP is.</div><div class="post-footer">
-        <a href="/posts/scan-windows-10/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vulnerability-management/">Vulnerability Management</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/install-nessus-vuln-scanner/">How to install Nessus essentials vulnerability scanner</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-18">2022-12-18</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Nessus is a free-ish open-source vulnerability scanner. You can find more information here: https://www.tenable.com/products/nessus
-First, we will need to download a copy of Ubuntu 20.04.5. This will be the operating system that we will install, Nessus.
-Ubuntu 20.04.5 LTS (Focal Fossa) (https://releases.ubuntu.com/focal/)
-Once you have the iso downloaded, create a VM with it. I&rsquo;m just going (Select the Ubuntu version we just downloaded) -&gt; Next Create your own account.
-Now, let&rsquo;s configure our Network Adapter to Tech Subnet since that is where our web application lies.</div><div class="post-footer">
-        <a href="/posts/install-nessus-vuln-scanner/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vulnerability-management/">Vulnerability Management</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/owasp-top10-sql-injection/">OWASP TOP 10: SQL Injection</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-14">2022-12-14</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Today, we will be covering SQL Injection. Our goal for today is
-Learn the methodology behind SQL Injection How to carry out SQL Injection Attack? Network Perspective How to detect a SQL Injection Attack using snort? SQL injection can be known as SQLi attack.
-Methodology: A SQL injection attack consists of the insertion or &ldquo;injection&rdquo; of a SQL query via the input data from the client to the application.
-A successful SQL injection can read sensitive data from the database, modify database data (Insert/Update/Delete), execute administration operations on the database (such as shutdown the DBMS), recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system.</div><div class="post-footer">
-        <a href="/posts/owasp-top10-sql-injection/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/owasp/">OWASP</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/owasp-top-10-csrf/">OWASP TOP 10: CSRF (Cross Site Request Forgery)</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-10">2022-12-10</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Today, we will be covering Cross-site Request Forgery. Our goal for today is
-Learn the methodology behind Cross-site Request Forgery How to carry out Cross-site Request Forgery? How to know if the attack was successful? How to detect a Cross-site Request Forgery using Snort? Methodology Cross-site Request Forgery is an attack that forces an end user to execute unwanted actions on a web application where they&rsquo;re currently authenticated. How to carry out the attack: Here we have a prompt that is used to change a user password.</div><div class="post-footer">
-        <a href="/posts/owasp-top-10-csrf/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/owasp/">OWASP</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/owasp-top-10-xss-stored/">OWASP TOP 10: XSS (DOM) Attack - DVWA</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-07">2022-12-07</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">NOTE: Click on the photo to zoom in.
-Today, we will be covering XSS (DOM). Our goal for today is
-Learn the methodology behind XSS (DOM) How to carry out an XSS (DOM) Attack Network Perspective How to detect an XSS (DOM) Attack using snort? Before we move into XSS (DOM), We need to know what XSS is.
-XSS stands for Cross-site scripting. Attackers would send victims links that contain malicious scripts.</div><div class="post-footer">
-        <a href="/posts/owasp-top-10-xss-stored/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/owasp/">OWASP</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -117,6 +118,10 @@ XSS stands for Cross-site scripting. Attackers would send victims links that con
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/4/">4</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
