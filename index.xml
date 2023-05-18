@@ -3,9 +3,19 @@
         <title>SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/</link>
         <description>Cybersecurity Blog filled with CTF Writeups, HomeLabs, Project</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 16 May 2023 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 May 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://tryhardnguyen.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>SecurityOnion - Modern Cyber Range</title>
+    <link>https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/</link>
+    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/</guid>
+    <description><![CDATA[Accessing the Security Onion Page This post is not going cover the installation of security onion. There are alot of youtube video covering installation or reading the documentation will help.
+Documentation: https://docs.securityonion.net/en/2.3/
+Right now, I&rsquo;m on my Win10 (Victim1) machine. I can access my Security onion using http://192.168.40.3. Then, I&rsquo;m going to enter my credentials that I created during the installation of my security onion. After that you will be greeted by the overview.]]></description>
+</item>
+<item>
     <title>Creating a User Account with AD</title>
     <link>https://tryhardnguyen.github.io/posts/creating-user-account-with-ad/</link>
     <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
@@ -92,14 +102,6 @@ Outbound connections: Allow (Default) For Private Profile: Firewall state: On]]>
     <description><![CDATA[Introduction The purpose of the post is to show how to enable logging for powershell on a Windows Client.
 Let&rsquo;s start
 Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Configuration -&gt; Administrative Template -&gt; Windows Components -&gt; Find &ldquo;Windows Powershell&rdquo; -&gt; Turn on PowerShell Transcription -&gt; Enabled -&gt; Click on Include invocation headers Click Apply. After that, find Turn on Powershell Script Block Logging Click on enabled and click apply.]]></description>
-</item>
-<item>
-    <title>Install &amp; Enable Sysmon</title>
-    <link>https://tryhardnguyen.github.io/posts/sysmon-logs/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/sysmon-logs/</guid>
-    <description><![CDATA[Install Sysmon First, we will have to search up Sysmon. Here the link: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon Then let&rsquo;s search up &ldquo;olaf hartong sysmon&rdquo; and click on link to the github. Once you arrive at the github. Click on Code and click on Download Zip. At this moment, we should have 2 files installed: Sysmon, sysmon-modular-master Now, let go to our files, and go to our C drive, navigate to Program Files, after that create a new folder and name it Sysmon.]]></description>
 </item>
 </channel>
 </rss>
