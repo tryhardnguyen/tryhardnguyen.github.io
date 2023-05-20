@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>SecurityOnion - Modern Cyber Range - SecurityNguyen Blog</title><meta name="Description" content="In this post, I will be testing if I&#39;m able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices"><meta property="og:title" content="SecurityOnion - Modern Cyber Range" />
-<meta property="og:description" content="In this post, I will be testing if I&#39;m able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices" />
+        <title>Configure Metasploitable3 - SecurityNguyen Blog</title><meta name="Description" content="Today, I&#39;m going configure Metasploitable3 (Linux) Network Configuration"><meta property="og:title" content="Configure Metasploitable3" />
+<meta property="og:description" content="Today, I&#39;m going configure Metasploitable3 (Linux) Network Configuration" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://tryhardnguyen.github.io/posts/metasploitable3/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-05-18T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SecurityOnion - Modern Cyber Range"/>
-<meta name="twitter:description" content="In this post, I will be testing if I&#39;m able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices"/>
+<meta name="twitter:title" content="Configure Metasploitable3"/>
+<meta name="twitter:description" content="Today, I&#39;m going configure Metasploitable3 (Linux) Network Configuration"/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/" /><link rel="prev" href="https://tryhardnguyen.github.io/posts/creating-user-account-with-ad/" /><link rel="next" href="https://tryhardnguyen.github.io/posts/metasploitable3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tryhardnguyen.github.io/posts/metasploitable3/" /><link rel="prev" href="https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "SecurityOnion - Modern Cyber Range",
+        "headline": "Configure Metasploitable3",
         "inLanguage": "en-us",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/tryhardnguyen.github.io\/posts\/securityonion-modern-cyber-range\/"
-        },"genre": "posts","keywords": "Modern Cyber Range","wordcount":  80 ,
-        "url": "https:\/\/tryhardnguyen.github.io\/posts\/securityonion-modern-cyber-range\/","datePublished": "2023-05-18T00:00:00+00:00","dateModified": "2023-05-18T00:00:00+00:00","publisher": {
+            "@id": "https:\/\/tryhardnguyen.github.io\/posts\/metasploitable3\/"
+        },"genre": "posts","keywords": "Modern Cyber Range","wordcount":  229 ,
+        "url": "https:\/\/tryhardnguyen.github.io\/posts\/metasploitable3\/","datePublished": "2023-05-18T00:00:00+00:00","dateModified": "2023-05-18T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Nguyen Nguyen"
-            },"description": "In this post, I will be testing if I'm able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices"
+            },"description": "Today, I'm going configure Metasploitable3 (Linux) Network Configuration"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -67,10 +67,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SecurityOnion - Modern Cyber Range</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Configure Metasploitable3</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-18">2023-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;80 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-18">2023-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;229 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -78,40 +78,65 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#accessing-the-security-onion-page">Accessing the Security Onion Page</a></li>
+    <li><a href="#the-problem">The problem</a></li>
+    <li><a href="#the-goal">The goal</a></li>
+    <li><a href="#bonus">Bonus</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="accessing-the-security-onion-page">Accessing the Security Onion Page</h2>
-<p><em>This post is not going cover the installation of security onion. There are alot of youtube video covering installation or reading the documentation will help.</em></p>
-<p>Documentation: <a href="https://docs.securityonion.net/en/2.3/" target="_blank" rel="noopener noreffer ">https://docs.securityonion.net/en/2.3/</a></p>
-<p><br>
+            </div><div class="content" id="content"><h2 id="the-problem">The problem</h2>
+<p>When booted out from the box. Metasploitable will not have certain network configuration met such as one network interface not appearing on ifconfig.</p>
+<h2 id="the-goal">The goal</h2>
+<p>My goal is to demonstrate how to add network adapter and statically change the IP address so that it works with my cyber range.
 <br>
-Right now, I&rsquo;m on my Win10 (Victim1) machine. I can access my Security onion using http://192.168.40.3. Then, I&rsquo;m going to enter my credentials that I created during the installation of my security onion.
+First, I will do sudo nano /etc/network/interfaces
 <br>
-<a class="lightgallery" href="/images/modern_cyber_range20.png" title="/images/modern_cyber_range20.png" data-thumbnail="/images/modern_cyber_range20.png">
+<a class="lightgallery" href="/images/modern_cyber_range22.png" title="/images/modern_cyber_range22.png" data-thumbnail="/images/modern_cyber_range22.png">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/modern_cyber_range20.png"
-            data-srcset="/images/modern_cyber_range20.png, /images/modern_cyber_range20.png 1.5x, /images/modern_cyber_range20.png 2x"
+            data-src="/images/modern_cyber_range22.png"
+            data-srcset="/images/modern_cyber_range22.png, /images/modern_cyber_range22.png 1.5x, /images/modern_cyber_range22.png 2x"
             data-sizes="auto"
-            alt="/images/modern_cyber_range20.png" width="735" height="742" />
+            alt="/images/modern_cyber_range22.png" width="692" height="224" />
     </a>
 <br>
-<br>
-After that you will be greeted by the overview.
-<br>
-Here what the dashboard look like:
-<br>
-<a class="lightgallery" href="/images/modern_cyber_range21.png" title="/images/modern_cyber_range21.png" data-thumbnail="/images/modern_cyber_range21.png">
+Now, this is where all the magic happens. I&rsquo;m going to add an eth1 for my additional adapter. To do this, I will add the following line</p>
+<pre tabindex="0"><code>auto eth1
+iface eth0 inet static
+      address 192.168.40.254
+      netmask 255.255.255.255
+      gateway 192.168.40.1
+</code></pre><p><a class="lightgallery" href="/images/modern_cyber_range23.png" title="/images/modern_cyber_range23.png" data-thumbnail="/images/modern_cyber_range23.png">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/modern_cyber_range21.png"
-            data-srcset="/images/modern_cyber_range21.png, /images/modern_cyber_range21.png 1.5x, /images/modern_cyber_range21.png 2x"
+            data-src="/images/modern_cyber_range23.png"
+            data-srcset="/images/modern_cyber_range23.png, /images/modern_cyber_range23.png 1.5x, /images/modern_cyber_range23.png 2x"
             data-sizes="auto"
-            alt="/images/modern_cyber_range21.png" width="878" height="686" />
-    </a></p>
+            alt="/images/modern_cyber_range23.png" width="778" height="425" />
+    </a>
+<br>
+Save the file. Now, we&rsquo;re going cat: <code>/etc/network/interfaces</code>
+Once we see that the changes reflect from the output. We can move on to the next time. The next thing we need to do is run this command: <code>sudo ifconfig &lt;adapter_name&gt; up</code>. For me, I&rsquo;m going to do <code>sudo ifconfig eth1 up</code>.
+<br>
+After I do that, I am going to restart my VM.
+The final result should be look like this:
+<br>
+<a class="lightgallery" href="/images/modern_cyber_range24.png" title="/images/modern_cyber_range24.png" data-thumbnail="/images/modern_cyber_range24.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/modern_cyber_range24.png"
+            data-srcset="/images/modern_cyber_range24.png, /images/modern_cyber_range24.png 1.5x, /images/modern_cyber_range24.png 2x"
+            data-sizes="auto"
+            alt="/images/modern_cyber_range24.png" width="736" height="155" />
+    </a>
+\</p>
+<h2 id="bonus">Bonus</h2>
+<p>We are going to configure our Linux so that it uses our static DNS server.
+To do this, we are going edit <code>/etc/resolv.conf</code>. We are going to add this following line:
+<code>nameserver IP_DNS_SERVER</code>. For me, it will be <code>nameserver 192.168.40.2</code>. Save the file and output it to make sure the changes are save.\</p>
+<p>Now we are done with the configuration.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -121,7 +146,7 @@ Here what the dashboard look like:
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/" data-title="SecurityOnion - Modern Cyber Range" data-hashtags="Modern Cyber Range"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tryhardnguyen.github.io/posts/metasploitable3/" data-title="Configure Metasploitable3" data-hashtags="Modern Cyber Range"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://tryhardnguyen.github.io/posts/metasploitable3/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -133,8 +158,7 @@ Here what the dashboard look like:
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/creating-user-account-with-ad/" class="prev" rel="prev" title="Creating a User Account with AD"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Creating a User Account with AD</a>
-            <a href="/posts/metasploitable3/" class="next" rel="next" title="Configure Metasploitable3">Configure Metasploitable3<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/securityonion-modern-cyber-range/" class="prev" rel="prev" title="SecurityOnion - Modern Cyber Range"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>SecurityOnion - Modern Cyber Range</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

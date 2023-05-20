@@ -4,6 +4,15 @@
         <link>https://tryhardnguyen.github.io/tags/modern-cyber-range/</link>
         <description>Modern Cyber Range - Tag - SecurityNguyen Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/modern-cyber-range/" rel="self" type="application/rss+xml" /><item>
+    <title>Configure Metasploitable3</title>
+    <link>https://tryhardnguyen.github.io/posts/metasploitable3/</link>
+    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/metasploitable3/</guid>
+    <description><![CDATA[The problem When booted out from the box. Metasploitable will not have certain network configuration met such as one network interface not appearing on ifconfig.
+The goal My goal is to demonstrate how to add network adapter and statically change the IP address so that it works with my cyber range. First, I will do sudo nano /etc/network/interfaces Now, this is where all the magic happens. I&rsquo;m going to add an eth1 for my additional adapter.]]></description>
+</item>
+<item>
     <title>SecurityOnion - Modern Cyber Range</title>
     <link>https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/</link>
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>

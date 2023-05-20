@@ -6,6 +6,15 @@
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 May 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://tryhardnguyen.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Configure Metasploitable3</title>
+    <link>https://tryhardnguyen.github.io/posts/metasploitable3/</link>
+    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/metasploitable3/</guid>
+    <description><![CDATA[The problem When booted out from the box. Metasploitable will not have certain network configuration met such as one network interface not appearing on ifconfig.
+The goal My goal is to demonstrate how to add network adapter and statically change the IP address so that it works with my cyber range. First, I will do sudo nano /etc/network/interfaces Now, this is where all the magic happens. I&rsquo;m going to add an eth1 for my additional adapter.]]></description>
+</item>
+<item>
     <title>SecurityOnion - Modern Cyber Range</title>
     <link>https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/</link>
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
@@ -92,16 +101,6 @@ After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat 
 Expand Windows Settings -&gt; Expand Security Settings -&gt; Expand Windows Defender Firewall with Advanced Security -&gt; Click on Windows Defender Firewall Click on &ldquo;Windows Defender Firewall Properties&rdquo; You should see three profile: Domain Profile, Private Profile, Public Profile. For the Domain profile: Firewall state: On
 Inbound Connections: Block (Default)
 Outbound connections: Allow (Default) For Private Profile: Firewall state: On]]></description>
-</item>
-<item>
-    <title>Enable Power Shell Logging</title>
-    <link>https://tryhardnguyen.github.io/posts/log-visibility-powershell/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/log-visibility-powershell/</guid>
-    <description><![CDATA[Introduction The purpose of the post is to show how to enable logging for powershell on a Windows Client.
-Let&rsquo;s start
-Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Configuration -&gt; Administrative Template -&gt; Windows Components -&gt; Find &ldquo;Windows Powershell&rdquo; -&gt; Turn on PowerShell Transcription -&gt; Enabled -&gt; Click on Include invocation headers Click Apply. After that, find Turn on Powershell Script Block Logging Click on enabled and click apply.]]></description>
 </item>
 </channel>
 </rss>
