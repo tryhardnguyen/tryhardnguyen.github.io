@@ -3,7 +3,16 @@
         <title>Homelabs - Category - SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/categories/homelabs/</link>
         <description>Homelabs - Category - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Test Scan on Metasploitable2</title>
+    <link>https://tryhardnguyen.github.io/posts/test-scan/</link>
+    <pubDate>Sun, 21 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/test-scan/</guid>
+    <description><![CDATA[Adding a Packet Sniffer To see the attacks that I carried out on my virtual machine, I installed Kali Linux Purple to be my sniffer. \
+Carrying out the Test Scan Before we carry out the attack, we need to do some preparations! First, we need to know if we can reach metasploitable. To find out this answer, we will use the ping command. ping resultThen, we can use the curl command to see if we can get the webpage of metasploitable curl resultLook like we can reach metasploitable just fine.]]></description>
+</item>
+<item>
     <title>Configure Metasploitable3</title>
     <link>https://tryhardnguyen.github.io/posts/metasploitable3/</link>
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
@@ -88,17 +97,6 @@ Microsoft (R) Windows Script Host Version 5.812 Copyright (C) Microsoft Corporat
 Security Onion Log into SecurityOnion, and go to Downloads. For me, I&rsquo;m logging into my security onion within my Windows (Victim) machine. Click on Winlogbeat and you should have the downloads.
 This is what the installer look like:
 After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat data directory in Windows Explorer&rdquo; after that click Finish.]]></description>
-</item>
-<item>
-    <title>Enable Firewall Logs</title>
-    <link>https://tryhardnguyen.github.io/posts/log_firewall/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/log_firewall/</guid>
-    <description><![CDATA[Enable Firewall Logs First, let go to the search menu and search up &ldquo;Group Policy&rdquo;. Click on &ldquo;Edit Group Policy&rdquo;.
-Expand Windows Settings -&gt; Expand Security Settings -&gt; Expand Windows Defender Firewall with Advanced Security -&gt; Click on Windows Defender Firewall Click on &ldquo;Windows Defender Firewall Properties&rdquo; You should see three profile: Domain Profile, Private Profile, Public Profile. For the Domain profile: Firewall state: On
-Inbound Connections: Block (Default)
-Outbound connections: Allow (Default) For Private Profile: Firewall state: On]]></description>
 </item>
 </channel>
 </rss>
