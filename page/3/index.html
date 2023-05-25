@@ -62,13 +62,28 @@
         alt="/images/SecurityLogo.png"
         title="/images/SecurityLogo.png" width="500" height="500" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/tryhardnguyen" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="https://linkedin.com/in/securitynguyen" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="mailto:tryhardnguyen@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/log_firewall/">Enable Firewall Logs</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Enable Firewall Logs First, let go to the search menu and search up &ldquo;Group Policy&rdquo;. Click on &ldquo;Edit Group Policy&rdquo;.
+Expand Windows Settings -&gt; Expand Security Settings -&gt; Expand Windows Defender Firewall with Advanced Security -&gt; Click on Windows Defender Firewall Click on &ldquo;Windows Defender Firewall Properties&rdquo; You should see three profile: Domain Profile, Private Profile, Public Profile. For the Domain profile: Firewall state: On
+Inbound Connections: Block (Default)
+Outbound connections: Allow (Default) For Private Profile: Firewall state: On</div><div class="post-footer">
+        <a href="/posts/log_firewall/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/log-visibility-powershell/">Enable Power Shell Logging</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Introduction The purpose of the post is to show how to enable logging for powershell on a Windows Client.
+Let&rsquo;s start
+Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Configuration -&gt; Administrative Template -&gt; Windows Components -&gt; Find &ldquo;Windows Powershell&rdquo; -&gt; Turn on PowerShell Transcription -&gt; Enabled -&gt; Click on Include invocation headers Click Apply. After that, find Turn on Powershell Script Block Logging Click on enabled and click apply.</div><div class="post-footer">
+        <a href="/posts/log-visibility-powershell/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/sysmon-logs/">Install & Enable Sysmon</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Install Sysmon First, we will have to search up Sysmon. Here the link: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon Then let&rsquo;s search up &ldquo;olaf hartong sysmon&rdquo; and click on link to the github. Once you arrive at the github. Click on Code and click on Download Zip. At this moment, we should have 2 files installed: Sysmon, sysmon-modular-master Now, let go to our files, and go to our C drive, navigate to Program Files, after that create a new folder and name it Sysmon.</div><div class="post-footer">
         <a href="/posts/sysmon-logs/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a>,&nbsp;<a href="/tags/modern-cyber-range/">Modern Cyber Range</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/install-wazuh-edr/">Install Wazuh EDR</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/log/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Log</a></span></div><div class="content">Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
 This is what you should have:
 Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.
 Open another command promp and type ipconfig.
@@ -90,24 +105,10 @@ Return-Path: &lt;karen.marshall@olympus.co.uk&gt;Delivered-To: macrus.cobb@enem
         <a href="/posts/sunnystation-malwaretraffic/">SunnyStation (Malware Traffic Analysis)</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-31">2022-12-31</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Reference: https://www.malware-traffic-analysis.net/2022/02/23/index.html
 SCENARIO LAN segment data:
-LAN segment range: 172.16.0.0/24 (172.16.0.0 through 172.16.0.255)Domain: sunnystation.comDomain controller: 172.16.0.52 - SUNNYSTATION-DCFile Server: 172.16.0.53 - SUNNYFILESERVERLAN segment gateway: 172.16.0.1LAN segment broadcast address: 172.16.0.255 Topology View: We will start adding more to this topology as we investigate.
-The aim of this incident response report What hosts/user account names are active on this network?What type of malware are they infected with?</div><div class="post-footer">
+LAN segment range: 172.16.0.0/24 (172.16.0.0 through 172.16.0.255) Domain: sunnystation.com Domain controller: 172.16.0.52 - SUNNYSTATION-DC File Server: 172.16.0.53 - SUNNYFILESERVER LAN segment gateway: 172.16.0.1 LAN segment broadcast address: 172.16.0.255 Topology View: We will start adding more to this topology as we investigate.
+The aim of this incident response report What hosts/user account names are active on this network? What type of malware are they infected with?</div><div class="post-footer">
         <a href="/posts/sunnystation-malwaretraffic/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/packet-analysis/">Packet Analysis</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/burnincandle-malwaretraffic/">Burnincandle (Malware Traffic Analysis)</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-23">2022-12-23</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">SCENARIO LAN segment data:
-LAN segment range: 10.0.19.0/24 (10.0.19.0 through 10.0.19.255) Domain: burnincandle.com Domain controller: 10.0.19.9 - BURNINCANDLE-DC LAN segment gateway: 10.0.19.1 LAN segment broadcast address: 10.0.19.255 Topology (Based on the information we currently know): TASK Write an incident report based on the pcap. The incident report should contain three sections: Executive Summary: State in simple, direct terms what happened (when, who, what). Details: Details of the victim (hostname, IP address, MAC address, Windows user account name).</div><div class="post-footer">
-        <a href="/posts/burnincandle-malwaretraffic/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/packet-analysis/">Packet Analysis</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/scan-windows-10/">How to Scan for Windows 10 Vulnerability using Nessus</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-12-19">2022-12-19</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">The goal of this post:
-Run a Nessus Scan on a Windows 10 Machine to find a vulnerability Patch the vulnerability Running a Nessus Scan on a Windows 10 Machine We will start by booting up a Windows 10 machine. I configured it to be in the Tech subnet. Side note: You can install a Windows 10 VM using this link: Download Windows 10 (https://www.microsoft.com/en-us/software-download/windows10)
-Default password: Passw0rd!
-Let&rsquo;s run an ipconfig to see what the IP is.</div><div class="post-footer">
-        <a href="/posts/scan-windows-10/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vulnerability-management/">Vulnerability Management</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -123,6 +124,10 @@ Let&rsquo;s run an ipconfig to see what the IP is.</div><div class="post-footer"
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/4/">4</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/5/">5</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

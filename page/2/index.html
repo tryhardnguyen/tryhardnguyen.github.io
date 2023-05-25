@@ -62,6 +62,18 @@
         alt="/images/SecurityLogo.png"
         title="/images/SecurityLogo.png" width="500" height="500" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/tryhardnguyen" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="https://linkedin.com/in/securitynguyen" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="mailto:tryhardnguyen@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/domain-join/">How to Domain Join - Windows Client</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-16">2023-05-16</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Join the Computer to the Domain On the search bar, type &ldquo;System&rdquo; and click on the icon You should have this GUI appear. Now, let click on &ldquo;Advanced System Settings&rdquo; -&gt; &ldquo;Computer Name&rdquo; -&gt; Then click &ldquo;Change&rdquo;.
+For &ldquo;Computer Name&rdquo; this is what will appear on our host_name. I&rsquo;m going to name it &ldquo;person1&rdquo; so that it easy to reconginze. Then, we are going to click on the circle next to &ldquo;Domain&rdquo; and type in our domain name.</div><div class="post-footer">
+        <a href="/posts/domain-join/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/modern-cyber-range/">Modern Cyber Range</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/cyberrange_firewall/">Configure pfsense firewall</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-15">2023-05-15</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Since, I already installed my pfsense. I just need to configure it. Looking at our Modern Cyber Range Diagram: 192.168.40.1 will have a static IP and will be our gateway to the internet. Then, our Windows Server will lease IP address from 192.168.40.2-192.168.40.254 to our workstation. All that is left is to implement it.
+What I&rsquo;m going to do is change the LAN to 192.168.40.1. I&rsquo;m going enter 2. The GUI will ask me &quot;Enter the number of the interface you wish to configure&quot;, since 1 is our WAN, 2 is LAN.</div><div class="post-footer">
+        <a href="/posts/cyberrange_firewall/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/modern-cyber-range/">Modern Cyber Range</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/sn-winserver/">Install Windows Server 2019 - DHCP, DNS, Active Directory</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-14">2023-05-14</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div><div class="content">Change hostname To help better identify our windows server, I will rename mine to SN-DC1.
 SN = Securitynguyen.com
@@ -87,22 +99,7 @@ Security Onion Log into SecurityOnion, and go to Downloads. For me, I&rsquo;m lo
 This is what the installer look like:
 After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat data directory in Windows Explorer&rdquo; after that click Finish.</div><div class="post-footer">
         <a href="/posts/install-winlogbeat/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/log_firewall/">Enable Firewall Logs</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Enable Firewall Logs First, let go to the search menu and search up &ldquo;Group Policy&rdquo;. Click on &ldquo;Edit Group Policy&rdquo;.
-Expand Windows Settings -&gt; Expand Security Settings -&gt; Expand Windows Defender Firewall with Advanced Security -&gt; Click on Windows Defender Firewall Click on &ldquo;Windows Defender Firewall Properties&rdquo; You should see three profile: Domain Profile, Private Profile, Public Profile. For the Domain profile: Firewall state: On
-Inbound Connections: Block (Default)
-Outbound connections: Allow (Default) For Private Profile: Firewall state: On</div><div class="post-footer">
-        <a href="/posts/log_firewall/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/log-visibility-powershell/">Enable Power Shell Logging</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-08">2023-05-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a>&nbsp;<a href="/categories/logs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Logs</a></span></div><div class="content">Introduction The purpose of the post is to show how to enable logging for powershell on a Windows Client.
-Let&rsquo;s start
-Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Configuration -&gt; Administrative Template -&gt; Windows Components -&gt; Find &ldquo;Windows Powershell&rdquo; -&gt; Turn on PowerShell Transcription -&gt; Enabled -&gt; Click on Include invocation headers Click Apply. After that, find Turn on Powershell Script Block Logging Click on enabled and click apply.</div><div class="post-footer">
-        <a href="/posts/log-visibility-powershell/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows/">Windows</a>,&nbsp;<a href="/tags/modern-cyber-range/">Modern Cyber Range</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -118,6 +115,10 @@ Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Conf
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/4/">4</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/5/">5</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

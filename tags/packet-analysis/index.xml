@@ -11,8 +11,8 @@
     <guid>https://tryhardnguyen.github.io/posts/sunnystation-malwaretraffic/</guid>
     <description><![CDATA[Reference: https://www.malware-traffic-analysis.net/2022/02/23/index.html
 SCENARIO LAN segment data:
-LAN segment range: 172.16.0.0/24 (172.16.0.0 through 172.16.0.255)Domain: sunnystation.comDomain controller: 172.16.0.52 - SUNNYSTATION-DCFile Server: 172.16.0.53 - SUNNYFILESERVERLAN segment gateway: 172.16.0.1LAN segment broadcast address: 172.16.0.255 Topology View: We will start adding more to this topology as we investigate.
-The aim of this incident response report What hosts/user account names are active on this network?What type of malware are they infected with?]]></description>
+LAN segment range: 172.16.0.0/24 (172.16.0.0 through 172.16.0.255) Domain: sunnystation.com Domain controller: 172.16.0.52 - SUNNYSTATION-DC File Server: 172.16.0.53 - SUNNYFILESERVER LAN segment gateway: 172.16.0.1 LAN segment broadcast address: 172.16.0.255 Topology View: We will start adding more to this topology as we investigate.
+The aim of this incident response report What hosts/user account names are active on this network? What type of malware are they infected with?]]></description>
 </item>
 <item>
     <title>Burnincandle (Malware Traffic Analysis)</title>

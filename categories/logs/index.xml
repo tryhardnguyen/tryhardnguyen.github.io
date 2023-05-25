@@ -51,5 +51,17 @@ Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Conf
     <guid>https://tryhardnguyen.github.io/posts/sysmon-logs/</guid>
     <description><![CDATA[Install Sysmon First, we will have to search up Sysmon. Here the link: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon Then let&rsquo;s search up &ldquo;olaf hartong sysmon&rdquo; and click on link to the github. Once you arrive at the github. Click on Code and click on Download Zip. At this moment, we should have 2 files installed: Sysmon, sysmon-modular-master Now, let go to our files, and go to our C drive, navigate to Program Files, after that create a new folder and name it Sysmon.]]></description>
 </item>
+<item>
+    <title>Install Wazuh EDR</title>
+    <link>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</link>
+    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</guid>
+    <description><![CDATA[Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
+This is what you should have:
+Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.
+Open another command promp and type ipconfig.
+Take note of the ip address of your host/agent whatever you want to call it.]]></description>
+</item>
 </channel>
 </rss>

@@ -3,7 +3,25 @@
         <title>Homelabs - Category - SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/categories/homelabs/</link>
         <description>Homelabs - Category - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 24 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Testing Endpoint Detection - Windows</title>
+    <link>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</link>
+    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</guid>
+    <description><![CDATA[Tools used:
+Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon logs As we can see from the Log Count by Node. I can see my hostname of my client computer this mean that there are some logs shipped to SecurityOnion. Let&rsquo;s do try out a command and see if the sysmon is able to record it. The command we will try is: ipconfig and tasklist /v \ ]]></description>
+</item>
+<item>
+    <title>Create OU, GPO, Enable Logging within Windows Server</title>
+    <link>https://tryhardnguyen.github.io/posts/ou-gpo-cyberrange/</link>
+    <pubDate>Mon, 22 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/ou-gpo-cyberrange/</guid>
+    <description><![CDATA[Goal The goal of this post is to create an OU (Group) for our users and apply GPO (Rules) to the Organizational Units. These GPO will allows us to enable logging without having to manually configure each device one by one. Let&rsquo;s get started.
+Create an OU (Organizational Unit) First, let&rsquo;s create an organizational units (OU). To do this, we will go to Tools -&gt; Right click on your domain and click on &ldquo;New Organizational Unit&rdquo;, Now type a name you want your organizational unit to be label as.]]></description>
+</item>
+<item>
     <title>Test Scan on Metasploitable2</title>
     <link>https://tryhardnguyen.github.io/posts/test-scan/</link>
     <pubDate>Sun, 21 May 2023 00:00:00 &#43;0000</pubDate>
@@ -78,25 +96,6 @@ Microsoft (R) Windows Script Host Version 5.812 Copyright (C) Microsoft Corporat
     <author>Nguyen Nguyen</author>
     <guid>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</guid>
     <description><![CDATA[Go to Local Group Policy editor by typing gpedit. Then, expand Windows Settings -&gt; Security Settings -&gt; Local Policies -&gt; Audit Policy -&gt; Then click on Audit object access. Check Success and Failure.]]></description>
-</item>
-<item>
-    <title>Install OSquery</title>
-    <link>https://tryhardnguyen.github.io/posts/osquery/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/osquery/</guid>
-    <description><![CDATA[Download OSquery Go to your SecurityOnion -&gt; Downloads -&gt; Under the osquery Packages and Configs -&gt; Click on MSI (Windows) -&gt; Go through the installation phase.]]></description>
-</item>
-<item>
-    <title>Install Winlogbeat</title>
-    <link>https://tryhardnguyen.github.io/posts/install-winlogbeat/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/install-winlogbeat/</guid>
-    <description><![CDATA[The purpose of winlogbeat is to ship the logs from Windows to the Elastic Stack. Let get right into installing it.
-Security Onion Log into SecurityOnion, and go to Downloads. For me, I&rsquo;m logging into my security onion within my Windows (Victim) machine. Click on Winlogbeat and you should have the downloads.
-This is what the installer look like:
-After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat data directory in Windows Explorer&rdquo; after that click Finish.]]></description>
 </item>
 </channel>
 </rss>

@@ -3,7 +3,16 @@
         <title>Windows - Tag - SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/tags/windows/</link>
         <description>Windows - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 09 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/windows/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 24 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/windows/" rel="self" type="application/rss+xml" /><item>
+    <title>Testing Endpoint Detection - Windows</title>
+    <link>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</link>
+    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</guid>
+    <description><![CDATA[Tools used:
+Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon logs As we can see from the Log Count by Node. I can see my hostname of my client computer this mean that there are some logs shipped to SecurityOnion. Let&rsquo;s do try out a command and see if the sysmon is able to record it. The command we will try is: ipconfig and tasklist /v \ ]]></description>
+</item>
+<item>
     <title>Install &amp; Enable Windows Defender Audit Logs</title>
     <link>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
