@@ -1,39 +1,40 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Windows - Tag - SecurityNguyen Blog</title>
-        <link>https://tryhardnguyen.github.io/tags/windows/</link>
-        <description>Windows - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 24 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/windows/" rel="self" type="application/rss+xml" /><item>
+        <title>Windows - Tag - </title>
+        <link>/tags/windows/</link>
+        <description>Windows - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 24 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/windows/" rel="self" type="application/rss+xml" /><item>
     <title>Testing Endpoint Detection - Windows</title>
-    <link>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</link>
+    <link>/posts/testing-endpoint-detection-windows/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</guid>
+    <guid>/posts/testing-endpoint-detection-windows/</guid>
     <description><![CDATA[Tools used:
 Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon logs As we can see from the Log Count by Node. I can see my hostname of my client computer this mean that there are some logs shipped to SecurityOnion. Let&rsquo;s do try out a command and see if the sysmon is able to record it. The command we will try is: ipconfig and tasklist /v \ ]]></description>
 </item>
 <item>
     <title>Install &amp; Enable Windows Defender Audit Logs</title>
-    <link>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</link>
+    <link>/posts/windows-defender-audit-logs/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</guid>
+    <guid>/posts/windows-defender-audit-logs/</guid>
     <description><![CDATA[Go to Local Group Policy editor by typing gpedit. Then, expand Windows Settings -&gt; Security Settings -&gt; Local Policies -&gt; Audit Policy -&gt; Then click on Audit object access. Check Success and Failure.]]></description>
 </item>
 <item>
     <title>Install OSquery</title>
-    <link>https://tryhardnguyen.github.io/posts/osquery/</link>
+    <link>/posts/osquery/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/osquery/</guid>
+    <guid>/posts/osquery/</guid>
     <description><![CDATA[Download OSquery Go to your SecurityOnion -&gt; Downloads -&gt; Under the osquery Packages and Configs -&gt; Click on MSI (Windows) -&gt; Go through the installation phase.]]></description>
 </item>
 <item>
     <title>Install Winlogbeat</title>
-    <link>https://tryhardnguyen.github.io/posts/install-winlogbeat/</link>
+    <link>/posts/install-winlogbeat/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/install-winlogbeat/</guid>
+    <guid>/posts/install-winlogbeat/</guid>
     <description><![CDATA[The purpose of winlogbeat is to ship the logs from Windows to the Elastic Stack. Let get right into installing it.
 Security Onion Log into SecurityOnion, and go to Downloads. For me, I&rsquo;m logging into my security onion within my Windows (Victim) machine. Click on Winlogbeat and you should have the downloads.
 This is what the installer look like:
@@ -41,10 +42,10 @@ After winlogbeat is done installing, make sure you check &ldquo;Open winlogbeat 
 </item>
 <item>
     <title>Enable Firewall Logs</title>
-    <link>https://tryhardnguyen.github.io/posts/log_firewall/</link>
+    <link>/posts/log_firewall/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/log_firewall/</guid>
+    <guid>/posts/log_firewall/</guid>
     <description><![CDATA[Enable Firewall Logs First, let go to the search menu and search up &ldquo;Group Policy&rdquo;. Click on &ldquo;Edit Group Policy&rdquo;.
 Expand Windows Settings -&gt; Expand Security Settings -&gt; Expand Windows Defender Firewall with Advanced Security -&gt; Click on Windows Defender Firewall Click on &ldquo;Windows Defender Firewall Properties&rdquo; You should see three profile: Domain Profile, Private Profile, Public Profile. For the Domain profile: Firewall state: On
 Inbound Connections: Block (Default)
@@ -52,28 +53,28 @@ Outbound connections: Allow (Default) For Private Profile: Firewall state: On]]>
 </item>
 <item>
     <title>Enable Power Shell Logging</title>
-    <link>https://tryhardnguyen.github.io/posts/log-visibility-powershell/</link>
+    <link>/posts/log-visibility-powershell/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/log-visibility-powershell/</guid>
+    <guid>/posts/log-visibility-powershell/</guid>
     <description><![CDATA[Introduction The purpose of the post is to show how to enable logging for powershell on a Windows Client.
 Let&rsquo;s start
 Start Menu -&gt; Gpedit -&gt; Click on Edit Group Policy Then open Computer Configuration -&gt; Administrative Template -&gt; Windows Components -&gt; Find &ldquo;Windows Powershell&rdquo; -&gt; Turn on PowerShell Transcription -&gt; Enabled -&gt; Click on Include invocation headers Click Apply. After that, find Turn on Powershell Script Block Logging Click on enabled and click apply.]]></description>
 </item>
 <item>
     <title>Install &amp; Enable Sysmon</title>
-    <link>https://tryhardnguyen.github.io/posts/sysmon-logs/</link>
+    <link>/posts/sysmon-logs/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/sysmon-logs/</guid>
+    <guid>/posts/sysmon-logs/</guid>
     <description><![CDATA[Install Sysmon First, we will have to search up Sysmon. Here the link: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon Then let&rsquo;s search up &ldquo;olaf hartong sysmon&rdquo; and click on link to the github. Once you arrive at the github. Click on Code and click on Download Zip. At this moment, we should have 2 files installed: Sysmon, sysmon-modular-master Now, let go to our files, and go to our C drive, navigate to Program Files, after that create a new folder and name it Sysmon.]]></description>
 </item>
 <item>
     <title>Install Wazuh EDR</title>
-    <link>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</link>
+    <link>/posts/install-wazuh-edr/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</guid>
+    <guid>/posts/install-wazuh-edr/</guid>
     <description><![CDATA[Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
 This is what you should have:
 Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.

@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>HIDS - Tag - SecurityNguyen Blog</title>
-        <link>https://tryhardnguyen.github.io/tags/hids/</link>
-        <description>HIDS - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 09 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/hids/" rel="self" type="application/rss+xml" /><item>
+        <title>HIDS - Tag - </title>
+        <link>/tags/hids/</link>
+        <description>HIDS - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 09 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/hids/" rel="self" type="application/rss+xml" /><item>
     <title>Install OSquery</title>
-    <link>https://tryhardnguyen.github.io/posts/osquery/</link>
+    <link>/posts/osquery/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/osquery/</guid>
+    <guid>/posts/osquery/</guid>
     <description><![CDATA[Download OSquery Go to your SecurityOnion -&gt; Downloads -&gt; Under the osquery Packages and Configs -&gt; Click on MSI (Windows) -&gt; Go through the installation phase.]]></description>
 </item>
 </channel>

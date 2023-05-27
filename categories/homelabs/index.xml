@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Homelabs - Category - SecurityNguyen Blog</title>
-        <link>https://tryhardnguyen.github.io/categories/homelabs/</link>
-        <description>Homelabs - Category - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+        <title>Homelabs - Category - </title>
+        <link>/categories/homelabs/</link>
+        <description>Homelabs - Category - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
     <title>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</title>
-    <link>https://tryhardnguyen.github.io/posts/recon/</link>
+    <link>/posts/recon/</link>
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/recon/</guid>
+    <guid>/posts/recon/</guid>
     <description><![CDATA[Types of Reconnaissance CKC = Cyber Kill Chain
 Disclaimer: Everything is all virtualize in the host computer. Fake simulations
 Passive Reconnaissance Definition: When you&rsquo;re not engaging with the target to extract information. Example of Passive reconnaissance is google dorking, whois, nslookup, dig.
@@ -17,84 +18,84 @@ This post won&rsquo;t be covering it. Please refer to here if you want to get pr
 </item>
 <item>
     <title>Story Backgound - Modern Cyber Range</title>
-    <link>https://tryhardnguyen.github.io/posts/storytelling/</link>
+    <link>/posts/storytelling/</link>
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/storytelling/</guid>
+    <guid>/posts/storytelling/</guid>
     <description><![CDATA[Character Company: SecurityNguyen
 Ethan Sullivan - Hacker Olivia Parker - Manager Nguyen Nguyen - Security Analyst Randy Moss - Employee This story is based on a &ldquo;imaginary company&rdquo; named: SecurityNguyen. SecurityNguyen has hired a Security Analyst named: &ldquo;Nguyen Nguyen (Win)&rdquo; to be charge of monitoring and securing the infrastructure. Little to Win knowledge that there is a vulnerable web server in the company network. We have a person name &ldquo;Ethan Sullivan&rdquo; who is a noob hacker that is trying to improve his skill so that he can join an APT call &ldquo;Bloody Zoombie&rdquo;.]]></description>
 </item>
 <item>
     <title>Testing Endpoint Detection - Windows</title>
-    <link>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</link>
+    <link>/posts/testing-endpoint-detection-windows/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</guid>
+    <guid>/posts/testing-endpoint-detection-windows/</guid>
     <description><![CDATA[Tools used:
 Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon logs As we can see from the Log Count by Node. I can see my hostname of my client computer this mean that there are some logs shipped to SecurityOnion. Let&rsquo;s do try out a command and see if the sysmon is able to record it. The command we will try is: ipconfig and tasklist /v \ ]]></description>
 </item>
 <item>
     <title>Create OU, GPO, Enable Logging within Windows Server</title>
-    <link>https://tryhardnguyen.github.io/posts/ou-gpo-cyberrange/</link>
+    <link>/posts/ou-gpo-cyberrange/</link>
     <pubDate>Mon, 22 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/ou-gpo-cyberrange/</guid>
+    <guid>/posts/ou-gpo-cyberrange/</guid>
     <description><![CDATA[Goal The goal of this post is to create an OU (Group) for our users and apply GPO (Rules) to the Organizational Units. These GPO will allows us to enable logging without having to manually configure each device one by one. Let&rsquo;s get started.
 Create an OU (Organizational Unit) First, let&rsquo;s create an organizational units (OU). To do this, we will go to Tools -&gt; Right click on your domain and click on &ldquo;New Organizational Unit&rdquo;, Now type a name you want your organizational unit to be label as.]]></description>
 </item>
 <item>
     <title>Test Scan on Metasploitable2</title>
-    <link>https://tryhardnguyen.github.io/posts/test-scan/</link>
+    <link>/posts/test-scan/</link>
     <pubDate>Sun, 21 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/test-scan/</guid>
+    <guid>/posts/test-scan/</guid>
     <description><![CDATA[Adding a Packet Sniffer To see the attacks that I carried out on my virtual machine, I installed Kali Linux Purple to be my sniffer. \
 Carrying out the Test Scan Before we carry out the attack, we need to do some preparations! First, we need to know if we can reach metasploitable. To find out this answer, we will use the ping command. ping resultThen, we can use the curl command to see if we can get the webpage of metasploitable curl resultLook like we can reach metasploitable just fine.]]></description>
 </item>
 <item>
     <title>Configure Metasploitable3</title>
-    <link>https://tryhardnguyen.github.io/posts/metasploitable2/</link>
+    <link>/posts/metasploitable2/</link>
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/metasploitable2/</guid>
+    <guid>/posts/metasploitable2/</guid>
     <description><![CDATA[The problem When booted out from the box. Metasploitable will not have certain network configuration met such as one network interface not appearing on ifconfig.
 The goal My goal is to demonstrate how to add network adapter and statically change the IP address so that it works with my cyber range. First, I will do sudo nano /etc/network/interfaces Now, this is where all the magic happens. I&rsquo;m going to add an eth1 for my additional adapter.]]></description>
 </item>
 <item>
     <title>SecurityOnion - Modern Cyber Range</title>
-    <link>https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/</link>
+    <link>/posts/securityonion-modern-cyber-range/</link>
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/securityonion-modern-cyber-range/</guid>
+    <guid>/posts/securityonion-modern-cyber-range/</guid>
     <description><![CDATA[Accessing the Security Onion Page This post is not going cover the installation of security onion. There are alot of youtube video covering installation or reading the documentation will help.
 Documentation: https://docs.securityonion.net/en/2.3/
 Right now, I&rsquo;m on my Win10 (Victim1) machine. I can access my Security onion using http://192.168.40.3. Then, I&rsquo;m going to enter my credentials that I created during the installation of my security onion. After that you will be greeted by the overview.]]></description>
 </item>
 <item>
     <title>Creating a User Account with AD</title>
-    <link>https://tryhardnguyen.github.io/posts/creating-user-account-with-ad/</link>
+    <link>/posts/creating-user-account-with-ad/</link>
     <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/creating-user-account-with-ad/</guid>
+    <guid>/posts/creating-user-account-with-ad/</guid>
     <description><![CDATA[The start In the Server Manager -&gt; Tools -&gt; Active Directory Users and Computers -&gt; Click on Users -&gt; Right click New -&gt; User.
 Then it will ask you to fill in the blank with the user information. You can go to your random name generator to get your pretend users. Here is the link to the random name generator I used: https://randomwordgenerator[.]com/name[.]php
 Then it will ask you to create an password for the user.]]></description>
 </item>
 <item>
     <title>How to Domain Join - Windows Client</title>
-    <link>https://tryhardnguyen.github.io/posts/domain-join/</link>
+    <link>/posts/domain-join/</link>
     <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/domain-join/</guid>
+    <guid>/posts/domain-join/</guid>
     <description><![CDATA[Join the Computer to the Domain On the search bar, type &ldquo;System&rdquo; and click on the icon You should have this GUI appear. Now, let click on &ldquo;Advanced System Settings&rdquo; -&gt; &ldquo;Computer Name&rdquo; -&gt; Then click &ldquo;Change&rdquo;.
 For &ldquo;Computer Name&rdquo; this is what will appear on our host_name. I&rsquo;m going to name it &ldquo;person1&rdquo; so that it easy to reconginze. Then, we are going to click on the circle next to &ldquo;Domain&rdquo; and type in our domain name.]]></description>
 </item>
 <item>
     <title>Configure pfsense firewall</title>
-    <link>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</link>
+    <link>/posts/cyberrange_firewall/</link>
     <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</guid>
+    <guid>/posts/cyberrange_firewall/</guid>
     <description><![CDATA[Since, I already installed my pfsense. I just need to configure it. Looking at our Modern Cyber Range Diagram: 192.168.40.1 will have a static IP and will be our gateway to the internet. Then, our Windows Server will lease IP address from 192.168.40.2-192.168.40.254 to our workstation. All that is left is to implement it.
 What I&rsquo;m going to do is change the LAN to 192.168.40.1. I&rsquo;m going enter 2. The GUI will ask me &quot;Enter the number of the interface you wish to configure&quot;, since 1 is our WAN, 2 is LAN.]]></description>
 </item>

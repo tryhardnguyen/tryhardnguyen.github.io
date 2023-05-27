@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>EDR - Tag - SecurityNguyen Blog</title>
-        <link>https://tryhardnguyen.github.io/tags/edr/</link>
-        <description>EDR - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/edr/" rel="self" type="application/rss+xml" /><item>
+        <title>EDR - Tag - </title>
+        <link>/tags/edr/</link>
+        <description>EDR - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/edr/" rel="self" type="application/rss+xml" /><item>
     <title>Install Wazuh EDR</title>
-    <link>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</link>
+    <link>/posts/install-wazuh-edr/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/install-wazuh-edr/</guid>
+    <guid>/posts/install-wazuh-edr/</guid>
     <description><![CDATA[Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
 This is what you should have:
 Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.

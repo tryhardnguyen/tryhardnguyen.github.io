@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>OWASP TOP 10: SQL Injection - SecurityNguyen Blog</title><meta name="Description" content="OWASP TOP 10 Project"><meta property="og:title" content="OWASP TOP 10: SQL Injection" />
+        <title>OWASP TOP 10: SQL Injection - </title><meta name="Description" content="OWASP TOP 10 Project"><meta property="og:title" content="OWASP TOP 10: SQL Injection" />
 <meta property="og:description" content="OWASP TOP 10 Project" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="/posts/owasp-top10-sql-injection/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-14T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-12-14T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
@@ -16,19 +16,19 @@
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" /><link rel="prev" href="https://tryhardnguyen.github.io/posts/owasp-top-10-csrf/" /><link rel="next" href="https://tryhardnguyen.github.io/posts/install-nessus-vuln-scanner/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/owasp-top10-sql-injection/" /><link rel="prev" href="/posts/owasp-top-10-csrf/" /><link rel="next" href="/posts/install-nessus-vuln-scanner/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "OWASP TOP 10: SQL Injection",
-        "inLanguage": "en-us",
+        "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/tryhardnguyen.github.io\/posts\/owasp-top10-sql-injection\/"
-        },"genre": "posts","keywords": "OWASP","wordcount":  1197 ,
-        "url": "https:\/\/tryhardnguyen.github.io\/posts\/owasp-top10-sql-injection\/","datePublished": "2022-12-14T00:00:00+00:00","dateModified": "2022-12-14T00:00:00+00:00","publisher": {
+            "@id": "\/posts\/owasp-top10-sql-injection\/"
+        },"genre": "posts","keywords": "OWASP","wordcount":  1265 ,
+        "url": "\/posts\/owasp-top10-sql-injection\/","datePublished": "2022-12-14T00:00:00+00:00","dateModified": "2022-12-14T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -41,7 +41,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+            <a href="/" title="">SecurityNguyen</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
@@ -53,7 +53,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="SecurityNguyen Blog">SecurityNguyen</a>
+                <a href="/" title="">SecurityNguyen</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -68,8 +68,8 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">OWASP TOP 10: SQL Injection</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-14">2022-12-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1197 words&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-14">2022-12-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1265 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -133,10 +133,24 @@
 <p>Let&rsquo;s replace $id with a 1, so we will have the following query</p>
 <p>$query  = &ldquo;SELECT first_name, last_name FROM users WHERE user_id = &lsquo;1&rsquo;;&rdquo;;</p>
 <p>The query will retrieve only the person with a user_id of 1. But what we can do to run an extra command is do the following:</p>
-<pre tabindex="0"><code>1&#39; or 1 = &#39;1
-</code></pre><p>This is what it would look like in the query.</p>
-<pre tabindex="0"><code>SELECT first_name, last_name FROM users where user_id = &#39;1&#39;&#39; or 1 = &#39;1
-</code></pre><p>What it does is it says return me 1, OR you can return everything.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1&#39; or 1 = &#39;1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is what it would look like in the query.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SELECT first_name, last_name FROM users where user_id = &#39;1&#39;&#39; or 1 = &#39;1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>What it does is it says return me 1, OR you can return everything.</p>
 <p>You get the following:
 <figure><a class="lightgallery" href="/images/image-253.webp" title="/images/image-253.webp" data-thumbnail="/images/image-253.webp" data-sub-html="<h2>List of Users</h2>">
         <img
@@ -235,66 +249,134 @@ Replace the value to <code>1 or 1=1 UNION SELECT user, password from users#</cod
             alt="/images/image-260.webp" width="478" height="164" />
     </a></p>
 <p>This is our source code:</p>
-<pre tabindex="0"><code>&lt;?php
-
-if( isset( $_SESSION [ &#39;id&#39; ] ) ) {
-    // Get input
-    $id = $_SESSION[ &#39;id&#39; ];
-
-    switch ($_DVWA[&#39;SQLI_DB&#39;]) {
-        case MYSQL:
-            // Check database
-            $query  = &#34;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39; LIMIT 1;&#34;;
-            $result = mysqli_query($GLOBALS[&#34;___mysqli_ston&#34;], $query ) or 
-            die( &#39;&lt;pre&gt;Something went wrong.&lt;/pre&gt;&#39; );
-
-            // Get results
-            while( $row = mysqli_fetch_assoc( $result ) ) {
-                // Get values
-                $first = $row[&#34;first_name&#34;];
-                $last  = $row[&#34;last_name&#34;];
-
-                // Feedback for end user
-                echo &#34;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&#34;;
-            }
-
-            ((is_null($___mysqli_res = mysqli_close($GLOBALS[&#34;___mysqli_ston&#34;]))) 
-            ? false : $___mysqli_res);        
-            break;
-        case SQLITE:
-            global $sqlite_db_connection;
-
-            $query  = &#34;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39; LIMIT 1;&#34;;
-            #print $query;
-            try {
-                $results = $sqlite_db_connection-&gt;query($query);
-            } catch (Exception $e) {
-                echo &#39;Caught exception: &#39; . $e-&gt;getMessage();
-                exit();
-            }
-
-            if ($results) {
-                while ($row = $results-&gt;fetchArray()) {
-                    // Get values
-                    $first = $row[&#34;first_name&#34;];
-                    $last  = $row[&#34;last_name&#34;];
-
-                    // Feedback for end user
-                    echo &#34;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&#34;;
-                }
-            } else {
-                echo &#34;Error in fetch &#34;.$sqlite_db-&gt;lastErrorMsg();
-            }
-            break;
-    }
-}
-
-?&gt; 
-</code></pre><p>As we can see, the query starts using quotes again.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">if( isset( $_SESSION [ &#39;id&#39; ] ) ) {
+</span></span><span class="line"><span class="cl">    // Get input
+</span></span><span class="line"><span class="cl">    $id = $_SESSION[ &#39;id&#39; ];
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    switch ($_DVWA[&#39;SQLI_DB&#39;]) {
+</span></span><span class="line"><span class="cl">        case MYSQL:
+</span></span><span class="line"><span class="cl">            // Check database
+</span></span><span class="line"><span class="cl">            $query  = &#34;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39; LIMIT 1;&#34;;
+</span></span><span class="line"><span class="cl">            $result = mysqli_query($GLOBALS[&#34;___mysqli_ston&#34;], $query ) or 
+</span></span><span class="line"><span class="cl">            die( &#39;&lt;pre&gt;Something went wrong.&lt;/pre&gt;&#39; );
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // Get results
+</span></span><span class="line"><span class="cl">            while( $row = mysqli_fetch_assoc( $result ) ) {
+</span></span><span class="line"><span class="cl">                // Get values
+</span></span><span class="line"><span class="cl">                $first = $row[&#34;first_name&#34;];
+</span></span><span class="line"><span class="cl">                $last  = $row[&#34;last_name&#34;];
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                // Feedback for end user
+</span></span><span class="line"><span class="cl">                echo &#34;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&#34;;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            ((is_null($___mysqli_res = mysqli_close($GLOBALS[&#34;___mysqli_ston&#34;]))) 
+</span></span><span class="line"><span class="cl">            ? false : $___mysqli_res);        
+</span></span><span class="line"><span class="cl">            break;
+</span></span><span class="line"><span class="cl">        case SQLITE:
+</span></span><span class="line"><span class="cl">            global $sqlite_db_connection;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            $query  = &#34;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39; LIMIT 1;&#34;;
+</span></span><span class="line"><span class="cl">            #print $query;
+</span></span><span class="line"><span class="cl">            try {
+</span></span><span class="line"><span class="cl">                $results = $sqlite_db_connection-&gt;query($query);
+</span></span><span class="line"><span class="cl">            } catch (Exception $e) {
+</span></span><span class="line"><span class="cl">                echo &#39;Caught exception: &#39; . $e-&gt;getMessage();
+</span></span><span class="line"><span class="cl">                exit();
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            if ($results) {
+</span></span><span class="line"><span class="cl">                while ($row = $results-&gt;fetchArray()) {
+</span></span><span class="line"><span class="cl">                    // Get values
+</span></span><span class="line"><span class="cl">                    $first = $row[&#34;first_name&#34;];
+</span></span><span class="line"><span class="cl">                    $last  = $row[&#34;last_name&#34;];
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    // Feedback for end user
+</span></span><span class="line"><span class="cl">                    echo &#34;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&#34;;
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">            } else {
+</span></span><span class="line"><span class="cl">                echo &#34;Error in fetch &#34;.$sqlite_db-&gt;lastErrorMsg();
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            break;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">?&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see, the query starts using quotes again.</p>
 <p>$query  = &ldquo;SELECT first_name, last_name FROM users WHERE user_id = &lsquo;$id&rsquo; LIMIT 1;&rdquo;;</p>
 <p>To exploit this, we will be using the following:</p>
-<pre tabindex="0"><code>1&#39; UNION SELECT user, password from users#
-</code></pre><a class="lightgallery" href="/images/image-261.webp" title="/images/image-261.webp" data-thumbnail="/images/image-261.webp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1&#39; UNION SELECT user, password from users#
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a class="lightgallery" href="/images/image-261.webp" title="/images/image-261.webp" data-thumbnail="/images/image-261.webp">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -381,17 +463,38 @@ if( isset( $_SESSION [ &#39;id&#39; ] ) ) {
 <li>OR 1=1</li>
 </ol>
 <p>Let&rsquo;s edit our snort rules</p>
-<pre tabindex="0"><code>sudo nano /etc/snort/rules/local.rules
-</code></pre><p>These are the rule that I wrote for SQL injection:</p>
-<pre tabindex="0"><code>alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;SELECT&#34;; 
-nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000001; rev: 1;)
-alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;FROM&#34;;   
-nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000002; rev: 1;)
-alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;OR&#34;;     
-nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000003; rev: 1;)
-alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;1|3D|&#34;;  
-msg: &#34;SQL Injection Detected&#34;; sid: 1000004; rev: 1;)
-</code></pre><a class="lightgallery" href="/images/image-271.webp" title="/images/image-271.webp" data-thumbnail="/images/image-271.webp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nano /etc/snort/rules/local.rules
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>These are the rule that I wrote for SQL injection:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;SELECT&#34;; 
+</span></span><span class="line"><span class="cl">nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000001; rev: 1;)
+</span></span><span class="line"><span class="cl">alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;FROM&#34;;   
+</span></span><span class="line"><span class="cl">nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000002; rev: 1;)
+</span></span><span class="line"><span class="cl">alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;OR&#34;;     
+</span></span><span class="line"><span class="cl">nocase; msg: &#34;SQL Injection Detected&#34;;  sid: 1000003; rev: 1;)
+</span></span><span class="line"><span class="cl">alert tcp any any -&gt; 172.20.25.16 80 (content: &#34;GET&#34;; http_method; content:&#34;1|3D|&#34;;  
+</span></span><span class="line"><span class="cl">msg: &#34;SQL Injection Detected&#34;; sid: 1000004; rev: 1;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a class="lightgallery" href="/images/image-271.webp" title="/images/image-271.webp" data-thumbnail="/images/image-271.webp">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -403,8 +506,15 @@ msg: &#34;SQL Injection Detected&#34;; sid: 1000004; rev: 1;)
 <p>The last rule is checking for <code>1 =</code> (which is in hex).</p>
 <p>These rules are pretty simple: if any request has SELECT, FROM, OR. Alert me!</p>
 <p>Let&rsquo;s test out our rule</p>
-<pre tabindex="0"><code>sudo snort -c /etc/snort/snort.conf -A console
-</code></pre><p><a class="lightgallery" href="/images/image-268.webp" title="/images/image-268.webp" data-thumbnail="/images/image-268.webp">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo snort -c /etc/snort/snort.conf -A console
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="lightgallery" href="/images/image-268.webp" title="/images/image-268.webp" data-thumbnail="/images/image-268.webp">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
@@ -470,7 +580,7 @@ msg: &#34;SQL Injection Detected&#34;; sid: 1000004; rev: 1;)
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/" data-title="OWASP TOP 10: SQL Injection" data-hashtags="OWASP"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://tryhardnguyen.github.io/posts/owasp-top10-sql-injection/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/owasp-top10-sql-injection/" data-title="OWASP TOP 10: SQL Injection" data-hashtags="OWASP"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/owasp-top10-sql-injection/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -488,7 +598,7 @@ msg: &#34;SQL Injection Detected&#34;; sid: 1000004; rev: 1;)
 </article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
         </div>
     </footer></div>
 

@@ -1,7 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - SecurityNguyen Blog</title>
-        <link>https://tryhardnguyen.github.io/categories/documentation/</link>
-        <description>Categories - Category - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://tryhardnguyen.github.io/categories/documentation/" rel="self" type="application/rss+xml" /></channel>
+        <title>Categories - Category - </title>
+        <link>/categories/documentation/</link>
+        <description>Categories - Category - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><atom:link href="/categories/documentation/" rel="self" type="application/rss+xml" /></channel>
 </rss>

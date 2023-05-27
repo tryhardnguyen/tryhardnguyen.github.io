@@ -1,70 +1,71 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Tags - Tag - SecurityNguyen Blog</title>
-        <link>https://tryhardnguyen.github.io/tags/</link>
-        <description>Tags - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <title>Tags - Tag - </title>
+        <link>/tags/</link>
+        <description>Tags - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Modern Cyber Range</title>
-    <link>https://tryhardnguyen.github.io/tags/modern-cyber-range/</link>
+    <link>/tags/modern-cyber-range/</link>
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/modern-cyber-range/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/modern-cyber-range/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Windows</title>
-    <link>https://tryhardnguyen.github.io/tags/windows/</link>
+    <link>/tags/windows/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/windows/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/windows/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>HIDS</title>
-    <link>https://tryhardnguyen.github.io/tags/hids/</link>
+    <link>/tags/hids/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/hids/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/hids/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>EDR</title>
-    <link>https://tryhardnguyen.github.io/tags/edr/</link>
+    <link>/tags/edr/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/edr/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/edr/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Phishing Analysis</title>
-    <link>https://tryhardnguyen.github.io/tags/phishing-analysis/</link>
+    <link>/tags/phishing-analysis/</link>
     <pubDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/phishing-analysis/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/phishing-analysis/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Packet Analysis</title>
-    <link>https://tryhardnguyen.github.io/tags/packet-analysis/</link>
+    <link>/tags/packet-analysis/</link>
     <pubDate>Sat, 31 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/packet-analysis/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/packet-analysis/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Vulnerability Management</title>
-    <link>https://tryhardnguyen.github.io/tags/vulnerability-management/</link>
+    <link>/tags/vulnerability-management/</link>
     <pubDate>Mon, 19 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/vulnerability-management/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/vulnerability-management/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>OWASP</title>
-    <link>https://tryhardnguyen.github.io/tags/owasp/</link>
+    <link>/tags/owasp/</link>
     <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Author</author>
-    <guid>https://tryhardnguyen.github.io/tags/owasp/</guid>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/owasp/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

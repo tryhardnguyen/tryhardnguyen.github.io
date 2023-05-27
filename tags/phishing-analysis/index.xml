@@ -1,21 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Phishing Analysis - Tag - SecurityNguyen Blog</title>
-        <link>https://tryhardnguyen.github.io/tags/phishing-analysis/</link>
-        <description>Phishing Analysis - Tag - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/tags/phishing-analysis/" rel="self" type="application/rss+xml" /><item>
+        <title>Phishing Analysis - Tag - </title>
+        <link>/tags/phishing-analysis/</link>
+        <description>Phishing Analysis - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/phishing-analysis/" rel="self" type="application/rss+xml" /><item>
     <title>Analyzing Malicious Email - Phishing Analysis #1</title>
-    <link>https://tryhardnguyen.github.io/posts/phishinganalysis1/</link>
+    <link>/posts/phishinganalysis1/</link>
     <pubDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/phishinganalysis1/</guid>
+    <guid>/posts/phishinganalysis1/</guid>
     <description><![CDATA[Source: InfoSec Handlers Diary Blog - SANS Internet Storm Center https://isc.sans.edu/diary/October+2021+Contest+Forensic+Challenge/27960
 October 2021 Contest: Forensic Challenge, Author: Brad Duncan
 Malware-Traffic-Analysis.net - 2021-10-22 - Files for an ISC diary (October 2021 Forensic Contest)
 https://www.malware-traffic-analysis.net/2021/10/22/index.html
 Malicious Emails can be found above ☝️☝️
 2021-10-21-malicious-email-1102-UTC.eml Email header:
-Return-Path: &lt;karen.marshall@olympus.co.uk&gt;Delivered-To: macrus.cobb@enemywatch.netAuthentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=fail (mail.enemywatch.net: domain of karen.marshall@olympus.co.uk does not designate 37.0.10.22 aspermitted sender) smtp.mailfrom=karen.marshall@olympus.co.ukReceived: from olympus.co.uk (unknown [37.0.10.22])by mail.]]></description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 Return-Path: &lt;karen.marshall@olympus.co.uk&gt; Delivered-To: macrus.cobb@enemywatch.net Authentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=fail (mail.]]></description>
 </item>
 </channel>
 </rss>
