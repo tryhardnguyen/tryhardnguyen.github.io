@@ -11,7 +11,7 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/testing-endpoint-detection-windows/</guid>
     <description><![CDATA[Tools used:
-Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon logs As we can see from the Log Count by Node. I can see my hostname of my client computer this mean that there are some logs shipped to SecurityOnion. Let&rsquo;s do try out a command and see if the sysmon is able to record it. The command we will try is: ipconfig and tasklist /v \ ]]></description>
+Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon logs As we can see from the Log Count by Node. I can see my hostname of my client computer this mean that there are some logs shipped to SecurityOnion. Let&rsquo;s do try out a command and see if the sysmon is able to record it. The command we will try is: ipconfig and tasklist /v ]]></description>
 </item>
 <item>
     <title>Install &amp; Enable Windows Defender Audit Logs</title>
