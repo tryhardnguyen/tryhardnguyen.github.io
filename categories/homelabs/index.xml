@@ -3,7 +3,28 @@
         <title>Homelabs - Category - SecurityNguyen Blog</title>
         <link>https://tryhardnguyen.github.io/categories/homelabs/</link>
         <description>Homelabs - Category - SecurityNguyen Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 24 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://tryhardnguyen.github.io/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</title>
+    <link>https://tryhardnguyen.github.io/posts/recon/</link>
+    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/recon/</guid>
+    <description><![CDATA[Types of Reconnaissance CKC = Cyber Kill Chain
+Disclaimer: Everything is all virtualize in the host computer. Fake simulations
+Passive Reconnaissance Definition: When you&rsquo;re not engaging with the target to extract information. Example of Passive reconnaissance is google dorking, whois, nslookup, dig.
+Usually passive reconnaissance can not be easily detected simply because you&rsquo;re mimicking a visitor of a site.
+This post won&rsquo;t be covering it. Please refer to here if you want to get practice: https://tryhackme.]]></description>
+</item>
+<item>
+    <title>Story Backgound - Modern Cyber Range</title>
+    <link>https://tryhardnguyen.github.io/posts/storytelling/</link>
+    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>https://tryhardnguyen.github.io/posts/storytelling/</guid>
+    <description><![CDATA[Character Company: SecurityNguyen
+Ethan Sullivan - Hacker Olivia Parker - Manager Nguyen Nguyen - Security Analyst Randy Moss - Employee This story is based on a &ldquo;imaginary company&rdquo; named: SecurityNguyen. SecurityNguyen has hired a Security Analyst named: &ldquo;Nguyen Nguyen (Win)&rdquo; to be charge of monitoring and securing the infrastructure. Little to Win knowledge that there is a vulnerable web server in the company network. We have a person name &ldquo;Ethan Sullivan&rdquo; who is a noob hacker that is trying to improve his skill so that he can join an APT call &ldquo;Bloody Zoombie&rdquo;.]]></description>
+</item>
+<item>
     <title>Testing Endpoint Detection - Windows</title>
     <link>https://tryhardnguyen.github.io/posts/testing-endpoint-detection-windows/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
@@ -32,10 +53,10 @@ Carrying out the Test Scan Before we carry out the attack, we need to do some pr
 </item>
 <item>
     <title>Configure Metasploitable3</title>
-    <link>https://tryhardnguyen.github.io/posts/metasploitable3/</link>
+    <link>https://tryhardnguyen.github.io/posts/metasploitable2/</link>
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/metasploitable3/</guid>
+    <guid>https://tryhardnguyen.github.io/posts/metasploitable2/</guid>
     <description><![CDATA[The problem When booted out from the box. Metasploitable will not have certain network configuration met such as one network interface not appearing on ifconfig.
 The goal My goal is to demonstrate how to add network adapter and statically change the IP address so that it works with my cyber range. First, I will do sudo nano /etc/network/interfaces Now, this is where all the magic happens. I&rsquo;m going to add an eth1 for my additional adapter.]]></description>
 </item>
@@ -76,26 +97,6 @@ For &ldquo;Computer Name&rdquo; this is what will appear on our host_name. I&rsq
     <guid>https://tryhardnguyen.github.io/posts/cyberrange_firewall/</guid>
     <description><![CDATA[Since, I already installed my pfsense. I just need to configure it. Looking at our Modern Cyber Range Diagram: 192.168.40.1 will have a static IP and will be our gateway to the internet. Then, our Windows Server will lease IP address from 192.168.40.2-192.168.40.254 to our workstation. All that is left is to implement it.
 What I&rsquo;m going to do is change the LAN to 192.168.40.1. I&rsquo;m going enter 2. The GUI will ask me &quot;Enter the number of the interface you wish to configure&quot;, since 1 is our WAN, 2 is LAN.]]></description>
-</item>
-<item>
-    <title>Install Windows Server 2019 - DHCP, DNS, Active Directory</title>
-    <link>https://tryhardnguyen.github.io/posts/sn-winserver/</link>
-    <pubDate>Sun, 14 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/sn-winserver/</guid>
-    <description><![CDATA[Change hostname To help better identify our windows server, I will rename mine to SN-DC1.
-SN = Securitynguyen.com
-DC1= Domain Controller 1
-To change the hostname, we will open our command prompt and type sconfig
-Microsoft (R) Windows Script Host Version 5.812 Copyright (C) Microsoft Corporation. All rights reserved. Inspecting system... =============================================================================== Server Configuration =============================================================================== 1) Domain/Workgroup: Workgroup: WORKGROUP 2) Computer Name: WIN-9JQ1I4F96SE 3) Add Local Administrator 4) Configure Remote Management Enabled 5) Windows Update Settings: DownloadOnly 6) Download and Install Updates 7) Remote Desktop: Disabled 8) Network Settings 9) Date and Time 10) Telemetry settings Unknown 11) Windows Activation 12) Log Off User 13) Restart Server 14) Shut Down Server 15) Exit to Command Line Enter number to select an option: We are going to select 2.]]></description>
-</item>
-<item>
-    <title>Install &amp; Enable Windows Defender Audit Logs</title>
-    <link>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>https://tryhardnguyen.github.io/posts/windows-defender-audit-logs/</guid>
-    <description><![CDATA[Go to Local Group Policy editor by typing gpedit. Then, expand Windows Settings -&gt; Security Settings -&gt; Local Policies -&gt; Audit Policy -&gt; Then click on Audit object access. Check Success and Failure.]]></description>
 </item>
 </channel>
 </rss>
