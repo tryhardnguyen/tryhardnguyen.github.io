@@ -5,7 +5,7 @@
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>blue team</title>
+    <title>Blue Team</title>
     <link>/tags/blue-team/</link>
     <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
@@ -13,7 +13,7 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>nmap</title>
+    <title>Nmap</title>
     <link>/tags/nmap/</link>
     <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
@@ -21,7 +21,7 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>red team</title>
+    <title>Red Team</title>
     <link>/tags/red-team/</link>
     <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
