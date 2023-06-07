@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/service-detection\/"
-        },"genre": "posts","keywords": "nmap, blue team, red team","wordcount":  353 ,
+        },"genre": "posts","keywords": "nmap, blue team, red team","wordcount":  354 ,
         "url": "\/posts\/service-detection\/","datePublished": "2023-06-06T00:00:00+00:00","dateModified": "2023-06-06T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Service Detection using Nmap</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;353 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;354 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -136,19 +136,14 @@ The lower-numbered probes are effective against a wide variety of common service
 <a href="https://nmap.org/book/man-version-detection.html" target="_blank" rel="noopener noreffer ">https://nmap.org/book/man-version-detection.html</a></p>
 <h2 id="what-does-service-detection-look-from-a-wireshark-perspective">What does service detection look from a Wireshark perspective?</h2>
 <p>First, Using the Kali Linux I will execute an Nmap scan on my vulnerable web server.
-<a class="lightgallery" href="/images/modern_cyber_range46.jpg" title="/images/modern_cyber_range46.jpg" data-thumbnail="/images/modern_cyber_range46.jpg">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/images/modern_cyber_range46.jpg"
-            data-srcset="/images/modern_cyber_range46.jpg, /images/modern_cyber_range46.jpg 1.5x, /images/modern_cyber_range46.jpg 2x"
-            data-sizes="auto"
-            alt="/images/modern_cyber_range46.jpg" width="596" height="257" />
-    </a>
-<br>
+<img class="zoom" src="/images/modern_cyber_range46.jpg"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/modern_cyber_range47.jpg">
+</div>
+\
 Then, I will switch to my Wireshark.
-Let&rsquo;s take a look at ftp -&gt; vsftpd 2.3.4. To make my life easier, I will use the display filter:
-<code>tcp.port == 21</code></p>
+Let's take a look at ftp -> vsftpd 2.3.4. To make my life easier, I will use the display filter:
+`tcp.port == 21`
 <img class="zoom" src="/images/modern_cyber_range47.jpg">
 <div class="overlay">
         <img class="zoomed-image" src="/images/modern_cyber_range47.jpg">
