@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>/posts/service-detection/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/recon/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/storytelling/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/testing-endpoint-detection-windows/</loc><lastmod>2023-05-24T00:00:00&#43;00:00</lastmod></url><url>
@@ -30,12 +31,16 @@
             <loc>/posts/owasp-top-10-xss-stored/</loc><lastmod>2022-12-07T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/installing-kali-linux-attacker-cybersecurity-homelab/</loc><lastmod>2022-12-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/owasp-top-10-vulnerabilities-project/</loc><lastmod>2022-11-30T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/homelabs/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/templates/</loc></url><url>
+            <loc>/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/blue-team/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/homelabs/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/nmap/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/red-team/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/modern-cyber-range/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2023-05-25T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/windows/</loc><lastmod>2023-05-24T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/detection-tools/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/hids/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>

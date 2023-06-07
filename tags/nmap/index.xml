@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>nmap - Tag - </title>
+        <link>/tags/nmap/</link>
+        <description>nmap - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/nmap/" rel="self" type="application/rss+xml" /><item>
+    <title>Service Detection using Nmap</title>
+    <link>/posts/service-detection/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/service-detection/</guid>
+    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab. Everything is done in a Virtual Machine
+Background information: Service detection is essentially banner grabbing. Banner grabbing is when you connect to a service such as FTP, Telnet, and you grab what version the service is running. Then, if that service that is running on the application is very old, likely chance it has a vulnerability which you can use to exploit it.]]></description>
+</item>
+</channel>
+</rss>

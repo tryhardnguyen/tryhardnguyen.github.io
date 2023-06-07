@@ -4,7 +4,31 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>blue team</title>
+    <link>/tags/blue-team/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/blue-team/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>nmap</title>
+    <link>/tags/nmap/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/nmap/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>red team</title>
+    <link>/tags/red-team/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/red-team/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Modern Cyber Range</title>
     <link>/tags/modern-cyber-range/</link>
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
@@ -58,14 +82,6 @@
     <pubDate>Mon, 19 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/vulnerability-management/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>OWASP</title>
-    <link>/tags/owasp/</link>
-    <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/owasp/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

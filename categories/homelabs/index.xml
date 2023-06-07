@@ -4,7 +4,16 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 25 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Service Detection using Nmap</title>
+    <link>/posts/service-detection/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/service-detection/</guid>
+    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab. Everything is done in a Virtual Machine
+Background information: Service detection is essentially banner grabbing. Banner grabbing is when you connect to a service such as FTP, Telnet, and you grab what version the service is running. Then, if that service that is running on the application is very old, likely chance it has a vulnerability which you can use to exploit it.]]></description>
+</item>
+<item>
     <title>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</title>
     <link>/posts/recon/</link>
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
@@ -89,15 +98,6 @@ Then it will ask you to create an password for the user.]]></description>
     <guid>/posts/domain-join/</guid>
     <description><![CDATA[Join the Computer to the Domain On the search bar, type &ldquo;System&rdquo; and click on the icon You should have this GUI appear. Now, let click on &ldquo;Advanced System Settings&rdquo; -&gt; &ldquo;Computer Name&rdquo; -&gt; Then click &ldquo;Change&rdquo;.
 For &ldquo;Computer Name&rdquo; this is what will appear on our host_name. I&rsquo;m going to name it &ldquo;person1&rdquo; so that it easy to reconginze. Then, we are going to click on the circle next to &ldquo;Domain&rdquo; and type in our domain name.]]></description>
-</item>
-<item>
-    <title>Configure pfsense firewall</title>
-    <link>/posts/cyberrange_firewall/</link>
-    <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/cyberrange_firewall/</guid>
-    <description><![CDATA[Since, I already installed my pfsense. I just need to configure it. Looking at our Modern Cyber Range Diagram: 192.168.40.1 will have a static IP and will be our gateway to the internet. Then, our Windows Server will lease IP address from 192.168.40.2-192.168.40.254 to our workstation. All that is left is to implement it.
-What I&rsquo;m going to do is change the LAN to 192.168.40.1. I&rsquo;m going enter 2. The GUI will ask me &quot;Enter the number of the interface you wish to configure&quot;, since 1 is our WAN, 2 is LAN.]]></description>
 </item>
 </channel>
 </rss>
