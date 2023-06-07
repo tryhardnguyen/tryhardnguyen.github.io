@@ -149,9 +149,9 @@ The lower-numbered probes are effective against a wide variety of common service
 Then, I will switch to my Wireshark.
 Let&rsquo;s take a look at ftp -&gt; vsftpd 2.3.4. To make my life easier, I will use the display filter:
 <code>tcp.port == 21</code></p>
-<img class="zoom" src="/images/modern_cyber_range47.png">
+<img class="zoom" src="/images/modern_cyber_range47.jpg">
 <div class="overlay">
-        <img class="zoomed-image" src="/images/modern_cyber_range47.png">
+        <img class="zoomed-image" src="/images/modern_cyber_range47.jpg">
 </div>
 <p>As you can from the picture, the top portion that is highlighted in red is nmap is checking if the port is open or closed. The port is open because we got a series of SYN -&gt; SYN-ACK -&gt; ACK -&gt; RST,ACK.<br>
 If the port was closed, the server would respond with a RST instead of a SYN,ACK.<br>
