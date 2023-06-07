@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/service-detection\/"
-        },"genre": "posts","keywords": "nmap, blue team, red team","wordcount":  353 ,
+        },"genre": "posts","keywords": "nmap, blue team, red team","wordcount":  352 ,
         "url": "\/posts\/service-detection\/","datePublished": "2023-06-06T00:00:00+00:00","dateModified": "2023-06-06T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Service Detection using Nmap</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;353 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;352 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -148,15 +148,15 @@ The lower-numbered probes are effective against a wide variety of common service
 <br>
 Then, I will switch to my Wireshark.
 Let&rsquo;s take a look at ftp -&gt; vsftpd 2.3.4. To make my life easier, I will use the display filter:
-<code>tcp.port == 21</code>
-<img class="zoom" src="/images/modern_cyber_range47.png"></p>
+<code>tcp.port == 21</code></p>
+<img class="zoom" src="/images/modern_cyber_range47.png">
 <div class="overlay">
-        <img class="zoomed-image" src="/images/modern_cyber_range47.png" alt="Zoomed Image">
+        <img class="zoomed-image" src="/images/modern_cyber_range47.png">
 </div>
-As you can from the picture, the top portion that is highlighted in red is nmap is checking if the port is open or closed. The port is open because we got a series of SYN -> SYN-ACK -> ACK -> RST,ACK.\
-If the port was closed, the server would respond with a RST instead of a SYN,ACK.\
-\
-After nmap figured out that the port was open, nmap ran a service detection. When a service detection happen, it will complete a TCP 3 way handshake to establish connection with the service to perform banner grabbing. As you can see from the purple frame.
+<p>As you can from the picture, the top portion that is highlighted in red is nmap is checking if the port is open or closed. The port is open because we got a series of SYN -&gt; SYN-ACK -&gt; ACK -&gt; RST,ACK.<br>
+If the port was closed, the server would respond with a RST instead of a SYN,ACK.<br>
+<br>
+After nmap figured out that the port was open, nmap ran a service detection. When a service detection happen, it will complete a TCP 3 way handshake to establish connection with the service to perform banner grabbing. As you can see from the purple frame.</p>
 <p>That all. Thanks for reading.</p>
 <img class="zoom" src="/images/modern_cyber_range44.png">
 <div class="overlay">
@@ -217,5 +217,5 @@ After nmap figured out that the port was open, nmap ran a service detection. Whe
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
