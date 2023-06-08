@@ -4,7 +4,17 @@
         <link>/tags/nmap/</link>
         <description>Nmap - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/nmap/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/nmap/" rel="self" type="application/rss+xml" /><item>
+    <title>OS Detection/Traceroute</title>
+    <link>/posts/os-detection-and-traceroute/</link>
+    <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/os-detection-and-traceroute/</guid>
+    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
+OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
+Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
+</item>
+<item>
     <title>Open-Closed Ports</title>
     <link>/posts/open-closed-ports-nmap/</link>
     <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
