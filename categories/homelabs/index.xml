@@ -31,14 +31,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
 </item>
 <item>
-    <title>Service Detection using Nmap</title>
-    <link>/posts/test/</link>
-    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/test/</guid>
-    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
-</item>
-<item>
     <title>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</title>
     <link>/posts/recon/</link>
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
@@ -85,6 +77,14 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/metasploitable2/</guid>
     <description><![CDATA[Today, I'm going configure Metasploitable3 (Linux) Network Configuration]]></description>
+</item>
+<item>
+    <title>SecurityOnion - Modern Cyber Range</title>
+    <link>/posts/securityonion-modern-cyber-range/</link>
+    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/securityonion-modern-cyber-range/</guid>
+    <description><![CDATA[In this post, I will be testing if I'm able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices]]></description>
 </item>
 </channel>
 </rss>
