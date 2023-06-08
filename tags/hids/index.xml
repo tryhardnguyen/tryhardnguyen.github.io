@@ -10,7 +10,7 @@
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/osquery/</guid>
-    <description><![CDATA[Download OSquery Go to your SecurityOnion -&gt; Downloads -&gt; Under the osquery Packages and Configs -&gt; Click on MSI (Windows) -&gt; Go through the installation phase.]]></description>
+    <description><![CDATA[With OSquery, you can write SQL queries to retrieve data from the operating system, just as you would with a database.]]></description>
 </item>
 </channel>
 </rss>

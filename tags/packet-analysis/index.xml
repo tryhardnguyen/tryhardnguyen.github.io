@@ -10,10 +10,7 @@
     <pubDate>Sat, 31 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/sunnystation-malwaretraffic/</guid>
-    <description><![CDATA[Reference: https://www.malware-traffic-analysis.net/2022/02/23/index.html
-SCENARIO LAN segment data:
-1 2 3 4 5 6 LAN segment range: 172.16.0.0/24 (172.16.0.0 through 172.16.0.255) Domain: sunnystation.com Domain controller: 172.16.0.52 - SUNNYSTATION-DC File Server: 172.16.0.53 - SUNNYFILESERVER LAN segment gateway: 172.16.0.1 LAN segment broadcast address: 172.16.0.255 Topology View: We will start adding more to this topology as we investigate.
-The aim of this incident response report 1 2 What hosts/user account names are active on this network?]]></description>
+    <description><![CDATA[Analyze the malicious pcap file]]></description>
 </item>
 <item>
     <title>Burnincandle (Malware Traffic Analysis)</title>
@@ -21,8 +18,7 @@ The aim of this incident response report 1 2 What hosts/user account names are a
     <pubDate>Fri, 23 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/burnincandle-malwaretraffic/</guid>
-    <description><![CDATA[SCENARIO LAN segment data:
-LAN segment range: 10.0.19.0/24 (10.0.19.0 through 10.0.19.255) Domain: burnincandle.com Domain controller: 10.0.19.9 - BURNINCANDLE-DC LAN segment gateway: 10.0.19.1 LAN segment broadcast address: 10.0.19.255 Topology (Based on the information we currently know): TASK Write an incident report based on the pcap. The incident report should contain three sections: Executive Summary: State in simple, direct terms what happened (when, who, what). Details: Details of the victim (hostname, IP address, MAC address, Windows user account name).]]></description>
+    <description><![CDATA[Analyze the malicious pcap file]]></description>
 </item>
 </channel>
 </rss>

@@ -10,10 +10,7 @@
     <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/owasp-top10-sql-injection/</guid>
-    <description><![CDATA[Today, we will be covering SQL Injection. Our goal for today is
-Learn the methodology behind SQL Injection How to carry out SQL Injection Attack? Network Perspective How to detect a SQL Injection Attack using snort? SQL injection can be known as SQLi attack.
-Methodology: A SQL injection attack consists of the insertion or &ldquo;injection&rdquo; of a SQL query via the input data from the client to the application.
-A successful SQL injection can read sensitive data from the database, modify database data (Insert/Update/Delete), execute administration operations on the database (such as shutdown the DBMS), recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system.]]></description>
+    <description><![CDATA[OWASP TOP 10 Project]]></description>
 </item>
 <item>
     <title>OWASP TOP 10: CSRF (Cross Site Request Forgery)</title>
@@ -21,8 +18,7 @@ A successful SQL injection can read sensitive data from the database, modify dat
     <pubDate>Sat, 10 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/owasp-top-10-csrf/</guid>
-    <description><![CDATA[Today, we will be covering Cross-site Request Forgery. Our goal for today is
-Learn the methodology behind Cross-site Request Forgery How to carry out Cross-site Request Forgery? How to know if the attack was successful? How to detect a Cross-site Request Forgery using Snort? Methodology Cross-site Request Forgery is an attack that forces an end user to execute unwanted actions on a web application where they&rsquo;re currently authenticated. How to carry out the attack: Here we have a prompt that is used to change a user password.]]></description>
+    <description><![CDATA[OWASP TOP 10 Project]]></description>
 </item>
 <item>
     <title>OWASP TOP 10: XSS (DOM) Attack - DVWA</title>
@@ -30,10 +26,7 @@ Learn the methodology behind Cross-site Request Forgery How to carry out Cross-s
     <pubDate>Wed, 07 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/owasp-top-10-xss-stored/</guid>
-    <description><![CDATA[NOTE: Click on the photo to zoom in.
-Today, we will be covering XSS (DOM). Our goal for today is
-Learn the methodology behind XSS (DOM) How to carry out an XSS (DOM) Attack Network Perspective How to detect an XSS (DOM) Attack using snort? Before we move into XSS (DOM), We need to know what XSS is.
-XSS stands for Cross-site scripting. Attackers would send victims links that contain malicious scripts.]]></description>
+    <description><![CDATA[OWASP TOP 10 Project]]></description>
 </item>
 <item>
     <title>Installing Attacker Machine - Kali Linux</title>
@@ -41,9 +34,7 @@ XSS stands for Cross-site scripting. Attackers would send victims links that con
     <pubDate>Thu, 01 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/installing-kali-linux-attacker-cybersecurity-homelab/</guid>
-    <description><![CDATA[In this topic:
-We will be setting up our Kali Linux (as an Attacker) Making sure that we can reach the DWVA page from the Attacker Side Setting up Kali Linux / Setting up Network Interface This is an easy step. Simply create a Kali Linux. You can rename the machine to the attacker.
-VmwareWe will be keeping the VM on NAT to imitate an attacker from the outside.]]></description>
+    <description><![CDATA[Install Attacker Machine]]></description>
 </item>
 <item>
     <title>OWASP TOP 10 Vulnerabilities Project</title>
@@ -51,9 +42,7 @@ VmwareWe will be keeping the VM on NAT to imitate an attacker from the outside.
     <pubDate>Wed, 30 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/owasp-top-10-vulnerabilities-project/</guid>
-    <description><![CDATA[Firewall LayoutOn our previous project: We learned how to create a captive portal How to create user role management How to implement least privilege roles Creates Firewall Rules So what next? Our next step is incorporating Suricata with pfSense, installing DVWA into the tech subnet, and attacking it from the WAN (Outside).
-What is the goal of this project:
-To learn how some of these attacks look like from a PCAP perspective Get a refresher on what these attacks are Write Suricata rules to detect these attacks Write Suricata rules to block these attacks Our next step is Installing DVWA For DVWA installation, I recommend you follow this video:]]></description>
+    <description><![CDATA[OWASP TOP 10 Project]]></description>
 </item>
 </channel>
 </rss>

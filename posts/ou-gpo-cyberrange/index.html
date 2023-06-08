@@ -5,16 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Create OU, GPO, Enable Logging within Windows Server - </title><meta name="Description" content="Cybersecurity Blog filled with CTF Writeups, HomeLabs, Project"><meta property="og:title" content="Create OU, GPO, Enable Logging within Windows Server" />
-<meta property="og:description" content="Goal The goal of this post is to create an OU (Group) for our users and apply GPO (Rules) to the Organizational Units. These GPO will allows us to enable logging without having to manually configure each device one by one. Let&rsquo;s get started.
-Create an OU (Organizational Unit) First, let&rsquo;s create an organizational units (OU). To do this, we will go to Tools -&gt; Right click on your domain and click on &ldquo;New Organizational Unit&rdquo;, Now type a name you want your organizational unit to be label as." />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/ou-gpo-cyberrange/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-05-22T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Create OU, GPO, Enable Logging within Windows Server"/>
-<meta name="twitter:description" content="Goal The goal of this post is to create an OU (Group) for our users and apply GPO (Rules) to the Organizational Units. These GPO will allows us to enable logging without having to manually configure each device one by one. Let&rsquo;s get started.
-Create an OU (Organizational Unit) First, let&rsquo;s create an organizational units (OU). To do this, we will go to Tools -&gt; Right click on your domain and click on &ldquo;New Organizational Unit&rdquo;, Now type a name you want your organizational unit to be label as."/>
+<meta name="twitter:description" content=""/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -135,8 +133,7 @@ We are going repeat the same step for each profile.
 <br>
 <br>
 Then I&rsquo;m going make sure Audit Policy -&gt; Audit object access. Let&rsquo;s first go to Tools -&gt; GPO -&gt; Then right click on the GPO you want edit. Go to Policies -&gt; Windows Settings -&gt; Local Policies -&gt; Audit Policy -&gt; Then click on Audit object access -&gt; Click on Define these policy settings and check &ldquo;Success&rdquo; and &ldquo;Failure&rdquo;.</p>
-<p>That is all I have planned.</p>
-</div><div class="post-footer" id="post-footer">
+<p>That is all I have planned.</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

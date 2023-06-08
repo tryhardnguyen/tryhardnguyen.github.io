@@ -10,13 +10,7 @@
     <pubDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/phishinganalysis1/</guid>
-    <description><![CDATA[Source: InfoSec Handlers Diary Blog - SANS Internet Storm Center https://isc.sans.edu/diary/October+2021+Contest+Forensic+Challenge/27960
-October 2021 Contest: Forensic Challenge, Author: Brad Duncan
-Malware-Traffic-Analysis.net - 2021-10-22 - Files for an ISC diary (October 2021 Forensic Contest)
-https://www.malware-traffic-analysis.net/2021/10/22/index.html
-Malicious Emails can be found above ☝️☝️
-2021-10-21-malicious-email-1102-UTC.eml Email header:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 Return-Path: &lt;karen.marshall@olympus.co.uk&gt; Delivered-To: macrus.cobb@enemywatch.net Authentication-Results: mail.enemywatch.net; dkim=none; dmarc=none; spf=fail (mail.]]></description>
+    <description><![CDATA[Analyzing Phishing Email - SANS 2021 Contest]]></description>
 </item>
 </channel>
 </rss>

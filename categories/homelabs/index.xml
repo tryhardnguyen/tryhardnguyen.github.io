@@ -10,9 +10,7 @@
     <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/open-closed-ports-nmap/</guid>
-    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
-Here is a simple trick I used to determine if a port is closed or open in Wireshark. In nmap, there are two different type of port scans:
-Basic Port Scans - (TCP Connect Scan), (TCP SYN port scan), (UDP port scan) Advanced Port Scans - NULL, FIN, XMAS, Zombie Scan When trying to figure out if the port is open, it can be different for each scan.]]></description>
+    <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
 </item>
 <item>
     <title>Service Detection using Nmap</title>
@@ -20,8 +18,7 @@ Basic Port Scans - (TCP Connect Scan), (TCP SYN port scan), (UDP port scan) Adva
     <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/service-detection/</guid>
-    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab. Everything is done in a Virtual Machine
-Background information: Service detection is essentially banner grabbing. Banner grabbing is when you connect to a service such as FTP, Telnet, and you grab what version the service is running. Then, if that service that is running on the application is very old, likely chance it has a vulnerability which you can use to exploit it.]]></description>
+    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
 </item>
 <item>
     <title>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</title>
@@ -29,11 +26,7 @@ Background information: Service detection is essentially banner grabbing. Banner
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/recon/</guid>
-    <description><![CDATA[Types of Reconnaissance CKC = Cyber Kill Chain
-Disclaimer: Everything is all virtualize in the host computer. Fake simulations
-Passive Reconnaissance Definition: When you&rsquo;re not engaging with the target to extract information. Example of Passive reconnaissance is google dorking, whois, nslookup, dig.
-Usually passive reconnaissance can not be easily detected simply because you&rsquo;re mimicking a visitor of a site.
-This post won&rsquo;t be covering it. Please refer to here if you want to get practice: https://tryhackme.]]></description>
+    <description><![CDATA[In this post, I will be exploring what reconnaissance look like from an attacker point of view.]]></description>
 </item>
 <item>
     <title>Story Backgound - Modern Cyber Range</title>
@@ -41,8 +34,7 @@ This post won&rsquo;t be covering it. Please refer to here if you want to get pr
     <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/storytelling/</guid>
-    <description><![CDATA[Character Company: SecurityNguyen
-Ethan Sullivan - Hacker Olivia Parker - Manager Nguyen Nguyen - Security Analyst Randy Moss - Employee This story is based on a &ldquo;imaginary company&rdquo; named: SecurityNguyen. SecurityNguyen has hired a Security Analyst named: &ldquo;Nguyen Nguyen (Win)&rdquo; to be charge of monitoring and securing the infrastructure. Little to Win knowledge that there is a vulnerable web server in the company network. We have a person name &ldquo;Ethan Sullivan&rdquo; who is a noob hacker that is trying to improve his skill so that he can join an APT call &ldquo;Bloody Zoombie&rdquo;.]]></description>
+    <description><![CDATA[Modern Cyber Range is based off of this story.]]></description>
 </item>
 <item>
     <title>Testing Endpoint Detection - Windows</title>
@@ -50,8 +42,7 @@ Ethan Sullivan - Hacker Olivia Parker - Manager Nguyen Nguyen - Security Analyst
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/testing-endpoint-detection-windows/</guid>
-    <description><![CDATA[Tools used:
-Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon logs As we can see from the Log Count by Node. I can see my hostname of my client computer this mean that there are some logs shipped to SecurityOnion. \ \ \ Let's do try out a command and see if the sysmon is able to record it. The command we will try is: `ipconfig` and `tasklist /v` \ \ Hello]]></description>
+    <description><![CDATA[The purpose of showcase the endpoint detection that I'm working with.]]></description>
 </item>
 <item>
     <title>Create OU, GPO, Enable Logging within Windows Server</title>
@@ -59,8 +50,7 @@ Security Onion -&gt; Elastic stack as the SIEM. sysmon Winlogbeat to ship Sysmon
     <pubDate>Mon, 22 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/ou-gpo-cyberrange/</guid>
-    <description><![CDATA[Goal The goal of this post is to create an OU (Group) for our users and apply GPO (Rules) to the Organizational Units. These GPO will allows us to enable logging without having to manually configure each device one by one. Let&rsquo;s get started.
-Create an OU (Organizational Unit) First, let&rsquo;s create an organizational units (OU). To do this, we will go to Tools -&gt; Right click on your domain and click on &ldquo;New Organizational Unit&rdquo;, Now type a name you want your organizational unit to be label as.]]></description>
+    <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Test Scan on Metasploitable2</title>
@@ -68,8 +58,7 @@ Create an OU (Organizational Unit) First, let&rsquo;s create an organizational u
     <pubDate>Sun, 21 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/test-scan/</guid>
-    <description><![CDATA[Adding a Packet Sniffer To see the attacks that I carried out on my virtual machine, I installed Kali Linux Purple to be my sniffer. \
-Carrying out the Test Scan Before we carry out the attack, we need to do some preparations! First, we need to know if we can reach metasploitable. To find out this answer, we will use the ping command. ping resultThen, we can use the curl command to see if we can get the webpage of metasploitable curl resultLook like we can reach metasploitable just fine.]]></description>
+    <description><![CDATA[After setting up my Kali Linux (Attacker) and my vulnerable server metasploitable2, I'm ready to try scanning it and see the network activity it generates.]]></description>
 </item>
 <item>
     <title>Configure Metasploitable3</title>
@@ -77,8 +66,7 @@ Carrying out the Test Scan Before we carry out the attack, we need to do some pr
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/metasploitable2/</guid>
-    <description><![CDATA[The problem When booted out from the box. Metasploitable will not have certain network configuration met such as one network interface not appearing on ifconfig.
-The goal My goal is to demonstrate how to add network adapter and statically change the IP address so that it works with my cyber range. First, I will do sudo nano /etc/network/interfaces Now, this is where all the magic happens. I&rsquo;m going to add an eth1 for my additional adapter.]]></description>
+    <description><![CDATA[Today, I'm going configure Metasploitable3 (Linux) Network Configuration]]></description>
 </item>
 <item>
     <title>SecurityOnion - Modern Cyber Range</title>
@@ -86,9 +74,7 @@ The goal My goal is to demonstrate how to add network adapter and statically cha
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/securityonion-modern-cyber-range/</guid>
-    <description><![CDATA[Accessing the Security Onion Page This post is not going cover the installation of security onion. There are alot of youtube video covering installation or reading the documentation will help.
-Documentation: https://docs.securityonion.net/en/2.3/
-Right now, I&rsquo;m on my Win10 (Victim1) machine. I can access my Security onion using http://192.168.40.3. Then, I&rsquo;m going to enter my credentials that I created during the installation of my security onion. After that you will be greeted by the overview.]]></description>
+    <description><![CDATA[In this post, I will be testing if I'm able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices]]></description>
 </item>
 <item>
     <title>Creating a User Account with AD</title>
@@ -96,9 +82,7 @@ Right now, I&rsquo;m on my Win10 (Victim1) machine. I can access my Security oni
     <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/creating-user-account-with-ad/</guid>
-    <description><![CDATA[The start In the Server Manager -&gt; Tools -&gt; Active Directory Users and Computers -&gt; Click on Users -&gt; Right click New -&gt; User.
-Then it will ask you to fill in the blank with the user information. You can go to your random name generator to get your pretend users. Here is the link to the random name generator I used: https://randomwordgenerator[.]com/name[.]php
-Then it will ask you to create an password for the user.]]></description>
+    <description><![CDATA[Step on creating user account with Active Directory]]></description>
 </item>
 </channel>
 </rss>

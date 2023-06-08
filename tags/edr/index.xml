@@ -10,11 +10,7 @@
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/install-wazuh-edr/</guid>
-    <description><![CDATA[Download Wazuh First, let go to this site to get our Wazuh: https://documentation.wazuh.com/3.13/installation-guide/packages-list/index.html Then click on the installer and install it. Don&rsquo;t click Finish yet. Click on Run Agent Configuration interface then click Finish and click Yes.
-This is what you should have:
-Connect it to whatever interface your SecurityOnion is on. Then SSH into your Security Onion.
-Open another command promp and type ipconfig.
-Take note of the ip address of your host/agent whatever you want to call it.]]></description>
+    <description><![CDATA[Step by Step guide of installing Wazuh]]></description>
 </item>
 </channel>
 </rss>
