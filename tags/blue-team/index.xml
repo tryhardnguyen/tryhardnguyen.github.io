@@ -30,5 +30,13 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <guid>/posts/service-detection/</guid>
     <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
 </item>
+<item>
+    <title>Service Detection using Nmap</title>
+    <link>/posts/test/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/test/</guid>
+    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
+</item>
 </channel>
 </rss>

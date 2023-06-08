@@ -7,7 +7,7 @@
         <title>Service Detection using Nmap - </title><meta name="Description" content="Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view."><meta property="og:title" content="Service Detection using Nmap" />
 <meta property="og:description" content="Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/service-detection/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="/posts/test/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-06-06T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
@@ -16,7 +16,7 @@
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/service-detection/" /><link rel="prev" href="/posts/test/" /><link rel="next" href="/posts/open-closed-ports-nmap/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/test/" /><link rel="prev" href="/posts/recon/" /><link rel="next" href="/posts/service-detection/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -26,9 +26,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/service-detection\/"
-        },"genre": "posts","keywords": "nmap, Blue Team, Red Team","wordcount":  355 ,
-        "url": "\/posts\/service-detection\/","datePublished": "2023-06-06T00:00:00+00:00","dateModified": "2023-06-06T00:00:00+00:00","publisher": {
+            "@id": "\/posts\/test\/"
+        },"genre": "posts","keywords": "nmap, Blue Team, Red Team","wordcount":  0 ,
+        "url": "\/posts\/test\/","datePublished": "2023-06-06T00:00:00+00:00","dateModified": "2023-06-06T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -69,111 +69,15 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Service Detection using Nmap</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;355 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-06">2023-06-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;0 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;0 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#background-information">Background information:</a></li>
-    <li><a href="#command-for-nmap">Command for Nmap</a></li>
-    <li><a href="#what-does-service-detection-look-from-a-wireshark-perspective">What does service detection look from a Wireshark perspective?</a></li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><style>
-	.zoom {
-	            transition: transform 0.3s;
-	            cursor: pointer;
-	        }
-	        
-	        .overlay {
-	            position: fixed;
-	            top: 0;
-	            left: 0;
-	            width: 100%;
-	            height: 100%;
-	            background-color: rgba(0, 0, 0, 0.5);
-	            display: none;
-	            justify-content: center;
-	            align-items: center;
-	            z-index: 999;
-	            pointer-events: none;
-	        }
-	        
-	        .zoomed-image {
-	            max-width: 80%;
-	            max-height: 80%;
-	            transition: transform 0.3s;
-	        }
-	        
-	        .zoomed-image.zoomed {
-	            transform: scale(1.5);
-	        }
-</style>
-<p>Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
-<br>
-<br>
-Everything is done in a Virtual Machine</p>
-<h2 id="background-information">Background information:</h2>
-<p>Service detection is essentially banner grabbing. Banner grabbing is when you connect to a service such as FTP, Telnet, and you grab what version the service is running. Then, if that service that is running on the application is very old, likely chance it has a vulnerability which you can use to exploit it.</p>
-<h2 id="command-for-nmap">Command for Nmap</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nmap -sV --version-intensity --version-light[optional] MACHINE_IP
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>--version-intensity &lt;intensity&gt; (Set version scan intensity)</code>
-When performing a version scan (<code>-sV</code>), Nmap sends a series of probes, each of which is assigned a rarity value between one and nine.
-The lower-numbered probes are effective against a wide variety of common services, while the higher-numbered ones are rarely useful.</p>
-<p>The <strong>intensity level specifies which probes should be applied.</strong> The <strong>higher the number, the more likely it is the service will be correctly identified.</strong> However, <strong>high intensity scans take longer.</strong> The intensity must be between 0 and 9. The default is 7.</p>
-<p>Reference:
-<a href="https://nmap.org/book/man-version-detection.html" target="_blank" rel="noopener noreffer ">https://nmap.org/book/man-version-detection.html</a></p>
-<h2 id="what-does-service-detection-look-from-a-wireshark-perspective">What does service detection look from a Wireshark perspective?</h2>
-<p>First, Using the Kali Linux I will execute an Nmap scan on my vulnerable web server.
-<img class="zoom" src="/images/modern_cyber_range46.jpg"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/images/modern_cyber_range47.jpg">
-</div>
-\
-Then, I will switch to my Wireshark.
-Let's take a look at ftp -> vsftpd 2.3.4. To make my life easier, I will use the display filter:
-`tcp.port == 21`
-<img class="zoom" src="/images/modern_cyber_range47.jpg">
-<div class="overlay">
-        <img class="zoomed-image" src="/images/modern_cyber_range47.jpg">
-</div>
-<p>As you can from the picture, the top portion that is highlighted in red is nmap is checking if the port is open or closed. The port is open because we got a series of SYN -&gt; SYN-ACK -&gt; ACK -&gt; RST,ACK.<br>
-If the port was closed, the server would respond with a RST instead of a SYN,ACK.<br>
-<br>
-After nmap figured out that the port was open, nmap ran a service detection. When a service detection happen, it will complete a TCP 3 way handshake to establish connection with the service to perform banner grabbing. As you can see from the purple frame.</p>
-<p>That all. Thanks for reading my post.</p>
-<!-- Zoom Animation Feature -->
-<script>
-	const zooms = document.querySelectorAll('.zoom');
-	const overlay = document.querySelector('.overlay');
-	const zoomedImage = document.querySelector('.zoomed-image');
-	
-	zooms.forEach(function(zoom) {
-		zoom.addEventListener('click', function() {
-			overlay.style.display = 'flex';
-			overlay.style.pointerEvents = 'auto';
-			zoomedImage.src = zoom.src;
-			zoomedImage.classList.add('zoomed');
-		});
-	});
-	
-	overlay.addEventListener('click', function() {
-		overlay.style.display = 'none';
-		overlay.style.pointerEvents = 'none';
-		zoomedImage.classList.remove('zoomed');
-	});
-</script></div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -182,7 +86,7 @@ After nmap figured out that the port was open, nmap ran a service detection. Whe
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/service-detection/" data-title="Service Detection using Nmap" data-hashtags="nmap,Blue Team,Red Team"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/service-detection/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/test/" data-title="Service Detection using Nmap" data-hashtags="nmap,Blue Team,Red Team"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/test/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -194,8 +98,8 @@ After nmap figured out that the port was open, nmap ran a service detection. Whe
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/test/" class="prev" rel="prev" title="Service Detection using Nmap"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Service Detection using Nmap</a>
-            <a href="/posts/open-closed-ports-nmap/" class="next" rel="next" title="Open-Closed Ports">Open-Closed Ports<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/recon/" class="prev" rel="prev" title="Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</a>
+            <a href="/posts/service-detection/" class="next" rel="next" title="Service Detection using Nmap">Service Detection using Nmap<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
