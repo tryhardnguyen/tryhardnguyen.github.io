@@ -4,7 +4,17 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Open-Closed Ports</title>
+    <link>/posts/open-closed-ports-nmap/</link>
+    <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/open-closed-ports-nmap/</guid>
+    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
+Here is a simple trick I used to determine if a port is closed or open in Wireshark. In nmap, there are two different type of port scans:
+Basic Port Scans - (TCP Connect Scan), (TCP SYN port scan), (UDP port scan) Advanced Port Scans - NULL, FIN, XMAS, Zombie Scan When trying to figure out if the port is open, it can be different for each scan.]]></description>
+</item>
+<item>
     <title>Service Detection using Nmap</title>
     <link>/posts/service-detection/</link>
     <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
@@ -89,15 +99,6 @@ Right now, I&rsquo;m on my Win10 (Victim1) machine. I can access my Security oni
     <description><![CDATA[The start In the Server Manager -&gt; Tools -&gt; Active Directory Users and Computers -&gt; Click on Users -&gt; Right click New -&gt; User.
 Then it will ask you to fill in the blank with the user information. You can go to your random name generator to get your pretend users. Here is the link to the random name generator I used: https://randomwordgenerator[.]com/name[.]php
 Then it will ask you to create an password for the user.]]></description>
-</item>
-<item>
-    <title>How to Domain Join - Windows Client</title>
-    <link>/posts/domain-join/</link>
-    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/domain-join/</guid>
-    <description><![CDATA[Join the Computer to the Domain On the search bar, type &ldquo;System&rdquo; and click on the icon You should have this GUI appear. Now, let click on &ldquo;Advanced System Settings&rdquo; -&gt; &ldquo;Computer Name&rdquo; -&gt; Then click &ldquo;Change&rdquo;.
-For &ldquo;Computer Name&rdquo; this is what will appear on our host_name. I&rsquo;m going to name it &ldquo;person1&rdquo; so that it easy to reconginze. Then, we are going to click on the circle next to &ldquo;Domain&rdquo; and type in our domain name.]]></description>
 </item>
 </channel>
 </rss>
