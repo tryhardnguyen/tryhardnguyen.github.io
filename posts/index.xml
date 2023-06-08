@@ -12,8 +12,7 @@
     <guid>/posts/os-detection-and-traceroute/</guid>
     <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
 OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
-Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139
-This is a test]]></description>
+Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
 </item>
 <item>
     <title>Open-Closed Ports</title>
