@@ -6,13 +6,13 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/penetration-testing/" rel="self" type="application/rss+xml" /><item>
     <title>Kernel Exploits - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/kernel-exploit-linux-privilege-escalation/</link>
+    <link>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</link>
     <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/kernel-exploit-linux-privilege-escalation/</guid>
-    <description><![CDATA[This post used the Linux Privilege Escalation Room at TryHackMe for lab. https://tryhackme.com/room/linprivesc Definition of a Kernel: Core component of an operating system that powers and controls the computer system.
-You can think of a Kernel as a Car engine. Car engine is the core component that powers and controls the entire vehicle.
-When you successfully control the kernel that mean you have root privilege meaning you can do anything you want.]]></description>
+    <guid>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</guid>
+    <description><![CDATA[Note: If you need a better view of the image, you can click on the picture and it will zoom in.
+This post used the Linux Privilege Escalation Room at TryHackMe for lab. https://tryhackme.com/room/linprivesc Definition of a Kernel: Core component of an operating system that powers and controls the computer system.
+You can think of a Kernel as a Car engine. Car engine is the core component that powers and controls the entire vehicle.]]></description>
 </item>
 <item>
     <title>Socat Cheatsheet - Better netcat</title>
