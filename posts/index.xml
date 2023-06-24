@@ -10,7 +10,10 @@
     <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/linux-privilege-escalation/</guid>
-    <description><![CDATA[Note: If you need to zoom in, you can click on the image.]]></description>
+    <description><![CDATA[Note: If you need to zoom in, you can click on the image.
+This post used the Linux Privilege Escalation Room at TryHackMe for lab. https://tryhackme.com/room/linprivesc Definition of a Kernel: Core component of an operating system that powers and controls the computer system.
+You can think of a Kernel as a Car engine. Car engine is the core component that powers and controls the entire vehicle.
+When you successfully control the kernel that mean you have root privilege meaning you can do anything you want.]]></description>
 </item>
 <item>
     <title>OS Detection/Traceroute</title>
