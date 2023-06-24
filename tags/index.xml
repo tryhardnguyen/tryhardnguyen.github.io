@@ -4,10 +4,18 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 20 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux</title>
+    <link>/tags/linux/</link>
+    <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Red Team</title>
     <link>/tags/red-team/</link>
-    <pubDate>Tue, 20 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/red-team/</guid>
     <description><![CDATA[]]></description>
@@ -74,14 +82,6 @@
     <pubDate>Sat, 31 Dec 2022 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/packet-analysis/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Vulnerability Management</title>
-    <link>/tags/vulnerability-management/</link>
-    <pubDate>Mon, 19 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/vulnerability-management/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

