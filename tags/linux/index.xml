@@ -6,11 +6,11 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/linux/" rel="self" type="application/rss+xml" /><item>
     <title>Kernel Exploits - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</link>
+    <link>/posts/linux-privilege-escalation/</link>
     <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</guid>
-    <description><![CDATA[<p>Note: If you need a better view of the image, you can click on the picture and it will zoom in.</p>]]></description>
+    <guid>/posts/linux-privilege-escalation/</guid>
+    <description><![CDATA[One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works.]]></description>
 </item>
 </channel>
 </rss>

