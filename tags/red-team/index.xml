@@ -10,7 +10,7 @@
     <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/linux-privilege-escalation/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works.]]></description>
+    <description><![CDATA[Note: If you need to zoom in, you can click on the image.]]></description>
 </item>
 <item>
     <title>OS Detection/Traceroute</title>
