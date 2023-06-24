@@ -10,9 +10,7 @@
     <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</guid>
-    <description><![CDATA[Note: If you need a better view of the image, you can click on the picture and it will zoom in.
-This post used the Linux Privilege Escalation Room at TryHackMe for lab. https://tryhackme.com/room/linprivesc Definition of a Kernel: Core component of an operating system that powers and controls the computer system.
-You can think of a Kernel as a Car engine. Car engine is the core component that powers and controls the entire vehicle.]]></description>
+    <description><![CDATA[<p>Note: If you need a better view of the image, you can click on the picture and it will zoom in.</p>]]></description>
 </item>
 </channel>
 </rss>
