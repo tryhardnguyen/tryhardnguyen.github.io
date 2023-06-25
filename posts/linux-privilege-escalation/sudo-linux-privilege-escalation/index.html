@@ -135,6 +135,7 @@ For <strong>Leverage LD_PRELOAD</strong> - LD_PRELOAD. Allows any program to use
 <br>
 <br>
 This is the drawing that I made explaining Leverage LD_PRELOAD:
+<br>
 <img class="zoom" src="/images/linux_priv_8.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_8.png">
@@ -153,20 +154,25 @@ https://attack.mitre.org/techniques/T1574/006/
 <br>
 <br>
 Let&rsquo;s start by seeing what command are allowed to run sudo with. To find this information, I will use: <code>sudo -l</code>
+<br>
 <img class="zoom" src="/images/linux_priv_9.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_9.png">
 </div>
 From the picture, I can see that find, less, nano are given sudo permission. That mean I can use sudo without typing the root password. Knowing this information, I can refer to this reference: https://gtfobins.github.io/ and in the box of the website "Search among 376 binaries....", I will type find and click on the button "sudo".
+<br>
 <img class="zoom" src="/images/linux_priv_10.png">
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_10.png">
 </div>
+<br>
 After that, I will copy: `sudo find . -exec /bin/sh \; -quit` to the command prompt and run the command: `id`.
+<br>
 <img class="zoom" src="/images/linux_priv_11.png">
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_11.png">
 </div>
+<br>
 Now, I have root privilege.
 <h2 id="additional-information">Additional information</h2>
 <p>One of the TryHackMe question was: &ldquo;What is the hash of frank&rsquo;s password?&rdquo;. To find this information, I would have to go to <code>/etc/shadow</code>. Now, let&rsquo;s understand the structure of /etc/shadow.
@@ -178,6 +184,7 @@ This is frank information:
 You may be thinking that cool but where the hash? This resource explain it really well. <a href="https://www.cyberciti.biz/faq/understanding-etcshadow-file/" target="_blank" rel="noopener noreffer ">https://www.cyberciti.biz/faq/understanding-etcshadow-file/</a>
 <br>
 Essentially, we need to divide the information. To better convey the information, I will be using a drawing :)
+<br>
 <img class="zoom" src="/images/linux_priv_12.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_12.png">
