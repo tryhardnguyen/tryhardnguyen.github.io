@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>sudo - Linux Privilege Escalation - </title><meta name="Description" content="Today, I&#39;m taking a look at using sudo to escalate a local user privilege to a root (administrator) privilege."><meta property="og:title" content="sudo - Linux Privilege Escalation" />
+<meta property="og:description" content="Today, I&#39;m taking a look at using sudo to escalate a local user privilege to a root (administrator) privilege." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/linux-privilege-escalation/sudo-linux-privilege-escalation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-24T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="sudo - Linux Privilege Escalation"/>
+<meta name="twitter:description" content="Today, I&#39;m taking a look at using sudo to escalate a local user privilege to a root (administrator) privilege."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/linux-privilege-escalation/sudo-linux-privilege-escalation/" /><link rel="prev" href="/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "sudo - Linux Privilege Escalation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/linux-privilege-escalation\/sudo-linux-privilege-escalation\/"
+        },"genre": "posts","keywords": "Red Team, Linux","wordcount":  630 ,
+        "url": "\/posts\/linux-privilege-escalation\/sudo-linux-privilege-escalation\/","datePublished": "2023-06-24T00:00:00+00:00","dateModified": "2023-06-24T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Today, I'm taking a look at using sudo to escalate a local user privilege to a root (administrator) privilege."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">sudo - Linux Privilege Escalation</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;630 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#information-about-sudo">Information about sudo</a></li>
+    <li><a href="#the-problem">The problem</a></li>
+    <li><a href="#demonstration">Demonstration:</a></li>
+    <li><a href="#additional-information">Additional information</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="information-about-sudo">Information about sudo</h2>
+<p>Sudo allows a user to run a program with root privilege. Think of it as Run as Administrator on Windows.</p>
+<h2 id="the-problem">The problem</h2>
+<p>The problem with allowing user to run sudo is that it can lead to privilege escalation.
+Here are the two step we can take:
+<br>
+<strong>Leverage application functions</strong>
+<br>
+OR
+<br>
+<strong>Leverage LD_PRELOAD</strong>
+<br>
+<br>
+For <strong>Leveraging application functions</strong> - We are simply abusing the power of sudo that we are given for certain commands and using that to get root privilege. To find which commands are allowed to use sudo from a user account, we can use <code>sudo -l</code>. Then, we can use that information with the combination of this resource (<a href="https://gtfobins.github.io/" target="_blank" rel="noopener noreffer ">https://gtfobins.github.io/</a>) to get root privilege.
+<br>
+<br>
+For <strong>Leverage LD_PRELOAD</strong> - LD_PRELOAD. Allows any program to use shared library. We are essentially overwriting the default shared library that the program use with our own malicious shared library. That malicious shared library will be loaded into <code>/etc/ld.so.preload</code> and the program will use our malicious shared library allowing us to get root privilege.
+<br>
+<br>
+This is the drawing that I made explaining Leverage LD_PRELOAD:
+<img class="zoom" src="/images/linux_priv_8.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_8.png">
+</div>
+*Note: I'm still unfamiliar with this approach. I would have to learn it in more detail*
+Additional resource if you're curious:
+https://medium.com/r3d-buck3t/overwriting-preload-libraries-to-gain-root-linux-privesc-77c87b5f3bf8
+https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
+https://attack.mitre.org/techniques/T1574/006/
+<p>Let move onto the demonstration. Note: This TryHackMe room only approach linux privilege escalation from Leveraging application functions. Maybe in the near future, I will create a blog specifically for LD_Preload- sudo linux privilege escalation.</p>
+<h2 id="demonstration">Demonstration:</h2>
+<p>For demonstration, we will be using the TryHackMe Linux Privilege Escalation: Sudo Lab.
+<a href="https://tryhackme.com/room/linprivesc" target="_blank" rel="noopener noreffer ">https://tryhackme.com/room/linprivesc</a></p>
+<p>As show below, I am logged into an account name Karen. When executing command <code>id</code>, this is the information that was presented to me.
+<code>uid=1001(karen) gid=1001(karen) groups=1001(karen)</code>. Now, my goal is to go from local user privilege to root privilege.
+<br>
+<br>
+Let&rsquo;s start by seeing what command are allowed to run sudo with. To find this information, I will use: <code>sudo -l</code>
+<img class="zoom" src="/images/linux_priv_9.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_9.png">
+</div>
+From the picture, I can see that find, less, nano are given sudo permission. That mean I can use sudo without typing the root password. Knowing this information, I can refer to this reference: https://gtfobins.github.io/ and in the box of the website "Search among 376 binaries....", I will type find and click on the button "sudo".
+<img class="zoom" src="/images/linux_priv_10.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_10.png">
+</div>
+After that, I will copy: `sudo find . -exec /bin/sh \; -quit` to the command prompt and run the command: `id`.
+<img class="zoom" src="/images/linux_priv_11.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_11.png">
+</div>
+Now, I have root privilege.
+<h2 id="additional-information">Additional information</h2>
+<p>One of the TryHackMe question was: &ldquo;What is the hash of frank&rsquo;s password?&rdquo;. To find this information, I would have to go to <code>/etc/shadow</code>. Now, let&rsquo;s understand the structure of /etc/shadow.
+<br>
+<br>
+This is frank information:
+<code>frank:$6$2.sUUDsOLIpXKxcr$eImtgFExyr2ls4jsghdD3DHLHHP9X50Iv.jNmwo/BJpphrPRJWjelWEz2HH.joV14aDEwW1c3CahzB1uaqeLR1:18796:0:99999:7:::</code>
+<br>
+You may be thinking that cool but where the hash? This resource explain it really well. <a href="https://www.cyberciti.biz/faq/understanding-etcshadow-file/" target="_blank" rel="noopener noreffer ">https://www.cyberciti.biz/faq/understanding-etcshadow-file/</a>
+<br>
+Essentially, we need to divide the information. To better convey the information, I will be using a drawing :)
+<img class="zoom" src="/images/linux_priv_12.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_12.png">
+</div>
+Referring to the drawing above:
+<br>
+<ul>
+	<li>1. Username</li>
+	<li>2. Hash of the password</li>
+	<li>3. Number of days since the last password</li>
+	<li>4. Number of days left before the user is allowed to change her password again. An empty field and value 0 mean that there are no minimum password age.</li>
+	<li>5. The maximum number of days the password is valid, after that user is forced to change his/her password again.</li>
+	<li>6. Number of days before password is to expire that user is warned that his/her password must be changed. IE, you have 4 days to change your password before the system force you to change your pasword.
+	<li>7. The number of days after password expires that account is disabled.</li>
+	<li>8. The date of expiration of the account, expressed as the number of days since Jan 1, 1970.</li>
+</ul>
+That is all for my post. Thanks for reading.
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/linux-privilege-escalation/sudo-linux-privilege-escalation/" data-title="sudo - Linux Privilege Escalation" data-hashtags="Red Team,Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/linux-privilege-escalation/sudo-linux-privilege-escalation/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/red-team/">Red Team</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/" class="prev" rel="prev" title="Kernel Exploits - Linux Privilege Escalation"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Kernel Exploits - Linux Privilege Escalation</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
