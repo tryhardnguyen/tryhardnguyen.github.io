@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How to Scan for Windows 10 Vulnerability using Nessus - </title><meta name="Description" content="Step by Step guide to install Nessus"><meta property="og:title" content="How to Scan for Windows 10 Vulnerability using Nessus" />
+<meta property="og:description" content="Step by Step guide to install Nessus" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/nessus/scan-for-window-10-vuln-nessus/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-19T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Scan for Windows 10 Vulnerability using Nessus"/>
+<meta name="twitter:description" content="Step by Step guide to install Nessus"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/nessus/scan-for-window-10-vuln-nessus/" /><link rel="prev" href="/posts/nessus/install-nessus-vuln-scanner/" /><link rel="next" href="/posts/burnincandle-malwaretraffic/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to Scan for Windows 10 Vulnerability using Nessus",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/nessus\/scan-for-window-10-vuln-nessus\/"
+        },"genre": "posts","keywords": "Vulnerability Management","wordcount":  489 ,
+        "url": "\/posts\/nessus\/scan-for-window-10-vuln-nessus\/","datePublished": "2022-12-19T00:00:00+00:00","dateModified": "2022-12-19T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Step by Step guide to install Nessus"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to Scan for Windows 10 Vulnerability using Nessus</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-19">2022-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;489 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#running-a-nessus-scan-on-a-windows-10-machine">Running a Nessus Scan on a Windows 10 Machine</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>The goal of this post:</p>
+<ul>
+<li>Run a Nessus Scan on a Windows 10 Machine to find a vulnerability</li>
+<li>Patch the vulnerability</li>
+</ul>
+<h3 id="running-a-nessus-scan-on-a-windows-10-machine">Running a Nessus Scan on a Windows 10 Machine</h3>
+<p>We will start by booting up a Windows 10 machine. I configured it to be in the Tech subnet.
+<a class="lightgallery" href="/images1/image-496.webp" title="/images1/image-496.webp" data-thumbnail="/images1/image-496.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-496.webp"
+            data-srcset="/images1/image-496.webp, /images1/image-496.webp 1.5x, /images1/image-496.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-496.webp" width="317" height="284" />
+    </a></p>
+<p>Side note: You can install a Windows 10 VM using this link:
+Download Windows 10
+(<a href="https://www.microsoft.com/en-us/software-download/windows10" target="_blank" rel="noopener noreffer ">https://www.microsoft.com/en-us/software-download/windows10</a>)</p>
+<p>Default password: Passw0rd!</p>
+<p>Let&rsquo;s run an ipconfig to see what the IP is.<br>
+<a class="lightgallery" href="/images1/image-489.webp" title="/images1/image-489.webp" data-thumbnail="/images1/image-489.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-489.webp"
+            data-srcset="/images1/image-489.webp, /images1/image-489.webp 1.5x, /images1/image-489.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-489.webp" width="471" height="398" />
+    </a>
+<a class="lightgallery" href="/images1/image-498.webp" title="/images1/image-498.webp" data-thumbnail="/images1/image-498.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-498.webp"
+            data-srcset="/images1/image-498.webp, /images1/image-498.webp 1.5x, /images1/image-498.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-498.webp" width="980" height="378" />
+    </a></p>
+<p>Let&rsquo;s set up our Nessus scanner<br>
+<a class="lightgallery" href="/images1/image-499.webp" title="/images1/image-499.webp" data-thumbnail="/images1/image-499.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-499.webp"
+            data-srcset="/images1/image-499.webp, /images1/image-499.webp 1.5x, /images1/image-499.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-499.webp" width="357" height="359" />
+    </a></p>
+<p>New Scan
+<a class="lightgallery" href="/images1/image-500.webp" title="/images1/image-500.webp" data-thumbnail="/images1/image-500.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-500.webp"
+            data-srcset="/images1/image-500.webp, /images1/image-500.webp 1.5x, /images1/image-500.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-500.webp" width="1638" height="220" />
+    </a></p>
+<p>Select &ldquo;Basic Network Scan&rdquo;
+<a class="lightgallery" href="/images1/image-501.webp" title="/images1/image-501.webp" data-thumbnail="/images1/image-501.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-501.webp"
+            data-srcset="/images1/image-501.webp, /images1/image-501.webp 1.5x, /images1/image-501.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-501.webp" width="1319" height="569" />
+    </a></p>
+<p>First, we&rsquo;re going to make an uncredentialed scan and a credential scan to see the difference.
+<a class="lightgallery" href="/images1/image-502.webp" title="/images1/image-502.webp" data-thumbnail="/images1/image-502.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-502.webp"
+            data-srcset="/images1/image-502.webp, /images1/image-502.webp 1.5x, /images1/image-502.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-502.webp" width="918" height="543" />
+    </a></p>
+<p>Target: 172.20.25.19
+<a class="lightgallery" href="/images1/image-503.webp" title="/images1/image-503.webp" data-thumbnail="/images1/image-503.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-503.webp"
+            data-srcset="/images1/image-503.webp, /images1/image-503.webp 1.5x, /images1/image-503.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-503.webp" width="795" height="553" />
+    </a>
+<a class="lightgallery" href="/images1/image-504.webp" title="/images1/image-504.webp" data-thumbnail="/images1/image-504.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-504.webp"
+            data-srcset="/images1/image-504.webp, /images1/image-504.webp 1.5x, /images1/image-504.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-504.webp" width="750" height="380" />
+    </a></p>
+<p>Now, let&rsquo;s launch the scan..</p>
+<p>This is the result:
+<a class="lightgallery" href="/images1/image-505.webp" title="/images1/image-505.webp" data-thumbnail="/images1/image-505.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-505.webp"
+            data-srcset="/images1/image-505.webp, /images1/image-505.webp 1.5x, /images1/image-505.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-505.webp" width="1431" height="384" />
+    </a></p>
+<p>As we can see, we don&rsquo;t have any critical vulnerabilities. So now, let&rsquo;s set up a credential scan. But first, we must configure our windows for a credential scan to work.</p>
+<p>Go to the search bar and search <code>services</code>. After that, look for a registry name: &ldquo;Remote Registry&rdquo;. Change the startup type to Automatic. Then, click the start and then click apply. This is what it should look like:</p>
+<a class="lightgallery" href="/images1/image-506.webp" title="/images1/image-506.webp" data-thumbnail="/images1/image-506.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-506.webp"
+            data-srcset="/images1/image-506.webp, /images1/image-506.webp 1.5x, /images1/image-506.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-506.webp" width="414" height="472" />
+    </a>
+<p>Then go to the search bar and search for Advanced sharing setting</p>
+<a class="lightgallery" href="/images1/image-507.webp" title="/images1/image-507.webp" data-thumbnail="/images1/image-507.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-507.webp"
+            data-srcset="/images1/image-507.webp, /images1/image-507.webp 1.5x, /images1/image-507.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-507.webp" width="1123" height="594" />
+    </a>
+<p>Change it to:</p>
+<a class="lightgallery" href="/images1/image-508.webp" title="/images1/image-508.webp" data-thumbnail="/images1/image-508.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-508.webp"
+            data-srcset="/images1/image-508.webp, /images1/image-508.webp 1.5x, /images1/image-508.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-508.webp" width="623" height="416" />
+    </a>
+<p>Remember to save changes. Then go to the search bar and search for &ldquo;User account control settings.&rdquo;
+<a class="lightgallery" href="/images1/image-509.webp" title="/images1/image-509.webp" data-thumbnail="/images1/image-509.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-509.webp"
+            data-srcset="/images1/image-509.webp, /images1/image-509.webp 1.5x, /images1/image-509.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-509.webp" width="748" height="549" />
+    </a></p>
+<p>Turn it down. Then go to the search bar and type Registry editor
+<a class="lightgallery" href="/images1/image-510.webp" title="/images1/image-510.webp" data-thumbnail="/images1/image-510.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-510.webp"
+            data-srcset="/images1/image-510.webp, /images1/image-510.webp 1.5x, /images1/image-510.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-510.webp" width="1190" height="202" />
+    </a></p>
+<p>Navigate to: <code>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</code></p>
+<a class="lightgallery" href="/images1/image-512.webp" title="/images1/image-512.webp" data-thumbnail="/images1/image-512.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-512.webp"
+            data-srcset="/images1/image-512.webp, /images1/image-512.webp 1.5x, /images1/image-512.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-512.webp" width="1279" height="542" />
+    </a>
+<p>Try to find LocalAccountTokenFilter Policy. No worries, you can create one if you don&rsquo;t have it by right click -&gt; New -&gt; DWORD -&gt; LocalAccountTokenFilterPolicy</p>
+<a class="lightgallery" href="/images1/image-513.webp" title="/images1/image-513.webp" data-thumbnail="/images1/image-513.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-513.webp"
+            data-srcset="/images1/image-513.webp, /images1/image-513.webp 1.5x, /images1/image-513.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-513.webp" width="471" height="477" />
+    </a>
+<p>Click on the value to edit it. Make sure the value is set to 1. Then restart the VM.</p>
+<a class="lightgallery" href="/images1/image-514.webp" title="/images1/image-514.webp" data-thumbnail="/images1/image-514.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-514.webp"
+            data-srcset="/images1/image-514.webp, /images1/image-514.webp 1.5x, /images1/image-514.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-514.webp" width="330" height="201" />
+    </a>
+<p>Now, we&rsquo;re going to create a new scan. It&rsquo;s the same process. However, make sure you go to the credential tab</p>
+<a class="lightgallery" href="/images1/image-515.webp" title="/images1/image-515.webp" data-thumbnail="/images1/image-515.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-515.webp"
+            data-srcset="/images1/image-515.webp, /images1/image-515.webp 1.5x, /images1/image-515.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-515.webp" width="1197" height="423" />
+    </a>
+<p>Then for the Username: IEUser</p>
+<p>Password: <code>Passw0rd!</code></p>
+<p>Then click save and launch our scan.</p>
+<a class="lightgallery" href="/images1/image-516.webp" title="/images1/image-516.webp" data-thumbnail="/images1/image-516.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-516.webp"
+            data-srcset="/images1/image-516.webp, /images1/image-516.webp 1.5x, /images1/image-516.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-516.webp" width="597" height="277" />
+    </a>
+<p>Once our scan is done, we will get something like this:</p>
+<p><a class="lightgallery" href="/images1/image-517.webp" title="/images1/image-517.webp" data-thumbnail="/images1/image-517.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-517.webp"
+            data-srcset="/images1/image-517.webp, /images1/image-517.webp 1.5x, /images1/image-517.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-517.webp" width="1417" height="577" />
+    </a>
+<a class="lightgallery" href="/images1/image-518.webp" title="/images1/image-518.webp" data-thumbnail="/images1/image-518.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-518.webp"
+            data-srcset="/images1/image-518.webp, /images1/image-518.webp 1.5x, /images1/image-518.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-518.webp" width="872" height="101" />
+    </a></p>
+<p>Compared to our uncredentialed scan. That is a huge difference.
+<a class="lightgallery" href="/images1/image-519.webp" title="/images1/image-519.webp" data-thumbnail="/images1/image-519.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-519.webp"
+            data-srcset="/images1/image-519.webp, /images1/image-519.webp 1.5x, /images1/image-519.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-519.webp" width="685" height="115" />
+    </a></p>
+<p>Now, let&rsquo;s check out one of the vulnerabilities
+<a class="lightgallery" href="/images1/image-520.webp" title="/images1/image-520.webp" data-thumbnail="/images1/image-520.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-520.webp"
+            data-srcset="/images1/image-520.webp, /images1/image-520.webp 1.5x, /images1/image-520.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-520.webp" width="926" height="236" />
+    </a></p>
+<p>It tells us the Microsoft patch version that patch which CVE. You can even find more information about the CVE in this section<br>
+<a class="lightgallery" href="/images1/image-521.webp" title="/images1/image-521.webp" data-thumbnail="/images1/image-521.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-521.webp"
+            data-srcset="/images1/image-521.webp, /images1/image-521.webp 1.5x, /images1/image-521.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-521.webp" width="343" height="535" />
+    </a></p>
+<p>Then it offered us some solutions to patch the vulnerabilities
+<a class="lightgallery" href="/images1/image-522.webp" title="/images1/image-522.webp" data-thumbnail="/images1/image-522.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-522.webp"
+            data-srcset="/images1/image-522.webp, /images1/image-522.webp 1.5x, /images1/image-522.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-522.webp" width="924" height="255" />
+    </a></p>
+<p>The next step is doing a Window Update on our VM and seeing how many vulnerabilities we could patch.
+<a class="lightgallery" href="/images1/image-523.webp" title="/images1/image-523.webp" data-thumbnail="/images1/image-523.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-523.webp"
+            data-srcset="/images1/image-523.webp, /images1/image-523.webp 1.5x, /images1/image-523.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-523.webp" width="1035" height="641" />
+    </a></p>
+<p>Let&rsquo;s begin, shall we?</p>
+<p>Now that our updates have been installed. Let&rsquo;s rerun the scan.</p>
+<p>Here is the old result:
+<a class="lightgallery" href="/images1/image-518.webp" title="/images1/image-518.webp" data-thumbnail="/images1/image-518.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-518.webp"
+            data-srcset="/images1/image-518.webp, /images1/image-518.webp 1.5x, /images1/image-518.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-518.webp" width="872" height="101" />
+    </a></p>
+<p>Here is the new result:
+<a class="lightgallery" href="/images1/image-524.webp" title="/images1/image-524.webp" data-thumbnail="/images1/image-524.webp">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images1/image-524.webp"
+            data-srcset="/images1/image-524.webp, /images1/image-524.webp 1.5x, /images1/image-524.webp 2x"
+            data-sizes="auto"
+            alt="/images1/image-524.webp" width="1099" height="253" />
+    </a></p>
+<p>As we can see, our critical vulnerabilities drop dramatically.</p>
+<p>Summary: Remediation for vulnerabilities could be simply installing a windows update, closing a port you don&rsquo;t want to be open, or removing a program with many vulnerabilities. Additionally, you should always test the patch before pushing it to a live server.</p>
+<p>Anyways, folks, that is for this section and project. I had fun messing with Nessus and learning about vulnerability management.</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-12-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/nessus/scan-for-window-10-vuln-nessus/" data-title="How to Scan for Windows 10 Vulnerability using Nessus" data-hashtags="Vulnerability Management"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/nessus/scan-for-window-10-vuln-nessus/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vulnerability-management/">Vulnerability Management</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/nessus/install-nessus-vuln-scanner/" class="prev" rel="prev" title="How to install Nessus essentials vulnerability scanner"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>How to install Nessus essentials vulnerability scanner</a>
+            <a href="/posts/burnincandle-malwaretraffic/" class="next" rel="next" title="Burnincandle (Malware Traffic Analysis)">Burnincandle (Malware Traffic Analysis)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
