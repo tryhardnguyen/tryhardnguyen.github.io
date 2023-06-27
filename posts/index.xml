@@ -4,7 +4,15 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 25 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 26 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Capabilities - Linux Privilege Escalation</title>
+    <link>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</link>
+    <pubDate>Mon, 26 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</guid>
+    <description><![CDATA[I am exploring what is capabilities and how to exploit it. To help me learn the material, I will be using TryHackMe room as my lab]]></description>
+</item>
+<item>
     <title>Exploring SUID Exploit - Linux Privilege Escalation</title>
     <link>/posts/linux-privilege-escalation/suid-exploit-linux-privilege-escalation/</link>
     <pubDate>Sun, 25 Jun 2023 00:00:00 &#43;0000</pubDate>
@@ -80,14 +88,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/storytelling/</guid>
     <description><![CDATA[Modern Cyber Range is based off of this story.]]></description>
-</item>
-<item>
-    <title>Testing Endpoint Detection - Windows</title>
-    <link>/posts/testing-endpoint-detection-windows/</link>
-    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/testing-endpoint-detection-windows/</guid>
-    <description><![CDATA[The purpose of showcase the endpoint detection that I'm working with.]]></description>
 </item>
 </channel>
 </rss>

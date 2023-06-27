@@ -4,7 +4,15 @@
         <link>/tags/linux/</link>
         <description>Linux - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 25 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 26 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Capabilities - Linux Privilege Escalation</title>
+    <link>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</link>
+    <pubDate>Mon, 26 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</guid>
+    <description><![CDATA[I am exploring what is capabilities and how to exploit it. To help me learn the material, I will be using TryHackMe room as my lab]]></description>
+</item>
+<item>
     <title>Exploring SUID Exploit - Linux Privilege Escalation</title>
     <link>/posts/linux-privilege-escalation/suid-exploit-linux-privilege-escalation/</link>
     <pubDate>Sun, 25 Jun 2023 00:00:00 &#43;0000</pubDate>
