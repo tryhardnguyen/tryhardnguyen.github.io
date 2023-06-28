@@ -5,6 +5,14 @@
         <description>Penetration Testing - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/penetration-testing/" rel="self" type="application/rss+xml" /><item>
+    <title>$PATH Hijacking - Linux Privilege Escalation</title>
+    <link>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</link>
+    <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</guid>
+    <description><![CDATA[One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how Kernel Exploit works.]]></description>
+</item>
+<item>
     <title>Crob Job to Root - Linux Escalation Privilege</title>
     <link>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</link>
     <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>

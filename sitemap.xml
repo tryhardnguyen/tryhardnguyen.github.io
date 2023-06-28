@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</loc><lastmod>2023-06-26T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/linux-privilege-escalation/suid-exploit-linux-privilege-escalation/</loc><lastmod>2023-06-25T00:00:00&#43;00:00</lastmod></url><url>
