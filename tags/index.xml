@@ -4,10 +4,10 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Linux</title>
     <link>/tags/linux/</link>
-    <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/linux/</guid>
     <description><![CDATA[]]></description>
@@ -15,7 +15,7 @@
 <item>
     <title>Red Team</title>
     <link>/tags/red-team/</link>
-    <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/red-team/</guid>
     <description><![CDATA[]]></description>

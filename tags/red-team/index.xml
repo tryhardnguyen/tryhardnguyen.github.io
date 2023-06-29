@@ -4,13 +4,21 @@
         <link>/tags/red-team/</link>
         <description>Red Team - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/red-team/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/red-team/" rel="self" type="application/rss+xml" /><item>
+    <title>NFS - Linux Privilege Escalation</title>
+    <link>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</link>
+    <pubDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</guid>
+    <description><![CDATA[Today, I will learn what is NFS and how it's used to escalate privilege.]]></description>
+</item>
+<item>
     <title>$PATH Hijacking - Linux Privilege Escalation</title>
     <link>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</link>
     <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how Kernel Exploit works.]]></description>
+    <description><![CDATA[One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how to exploit PATH]]></description>
 </item>
 <item>
     <title>Crob Job to Root - Linux Escalation Privilege</title>
@@ -80,14 +88,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/open-closed-ports-nmap/</guid>
     <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
-</item>
-<item>
-    <title>Service Detection using Nmap</title>
-    <link>/posts/service-detection/</link>
-    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/service-detection/</guid>
-    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
 </item>
 </channel>
 </rss>

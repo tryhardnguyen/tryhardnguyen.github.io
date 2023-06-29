@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>NFS - Linux Privilege Escalation - </title><meta name="Description" content="Today, I will learn what is NFS and how it&#39;s used to escalate privilege."><meta property="og:title" content="NFS - Linux Privilege Escalation" />
+<meta property="og:description" content="Today, I will learn what is NFS and how it&#39;s used to escalate privilege." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-28T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NFS - Linux Privilege Escalation"/>
+<meta name="twitter:description" content="Today, I will learn what is NFS and how it&#39;s used to escalate privilege."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/" /><link rel="prev" href="/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "NFS - Linux Privilege Escalation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/linux-privilege-escalation\/nfs-linux-privilege-escalation\/"
+        },"genre": "posts","keywords": "Red Team, Linux","wordcount":  659 ,
+        "url": "\/posts\/linux-privilege-escalation\/nfs-linux-privilege-escalation\/","datePublished": "2023-06-28T00:00:00+00:00","dateModified": "2023-06-28T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Today, I will learn what is NFS and how it's used to escalate privilege."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">NFS - Linux Privilege Escalation</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-28">2023-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;659 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#background-information-on-nfs">Background Information on NFS</a></li>
+    <li><a href="#exploiting-nfs">Exploiting NFS</a></li>
+    <li><a href="#suid-bit">SUID bit</a></li>
+    <li><a href="#back-to-the-program">Back to the Program</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="background-information-on-nfs">Background Information on NFS</h2>
+<p>NFS stand for Network File System. NFS allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally.<br>
+<br>
+Analogy for NFS: Imagine you are a user sitting in a library (client computer) and you want to read a book that is located on a shelf in a different building (server). Instead of physically going to the other building and retrieving the book, you can request the librarian (NFS protocol) to bring the book to you. The librarian acts as an intermediary, facilitating the retrieval of the book from the remote location and making it accessible to you locally.
+<br>
+<br>
+NFS configuration setting is stored in: <code>cat /etc/exports</code> and it important to note that this file can be read by anyone.</p>
+<h2 id="exploiting-nfs">Exploiting NFS</h2>
+<p>The <strong>first thing</strong> we have to do is <strong>look at the NFS configuration to see what directories are shared</strong> then we narrow down our choices by looking for <strong><code>no_root_squash</code></strong>.
+<br>
+<br>
+What is no_root_squash? no_root_squash allows a remote root user on a remote client to retain their superuser privilege when accessing the shared files. Additionally no_root_squash disable &ldquo;root squashing&rdquo; .
+<br>
+<br>
+Then what is root squashing? Root squashing prevent a remote root user to retain their superuser privilege. Basically, they are treated as a user. Let say you are a celebrity, but in your parent eyes your just their kid and they treat you just like how they treated you when you were born. That what root squashing is like.
+<br>
+Now that we found a shared directory that has no_root_squash. We need to enumerate (gather information) on what shares are mountable. To do this we can use this command: <code>showmount -e TARGET_IP</code>.
+<br>
+<img class="zoom" src="/images/linux_priv_39.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_39.png">
+</div>
+For this explanation, I will pick the /tmp directory to mount to. Now, let create a folder in the /tmp directory in our attacker machine.
+<br>
+<img class="zoom" src="/images/linux_priv_39.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_39.png">
+</div>
+Now we will mount one of the shares from the target to the directory we just created. I'm going use this command: `mount -o rw TARGET_IP:/SHARE_NAME /FOLDER_TO_MOUNT_IT`. I'm going choose the /tmp file. My command would be `mount -o rw 10.10.149.95:/tmp /tmp/ATTACK_MACHINE`.
+<br>
+<br>
+Now, let's go inside the ATTACK_MACHINE folder. To test if the folder is really mounted together (shared together). We can create a file name new and see if it appears on our victim machine. To do this we are going use the touch command: `touch new.c`. As you can see from the picture, both directory are in sync.
+<br>
+<img class="zoom" src="/images/linux_priv_41.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_41.png">
+</div>
+<br>
+Now, that our two directory are in sync. Time to do the evil stuff :) We will edit our new file from our "Attacker Machine" and put the following lines:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="nf">setgid</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">setuid</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">system</span><span class="p">(</span><span class="s">&#34;/bin/bash&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em>Note: Please make sure that new has the c extension. So it would be new.c</em>
+<br>
+Now, we&rsquo;re cooking. Now let&rsquo;s compile our code using <code>gcc new.c -o new -w</code> then assign it a SUID bit. Let&rsquo;s review what a SUID bit shall we?</p>
+<h2 id="suid-bit">SUID bit</h2>
+<p>SUID bit is denoted as &ldquo;s&rdquo;. It also known as Set owner User ID. SUID the user to inherit the power of the owner of the file. For example, if the owner of the file is root, the user will get root privilege. If the owner of the file is a specific user, then the user will get the privilege of that specific user.</p>
+<h2 id="back-to-the-program">Back to the Program</h2>
+<p>Now that we review what a SUID bit is let&rsquo;s continue where we started. The next thing we are going to do is assign suid to new. To do that we are going use this command: <code>chmod u+s new</code>. If you do <code>ls -al</code> again, you will see the suid bit assign to new.
+<br>
+<img class="zoom" src="/images/linux_priv_42.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_42.png">
+</div>
+Now, let's go back to our target machine and run new.
+<br>
+<img class="zoom" src="/images/linux_priv_43.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_43.png">
+</div>
+<br>
+There you go, we got root privilege.
+<p>That&rsquo;s all, thank you for reading.</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/" data-title="NFS - Linux Privilege Escalation" data-hashtags="Red Team,Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/red-team/">Red Team</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/" class="prev" rel="prev" title="$PATH Hijacking - Linux Privilege Escalation"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>$PATH Hijacking - Linux Privilege Escalation</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

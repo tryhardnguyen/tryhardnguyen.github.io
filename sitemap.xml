@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</loc><lastmod>2023-06-26T00:00:00&#43;00:00</lastmod></url><url>
@@ -41,13 +42,13 @@
             <loc>/posts/installing-kali-linux-attacker-cybersecurity-homelab/</loc><lastmod>2022-12-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/owasp-top-10-vulnerabilities-project/</loc><lastmod>2022-11-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/templates/</loc></url><url>
-            <loc>/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/linux/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/penetration-testing/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/red-team/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2023-06-27T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/linux/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/penetration-testing/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/red-team/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2023-06-28T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/blue-team/</loc><lastmod>2023-06-08T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/homelabs/</loc><lastmod>2023-06-08T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/nmap/</loc><lastmod>2023-06-08T00:00:00&#43;00:00</lastmod></url><url>
