@@ -4,7 +4,19 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Capstone Challenge</title>
+    <link>/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/</link>
+    <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/</guid>
+    <description><![CDATA[Room: https://tryhackme.com/room/linprivesc
+You have gained SSH access to a large scientific facility. Try to elevate your privileges until you are Root.
+We designed this room to help you build a thorough methodology for Linux privilege escalation that will be very useful in exams such as OSCP and your penetration testing engagements.
+Leave no privilege escalation vector unexplored, privilege escalation is often more an art than a science.
+You can access the target machine over your browser or use the SSH credentials below.]]></description>
+</item>
+<item>
     <title>NFS - Linux Privilege Escalation</title>
     <link>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</link>
     <pubDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</pubDate>
@@ -80,14 +92,6 @@ Next, in your reverse/bind shell, type: stty rows &lt;number&gt;]]></description
     <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
 OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
 Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
-</item>
-<item>
-    <title>Open-Closed Ports</title>
-    <link>/posts/open-closed-ports-nmap/</link>
-    <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/open-closed-ports-nmap/</guid>
-    <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
 </item>
 </channel>
 </rss>

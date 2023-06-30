@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Capstone Challenge - </title><meta name="Description" content="Let&#39;s put our knowledge to the test with the Capstone Challenge to wrap up our understanding."><meta property="og:title" content="Capstone Challenge" />
+<meta property="og:description" content="Let&#39;s put our knowledge to the test with the Capstone Challenge to wrap up our understanding." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-29T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Capstone Challenge"/>
+<meta name="twitter:description" content="Let&#39;s put our knowledge to the test with the Capstone Challenge to wrap up our understanding."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/" /><link rel="prev" href="/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Capstone Challenge",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/linux-privilege-escalation\/capstone-challenge-linux-escalation-privilege\/"
+        },"genre": "posts","keywords": "Red Team, Linux","wordcount":  982 ,
+        "url": "\/posts\/linux-privilege-escalation\/capstone-challenge-linux-escalation-privilege\/","datePublished": "2023-06-29T00:00:00+00:00","dateModified": "2023-06-29T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Let's put our knowledge to the test with the Capstone Challenge to wrap up our understanding."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Capstone Challenge</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-29">2023-06-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;982 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#kernel-exploits">Kernel Exploits</a></li>
+    <li><a href="#sudo">Sudo</a></li>
+    <li><a href="#suid">SUID</a></li>
+    <li><a href="#lesson-learned">Lesson Learned</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Room: <a href="https://tryhackme.com/room/linprivesc" target="_blank" rel="noopener noreffer ">https://tryhackme.com/room/linprivesc</a></p>
+<p>You have gained SSH access to a large scientific facility. Try to elevate your privileges until you are Root.</p>
+<p>We designed this room to help you build a thorough methodology for Linux privilege escalation that will be very useful in exams such as OSCP and your penetration testing engagements.</p>
+<p>Leave no privilege escalation vector unexplored, privilege escalation is often more an art than a science.</p>
+<p>You can access the target machine over your browser or use the SSH credentials below.</p>
+<ul>
+<li>Username: leonard</li>
+<li>Password: Penny123</li>
+</ul>
+<p>Before we start, we have to remember to answer this question:
+What is the content of the flag1.txt file?
+What is the content of the flag2.txt file?</p>
+<p>What I want to do was go down the list:</p>
+<ul>
+	<li>Kernel Exploits</li>
+	<li>Sudo</li>
+	<li>Capabilities</li>
+	<li>Cron Jobs</li>
+	<li>PATH</li>
+	<li>NFS</li>
+</ul>
+<h2 id="kernel-exploits">Kernel Exploits</h2>
+<p>First one is Kernel Exploits, Essentially, the goal of kernel exploits is to see if the system is running a kernel that has vulnerability due to being a older version. One website I often use to search for vulnerability is searchsploit which is the offline version of exploitdb. A good habit to have is to gather information about the target before exploiting.
+<br>
+For this vulnerability, we need to find the kernel version of the client and the OS that this computer is on. To find the kernel version of a client, we can use the <code>uname -a</code>. The information we got was: <code>Linux 3.10.0-1160.el7.x86_64</code>.
+<br>
+<br>
+Now, we need to find the operating system. To find the operating we can run <code>cat /proc/version</code>. This is the result we got: <code>Linux version 3.10.0-1160.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) ) #1 SMP Mon Oct 19 16:18:59 UTC 2020</code>. This look the operating system is Red Hat.
+<br>
+<br>
+Now we need to find exploits for this kernel. I am going use exploit-db but you can use whatever you want. I was able to find a exploit that correspond to the target operating system: <a href="https://www.exploit-db.com/exploits/45516" target="_blank" rel="noopener noreffer ">https://www.exploit-db.com/exploits/45516</a>. I&rsquo;m going download the exploit to my attacker machine and compile the code and then set up a python http server to transfer the malicious program to the target.
+<br>
+<br>
+To compile the code, we are going use this command:
+<code>gcc scriptName -o programName -w</code>
+<br>
+However, the code doesn&rsquo;t work. Time to go back to square one. However, it doesn&rsquo;t look like any of the exploit listen are going work with this OS. Time to move on to the second technique.</p>
+<h2 id="sudo">Sudo</h2>
+<p>To exploit with Sudo, We need to find command that are given to the user to use sudo. To find this information we need to use this command: <code>sudo -l</code>. When we run the command, the server reply with sorry, user Leonard may not run sudo. Let&rsquo;s move to SUID</p>
+<h2 id="suid">SUID</h2>
+<p>We need to find the command that has SUID bit - denoted as s. To find this we are going use this command: <code>find / -type f -perm -04000 -ls 2&gt;/dev/null | awk '{print $3, $5, $6, $NF}' |  grep /usr/bin/</code>.
+<br>
+<br>
+Right now, we are currently just focusing only on binary. Here are the result:
+<br>
+<img class="zoom" src="/images/linux_priv_44.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_44.png">
+</div>
+<br>
+Then you would go to GTFOBins -> SUID and see what command you can use to exploit SUID. For me, I chose base64. https://gtfobins.github.io/gtfobins/base64/#suid. I read the POC of SUID and see if I can read /etc/passwd with the code that GTFO provided.
+<br>
+<p>Command: <code>base64 /etc/passwd | base64 --decode</code> It worked but it was too much information. Then I narrow my search to only include actual user. To do this I ran this command:
+<code>base64 /etc/passwd | base64 --decode | grep /home/</code>.
+<br>
+Here are the result:
+<br>
+<img class="zoom" src="/images/linux_priv_45.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_45.png">
+</div>
+<br>
+There is another user that we can pivot to name missy. Let's see if we can crack brute force missy account. We can do this by gathering information from passwd and shadow. Each information are in the separate file. 
+<br>
+<br>
+This is what is inside of passwd.txt and shadow.txt:
+<br>
+<img class="zoom" src="/images/linux_priv_46.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_45.png">
+</div>
+<br>
+Now, we just need to combine them into an single txt file. 
+`unshadow passwd.txt shadow.txt > missy.txt`
+<br>
+<img class="zoom" src="/images/linux_priv_47.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_47.png">
+</div>
+<br>
+Now we will try to brute force the account using rockyou wordlist.
+`Command: `john --wordlist=/usr/share/wordlists/rockyou.txt missy.txt`
+After a couple second, I found out the password to missy account.
+<br>
+<img class="zoom" src="/images/linux_priv_48.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_48.png">
+</div>
+<br>
+Now that we have Missy account. Let's go into the account and see what we can discover.
+`su missy` and then type the password (Password1). I discovered that there are files in the home directory name leonard, missy, and rootflag. I'm assuming these directory hold that flag to the challenge.
+<br>
+<br>
+<p>Let&rsquo;s go inside missy directory to see if there anything important there. After going through the files, inside the Document Directory, there is a flag1.txt and the flag is <code>THM-42828719920544</code>. Let&rsquo;s see if we can find flag2.txt using <code>find / -name flag2.txt 2&gt;/dev/null</code> and I got nothing.
+<br>
+<br>
+Let look like we need to escalate our permission from missy to root.  Let&rsquo;s see if there is any sudo command given to us: <code>sudo -l</code> It look like find command has been given to us.
+<br>
+<img class="zoom" src="/images/linux_priv_49.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_49.png">
+</div>
+<br>
+ALL mean any host. NOPASSWD mean allows the find command to be able to execute with sudo without entering a password. Now, that we found a command that was given sudo to us, we can refer to GTFOBins https://gtfobins.github.io/#+sudo and find the find command. All we have to do is drop this command in the target machine and hopefully get root privilege.
+<br>
+<img class="zoom" src="/images/linux_priv_50.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_50.png">
+</div>
+<br>
+We got root!
+<br>
+<img class="zoom" src="/images/linux_priv_51.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_51.png">
+</div>
+<br>
+<h2 id="lesson-learned">Lesson Learned</h2>
+<p>The key thing I learned from this activity is that one path might be closed but it won&rsquo;t be closed forever. For example, Leonard didn&rsquo;t have any sudo ability. But, when we got access to missy account, she was given sudo permission. You can see from the pictures below:
+<br>
+<br>
+Leonard:
+<br>
+<img class="zoom" src="/images/linux_priv_52.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_52.png">
+</div>
+<p>Missy:
+<br>
+<img class="zoom" src="/images/linux_priv_49.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_49.png">
+</div>
+<br>
+Think of privilege escalation as a stair, each user can provide you a step close to root. It doesn't have to be from one user to root. It could take multiple users to reach root. Privilege escalation is an art.</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-29</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/" data-title="Capstone Challenge" data-hashtags="Red Team,Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/red-team/">Red Team</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/" class="prev" rel="prev" title="NFS - Linux Privilege Escalation"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>NFS - Linux Privilege Escalation</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
