@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/red-team/" rel="self" type="application/rss+xml" /><item>
     <title>Reverse Shell Dying? No problem try this.</title>
-    <link>/posts/reverse-shell-dying/</link>
+    <link>/posts/windows-privilege-escalation/reverse-shell-dying/</link>
     <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/reverse-shell-dying/</guid>
+    <guid>/posts/windows-privilege-escalation/reverse-shell-dying/</guid>
     <description><![CDATA[During my journey of learning Windows Escalation, I had my reverse shell dying when I tried to connect back to the service users. This really frustrate me. However, after a constant testing I figured an way to minimize the reverse shell from disconnectioning]]></description>
 </item>
 <item>

@@ -4,7 +4,23 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>HyperV</title>
+    <link>/tags/hyperv/</link>
+    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/hyperv/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Virtual Machine</title>
+    <link>/tags/virtual-machine/</link>
+    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/virtual-machine/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Red Team</title>
     <link>/tags/red-team/</link>
     <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/edr/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Phishing Analysis</title>
-    <link>/tags/phishing-analysis/</link>
-    <pubDate>Thu, 02 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/phishing-analysis/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Packet Analysis</title>
-    <link>/tags/packet-analysis/</link>
-    <pubDate>Sat, 31 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/packet-analysis/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

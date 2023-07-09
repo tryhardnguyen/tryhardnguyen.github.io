@@ -4,12 +4,20 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Create a Empty Shell Windows Server using HyperV</title>
+    <link>/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</link>
+    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</guid>
+    <description><![CDATA[Before we can install a Windows Server, We need to create an Virtual Machine using HyperV]]></description>
+</item>
+<item>
     <title>Reverse Shell Dying? No problem try this.</title>
-    <link>/posts/reverse-shell-dying/</link>
+    <link>/posts/windows-privilege-escalation/reverse-shell-dying/</link>
     <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/reverse-shell-dying/</guid>
+    <guid>/posts/windows-privilege-escalation/reverse-shell-dying/</guid>
     <description><![CDATA[During my journey of learning Windows Escalation, I had my reverse shell dying when I tried to connect back to the service users. This really frustrate me. However, after a constant testing I figured an way to minimize the reverse shell from disconnectioning]]></description>
 </item>
 <item>
@@ -79,14 +87,6 @@ You can access the target machine over your browser or use the SSH credentials b
     <author>Nguyen Nguyen</author>
     <guid>/posts/linux-privilege-escalation/sudo-linux-privilege-escalation/</guid>
     <description><![CDATA[Today, I'm taking a look at using sudo to escalate a local user privilege to a root (administrator) privilege.]]></description>
-</item>
-<item>
-    <title>Kernel Exploits - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</link>
-    <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works.]]></description>
 </item>
 </channel>
 </rss>
