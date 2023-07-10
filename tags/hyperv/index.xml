@@ -5,6 +5,14 @@
         <description>HyperV - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/hyperv/" rel="self" type="application/rss+xml" /><item>
+    <title>Booting Up Windows Server 2019</title>
+    <link>/posts/windows-server-2019/booting-up-windows-server-2019/</link>
+    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/booting-up-windows-server-2019/</guid>
+    <description><![CDATA[Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation.]]></description>
+</item>
+<item>
     <title>Create a Empty Shell Windows Server using HyperV</title>
     <link>/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</link>
     <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>

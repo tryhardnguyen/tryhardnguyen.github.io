@@ -5,6 +5,14 @@
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Booting Up Windows Server 2019</title>
+    <link>/posts/windows-server-2019/booting-up-windows-server-2019/</link>
+    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/booting-up-windows-server-2019/</guid>
+    <description><![CDATA[Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation.]]></description>
+</item>
+<item>
     <title>Create a Empty Shell Windows Server using HyperV</title>
     <link>/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</link>
     <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -77,14 +85,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/test-scan/</guid>
     <description><![CDATA[After setting up my Kali Linux (Attacker) and my vulnerable server metasploitable2, I'm ready to try scanning it and see the network activity it generates.]]></description>
-</item>
-<item>
-    <title>Configure Metasploitable3</title>
-    <link>/posts/metasploitable2/</link>
-    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/metasploitable2/</guid>
-    <description><![CDATA[Today, I'm going configure Metasploitable3 (Linux) Network Configuration]]></description>
 </item>
 </channel>
 </rss>
