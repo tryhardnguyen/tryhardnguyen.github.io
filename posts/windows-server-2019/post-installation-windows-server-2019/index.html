@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Booting Up Windows Server 2019 - </title><meta name="Description" content="Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation."><meta property="og:title" content="Booting Up Windows Server 2019" />
-<meta property="og:description" content="Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation." />
+        <title>Post installation - Windows Server 2019 - </title><meta name="Description" content="After installing windows server on our Hyper-v virtual machine, We have to make some final changes."><meta property="og:title" content="Post installation - Windows Server 2019" />
+<meta property="og:description" content="After installing windows server on our Hyper-v virtual machine, We have to make some final changes." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/windows-server-2019/booting-up-windows-server-2019/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-07-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-07-09T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta property="og:url" content="/posts/windows-server-2019/post-installation-windows-server-2019/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-10T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Booting Up Windows Server 2019"/>
-<meta name="twitter:description" content="Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation."/>
+<meta name="twitter:title" content="Post installation - Windows Server 2019"/>
+<meta name="twitter:description" content="After installing windows server on our Hyper-v virtual machine, We have to make some final changes."/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/booting-up-windows-server-2019/" /><link rel="prev" href="/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/" /><link rel="next" href="/posts/windows-server-2019/windows-server-core-installation/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/post-installation-windows-server-2019/" /><link rel="prev" href="/posts/windows-server-2019/windows-server-core-installation/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Booting Up Windows Server 2019",
+        "headline": "Post installation - Windows Server 2019",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/windows-server-2019\/booting-up-windows-server-2019\/"
-        },"genre": "posts","keywords": "HyperV, Virtualization, Windows Server","wordcount":  391 ,
-        "url": "\/posts\/windows-server-2019\/booting-up-windows-server-2019\/","datePublished": "2023-07-09T00:00:00+00:00","dateModified": "2023-07-09T00:00:00+00:00","publisher": {
+            "@id": "\/posts\/windows-server-2019\/post-installation-windows-server-2019\/"
+        },"genre": "posts","keywords": "HyperV, Virtualization, Windows Server","wordcount":  440 ,
+        "url": "\/posts\/windows-server-2019\/post-installation-windows-server-2019\/","datePublished": "2023-07-10T00:00:00+00:00","dateModified": "2023-07-10T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Nguyen Nguyen"
-            },"description": "Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation."
+            },"description": "After installing windows server on our Hyper-v virtual machine, We have to make some final changes."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -67,10 +67,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Booting Up Windows Server 2019</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Post installation - Windows Server 2019</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-09">2023-07-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;391 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-10">2023-07-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;440 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -78,8 +78,10 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#turn-on-the-virtual-machine">Turn on the Virtual Machine</a></li>
-    <li><a href="#windows-installation">Windows Installation</a></li>
+    <li><a href="#rename-windows-host">Rename Windows Host</a></li>
+    <li><a href="#change-the-type-of-virtual-switch">Change the Type of Virtual Switch</a></li>
+    <li><a href="#disable-ipv6">Disable IPv6</a></li>
+    <li><a href="#licensing">Licensing</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
@@ -113,52 +115,53 @@
 	            transform: scale(1.5);
 	        }
 </style>
-<p>Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation. If you didn&rsquo;t see the last post, here you go:  <a href="https://securitynguyen.com/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/" target="_blank" rel="noopener noreffer ">https://securitynguyen.com/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</a></p>
-<h2 id="turn-on-the-virtual-machine">Turn on the Virtual Machine</h2>
-<p>To turn on the virtual machine, we are going to right-click on our virtual machine and click on &ldquo;Start&rdquo;. Then we are going to click &ldquo;connect&rdquo;.</p>
-<h2 id="windows-installation">Windows Installation</h2>
+<p>Last time, we finish installing Windows Server on our virtual machine. In this post, we will set a static IP on the Windows Server. To do that, we will click on Local Server and then click on &ldquo;Ethernet&rdquo; and then properties. Afterward, we will click on Internet Protocol v4 (TCP/IPv4). Then we will click on &ldquo;Use the following Address&rdquo; and then we&rsquo;re allowed to enter the following information: IP address, Subnet Mask, Default Gateway.</p>
+<p>For my setup I will put the IP address: 192.168.1.250 and the Subnet Mask to be 255.255.255.0 and set the DNS to  &ldquo;Use the following DNS server address&rdquo; and enter: 192.168.1.250 since our windows server is going to take care DNS. Click OK twice.
 <br>
-<img class="zoom" src="/win-server-images/win-server3.png">
+<img class="zoom" src="/win-server-images/win-server5.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server3.png">
+        <img class="zoomed-image" src="/win-server-images/win-server5.png">
 </div>
-<p>After that, a Windows Setup screen should pop up. We are going click next and then click on &ldquo;Install Now&rdquo;. Afterwards, you should see a screen asking &ldquo;Select the operating system you want to install&rdquo; with the choices of:</p>
-<ul>
-	<li>Windows Server 2019 Standard Evaluation</li> 
-	<li>Windows Server 2019 Standard Evaluation (Desktop Experience)</li> 
-	<li>Windows Server 2019 Datacenter Evaluation</li>
-	<li>Windows Server 2019 Datacenter Evaluation (Desktop Experience)</li>
-</ul>
-Summary of each version:
-<br>
-Desktop Experience - Has GUI
+<h2 id="rename-windows-host">Rename Windows Host</h2>
+<p>To rename the windows host name, we can click next to &ldquo;Computer Name&rdquo; . Click &ldquo;Change&rdquo; and you should see a GUI that ask you for Computer Name. The computer Name is the name of the host. Then after clicking &ldquo;Apply&rdquo;, we will click Close and the restart progress begins.</p>
+<h2 id="change-the-type-of-virtual-switch">Change the Type of Virtual Switch</h2>
+<p>We have to go to: &ldquo;Virtual Switch Manager&rdquo;. Then click on vSwitch1, You will have the following option: External network, Internal network, Private network.
 <br>
 <br>
-Without Desktop Experience - No GUI, Reduce Attack Surface.
+Private network is when your virtual machine cannot connect to the internet, it cannot connect directly to the host machine. The only thing that it will be able to connect to will be additional virtual machine that we create on this host. (Complete isolation)
 <br>
 <br>
-Standard Evaluation: Limited Virtual Licensing, Only provide 2.
+External network is when your virtual machine is connected to the internet.
 <br>
+We are going to choose &ldquo;Private network&rdquo; and click Apply. Now our static IP is now set. Let&rsquo;s reset the virtual machine and hopefully the IP address is set.
 <br>
-Datacenter: Unlimited Virtualization.
-<br>
-<br>
-We are going to pick Datacenter (Desktop Experience) and click Next. The next page is licensing and term. We are going pick: "I accept the license term" and click next.
-<br>
-<br>
-Then it will ask: "What type of installation do you want?" I will choose: "Custom: Install Windows only" and ask you to choose the drive to install the OS on. I will choose Drive 0. Now the installation starts.
-After the installation process is done, We are going to set up an administrator password for our administrator account. Choose any password you want.
-<br>
-<br>
-After that the login page should appear and now we're going log in. Once you are loaded in, you will see the Server Manager -> Dashboard. Congratulations you have completed your Windows Server installation.
-<img class="zoom" src="/win-server-images/win-server4.png">
+<img class="zoom" src="/win-server-images/win-server6.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server4.png">
+        <img class="zoomed-image" src="/win-server-images/win-server6.png">
 </div>
-<p>One more thing, I would like to save a &ldquo;Checkpoint&rdquo;. A checkpoint is like a snapshot of what just happen so far, so if you mess up, you can go back to the copy you didn&rsquo;t mess up. To save a checkpoint click Action -&gt; Checkpoint. Then it will ask you what you want your checkpoint to be. I&rsquo;ll name it fresh install.
+The static IP is set.
+<h2 id="disable-ipv6">Disable IPv6</h2>
+<p>Since we are not using IPv6. Let&rsquo;s turn it off. First step to to click on the IP address next to Ethernet. Right click Ethernet and click Properties and then uncheck Internet Protocol Version 6 (TCP/IPv6) and click OK.
 <br>
+<img class="zoom" src="/win-server-images/win-server6.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server6.png">
+</div>
+Then click on the "Refresh" button which is next to the flag. Then under the ethernet section we should only have the IP address.
 <br>
-Thank you for reading the blog post :) The next post is going to be what are some thing to do after the installation: <a href="https://securitynguyen.com/posts/windows-server-2019/post-installations/" target="_blank" rel="noopener noreffer ">https://securitynguyen.com/posts/windows-server-2019/post-installations/</a></p>
+<img class="zoom" src="/win-server-images/win-server7.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server6.png">
+</div>
+<h2 id="licensing">Licensing</h2>
+<p>Windows have a Software Licensing Manager tool that is available. To access it, press CMD+R and type slgmr.vbs. It will show you the types of command you can do and what they do. In the command prompt, you can type: <code>slgmr.vbs /dli</code> to find more information about the current license.
+<br>
+<img class="zoom" src="/win-server-images/win-server8.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server6.png">
+</div>
+Next post will be about install Windows Server Core and going over the post-installation task.
+<p>Thank you for reading :)</p>
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
@@ -183,12 +186,12 @@ Thank you for reading the blog post :) The next post is going to be what are som
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-07-09</span>
+                <span>Updated on 2023-07-10</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/booting-up-windows-server-2019/" data-title="Booting Up Windows Server 2019" data-hashtags="HyperV,Virtualization,Windows Server"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/booting-up-windows-server-2019/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/post-installation-windows-server-2019/" data-title="Post installation - Windows Server 2019" data-hashtags="HyperV,Virtualization,Windows Server"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/post-installation-windows-server-2019/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -200,8 +203,7 @@ Thank you for reading the blog post :) The next post is going to be what are som
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/" class="prev" rel="prev" title="Create a Empty Shell Windows Server using HyperV"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Create a Empty Shell Windows Server using HyperV</a>
-            <a href="/posts/windows-server-2019/windows-server-core-installation/" class="next" rel="next" title="Windows Server Core Installation">Windows Server Core Installation<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/windows-server-2019/windows-server-core-installation/" class="prev" rel="prev" title="Windows Server Core Installation"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Windows Server Core Installation</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

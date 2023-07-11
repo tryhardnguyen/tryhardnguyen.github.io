@@ -4,7 +4,23 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Post installation - Windows Server 2019</title>
+    <link>/posts/windows-server-2019/post-installation-windows-server-2019/</link>
+    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/post-installation-windows-server-2019/</guid>
+    <description><![CDATA[After installing windows server on our Hyper-v virtual machine, We have to make some final changes.]]></description>
+</item>
+<item>
+    <title>Windows Server Core Installation</title>
+    <link>/posts/windows-server-2019/windows-server-core-installation/</link>
+    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/windows-server-core-installation/</guid>
+    <description><![CDATA[In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation.]]></description>
+</item>
+<item>
     <title>Booting Up Windows Server 2019</title>
     <link>/posts/windows-server-2019/booting-up-windows-server-2019/</link>
     <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -71,22 +87,6 @@ You can access the target machine over your browser or use the SSH credentials b
     <author>Nguyen Nguyen</author>
     <guid>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</guid>
     <description><![CDATA[One of the paths to privilege escalation on Linux is a abusing the misconfiguration of a Cron Job. This post will be showcasing how cron job can lead to privilege escalation.]]></description>
-</item>
-<item>
-    <title>Capabilities - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</link>
-    <pubDate>Mon, 26 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</guid>
-    <description><![CDATA[I am exploring what is capabilities and how to exploit it. To help me learn the material, I will be using TryHackMe room as my lab]]></description>
-</item>
-<item>
-    <title>Exploring SUID Exploit - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/suid-exploit-linux-privilege-escalation/</link>
-    <pubDate>Sun, 25 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/suid-exploit-linux-privilege-escalation/</guid>
-    <description><![CDATA[I am exploring SUID exploit which is often used in privilege escalation. To help me learn the material, I will be using TryHackMe room as my lab.]]></description>
 </item>
 </channel>
 </rss>

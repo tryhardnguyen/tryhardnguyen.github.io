@@ -4,20 +4,28 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>HyperV</title>
     <link>/tags/hyperv/</link>
-    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/hyperv/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Virtual Machine</title>
-    <link>/tags/virtual-machine/</link>
-    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <title>Virtualization</title>
+    <link>/tags/virtualization/</link>
+    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/tags/virtual-machine/</guid>
+    <guid>/tags/virtualization/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Windows Server</title>
+    <link>/tags/windows-server/</link>
+    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/windows-server/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -74,14 +82,6 @@
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/hids/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>EDR</title>
-    <link>/tags/edr/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/edr/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

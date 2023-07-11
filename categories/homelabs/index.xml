@@ -4,7 +4,23 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Post installation - Windows Server 2019</title>
+    <link>/posts/windows-server-2019/post-installation-windows-server-2019/</link>
+    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/post-installation-windows-server-2019/</guid>
+    <description><![CDATA[After installing windows server on our Hyper-v virtual machine, We have to make some final changes.]]></description>
+</item>
+<item>
+    <title>Windows Server Core Installation</title>
+    <link>/posts/windows-server-2019/windows-server-core-installation/</link>
+    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/windows-server-core-installation/</guid>
+    <description><![CDATA[In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation.]]></description>
+</item>
+<item>
     <title>Booting Up Windows Server 2019</title>
     <link>/posts/windows-server-2019/booting-up-windows-server-2019/</link>
     <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -69,22 +85,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/testing-endpoint-detection-windows/</guid>
     <description><![CDATA[The purpose of showcase the endpoint detection that I'm working with.]]></description>
-</item>
-<item>
-    <title>Create OU, GPO, Enable Logging within Windows Server</title>
-    <link>/posts/ou-gpo-cyberrange/</link>
-    <pubDate>Mon, 22 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/ou-gpo-cyberrange/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Test Scan on Metasploitable2</title>
-    <link>/posts/test-scan/</link>
-    <pubDate>Sun, 21 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/test-scan/</guid>
-    <description><![CDATA[After setting up my Kali Linux (Attacker) and my vulnerable server metasploitable2, I'm ready to try scanning it and see the network activity it generates.]]></description>
 </item>
 </channel>
 </rss>

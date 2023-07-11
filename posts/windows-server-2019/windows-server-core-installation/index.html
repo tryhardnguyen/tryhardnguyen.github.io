@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Windows Server Core Installation - </title><meta name="Description" content="In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation."><meta property="og:title" content="Windows Server Core Installation" />
+<meta property="og:description" content="In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/windows-server-2019/windows-server-core-installation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-10T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Windows Server Core Installation"/>
+<meta name="twitter:description" content="In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/windows-server-core-installation/" /><link rel="prev" href="/posts/windows-server-2019/booting-up-windows-server-2019/" /><link rel="next" href="/posts/windows-server-2019/post-installation-windows-server-2019/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Windows Server Core Installation",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/windows-server-2019\/windows-server-core-installation\/"
+        },"genre": "posts","keywords": "HyperV, Virtualization, Windows Server","wordcount":  662 ,
+        "url": "\/posts\/windows-server-2019\/windows-server-core-installation\/","datePublished": "2023-07-10T00:00:00+00:00","dateModified": "2023-07-10T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Windows Server Core Installation</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-10">2023-07-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;662 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#pros-and-cons-of-server-core">Pros and Cons of Server Core</a></li>
+    <li><a href="#installation-process">Installation process</a></li>
+    <li><a href="#post-installation">Post Installation</a>
+      <ul>
+        <li><a href="#what-is-sconfig">What is sconfig?</a></li>
+        <li><a href="#dns--ip-configuration">DNS &amp; IP Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#rename-the-hostname">Rename the Hostname</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="pros-and-cons-of-server-core">Pros and Cons of Server Core</h2>
+<p>Advantages:</p>
+<ul>
+	<li>Take up less disk space, and uses very little server resources.</li>
+	<li>Has fewer components = Fewer software updates = Reduces num of monthly restarts</li>
+	<li>Small attack surface = Being less vulnerable to exploit. </li>
+</ul>
+Cons:
+<ul>
+	<li>Some application are not supported on a Server Core Installation</li>
+	<li>Some roles and role services are not available.</li>
+	<li>No GUI - However, we can bypass this problem by managing it remotely.</li>
+</ul>
+<h2 id="installation-process">Installation process</h2>
+<p>Let&rsquo;s first create a new Virtual Machine for our Server Core Windows. This is essentially the same installation process. You can use this as reference: <a href="https://securitynguyen.com/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/" target="_blank" rel="noopener noreffer ">https://securitynguyen.com/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</a>. You can ignore the virtual switch since that step has already been done. The only step that need to be focused is &ldquo;Virtual Machine&rdquo;.
+<br>
+<br>
+My Hyper-V Virtual Machine Spec:</p>
+<ul>
+	<li>Name: SN-CORE</li>
+	<li>Generation: Generation 2</li>
+	<li>Startup Memory: 4096 MB </li>
+	<li>Connection: vSwitch1</li>
+	<li>Configure Virtual Hard Disk: Use default setting</li>
+	<li>Installation Option: Select Windows Server 2019 Image </li>
+</ul>
+Click Finish. Right click on the Core Virtual machine and click start. A Windows Server 2019 welcome screen should appear.
+<br>
+<img class="zoom" src="/win-server-images/win-server9.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server9.png">
+</div>
+<p>You can refer to this blog post that I made when installing Windows Server 2019 since it literally the same step but instead of clicking on Datacenter Evaluation (Desktop Experience), we will be installation Datacenter Evaluation.
+<br>
+Link to the blog post:
+<a href="https://securitynguyen.com/posts/windows-server-2019/booting-up-windows-server-2019/" target="_blank" rel="noopener noreffer ">https://securitynguyen.com/posts/windows-server-2019/booting-up-windows-server-2019/</a>
+<br>
+After installation, it will tell us to change the Administrator Password before signing in.
+<br>
+<img class="zoom" src="/win-server-images/win-server10.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server10.png">
+</div>
+After changing the password, you should see a administrator command line and a black screen. That all we have to do! Time to move onto to the post installation.
+<br>
+<img class="zoom" src="/win-server-images/win-server11.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server11.png">
+</div>
+<h2 id="post-installation">Post Installation</h2>
+<p>We will be using <code>sconfig</code> to help us configure our Server Core.</p>
+<h3 id="what-is-sconfig">What is sconfig?</h3>
+<p>Menu based utility that is built into Windows that allows you to easily configure Server Core. Additionally, it eliminates the need to know &ldquo;scripting&rdquo; to configure the settings. Hate coding? No problem sconfig solves your problem.</p>
+<h3 id="dns--ip-configuration">DNS &amp; IP Configuration</h3>
+<p>Let start by typing <code>sconfig</code> in the command line. Since we are working with IP, that would be under network setting. So, we are going to enter 8 and then click the network adapter that you&rsquo;re using. I only have one so that a obvious choice for me.
+<br>
+<img class="zoom" src="/win-server-images/win-server12.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server12.png">
+</div>
+<p>Then it will lay out some Network Adapter Setting:
+<br>
+<img class="zoom" src="/win-server-images/win-server13.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server13.png">
+</div>
+Since we are primarily focus on changing the IP address, we're going to choose 1 (Set Network Adapter Address). Then it will ask us if you want to use a DHCP server to get your IP address or if you want to manually set it. We are going to choose static IP so we going to type S.
+<br>
+<img class="zoom" src="/win-server-images/win-server14.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server14.png">
+</div>
+Then it ask us to type the static IP address: I am going assign the machine: 192.168.1.252. Then
+it ask us for the subnet mask, I'm going press enter and then it ask us to enter a default gateway. Since this VM is not going to be connected to the internet we are just going hit enter. Now it time to set our DNS server.
+<br>
+<br>
+As seen from the picture above, we are going to enter 2 to set the DNS server. Then it ask us to enter the preferred DNS server. In this overall lab, the windows server (SN-DC1) will be the DNS server so I'm going enter the IP of SN-DC1 (192.168.1.250). Then it ask if there is alternate DNS server you want use. You can enter 8.8.8.8 (Google DNS Server) or just leave it empty. It's up to you.
+<br>
+<img class="zoom" src="/win-server-images/win-server15.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server15.png">
+</div>
+<p>We just completed configuring our network setting. Let&rsquo;s return to the Main Menu (4) and change the hostname.</p>
+<h2 id="rename-the-hostname">Rename the Hostname</h2>
+<p>Let enter 2 (Computer Name) to change the hostname. My machine new name going to be SN-CORE. You can name whatever you see fit. After entering the new name, we have to restart the computer. After restarting, you should see the name of the host changed.
+<br>
+<img class="zoom" src="/win-server-images/win-server16.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server16.png">
+</div>
+<p>That is it for now. Thanks for reading :)</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-07-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/windows-server-core-installation/" data-title="Windows Server Core Installation" data-hashtags="HyperV,Virtualization,Windows Server"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/windows-server-core-installation/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hyperv/">HyperV</a>,&nbsp;<a href="/tags/virtualization/">Virtualization</a>,&nbsp;<a href="/tags/windows-server/">Windows Server</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/windows-server-2019/booting-up-windows-server-2019/" class="prev" rel="prev" title="Booting Up Windows Server 2019"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Booting Up Windows Server 2019</a>
+            <a href="/posts/windows-server-2019/post-installation-windows-server-2019/" class="next" rel="next" title="Post installation - Windows Server 2019">Post installation - Windows Server 2019<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
