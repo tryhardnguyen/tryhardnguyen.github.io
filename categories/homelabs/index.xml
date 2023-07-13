@@ -4,7 +4,31 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Active Directory Installation - Windows Server</title>
+    <link>/posts/windows-server-2019/active-directory-installation-windows-server/</link>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/active-directory-installation-windows-server/</guid>
+    <description><![CDATA[In this post, I will be going over how to install Active Directory on Windows Server]]></description>
+</item>
+<item>
+    <title>Windows Server Lab Layout</title>
+    <link>/posts/windows-server-2019/windows-server-lab-layout/</link>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/windows-server-lab-layout/</guid>
+    <description><![CDATA[Small scale Windows Server Lab. Purpose is to mess around with Windows Server and see what they can do.]]></description>
+</item>
+<item>
+    <title>Setting up Windows Admin Center</title>
+    <link>/posts/windows-server-2019/setting-up-windows-admin-center/</link>
+    <pubDate>Tue, 11 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/setting-up-windows-admin-center/</guid>
+    <description><![CDATA[In this post, We will setting up Windows Admin Center and exploring the tool in details.]]></description>
+</item>
+<item>
     <title>Post installation - Windows Server 2019</title>
     <link>/posts/windows-server-2019/post-installation-windows-server-2019/</link>
     <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -61,30 +85,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/service-detection/</guid>
     <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
-</item>
-<item>
-    <title>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</title>
-    <link>/posts/recon/</link>
-    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/recon/</guid>
-    <description><![CDATA[In this post, I will be exploring what reconnaissance look like from an attacker point of view.]]></description>
-</item>
-<item>
-    <title>Story Backgound - Modern Cyber Range</title>
-    <link>/posts/storytelling/</link>
-    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/storytelling/</guid>
-    <description><![CDATA[Modern Cyber Range is based off of this story.]]></description>
-</item>
-<item>
-    <title>Testing Endpoint Detection - Windows</title>
-    <link>/posts/testing-endpoint-detection-windows/</link>
-    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/testing-endpoint-detection-windows/</guid>
-    <description><![CDATA[The purpose of showcase the endpoint detection that I'm working with.]]></description>
 </item>
 </channel>
 </rss>

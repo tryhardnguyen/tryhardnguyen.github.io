@@ -4,18 +4,26 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>HyperV</title>
     <link>/tags/hyperv/</link>
-    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/hyperv/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>Modern Cyber Range</title>
+    <link>/tags/modern-cyber-range/</link>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/modern-cyber-range/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Virtualization</title>
     <link>/tags/virtualization/</link>
-    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/virtualization/</guid>
     <description><![CDATA[]]></description>
@@ -23,7 +31,7 @@
 <item>
     <title>Windows Server</title>
     <link>/tags/windows-server/</link>
-    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/windows-server/</guid>
     <description><![CDATA[]]></description>
@@ -66,14 +74,6 @@
     <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/nmap/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Modern Cyber Range</title>
-    <link>/tags/modern-cyber-range/</link>
-    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/modern-cyber-range/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

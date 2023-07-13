@@ -4,7 +4,23 @@
         <link>/tags/hyperv/</link>
         <description>HyperV - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/hyperv/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/hyperv/" rel="self" type="application/rss+xml" /><item>
+    <title>Windows Server Lab Layout</title>
+    <link>/posts/windows-server-2019/windows-server-lab-layout/</link>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/windows-server-lab-layout/</guid>
+    <description><![CDATA[Small scale Windows Server Lab. Purpose is to mess around with Windows Server and see what they can do.]]></description>
+</item>
+<item>
+    <title>Setting up Windows Admin Center</title>
+    <link>/posts/windows-server-2019/setting-up-windows-admin-center/</link>
+    <pubDate>Tue, 11 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/setting-up-windows-admin-center/</guid>
+    <description><![CDATA[In this post, We will setting up Windows Admin Center and exploring the tool in details.]]></description>
+</item>
+<item>
     <title>Post installation - Windows Server 2019</title>
     <link>/posts/windows-server-2019/post-installation-windows-server-2019/</link>
     <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>

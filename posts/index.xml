@@ -4,7 +4,31 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Active Directory Installation - Windows Server</title>
+    <link>/posts/windows-server-2019/active-directory-installation-windows-server/</link>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/active-directory-installation-windows-server/</guid>
+    <description><![CDATA[In this post, I will be going over how to install Active Directory on Windows Server]]></description>
+</item>
+<item>
+    <title>Windows Server Lab Layout</title>
+    <link>/posts/windows-server-2019/windows-server-lab-layout/</link>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/windows-server-lab-layout/</guid>
+    <description><![CDATA[Small scale Windows Server Lab. Purpose is to mess around with Windows Server and see what they can do.]]></description>
+</item>
+<item>
+    <title>Setting up Windows Admin Center</title>
+    <link>/posts/windows-server-2019/setting-up-windows-admin-center/</link>
+    <pubDate>Tue, 11 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/setting-up-windows-admin-center/</guid>
+    <description><![CDATA[In this post, We will setting up Windows Admin Center and exploring the tool in details.]]></description>
+</item>
+<item>
     <title>Post installation - Windows Server 2019</title>
     <link>/posts/windows-server-2019/post-installation-windows-server-2019/</link>
     <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -63,30 +87,6 @@ You have gained SSH access to a large scientific facility. Try to elevate your p
 We designed this room to help you build a thorough methodology for Linux privilege escalation that will be very useful in exams such as OSCP and your penetration testing engagements.
 Leave no privilege escalation vector unexplored, privilege escalation is often more an art than a science.
 You can access the target machine over your browser or use the SSH credentials below.]]></description>
-</item>
-<item>
-    <title>NFS - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</link>
-    <pubDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</guid>
-    <description><![CDATA[Today, I will learn what is NFS and how it's used to escalate privilege.]]></description>
-</item>
-<item>
-    <title>$PATH Hijacking - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</link>
-    <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how to exploit PATH]]></description>
-</item>
-<item>
-    <title>Crob Job to Root - Linux Escalation Privilege</title>
-    <link>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</link>
-    <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a abusing the misconfiguration of a Cron Job. This post will be showcasing how cron job can lead to privilege escalation.]]></description>
 </item>
 </channel>
 </rss>
