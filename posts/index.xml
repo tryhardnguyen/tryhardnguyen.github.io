@@ -4,7 +4,15 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>AD Challenge 1 - New User Onboarding</title>
+    <link>/posts/windows-server-2019/ad-challenge-new-user-onboarding/</link>
+    <pubDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/ad-challenge-new-user-onboarding/</guid>
+    <description><![CDATA[Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group.]]></description>
+</item>
+<item>
     <title>Create Users, Groups, Computers, OU - Windows Server 2019</title>
     <link>/posts/windows-server-2019/create-users-groups-computers-ou/</link>
     <pubDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-privilege-escalation/reverse-shell-dying/</guid>
     <description><![CDATA[During my journey of learning Windows Escalation, I had my reverse shell dying when I tried to connect back to the service users. This really frustrate me. However, after a constant testing I figured an way to minimize the reverse shell from disconnectioning]]></description>
-</item>
-<item>
-    <title>Unquoted Service Path - Windows Escalation</title>
-    <link>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</link>
-    <pubDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</guid>
-    <description><![CDATA[Let's learn how Unquoted Service Paths can lead to a Windows Escalation]]></description>
 </item>
 </channel>
 </rss>

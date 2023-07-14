@@ -4,7 +4,15 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>AD Challenge 1 - New User Onboarding</title>
+    <link>/posts/windows-server-2019/ad-challenge-new-user-onboarding/</link>
+    <pubDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/ad-challenge-new-user-onboarding/</guid>
+    <description><![CDATA[Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group.]]></description>
+</item>
+<item>
     <title>Create Users, Groups, Computers, OU - Windows Server 2019</title>
     <link>/posts/windows-server-2019/create-users-groups-computers-ou/</link>
     <pubDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -77,14 +85,6 @@
     <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
 OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
 Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
-</item>
-<item>
-    <title>Open-Closed Ports</title>
-    <link>/posts/open-closed-ports-nmap/</link>
-    <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/open-closed-ports-nmap/</guid>
-    <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
 </item>
 </channel>
 </rss>

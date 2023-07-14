@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>AD Challenge 1 - New User Onboarding - </title><meta name="Description" content="Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group."><meta property="og:title" content="AD Challenge 1 - New User Onboarding" />
+<meta property="og:description" content="Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/windows-server-2019/ad-challenge-new-user-onboarding/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-14T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AD Challenge 1 - New User Onboarding"/>
+<meta name="twitter:description" content="Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/ad-challenge-new-user-onboarding/" /><link rel="prev" href="/posts/windows-server-2019/create-users-groups-computers-ou/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "AD Challenge 1 - New User Onboarding",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/windows-server-2019\/ad-challenge-new-user-onboarding\/"
+        },"genre": "posts","keywords": "HyperV, Virtualization, Windows Server, Active Directory","wordcount":  329 ,
+        "url": "\/posts\/windows-server-2019\/ad-challenge-new-user-onboarding\/","datePublished": "2023-07-14T00:00:00+00:00","dateModified": "2023-07-14T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">AD Challenge 1 - New User Onboarding</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-14">2023-07-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;329 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#creating-an-user">Creating an User</a></li>
+    <li><a href="#create-a-group">Create a Group</a></li>
+    <li><a href="#assign-members-to-the-group">Assign Members to the Group</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<p>Background Information: You&rsquo;re employed as a helpdesk in a tech company named: TekNova. Today, you&rsquo;re assigned a onboarding task. The recuirtment department hired two new accountant named: &ldquo;Bob King&rdquo; and &ldquo;Jill Great&rdquo; to the team. You&rsquo;re job is to create an account for them and assign them to the finance department group.</p>
+<p>Before you start, make sure you have ADDS (Active Directory Domain Service) installed on your Windows Server.</p>
+<h2 id="creating-an-user">Creating an User</h2>
+<p>First thing we will do is go to: &ldquo;Active Directory Users and Computers&rdquo;. Then click on Users and then click on New -&gt; User.
+<br>
+<img class="zoom" src="/win-server-images/win-server45.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server45.png">
+</div>
+<p>Then a new menu will appear to create the User.
+<br>
+<img class="zoom" src="/win-server-images/win-server46.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server46.png">
+</div>
+<p>Now, we will fill in the details of the user. First user is Bob King.
+<br>
+<img class="zoom" src="/win-server-images/win-server47.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server47.png">
+</div>
+The next step is assigning the password for login. We will assign password to the user first and then when the user log in the first time. He/she has to assign her own password for the account.
+<br>
+<img class="zoom" src="/win-server-images/win-server48.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server48.png">
+</div>
+<p>Now, we repeat the same step as before for &ldquo;Jill Great&rdquo;. Now both our user is created.
+<br>
+<img class="zoom" src="/win-server-images/win-server49.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server49.png">
+</div>
+<h2 id="create-a-group">Create a Group</h2>
+<p>Same process as the start. We are going to New -&gt; Group. Then a setup menu for Group appears. We are going fill in the data we create for group.
+<br>
+<img class="zoom" src="/win-server-images/win-server50.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server50.png">
+</div>
+<h2 id="assign-members-to-the-group">Assign Members to the Group</h2>
+<p>Now, we&rsquo;re going to assign &ldquo;Bob King&rdquo; and &ldquo;Jill Great&rdquo; to the Accountant Group. First, click on the Account group. Then click on Properties.
+<br>
+<img class="zoom" src="/win-server-images/win-server51.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server51.png">
+</div>
+<p>Then we are going to look for the Members tab. Then click on Add. A menu pop up. You should see a section name: &ldquo;Enter the object names to select&rdquo;. Type the user you want to add. At the end you should have something like this.
+<br>
+<img class="zoom" src="/win-server-images/win-server52.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server52.png">
+</div>
+<p>Now click Apply. Now when we click Members. We should see Bob King and Jill Great.
+<br>
+<img class="zoom" src="/win-server-images/win-server53.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server53.png">
+</div>
+<p>Thank you for participating in the challenge. Hope you like it. See you on the next one.</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-07-14</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/ad-challenge-new-user-onboarding/" data-title="AD Challenge 1 - New User Onboarding" data-hashtags="HyperV,Virtualization,Windows Server,Active Directory"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/ad-challenge-new-user-onboarding/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hyperv/">HyperV</a>,&nbsp;<a href="/tags/virtualization/">Virtualization</a>,&nbsp;<a href="/tags/windows-server/">Windows Server</a>,&nbsp;<a href="/tags/active-directory/">Active Directory</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/windows-server-2019/create-users-groups-computers-ou/" class="prev" rel="prev" title="Create Users, Groups, Computers, OU - Windows Server 2019"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Create Users, Groups, Computers, OU - Windows Server 2019</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
