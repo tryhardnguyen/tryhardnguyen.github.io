@@ -4,7 +4,23 @@
         <link>/tags/virtualization/</link>
         <description>Virtualization - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/virtualization/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/virtualization/" rel="self" type="application/rss+xml" /><item>
+    <title>Create Users, Groups, Computers, OU - Windows Server 2019</title>
+    <link>/posts/windows-server-2019/create-users-groups-computers-ou/</link>
+    <pubDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/create-users-groups-computers-ou/</guid>
+    <description><![CDATA[In this post, I will demonstrate how to create users, computers, and organizational units.]]></description>
+</item>
+<item>
+    <title>Active Directory Installation - Windows Server</title>
+    <link>/posts/windows-server-2019/active-directory-installation-windows-server/</link>
+    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/active-directory-installation-windows-server/</guid>
+    <description><![CDATA[In this post, I will be going over how to install Active Directory on Windows Server]]></description>
+</item>
+<item>
     <title>Windows Server Lab Layout</title>
     <link>/posts/windows-server-2019/windows-server-lab-layout/</link>
     <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>

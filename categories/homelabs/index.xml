@@ -4,7 +4,15 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Create Users, Groups, Computers, OU - Windows Server 2019</title>
+    <link>/posts/windows-server-2019/create-users-groups-computers-ou/</link>
+    <pubDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/create-users-groups-computers-ou/</guid>
+    <description><![CDATA[In this post, I will demonstrate how to create users, computers, and organizational units.]]></description>
+</item>
+<item>
     <title>Active Directory Installation - Windows Server</title>
     <link>/posts/windows-server-2019/active-directory-installation-windows-server/</link>
     <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -77,14 +85,6 @@ Traceroute If you want Nmap to find the routers between you and the target, you 
     <author>Nguyen Nguyen</author>
     <guid>/posts/open-closed-ports-nmap/</guid>
     <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
-</item>
-<item>
-    <title>Service Detection using Nmap</title>
-    <link>/posts/service-detection/</link>
-    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/service-detection/</guid>
-    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
 </item>
 </channel>
 </rss>
