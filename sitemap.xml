@@ -2,6 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>/posts/hyperv/how-to-delete-a-vm-in-hyperv/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/windows-server-2019/joining-a-domain-with-the-server-core/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/windows-server-2019/ad-challenge-new-user-onboarding/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/windows-server-2019/create-users-groups-computers-ou/</loc><lastmod>2023-07-13T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/windows-server-2019/active-directory-installation-windows-server/</loc><lastmod>2023-07-12T00:00:00&#43;00:00</lastmod></url><url>
@@ -54,15 +56,15 @@
             <loc>/posts/installing-kali-linux-attacker-cybersecurity-homelab/</loc><lastmod>2022-12-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/owasp-top-10-vulnerabilities-project/</loc><lastmod>2022-11-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/templates/</loc></url><url>
-            <loc>/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/active-directory/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/homelabs/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/hyperv/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/virtualization/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/windows-server/</loc><lastmod>2023-07-14T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/active-directory/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/homelabs/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/hyperv/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/virtualization/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/windows-server/</loc><lastmod>2023-07-15T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/penetration-testing/</loc><lastmod>2023-07-06T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/red-team/</loc><lastmod>2023-07-06T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/windows/</loc><lastmod>2023-07-04T00:00:00&#43;00:00</lastmod></url><url>

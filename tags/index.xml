@@ -4,10 +4,10 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Active Directory</title>
     <link>/tags/active-directory/</link>
-    <pubDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/active-directory/</guid>
     <description><![CDATA[]]></description>
@@ -15,7 +15,7 @@
 <item>
     <title>HyperV</title>
     <link>/tags/hyperv/</link>
-    <pubDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/hyperv/</guid>
     <description><![CDATA[]]></description>
@@ -23,7 +23,7 @@
 <item>
     <title>Virtualization</title>
     <link>/tags/virtualization/</link>
-    <pubDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/virtualization/</guid>
     <description><![CDATA[]]></description>
@@ -31,7 +31,7 @@
 <item>
     <title>Windows Server</title>
     <link>/tags/windows-server/</link>
-    <pubDate>Fri, 14 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/windows-server/</guid>
     <description><![CDATA[]]></description>

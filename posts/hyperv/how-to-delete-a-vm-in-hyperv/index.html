@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>AD Challenge 1 - New User Onboarding - </title><meta name="Description" content="Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group."><meta property="og:title" content="AD Challenge 1 - New User Onboarding" />
-<meta property="og:description" content="Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group." />
+        <title>How to delete a VM in HyperV - </title><meta name="Description" content="In this post, we are going to review how to delete a VM completely in HyperV"><meta property="og:title" content="How to delete a VM in HyperV" />
+<meta property="og:description" content="In this post, we are going to review how to delete a VM completely in HyperV" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/windows-server-2019/ad-challenge-new-user-onboarding/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-07-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-07-14T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta property="og:url" content="/posts/hyperv/how-to-delete-a-vm-in-hyperv/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-15T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="AD Challenge 1 - New User Onboarding"/>
-<meta name="twitter:description" content="Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group."/>
+<meta name="twitter:title" content="How to delete a VM in HyperV"/>
+<meta name="twitter:description" content="In this post, we are going to review how to delete a VM completely in HyperV"/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/ad-challenge-new-user-onboarding/" /><link rel="prev" href="/posts/windows-server-2019/create-users-groups-computers-ou/" /><link rel="next" href="/posts/windows-server-2019/joining-a-domain-with-the-server-core/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/hyperv/how-to-delete-a-vm-in-hyperv/" /><link rel="prev" href="/posts/windows-server-2019/joining-a-domain-with-the-server-core/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "AD Challenge 1 - New User Onboarding",
+        "headline": "How to delete a VM in HyperV",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/windows-server-2019\/ad-challenge-new-user-onboarding\/"
-        },"genre": "posts","keywords": "HyperV, Virtualization, Windows Server, Active Directory","wordcount":  329 ,
-        "url": "\/posts\/windows-server-2019\/ad-challenge-new-user-onboarding\/","datePublished": "2023-07-14T00:00:00+00:00","dateModified": "2023-07-14T00:00:00+00:00","publisher": {
+            "@id": "\/posts\/hyperv\/how-to-delete-a-vm-in-hyperv\/"
+        },"genre": "posts","keywords": "HyperV","wordcount":  106 ,
+        "url": "\/posts\/hyperv\/how-to-delete-a-vm-in-hyperv\/","datePublished": "2023-07-15T00:00:00+00:00","dateModified": "2023-07-15T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Nguyen Nguyen"
-            },"description": "Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group."
+            },"description": "In this post, we are going to review how to delete a VM completely in HyperV"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -67,10 +67,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">AD Challenge 1 - New User Onboarding</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to delete a VM in HyperV</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-14">2023-07-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;329 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-15">2023-07-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;106 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -78,9 +78,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#creating-an-user">Creating an User</a></li>
-    <li><a href="#create-a-group">Create a Group</a></li>
-    <li><a href="#assign-members-to-the-group">Assign Members to the Group</a></li>
+    <li><a href="#introduction">Introduction</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
@@ -114,66 +112,24 @@
 	            transform: scale(1.5);
 	        }
 </style>
-<p>Background Information: You&rsquo;re employed as a helpdesk in a tech company named: TekNova. Today, you&rsquo;re assigned a onboarding task. The recuirtment department hired two new accountant named: &ldquo;Bob King&rdquo; and &ldquo;Jill Great&rdquo; to the team. You&rsquo;re job is to create an account for them and assign them to the finance department group.</p>
-<p>Before you start, make sure you have ADDS (Active Directory Domain Service) installed on your Windows Server.</p>
-<h2 id="creating-an-user">Creating an User</h2>
-<p>First thing we will do is go to: &ldquo;Active Directory Users and Computers&rdquo;. Then click on Users and then click on New -&gt; User.
+<h2 id="introduction">Introduction</h2>
+<p>You might be thinking Oh, I deleted a VM from Hyper-V Manager and that should do it right? Wrong.
 <br>
-<img class="zoom" src="/win-server-images/win-server45.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server45.png">
-</div>
-<p>Then a new menu will appear to create the User.
 <br>
-<img class="zoom" src="/win-server-images/win-server46.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server46.png">
-</div>
-<p>Now, we will fill in the details of the user. First user is Bob King.
+To completely delete a VM from your hard drive, you need to first locate where your virtual hard disk is stored. If you don&rsquo;t know you can go to: Edit Disk -&gt; Locate Disk.
+You will be given a file path to the virtual hard disk.
 <br>
-<img class="zoom" src="/win-server-images/win-server47.png"></p>
+<img class="zoom" src="/win-server-images/win-server64.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server47.png">
+        <img class="zoomed-image" src="/win-server-images/win-server1.png">
 </div>
-The next step is assigning the password for login. We will assign password to the user first and then when the user log in the first time. He/she has to assign her own password for the account.
+<p>Afterwards, you can go to the file and delete the drive of your recently deleted VM.
 <br>
-<img class="zoom" src="/win-server-images/win-server48.png">
+<img class="zoom" src="/win-server-images/win-server65.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server48.png">
+        <img class="zoomed-image" src="/win-server-images/win-server1.png">
 </div>
-<p>Now, we repeat the same step as before for &ldquo;Jill Great&rdquo;. Now both our user is created.
-<br>
-<img class="zoom" src="/win-server-images/win-server49.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server49.png">
-</div>
-<h2 id="create-a-group">Create a Group</h2>
-<p>Same process as the start. We are going to New -&gt; Group. Then a setup menu for Group appears. We are going fill in the data we create for group.
-<br>
-<img class="zoom" src="/win-server-images/win-server50.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server50.png">
-</div>
-<h2 id="assign-members-to-the-group">Assign Members to the Group</h2>
-<p>Now, we&rsquo;re going to assign &ldquo;Bob King&rdquo; and &ldquo;Jill Great&rdquo; to the Accountant Group. First, click on the Account group. Then click on Properties.
-<br>
-<img class="zoom" src="/win-server-images/win-server51.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server51.png">
-</div>
-<p>Then we are going to look for the Members tab. Then click on Add. A menu pop up. You should see a section name: &ldquo;Enter the object names to select&rdquo;. Type the user you want to add. At the end you should have something like this.
-<br>
-<img class="zoom" src="/win-server-images/win-server52.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server52.png">
-</div>
-<p>Now click Apply. Now when we click Members. We should see Bob King and Jill Great.
-<br>
-<img class="zoom" src="/win-server-images/win-server53.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server53.png">
-</div>
-<p>Thank you for participating in the challenge. Hope you like it. See you on the next one.</p>
+<p>That&rsquo;s it, Thanks for reading. See you on the next one!</p>
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
@@ -198,25 +154,24 @@ The next step is assigning the password for login. We will assign password to th
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-07-14</span>
+                <span>Updated on 2023-07-15</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/ad-challenge-new-user-onboarding/" data-title="AD Challenge 1 - New User Onboarding" data-hashtags="HyperV,Virtualization,Windows Server,Active Directory"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/ad-challenge-new-user-onboarding/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/hyperv/how-to-delete-a-vm-in-hyperv/" data-title="How to delete a VM in HyperV" data-hashtags="HyperV"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/hyperv/how-to-delete-a-vm-in-hyperv/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hyperv/">HyperV</a>,&nbsp;<a href="/tags/virtualization/">Virtualization</a>,&nbsp;<a href="/tags/windows-server/">Windows Server</a>,&nbsp;<a href="/tags/active-directory/">Active Directory</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hyperv/">HyperV</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/windows-server-2019/create-users-groups-computers-ou/" class="prev" rel="prev" title="Create Users, Groups, Computers, OU - Windows Server 2019"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Create Users, Groups, Computers, OU - Windows Server 2019</a>
-            <a href="/posts/windows-server-2019/joining-a-domain-with-the-server-core/" class="next" rel="next" title="Joining a Domain with the Server Core">Joining a Domain with the Server Core<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/windows-server-2019/joining-a-domain-with-the-server-core/" class="prev" rel="prev" title="Joining a Domain with the Server Core"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Joining a Domain with the Server Core</a></div>
 </div>
 </article></div>
             </main><footer class="footer">
