@@ -4,7 +4,15 @@
         <link>/tags/windows-server/</link>
         <description>Windows Server - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/windows-server/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/windows-server/" rel="self" type="application/rss+xml" /><item>
+    <title>Deep Dive into GPO</title>
+    <link>/posts/windows-server-2019/deep-dive-into-gpo/</link>
+    <pubDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/deep-dive-into-gpo/</guid>
+    <description><![CDATA[In this post, we will take a deep dive into Group Policy Object (GPO)]]></description>
+</item>
+<item>
     <title>Joining a Domain with the Server Core</title>
     <link>/posts/windows-server-2019/joining-a-domain-with-the-server-core/</link>
     <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/booting-up-windows-server-2019/</guid>
     <description><![CDATA[Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation.]]></description>
-</item>
-<item>
-    <title>Create a Empty Shell Windows Server using HyperV</title>
-    <link>/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</link>
-    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/create-a-empty-shell-windows-server-using-hyperv/</guid>
-    <description><![CDATA[Before we can install a Windows Server, We need to create an Virtual Machine using HyperV]]></description>
 </item>
 </channel>
 </rss>

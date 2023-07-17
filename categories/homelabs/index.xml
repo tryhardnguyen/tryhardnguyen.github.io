@@ -4,7 +4,15 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Deep Dive into GPO</title>
+    <link>/posts/windows-server-2019/deep-dive-into-gpo/</link>
+    <pubDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/deep-dive-into-gpo/</guid>
+    <description><![CDATA[In this post, we will take a deep dive into Group Policy Object (GPO)]]></description>
+</item>
+<item>
     <title>How to delete a VM in HyperV</title>
     <link>/posts/hyperv/how-to-delete-a-vm-in-hyperv/</link>
     <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/windows-server-core-installation/</guid>
     <description><![CDATA[In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation.]]></description>
-</item>
-<item>
-    <title>Booting Up Windows Server 2019</title>
-    <link>/posts/windows-server-2019/booting-up-windows-server-2019/</link>
-    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/booting-up-windows-server-2019/</guid>
-    <description><![CDATA[Last time, We installed an virtual machine for our Windows Server. In this post, we are going to boot up our virtual machine and complete the installation.]]></description>
 </item>
 </channel>
 </rss>
