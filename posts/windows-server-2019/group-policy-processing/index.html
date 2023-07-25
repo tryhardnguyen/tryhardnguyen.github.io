@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Deep Dive into GPO - </title><meta name="Description" content="In this post, we will take a deep dive into Group Policy Object (GPO)"><meta property="og:title" content="Deep Dive into GPO" />
-<meta property="og:description" content="In this post, we will take a deep dive into Group Policy Object (GPO)" />
+        <title>Group Policy Processing Order - </title><meta name="Description" content="Cybersecurity Blog filled with CTF Writeups, HomeLabs, Project"><meta property="og:title" content="Group Policy Processing Order" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/windows-server-2019/deep-dive-into-gpo/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-07-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-07-16T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta property="og:url" content="/posts/windows-server-2019/group-policy-processing/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-24T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Deep Dive into GPO"/>
-<meta name="twitter:description" content="In this post, we will take a deep dive into Group Policy Object (GPO)"/>
+<meta name="twitter:title" content="Group Policy Processing Order"/>
+<meta name="twitter:description" content=""/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/deep-dive-into-gpo/" /><link rel="prev" href="/posts/hyperv/how-to-delete-a-vm-in-hyperv/" /><link rel="next" href="/posts/windows-server-2019/policies-or-preferences/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/group-policy-processing/" /><link rel="prev" href="/posts/windows-server-2019/policies-or-preferences/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Deep Dive into GPO",
+        "headline": "Group Policy Processing Order",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/windows-server-2019\/deep-dive-into-gpo\/"
-        },"genre": "posts","keywords": "Windows Server, Active Directory, Group Policy Object","wordcount":  493 ,
-        "url": "\/posts\/windows-server-2019\/deep-dive-into-gpo\/","datePublished": "2023-07-16T00:00:00+00:00","dateModified": "2023-07-16T00:00:00+00:00","publisher": {
+            "@id": "\/posts\/windows-server-2019\/group-policy-processing\/"
+        },"genre": "posts","keywords": "Windows Server, Active Directory, Group Policy Object","wordcount":  194 ,
+        "url": "\/posts\/windows-server-2019\/group-policy-processing\/","datePublished": "2023-07-24T00:00:00+00:00","dateModified": "2023-07-24T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Nguyen Nguyen"
-            },"description": "In this post, we will take a deep dive into Group Policy Object (GPO)"
+            },"description": ""
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -67,10 +67,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Deep Dive into GPO</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Group Policy Processing Order</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-16">2023-07-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;493 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-24">2023-07-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;194 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -78,9 +78,11 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#create-a-gpo">Create a GPO</a></li>
-    <li><a href="#adding-an-policy">Adding an Policy</a></li>
-    <li><a href="#scope">Scope</a></li>
+    <li><a href="#organizational-unit-gpos">Organizational Unit GPOs</a></li>
+    <li><a href="#domain-level-gpos">Domain-Level GPOs</a></li>
+    <li><a href="#site-level-gpos">Site-level GPOs</a></li>
+    <li><a href="#local-gpos">Local GPOs</a></li>
+    <li><a href="#easy-way-to-figure-out-the-order">Easy way to figure out the order</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
@@ -114,73 +116,33 @@
 	            transform: scale(1.5);
 	        }
 </style>
-<h1 id="introduction">Introduction</h1>
-<p>To access GPO in Server Manager, we need to go to tools -&gt; Group Policy Management. This is what we have:
+<p>Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other.
 <br>
-<img class="zoom" src="/win-server-images/win-server66.png"></p>
+<br>
+Here is the order: From strongest to weakest</p>
+<ol>
+	<li>Organizational Unit GPOs</li>
+	<li>Domain-Level GPOs</li>
+	<li>Site-level GPOs</li>
+	<li>Local GPOs</li>
+</ol>
+Let's go over what each GPOs mean.
+<h2 id="organizational-unit-gpos">Organizational Unit GPOs</h2>
+<p>Apply to Users &amp; Computers in a specific OU. The Strongest.</p>
+<h2 id="domain-level-gpos">Domain-Level GPOs</h2>
+<p>Apply to Apply to all Users, Computers, Servers, and Domain Controllers.</p>
+<h2 id="site-level-gpos">Site-level GPOs</h2>
+<p>Associated with Active Directory Site - Fancy way of saying &ldquo;Physical Location&rdquo;</p>
+<h2 id="local-gpos">Local GPOs</h2>
+<p>Local GPOs only affect the device or the account that is on the computer. Remember there a difference between Domain users and Local Users (On the computer). If you want to configure the local group policy on your own machine, you can type gpedit.msc. The weakness.</p>
+<h2 id="easy-way-to-figure-out-the-order">Easy way to figure out the order</h2>
+<p>One way to quickly figure out the order of the Group Policy Processing is using the &ldquo;Group Policy Inheritance Tab&rdquo;.
+<br>
+<img class="zoom" src="/win-server-images/win-server80.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server66.png">
+        <img class="zoomed-image" src="/win-server-images/win-server80.png">
 </div>
-<p>From the picture above, we can see that there is an OU for the Domain Controllers and Finance and in those OU we can apply GPOs that allow us to manage the setting or the ability of the user/computers. Default Domain Policy and Default Domain Controllers will automatically be there when you first install Windows Server.
-<br>
-<br>
-Group Policy Objects contains all the man made GPO and default GPO that is automatically there when windows first installed.
-<br>
-<br>
-Additionally, if a GPO is inside the OU, that policy apply to only the members in the OU. For example, I have a OU named: &ldquo;Finance&rdquo; and underneath the OU, I have a group named: &ldquo;Accountant&rdquo; and inside the group, I have users that are accountant. Only those members would be affected to of the OU.</p>
-<h2 id="create-a-gpo">Create a GPO</h2>
-<p>To create an GPO, we go to Group Policy Object -&gt; Right Click -&gt; New. Then we are presented with a menu that ask us what to name our GPO. I will name mine &ldquo;Disable USB Access&rdquo;. Essentially, we&rsquo;re trying to stop USB from getting plugged into the computer.
-<br>
-<img class="zoom" src="/win-server-images/win-server67.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server67.png">
-</div>
-<h2 id="adding-an-policy">Adding an Policy</h2>
-<p>When we first create an GPO, it will have zero policy. To add a policy, we will right click on the policy that we want to configure and click edit. Then we will be presented with two options: User Configuration, Computer Configurations.
-<br>
-<img class="zoom" src="/win-server-images/win-server68.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server68.png">
-</div>
-<br>
-<p>User Configuration affects users object. While computer configurations affect computers object. The one we&rsquo;re looking for is in the Computer configuration -&gt; Policies -&gt; Administrative Template  -&gt; System -&gt; Device Installation -&gt; Device Installation Restriction -&gt; Prevent Installation of removable devices. Now, we&rsquo;re going click on the policy and it even give us a description of what it does.
-<br>
-<img class="zoom" src="/win-server-images/win-server69.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server69.png">
-</div>
-<p>We&rsquo;re going to click Enabled -&gt; Apply. Now if we take a look at the GPO that we just configure and go to setting, we can see that the policy we just configured applies. Basically the settings section of a GPO that us what policy has already been added.
-<br>
-<img class="zoom" src="/win-server-images/win-server70.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server70.png">
-</div>
-<h2 id="scope">Scope</h2>
-<p>When we talk about scope, we&rsquo;re talking about the area where the GPO applies. From here to there. When we create an OU, and add a GPO to an OU. That GPO only applies to the OU that it been added. For example: in this picture below, Disable USB Access would only apply to Finance OU.
-<br>
-<img class="zoom" src="/win-server-images/win-server71.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server71.png">
-</div>
-<p>Now, to create a GPO that applies to domain, we right click on the domain -&gt; Create a GPO in the domain and link it here.
-<br>
-<img class="zoom" src="/win-server-images/win-server72.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server72.png">
-</div>
-<p>Note: If you do this, Default Domain Policy well have precedence over your man-made domain policy.
-<br>
-<br>
-Here is the Group Policy Processing order I found on the internet:
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://cdn-blog.netwrix.com/wp-content/uploads/2022/10/Restore-GPO-3.png.webp"
-        data-srcset="https://cdn-blog.netwrix.com/wp-content/uploads/2022/10/Restore-GPO-3.png.webp, https://cdn-blog.netwrix.com/wp-content/uploads/2022/10/Restore-GPO-3.png.webp 1.5x, https://cdn-blog.netwrix.com/wp-content/uploads/2022/10/Restore-GPO-3.png.webp 2x"
-        data-sizes="auto"
-        alt="https://cdn-blog.netwrix.com/wp-content/uploads/2022/10/Restore-GPO-3.png.webp"
-        title="GPO_IMAGE" /></p>
-<p>That is all I wanted to cover. Thanks for reading.</p>
+The lower the precedence number, the stronger it is.
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
@@ -205,12 +167,12 @@ Here is the Group Policy Processing order I found on the internet:
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-07-16</span>
+                <span>Updated on 2023-07-24</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/deep-dive-into-gpo/" data-title="Deep Dive into GPO" data-hashtags="Windows Server,Active Directory,Group Policy Object"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/deep-dive-into-gpo/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/group-policy-processing/" data-title="Group Policy Processing Order" data-hashtags="Windows Server,Active Directory,Group Policy Object"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/group-policy-processing/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -222,8 +184,7 @@ Here is the Group Policy Processing order I found on the internet:
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/hyperv/how-to-delete-a-vm-in-hyperv/" class="prev" rel="prev" title="How to delete a VM in HyperV"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>How to delete a VM in HyperV</a>
-            <a href="/posts/windows-server-2019/policies-or-preferences/" class="next" rel="next" title="Policies or Preference">Policies or Preference<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/windows-server-2019/policies-or-preferences/" class="prev" rel="prev" title="Policies or Preference"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Policies or Preference</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/windows-server-2019\/joining-a-domain-with-the-server-core\/"
-        },"genre": "posts","keywords": "HyperV, Virtualization, Windows Server, Active Directory","wordcount":  463 ,
+        },"genre": "posts","keywords": "HyperV, Virtualization, Windows Server, Active Directory","wordcount":  576 ,
         "url": "\/posts\/windows-server-2019\/joining-a-domain-with-the-server-core\/","datePublished": "2023-07-15T00:00:00+00:00","dateModified": "2023-07-15T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Joining a Domain with the Server Core</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-15">2023-07-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;463 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-15">2023-07-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;576 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -82,6 +82,7 @@
     <li><a href="#lets-join">Let&rsquo;s join</a></li>
     <li><a href="#still-dont-believe-me">Still don&rsquo;t believe me?</a></li>
     <li><a href="#bonus-remote-managing-server-core">Bonus: Remote Managing Server Core</a></li>
+    <li><a href="#window-10-domain-join">Window 10 Domain Join</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
@@ -198,6 +199,34 @@ Let&rsquo;s go to Server Manager -&gt; All Servers. Right click on All Servers -
 <img class="zoom" src="/win-server-images/win-server62.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/win-server-images/win-server62.png">
+</div>
+<h2 id="window-10-domain-join">Window 10 Domain Join</h2>
+<p>Windows 10 is often used in client computer. Let&rsquo;s learn how to join a Window 10 computer to the domain.
+<br>
+<br>
+First, we will go to the search menu and type: &ldquo;About your PC&rdquo;. Then look at the right side: &ldquo;Related Settings&rdquo; and we will click on &ldquo;Advanced system settings&rdquo; and then click on &ldquo;Computer Name&rdquo;.
+<br>
+<img class="zoom" src="/win-server-images/win-server73.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server73.png">
+</div>
+<p>Then click on &ldquo;Change button&rdquo;. Now, we are going to focus on the section: &ldquo;Member of&rdquo; and we&rsquo;re going select &ldquo;Domain&rdquo;. Then we&rsquo;re going to enter our domain. Afterwards, it will ask us to enter the credentials of administrator.
+<br>
+<img class="zoom" src="/win-server-images/win-server74.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server74.png">
+</div>
+<p>After everything is enter correctly, you will enter a welcome message.
+<br>
+<img class="zoom" src="/win-server-images/win-server75.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server75.png">
+</div>
+<p>Now we&rsquo;re domain joined.
+<br>
+<img class="zoom" src="/win-server-images/win-server76.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server76.png">
 </div>
 <p>Thank you for reading. See you on the next one.</p>
 <!-- Zoom Animation Feature -->

@@ -4,7 +4,23 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Group Policy Processing Order</title>
+    <link>/posts/windows-server-2019/group-policy-processing/</link>
+    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/group-policy-processing/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Policies or Preference</title>
+    <link>/posts/windows-server-2019/policies-or-preferences/</link>
+    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/policies-or-preferences/</guid>
+    <description><![CDATA[In Group Policy Management Editor, you might see that there is Computer Configuration and User configuration and inside each section there is policies and preferences. We are going cover the difference.]]></description>
+</item>
+<item>
     <title>Deep Dive into GPO</title>
     <link>/posts/windows-server-2019/deep-dive-into-gpo/</link>
     <pubDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -67,22 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/setting-up-windows-admin-center/</guid>
     <description><![CDATA[In this post, We will setting up Windows Admin Center and exploring the tool in details.]]></description>
-</item>
-<item>
-    <title>Post installation - Windows Server 2019</title>
-    <link>/posts/windows-server-2019/post-installation-windows-server-2019/</link>
-    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/post-installation-windows-server-2019/</guid>
-    <description><![CDATA[After installing windows server on our Hyper-v virtual machine, We have to make some final changes.]]></description>
-</item>
-<item>
-    <title>Windows Server Core Installation</title>
-    <link>/posts/windows-server-2019/windows-server-core-installation/</link>
-    <pubDate>Mon, 10 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/windows-server-core-installation/</guid>
-    <description><![CDATA[In this post, we will be going over what the pros/cons of server core. What tools we can used that is already prebuilt into windows to allow us to manage the core server more effectively and go over the post installation.]]></description>
 </item>
 </channel>
 </rss>

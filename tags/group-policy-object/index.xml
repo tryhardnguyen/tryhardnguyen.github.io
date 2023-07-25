@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Group Policy Object - Tag - </title>
+        <link>/tags/group-policy-object/</link>
+        <description>Group Policy Object - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/group-policy-object/" rel="self" type="application/rss+xml" /><item>
+    <title>Group Policy Processing Order</title>
+    <link>/posts/windows-server-2019/group-policy-processing/</link>
+    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/group-policy-processing/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Policies or Preference</title>
+    <link>/posts/windows-server-2019/policies-or-preferences/</link>
+    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/policies-or-preferences/</guid>
+    <description><![CDATA[In Group Policy Management Editor, you might see that there is Computer Configuration and User configuration and inside each section there is policies and preferences. We are going cover the difference.]]></description>
+</item>
+<item>
+    <title>Deep Dive into GPO</title>
+    <link>/posts/windows-server-2019/deep-dive-into-gpo/</link>
+    <pubDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/deep-dive-into-gpo/</guid>
+    <description><![CDATA[In this post, we will take a deep dive into Group Policy Object (GPO)]]></description>
+</item>
+</channel>
+</rss>
