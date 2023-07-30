@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Group Policy Processing Order - </title><meta name="Description" content="Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other."><meta property="og:title" content="Group Policy Processing Order" />
-<meta property="og:description" content="Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other." />
+        <title>Backup GPOs - </title><meta name="Description" content="Let learn how to backup your GPOs and restore it"><meta property="og:title" content="Backup GPOs" />
+<meta property="og:description" content="Let learn how to backup your GPOs and restore it" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/windows-server-2019/group-policy-processing/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-07-24T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-07-24T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta property="og:url" content="/posts/windows-server-2019/backing-up-your-gpos/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-29T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Group Policy Processing Order"/>
-<meta name="twitter:description" content="Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other."/>
+<meta name="twitter:title" content="Backup GPOs"/>
+<meta name="twitter:description" content="Let learn how to backup your GPOs and restore it"/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/group-policy-processing/" /><link rel="prev" href="/posts/windows-server-2019/policies-or-preferences/" /><link rel="next" href="/posts/windows-server-2019/alter-the-order-of-group-policy/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/backing-up-your-gpos/" /><link rel="prev" href="/posts/windows-server-2019/starter-gpo/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Group Policy Processing Order",
+        "headline": "Backup GPOs",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/windows-server-2019\/group-policy-processing\/"
-        },"genre": "posts","keywords": "Windows Server, Active Directory, Group Policy Object","wordcount":  194 ,
-        "url": "\/posts\/windows-server-2019\/group-policy-processing\/","datePublished": "2023-07-24T00:00:00+00:00","dateModified": "2023-07-24T00:00:00+00:00","publisher": {
+            "@id": "\/posts\/windows-server-2019\/backing-up-your-gpos\/"
+        },"genre": "posts","keywords": "Group Policy Object","wordcount":  175 ,
+        "url": "\/posts\/windows-server-2019\/backing-up-your-gpos\/","datePublished": "2023-07-29T00:00:00+00:00","dateModified": "2023-07-29T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Nguyen Nguyen"
-            },"description": "Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other."
+            },"description": "Let learn how to backup your GPOs and restore it"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -67,9 +67,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Group Policy Processing Order</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Backup GPOs</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-24">2023-07-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;194 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-29">2023-07-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;175 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -78,11 +78,8 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#organizational-unit-gpos">Organizational Unit GPOs</a></li>
-    <li><a href="#domain-level-gpos">Domain-Level GPOs</a></li>
-    <li><a href="#site-level-gpos">Site-level GPOs</a></li>
-    <li><a href="#local-gpos">Local GPOs</a></li>
-    <li><a href="#easy-way-to-figure-out-the-order">Easy way to figure out the order</a></li>
+    <li><a href="#backup-that-gpo">Backup that GPO</a></li>
+    <li><a href="#restore-a-deleted-gpo">Restore a Deleted GPO</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
@@ -116,33 +113,42 @@
 	            transform: scale(1.5);
 	        }
 </style>
-<p>Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other.
+<h2 id="backup-that-gpo">Backup that GPO</h2>
+<p>To backup all the GPO you have created, click Tools -&gt; Group Policy Management -&gt; Right-click on &ldquo;Group Policy Objects&rdquo; and click &ldquo;Back Up All&rdquo;. Then a menu will pop up asking the location to store the backup and the description.
 <br>
-<br>
-Here is the order: From strongest to weakest</p>
-<ol>
-	<li>Organizational Unit GPOs</li>
-	<li>Domain-Level GPOs</li>
-	<li>Site-level GPOs</li>
-	<li>Local GPOs</li>
-</ol>
-Let's go over what each GPOs mean.
-<h2 id="organizational-unit-gpos">Organizational Unit GPOs</h2>
-<p>Apply to Users &amp; Computers in a specific OU. The Strongest.</p>
-<h2 id="domain-level-gpos">Domain-Level GPOs</h2>
-<p>Apply to Apply to all Users, Computers, Servers, and Domain Controllers.</p>
-<h2 id="site-level-gpos">Site-level GPOs</h2>
-<p>Associated with Active Directory Site - Fancy way of saying &ldquo;Physical Location&rdquo;</p>
-<h2 id="local-gpos">Local GPOs</h2>
-<p>Local GPOs only affect the device or the account that is on the computer. Remember there a difference between Domain users and Local Users (On the computer). If you want to configure the local group policy on your own machine, you can type gpedit.msc. The weakness.</p>
-<h2 id="easy-way-to-figure-out-the-order">Easy way to figure out the order</h2>
-<p>One way to quickly figure out the order of the Group Policy Processing is using the &ldquo;Group Policy Inheritance Tab&rdquo;.
-<br>
-<img class="zoom" src="/win-server-images/win-server80.png"></p>
+<img class="zoom" src="/win-server-images/win-server93.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server80.png">
+        <img class="zoomed-image" src="/win-server-images/win-server93.png">
 </div>
-The lower the precedence number, the stronger it is.
+<p>For location, you should save it in a location that is safe and can only be access if you&rsquo;re administrator. Ideally, somewhere that is stored outside of Windows Server. But for this example, I&rsquo;m going save my GPO on the desktop. Each of these folder contain a GPO.
+<br>
+<img class="zoom" src="/win-server-images/win-server94.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server94.png">
+</div>
+<h2 id="restore-a-deleted-gpo">Restore a Deleted GPO</h2>
+<p>Let&rsquo;s say I accidentally deleted an GPO called: &ldquo;Getting an Raise&rdquo;.
+<br>
+<img class="zoom" src="/win-server-images/win-server95.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server95.png">
+</div>
+<p>To restore the GPO, we can click on &ldquo;Group Policy Object&rdquo; -&gt; Manage Backups -&gt; Select the GPO that we want to restore and click the Restore button.
+<br>
+<img class="zoom" src="/win-server-images/win-server96.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server96.png">
+</div>
+<p>Then it ask: &ldquo;Do you want to restore the selected backup?&rdquo; -&gt; Click OK.
+<br>
+<img class="zoom" src="/win-server-images/win-server97.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server97.png">
+</div>
+<p>There we go, we manage to restore our GPO.
+<br>
+<br>
+Thank you for reading!</p>
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
@@ -167,25 +173,24 @@ The lower the precedence number, the stronger it is.
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-07-24</span>
+                <span>Updated on 2023-07-29</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/group-policy-processing/" data-title="Group Policy Processing Order" data-hashtags="Windows Server,Active Directory,Group Policy Object"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/group-policy-processing/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/backing-up-your-gpos/" data-title="Backup GPOs" data-hashtags="Group Policy Object"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/backing-up-your-gpos/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows-server/">Windows Server</a>,&nbsp;<a href="/tags/active-directory/">Active Directory</a>,&nbsp;<a href="/tags/group-policy-object/">Group Policy Object</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/group-policy-object/">Group Policy Object</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/windows-server-2019/policies-or-preferences/" class="prev" rel="prev" title="Policies or Preference"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Policies or Preference</a>
-            <a href="/posts/windows-server-2019/alter-the-order-of-group-policy/" class="next" rel="next" title="Alter the order of Group Policy">Alter the order of Group Policy<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/windows-server-2019/starter-gpo/" class="prev" rel="prev" title="Starter GPOs"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Starter GPOs</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

@@ -4,13 +4,37 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Backup GPOs</title>
+    <link>/posts/windows-server-2019/backing-up-your-gpos/</link>
+    <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/backing-up-your-gpos/</guid>
+    <description><![CDATA[Let learn how to backup your GPOs and restore it]]></description>
+</item>
+<item>
+    <title>Starter GPOs</title>
+    <link>/posts/windows-server-2019/starter-gpo/</link>
+    <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/starter-gpo/</guid>
+    <description><![CDATA[We will learn what is a starter GPO and how to use it]]></description>
+</item>
+<item>
+    <title>Alter the order of Group Policy</title>
+    <link>/posts/windows-server-2019/alter-the-order-of-group-policy/</link>
+    <pubDate>Fri, 28 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/alter-the-order-of-group-policy/</guid>
+    <description><![CDATA[You can change the order of how group policy is processed. Today, we will be learning some of the technique to manipulate the order.]]></description>
+</item>
+<item>
     <title>Group Policy Processing Order</title>
     <link>/posts/windows-server-2019/group-policy-processing/</link>
     <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/group-policy-processing/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other.]]></description>
 </item>
 <item>
     <title>Policies or Preference</title>
@@ -59,30 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/create-users-groups-computers-ou/</guid>
     <description><![CDATA[In this post, I will demonstrate how to create users, computers, and organizational units.]]></description>
-</item>
-<item>
-    <title>Active Directory Installation - Windows Server</title>
-    <link>/posts/windows-server-2019/active-directory-installation-windows-server/</link>
-    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/active-directory-installation-windows-server/</guid>
-    <description><![CDATA[In this post, I will be going over how to install Active Directory on Windows Server]]></description>
-</item>
-<item>
-    <title>Windows Server Lab Layout</title>
-    <link>/posts/windows-server-2019/windows-server-lab-layout/</link>
-    <pubDate>Wed, 12 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/windows-server-lab-layout/</guid>
-    <description><![CDATA[Small scale Windows Server Lab. Purpose is to mess around with Windows Server and see what they can do.]]></description>
-</item>
-<item>
-    <title>Setting up Windows Admin Center</title>
-    <link>/posts/windows-server-2019/setting-up-windows-admin-center/</link>
-    <pubDate>Tue, 11 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/setting-up-windows-admin-center/</guid>
-    <description><![CDATA[In this post, We will setting up Windows Admin Center and exploring the tool in details.]]></description>
 </item>
 </channel>
 </rss>

@@ -4,26 +4,26 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>Active Directory</title>
-    <link>/tags/active-directory/</link>
-    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/active-directory/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Group Policy Object</title>
     <link>/tags/group-policy-object/</link>
-    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/group-policy-object/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>Active Directory</title>
+    <link>/tags/active-directory/</link>
+    <pubDate>Fri, 28 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/active-directory/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Windows Server</title>
     <link>/tags/windows-server/</link>
-    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Fri, 28 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/windows-server/</guid>
     <description><![CDATA[]]></description>
