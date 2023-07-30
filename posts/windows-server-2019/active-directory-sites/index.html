@@ -4,36 +4,36 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Backup GPOs - </title><meta name="Description" content="Let learn how to backup your GPOs and restore it"><meta property="og:title" content="Backup GPOs" />
-<meta property="og:description" content="Let learn how to backup your GPOs and restore it" />
+        <title>Active Directory Sites - </title><meta name="Description" content="Let&#39;s learn what an active directory site is and how to create it."><meta property="og:title" content="Active Directory Sites" />
+<meta property="og:description" content="Let&#39;s learn what an active directory site is and how to create it." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/windows-server-2019/backing-up-your-gpos/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-07-29T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-07-29T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta property="og:url" content="/posts/windows-server-2019/active-directory-sites/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-30T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Backup GPOs"/>
-<meta name="twitter:description" content="Let learn how to backup your GPOs and restore it"/>
+<meta name="twitter:title" content="Active Directory Sites"/>
+<meta name="twitter:description" content="Let&#39;s learn what an active directory site is and how to create it."/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/backing-up-your-gpos/" /><link rel="prev" href="/posts/windows-server-2019/starter-gpo/" /><link rel="next" href="/posts/windows-server-2019/active-directory-sites/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/active-directory-sites/" /><link rel="prev" href="/posts/windows-server-2019/backing-up-your-gpos/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Backup GPOs",
+        "headline": "Active Directory Sites",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/windows-server-2019\/backing-up-your-gpos\/"
-        },"genre": "posts","keywords": "Group Policy Object","wordcount":  175 ,
-        "url": "\/posts\/windows-server-2019\/backing-up-your-gpos\/","datePublished": "2023-07-29T00:00:00+00:00","dateModified": "2023-07-29T00:00:00+00:00","publisher": {
+            "@id": "\/posts\/windows-server-2019\/active-directory-sites\/"
+        },"genre": "posts","keywords": "Active Directory, Windows Server","wordcount":  209 ,
+        "url": "\/posts\/windows-server-2019\/active-directory-sites\/","datePublished": "2023-07-30T00:00:00+00:00","dateModified": "2023-07-30T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Nguyen Nguyen"
-            },"description": "Let learn how to backup your GPOs and restore it"
+            },"description": "Let's learn what an active directory site is and how to create it."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -67,9 +67,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Backup GPOs</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Active Directory Sites</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-29">2023-07-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;175 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-30">2023-07-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;209 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -78,8 +78,8 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#backup-that-gpo">Backup that GPO</a></li>
-    <li><a href="#restore-a-deleted-gpo">Restore a Deleted GPO</a></li>
+    <li><a href="#what-is-an-active-directory-sites">What is an Active Directory Sites?</a></li>
+    <li><a href="#create-an-active-directory-sites">Create an Active Directory Sites</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
@@ -113,42 +113,39 @@
 	            transform: scale(1.5);
 	        }
 </style>
-<h2 id="backup-that-gpo">Backup that GPO</h2>
-<p>To backup all the GPO you have created, click Tools -&gt; Group Policy Management -&gt; Right-click on &ldquo;Group Policy Objects&rdquo; and click &ldquo;Back Up All&rdquo;. Then a menu will pop up asking the location to store the backup and the description.
+<h2 id="what-is-an-active-directory-sites">What is an Active Directory Sites?</h2>
+<p>Basically it&rsquo;s an physical location. For example, McDonalds is a global company. Chances are they have servers in America, Korea, Japan, Canada. Each of these location are sites.
 <br>
-<img class="zoom" src="/win-server-images/win-server93.png"></p>
+<br>
+Reason to create an Active Directory Sites:</p>
+<ol>
+	<li>Replication</li>
+	<li>Service Location</li>
+</ol>
+Replication allows data to be backup so that in cases where one server crash, one server can take over.
+<br>
+<br>
+Service Location allows one site to focus on one area, and cases where one site crashes, the other sites can take over.
+<h2 id="create-an-active-directory-sites">Create an Active Directory Sites</h2>
+<p>In server manager, go to &ldquo;Active Directory Sites and Services&rdquo;.
+<br>
+<img class="zoom" src="/win-server-images/win-server98.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server93.png">
+        <img class="zoomed-image" src="/win-server-images/win-server98.png">
 </div>
-<p>For location, you should save it in a location that is safe and can only be access if you&rsquo;re administrator. Ideally, somewhere that is stored outside of Windows Server. But for this example, I&rsquo;m going save my GPO on the desktop. Each of these folder contain a GPO.
+<p>Now, right-click on &ldquo;Sites&rdquo; and click on &ldquo;New Site&rdquo;. Then a new menu should pop up. We will name our new site. For this example, I will name my site Canada because the company located in Canada. Then click OK.
 <br>
-<img class="zoom" src="/win-server-images/win-server94.png"></p>
+<img class="zoom" src="/win-server-images/win-server99.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server94.png">
+        <img class="zoomed-image" src="/win-server-images/win-server99.png">
 </div>
-<h2 id="restore-a-deleted-gpo">Restore a Deleted GPO</h2>
-<p>Let&rsquo;s say I accidentally deleted an GPO called: &ldquo;Getting an Raise&rdquo;.
+<p>Now, we will click on &ldquo;Subnets&rdquo; and &ldquo;New Subnet&rdquo;. Then we will assign an IP range for the site that located in Canada. For this example, I will use 192.168.206/24. Basically anything that falls in this range will be treated part of Canada site.
 <br>
-<img class="zoom" src="/win-server-images/win-server95.png"></p>
+<img class="zoom" src="/win-server-images/win-server100.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server95.png">
+        <img class="zoomed-image" src="/win-server-images/win-server100.png">
 </div>
-<p>To restore the GPO, we can click on &ldquo;Group Policy Object&rdquo; -&gt; Manage Backups -&gt; Select the GPO that we want to restore and click the Restore button.
-<br>
-<img class="zoom" src="/win-server-images/win-server96.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server96.png">
-</div>
-<p>Then it ask: &ldquo;Do you want to restore the selected backup?&rdquo; -&gt; Click OK.
-<br>
-<img class="zoom" src="/win-server-images/win-server97.png"></p>
-<div class="overlay">
-        <img class="zoomed-image" src="/win-server-images/win-server97.png">
-</div>
-<p>There we go, we manage to restore our GPO.
-<br>
-<br>
-Thank you for reading!</p>
+<p>That all I wanted to cover. Thank you for reading my post.</p>
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
@@ -173,25 +170,24 @@ Thank you for reading!</p>
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-07-29</span>
+                <span>Updated on 2023-07-30</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/backing-up-your-gpos/" data-title="Backup GPOs" data-hashtags="Group Policy Object"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/backing-up-your-gpos/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/active-directory-sites/" data-title="Active Directory Sites" data-hashtags="Active Directory,Windows Server"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/active-directory-sites/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/group-policy-object/">Group Policy Object</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/active-directory/">Active Directory</a>,&nbsp;<a href="/tags/windows-server/">Windows Server</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/windows-server-2019/starter-gpo/" class="prev" rel="prev" title="Starter GPOs"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Starter GPOs</a>
-            <a href="/posts/windows-server-2019/active-directory-sites/" class="next" rel="next" title="Active Directory Sites">Active Directory Sites<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/windows-server-2019/backing-up-your-gpos/" class="prev" rel="prev" title="Backup GPOs"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Backup GPOs</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

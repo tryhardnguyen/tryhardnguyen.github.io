@@ -4,7 +4,15 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 30 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Active Directory Sites</title>
+    <link>/posts/windows-server-2019/active-directory-sites/</link>
+    <pubDate>Sun, 30 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/active-directory-sites/</guid>
+    <description><![CDATA[Let's learn what an active directory site is and how to create it.]]></description>
+</item>
+<item>
     <title>Backup GPOs</title>
     <link>/posts/windows-server-2019/backing-up-your-gpos/</link>
     <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/ad-challenge-new-user-onboarding/</guid>
     <description><![CDATA[Goal: The goal of this challenge is to review the process of creating an user and group. Then assigning the user to the group.]]></description>
-</item>
-<item>
-    <title>Create Users, Groups, Computers, OU - Windows Server 2019</title>
-    <link>/posts/windows-server-2019/create-users-groups-computers-ou/</link>
-    <pubDate>Thu, 13 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/create-users-groups-computers-ou/</guid>
-    <description><![CDATA[In this post, I will demonstrate how to create users, computers, and organizational units.]]></description>
 </item>
 </channel>
 </rss>

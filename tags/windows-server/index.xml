@@ -4,7 +4,15 @@
         <link>/tags/windows-server/</link>
         <description>Windows Server - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Fri, 28 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/windows-server/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 30 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/windows-server/" rel="self" type="application/rss+xml" /><item>
+    <title>Active Directory Sites</title>
+    <link>/posts/windows-server-2019/active-directory-sites/</link>
+    <pubDate>Sun, 30 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/active-directory-sites/</guid>
+    <description><![CDATA[Let's learn what an active directory site is and how to create it.]]></description>
+</item>
+<item>
     <title>Alter the order of Group Policy</title>
     <link>/posts/windows-server-2019/alter-the-order-of-group-policy/</link>
     <pubDate>Fri, 28 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/windows-server-lab-layout/</guid>
     <description><![CDATA[Small scale Windows Server Lab. Purpose is to mess around with Windows Server and see what they can do.]]></description>
-</item>
-<item>
-    <title>Setting up Windows Admin Center</title>
-    <link>/posts/windows-server-2019/setting-up-windows-admin-center/</link>
-    <pubDate>Tue, 11 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/setting-up-windows-admin-center/</guid>
-    <description><![CDATA[In this post, We will setting up Windows Admin Center and exploring the tool in details.]]></description>
 </item>
 </channel>
 </rss>
