@@ -4,12 +4,20 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 30 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Active Directory</title>
     <link>/tags/active-directory/</link>
-    <pubDate>Sun, 30 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/active-directory/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Windows Servers</title>
+    <link>/tags/windows-servers/</link>
+    <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/windows-servers/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -74,14 +82,6 @@
     <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/blue-team/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Nmap</title>
-    <link>/tags/nmap/</link>
-    <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/nmap/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

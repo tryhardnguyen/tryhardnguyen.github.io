@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Creating a DHCP Server - </title><meta name="Description" content="Let&#39;s learn how to create a DHCP Server"><meta property="og:title" content="Creating a DHCP Server" />
+<meta property="og:description" content="Let&#39;s learn how to create a DHCP Server" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/windows-server-2019/creating-a-dhcp-server/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-01T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Creating a DHCP Server"/>
+<meta name="twitter:description" content="Let&#39;s learn how to create a DHCP Server"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/creating-a-dhcp-server/" /><link rel="prev" href="/posts/windows-server-2019/active-directory-sites/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Creating a DHCP Server",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/windows-server-2019\/creating-a-dhcp-server\/"
+        },"genre": "posts","keywords": "Active Directory, Windows Servers","wordcount":  919 ,
+        "url": "\/posts\/windows-server-2019\/creating-a-dhcp-server\/","datePublished": "2023-08-01T00:00:00+00:00","dateModified": "2023-08-01T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Let's learn how to create a DHCP Server"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Creating a DHCP Server</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-01">2023-08-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;919 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-dhcp-server-using-server-manager">Install DHCP Server using Server Manager</a></li>
+    <li><a href="#install-dhcp-server-using-powershell">Install DHCP Server using Powershell</a></li>
+    <li><a href="#create-a-dhcp-scope-using-server-manager">Create a DHCP Scope using Server Manager</a></li>
+    <li><a href="#making-dhcp-high-availability">Making DHCP High Availability</a></li>
+    <li><a href="#demonstration-create-a-dhcp-failover">Demonstration: Create a DHCP Failover</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="install-dhcp-server-using-server-manager">Install DHCP Server using Server Manager</h2>
+<p>In server manager, click Manage -&gt; Add Roles and Features then the wizard should pop up. Click Next. Click on Role-based or feature-based installations.
+<br>
+<br>
+Then it ask you what server you want to install it on. That what I&rsquo;m going to do.
+<br>
+<br>
+Now for Server Roles, I&rsquo;m going to choose &ldquo;DHCP Server&rdquo; -&gt; Add Features. Then click next under the features section.
+<br>
+<br>
+Under the DHCP Server in the wizard, it tell you information about what DHCP is. I&rsquo;m just going click next. Then click install.
+<br>
+<img class="zoom" src="/win-server-images/win-server101.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server101.png">
+</div>
+<p>Once the DHCP server is installed, we have to complete the DHCP configuration. To do that we are going to click on the flag with the yield sign and click on &ldquo;Complete DHCP Configuration&rdquo;. Then a DHCP Post-install configuration wizard pop up. Now we will have to setup &ldquo;DHCP Administrators&rdquo; and &ldquo;DHCP Users&rdquo;. For now I&rsquo;ll just click next.
+<br>
+<br>
+Then it ask us to specify the credentials to be used to authorize this DHCP server in AD DS. I will just click: &ldquo;Use the following user&rsquo;s credentials&rdquo; and click Commit.
+<br>
+<img class="zoom" src="/win-server-images/win-server102.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server102.png">
+</div>
+<p>Now we just created the security groups and authorize the DHCP server. When we authorized a DHCP server, we allow the dhcp server to assign the IP address to the domain. Any DHCP server that is not authorized will not be allowed to assign IP address to the domain. This prevent rogue DHCP server.
+<br>
+<img class="zoom" src="/win-server-images/win-server103.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server103.png">
+</div>
+<p>There you go we created a DHCP server.
+<br>
+<img class="zoom" src="/win-server-images/win-server104.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server104.png">
+</div>
+<h2 id="install-dhcp-server-using-powershell">Install DHCP Server using Powershell</h2>
+<p><code>install-windowsfeature dhcp -includemanagementtools</code>
+<br>
+<br>
+<code>netsh dhcp add securitygroups</code> -&gt; Add the DHCP Admin and DHCP users
+<br>
+<br>
+Authorized the DHCP server:
+<br>
+<code>Add-DhcpServerInDC -DnsName domainName.com</code></p>
+<h2 id="create-a-dhcp-scope-using-server-manager">Create a DHCP Scope using Server Manager</h2>
+<p>DHCP Scope is the range of IP that the DHCP server will hand out. Let&rsquo;s create it. First thing I&rsquo;m going to do is bring up the DHCP menu. To bring up the DHCP menu, click on &ldquo;Tools&rdquo; -&gt; DHCP.
+<br>
+<img class="zoom" src="/win-server-images/win-server105.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server105.png">
+</div>
+Now, I will click on IPv4 and click on "New Scope". A setup wizard should appear. It will first ask you for the name you want your scope to be. I will name mine: "CompanyDHCP".
+<br>
+<br>
+Then it will ask you for your IP Address Range. My range is going to be: 192.168.205.1 - 192.168.205.254.
+<br>
+<br>
+Then it will ask you if you want to exclude any address. This is helpful when you want a 
+a device to keep a IP address forever. For me, I will put in 192.168.205.1 and 192.168.205.2 because these two IP address are for my Windows Server.
+<br>
+<img class="zoom" src="/win-server-images/win-server106.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server106.png">
+</div>
+<p>Now I&rsquo;m going to click Next.
+<br>
+<br>
+Then It will ask you about Lease Duration. Lease duration is basically how long you want a computer to hold an IP address. I&rsquo;ll just keep it as it is.
+<br>
+<br>
+Then it will ask you if you want to configure DHCP options. These are essentially your default gateways, DNS server.  I will click Next.
+<br>
+<br>
+Then it will ask you if you want to add a Router. For this lab, I don&rsquo;t have any plans on connecting it to the internet so I will leave it empty and click next.
+<br>
+<br>
+Then it will ask you to enter information about DNS. There nothing to add so I will click next.
+<br>
+<img class="zoom" src="/win-server-images/win-server107.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server107.png">
+</div>
+<p>Click next for WINS servers. Then it will ask if you want to activate the scope now. I will check: &ldquo;Yes, I want to activate this scope now&rdquo; and click Next.
+<br>
+<br>
+Now, I will go to my client computer and see if they automatically get a IP address from the DHCP server. As you can see from the screenshot, I was able to automatically get an IP address from the DHCP server.
+<br>
+<img class="zoom" src="/win-server-images/win-server108.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server108.png">
+</div>
+From DHCP Server:
+<br>
+<img class="zoom" src="/win-server-images/win-server109.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server109.png">
+</div>
+<h2 id="making-dhcp-high-availability">Making DHCP High Availability</h2>
+<p>Having one DHCP server operating is a single point of failure. If that DHCP crash and unable to work, devices won&rsquo;t have an way to authenticate into Windows Server or even receive internet. To avoid this problem, we will create a DHCP failover.
+<br>
+<br>
+What is a DHCP failover?
+<br>
+Scopes are replicated from one DHCP to another DHCP server.
+<br>
+<br></p>
+<h2 id="demonstration-create-a-dhcp-failover">Demonstration: Create a DHCP Failover</h2>
+<p>We will be creating a DHCP Failover. Let&rsquo;s bring up the DHCP Tool. Right click &ldquo;Scope&rdquo; -&gt; Click Configure Failover. Then a Configure Failover wizard should appear. I am going to click Next.
+<br>
+<Br>
+Then it will ask you to specify the partner server to use for failover. Basically, what it trying to say is select the server you want to backup with. For this example, I&rsquo;m going to choose my server. So I will choose: &ldquo;Add Server&rdquo;. Then I will choose my server and click ok. Then it will add the IP address of your backup server.
+<br>
+<img class="zoom" src="/win-server-images/win-server110.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server110.png">
+</div>
+<p>Now it will ask you to create a new failover relationship. It will ask if you want the backup server to be a load balance or a hot standby.
+<br>
+<img class="zoom" src="/win-server-images/win-server111.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server110.png">
+</div>
+<p>Hot standby is when the server is when the backup server will wait for the primary DHCP server to crash and then take over. Load balance is when two server will hand out IP address at the same time. For now, I will keep it at Load Balance. Then I will click next and finish.
+<br>
+<img class="zoom" src="/win-server-images/win-server112.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server112.png">
+</div>
+<p>How do we know if our server was successfully configured to be a failover?
+<br>
+If we right click the Scope folder on our server folder, we can see &ldquo;Deconfigure Failover&rdquo;. That mean we successfully configured our server to be a failover.
+<br>
+<img class="zoom" src="/win-server-images/win-server113.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server113.png">
+</div>
+<p>That all I wanted to cover for DHCP. Thanks for reading.</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-08-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/creating-a-dhcp-server/" data-title="Creating a DHCP Server" data-hashtags="Active Directory,Windows Servers"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/creating-a-dhcp-server/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/active-directory/">Active Directory</a>,&nbsp;<a href="/tags/windows-servers/">Windows Servers</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/windows-server-2019/active-directory-sites/" class="prev" rel="prev" title="Active Directory Sites"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Active Directory Sites</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
