@@ -4,7 +4,15 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>DNS - Windows Server AD</title>
+    <link>/posts/windows-server-2019/dns-windows-server/</link>
+    <pubDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/windows-server-2019/dns-windows-server/</guid>
+    <description><![CDATA[Let's learn how to install and create a DNS server in Active Directory. Then we will learn how to create DNS zones]]></description>
+</item>
+<item>
     <title>Creating a DHCP Server</title>
     <link>/posts/windows-server-2019/creating-a-dhcp-server/</link>
     <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/hyperv/how-to-delete-a-vm-in-hyperv/</guid>
     <description><![CDATA[In this post, we are going to review how to delete a VM completely in HyperV]]></description>
-</item>
-<item>
-    <title>Joining a Domain with the Server Core</title>
-    <link>/posts/windows-server-2019/joining-a-domain-with-the-server-core/</link>
-    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/joining-a-domain-with-the-server-core/</guid>
-    <description><![CDATA[In this post, I am going to show how to join a domain using Server Core. Then after joining the domain, How we can remotely manage it.]]></description>
 </item>
 </channel>
 </rss>

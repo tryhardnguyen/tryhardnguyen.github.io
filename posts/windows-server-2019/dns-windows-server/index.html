@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>DNS - Windows Server AD - </title><meta name="Description" content="Let&#39;s learn how to install and create a DNS server in Active Directory. Then we will learn how to create DNS zones"><meta property="og:title" content="DNS - Windows Server AD" />
+<meta property="og:description" content="Let&#39;s learn how to install and create a DNS server in Active Directory. Then we will learn how to create DNS zones" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/windows-server-2019/dns-windows-server/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-03T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DNS - Windows Server AD"/>
+<meta name="twitter:description" content="Let&#39;s learn how to install and create a DNS server in Active Directory. Then we will learn how to create DNS zones"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windows-server-2019/dns-windows-server/" /><link rel="prev" href="/posts/windows-server-2019/creating-a-dhcp-server/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DNS - Windows Server AD",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/windows-server-2019\/dns-windows-server\/"
+        },"genre": "posts","keywords": "Windows Server","wordcount":  999 ,
+        "url": "\/posts\/windows-server-2019\/dns-windows-server\/","datePublished": "2023-08-03T00:00:00+00:00","dateModified": "2023-08-03T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Let's learn how to install and create a DNS server in Active Directory. Then we will learn how to create DNS zones"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DNS - Windows Server AD</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-03">2023-08-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;999 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-dns-role">Install DNS Role</a></li>
+    <li><a href="#background-knowledge-on-dns-zones">Background Knowledge on DNS Zones</a></li>
+    <li><a href="#create-a-primary-zone">Create a Primary Zone</a></li>
+    <li><a href="#creating-a-secondary-zone">Creating a Secondary Zone</a></li>
+    <li><a href="#creating-the-stub-zone">Creating the Stub Zone</a></li>
+    <li><a href="#create-an-active-directory-integrated-zone">Create an Active Directory Integrated Zone</a></li>
+    <li><a href="#creating-a-reverse-lookup-zones">Creating a Reverse Lookup Zones</a></li>
+    <li><a href="#create-a-forwarder">Create a Forwarder</a></li>
+    <li><a href="#creating-a-conditional-forwarder">Creating a Conditional Forwarder</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="install-dns-role">Install DNS Role</h2>
+<p>First, We will bring up Server Manager. Go to Manage -&gt; Add Roles and Features -&gt; Role-based or feature-based installation. Then we will go with the default setting and under the server roles section, we will click on DNS server and click &ldquo;Add features&rdquo; and then click next.
+<br>
+<br>
+Under features, we will click Next and close when it is done. You should have the DNS manager. If you can&rsquo;t find it, it is in the Tools section.</p>
+<h2 id="background-knowledge-on-dns-zones">Background Knowledge on DNS Zones</h2>
+<p>DNS Zones contains all the IP address records. You can think of it as a filing cabinet of papers with IP address.</p>
+<p>Types of DNS zones</p>
+<ul>
+	<li>Forward lookup Zones: Domain Name to IP address. </li>
+	<li>Reverse Lookup Zone: IP address to Domain Name. </li>
+	<li>Primary Zones: contain all relevant resource records and handle DNS queries for a domain.</li>
+	<li>Secondary Zones: Read-only copies of primary zones.</li>
+	<li>Stub Zone: Contains only record for DNS server</li>
+	<li>Active Directory Integrated zone: Reside only on DC, Full Replication, Allows Secure Dynamic Update.
+</ul>
+<h2 id="create-a-primary-zone">Create a Primary Zone</h2>
+<p>Bring up the DNS Manager. Right-click on &ldquo;New Zone&rdquo;
+<br>
+<img class="zoom" src="/win-server-images/win-server114.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server114.png">
+</div>
+Then it ask you to choose what zone type you want to install and give us a description of each zone. For now, I will be creating "Primary Zone". Make sure to uncheck "Store the zone in Active Directory". This turn the zone into "Active Directory integrated zone"
+<br>
+<img class="zoom" src="/win-server-images/win-server115.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server115.png">
+</div>
+Then it ask to enter a zone name. I'll name mine TekNova.local-PZone.
+<br>
+<br>
+Then it ask you where you want to create your zone file. I am going keep like it is. 
+<br>
+<br>
+Then it ask if you want to allow Dynamic Update. Essentially, if the IP address of the computer get changed, then that record automatically get change to the new IP. If you don't enable dynamic update then you would have to manually change the record
+<br>
+<img class="zoom" src="/win-server-images/win-server116.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server116.png">
+</div>
+For now, I'm going to allow secure dynamic update. Now the zone is created and we can create an A record for fun.
+<br>
+<img class="zoom" src="/win-server-images/win-server117.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server117.png">
+</div>
+<h2 id="creating-a-secondary-zone">Creating a Secondary Zone</h2>
+<p>First thing we need to do is right click on the zone we want our secondary zone to have and click &ldquo;Properties&rdquo;. Then I&rsquo;m going to click: &ldquo;Zone Transfers&rdquo;. Now, I&rsquo;m going to select IP address and click edit. Now I am going to enter the IP address of my secondary DNS server. Then click OK and apply.
+<br>
+<img class="zoom" src="/win-server-images/win-server118.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server118.png">
+</div>
+Now I'm going start configuring my secondary DNS server. To do so, I can right click on the DNS and click on "Connect to DNS Server"
+<br>
+<img class="zoom" src="/win-server-images/win-server119.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server119.png">
+</div>
+Now, let's click on "Forward Lookup Zones" -> New Zone -> Secondary Zone.
+<br>
+<br>
+Now, let's enter a name for our secondary zone. I will use the same name of my primary zone.
+<br>
+<br>
+After it will ask you to enter the master DNS servers. I will enter the IP address of my primary DNS server and click next and finish
+<br>
+<img class="zoom" src="/win-server-images/win-server120.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server120.png">
+</div>
+Now, we should see the A record on the secondary zone.
+<br>
+<img class="zoom" src="/win-server-images/win-server121.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server121.png">
+</div>
+<h2 id="creating-the-stub-zone">Creating the Stub Zone</h2>
+<p>This would use the same process. Additional things to note, the zone would only contain DNS server.</p>
+<h2 id="create-an-active-directory-integrated-zone">Create an Active Directory Integrated Zone</h2>
+<p>We will start by opening a DNS Manager. Right click &ldquo;Forward Lookup Zones&rdquo; -&gt; New Zone. Then the New Zone Wizard will pop up. Under zone type, make sure the option: &ldquo;Store the zone in Active Directory&rdquo; is checked.
+<br>
+<img class="zoom" src="/win-server-images/win-server122.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server122.png">
+</div>
+Then it will ask you about the Active Directory Zone Replication Scope. Basically you're choosing how you want zone data to be replicated.
+<br>
+<img class="zoom" src="/win-server-images/win-server123.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server123.png">
+</div>
+Then it will ask you what you want to name your zone. Afterwards, it will ask you what type of dynamic update you want. For me I will keep the default setting.
+<br>
+<img class="zoom" src="/win-server-images/win-server124.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server124.png">
+</div>
+As you can see from the properties, the zone is Active Directory-integrated. You have the option to change the type of the zone.
+<br>
+<img class="zoom" src="/win-server-images/win-server125.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server125.png">
+</div>
+<h2 id="creating-a-reverse-lookup-zones">Creating a Reverse Lookup Zones</h2>
+<p>Reverse Lookup Zone will take a IP address and turn it into a Domain Name. We will start by right clicking on &ldquo;Reverse Lookup Zone&rdquo; and click &ldquo;New Zone&rdquo;. Just like our Forward Lookup Zone, we would get the same option for Reverse. For now, I will create a Active Directory Integrated Zone.
+<br>
+<br>
+Now, it asking how we want zone data replicated. I will keep the default values.
+<br>
+<br>
+Then the wizard ask if you want create an IPv4 Reverse Lookup Zone or IPv6 Reverse Lookup Zone. I will select IPv4 Reverse Lookup Zone.
+<br>
+<br>
+Then it will ask you to enter the Network ID. Basically the area where you want the search to be. I will enter 192.168.205
+<br>
+<img class="zoom" src="/win-server-images/win-server126.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server126.png">
+</div>
+Then it ask you what type of dynamic update. I'm just going keep the default option and click next and finish. You should have your reverse lookup zone created.
+<br>
+<img class="zoom" src="/win-server-images/win-server127.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server127.png">
+</div>
+Now we are going to create a PTR record. PTR record is essentially a A record for reverse lookup zone. We are going to right click and choose New Pointer (PTR). Then we click Browse and select what IP we want to map to a domain name. For example, I'm going to select TekNova-Client1.
+<br>
+<img class="zoom" src="/win-server-images/win-server128.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server128.png">
+</div>
+Now, you see that 192.168.205.4 is map to TekNova-Client1.TekNova.local. We can verify the PTR record by doing a nslookup.
+<br>
+<br>
+Before PTR record was created:
+<br>
+<img class="zoom" src="/win-server-images/win-server129.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server129.png">
+</div>
+PTR record was created:
+<br>
+<img class="zoom" src="/win-server-images/win-server130.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server130.png">
+</div>
+<h2 id="create-a-forwarder">Create a Forwarder</h2>
+<p>We will start by going to the DNS Manager. Then we click on our domain controller. Then we should see Forwarder. Now click on it and click Edit.
+<br>
+<img class="zoom" src="/win-server-images/win-server131.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server131.png">
+</div>
+Now, we can add any DNS server we want to forward the request to. One common public DNS is the google DNS.
+<br>
+<img class="zoom" src="/win-server-images/win-server132.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server132.png">
+</div>
+<h2 id="creating-a-conditional-forwarder">Creating a Conditional Forwarder</h2>
+<p>To setup a conditional forwarder, we will right click on &ldquo;Conditional Forwarders&rdquo; and click on &ldquo;New Conditional Forwarder&rdquo;. Under this menu, we would specify the DNS domain and the IP address of the DNS server. For example, Let say I want any requests that are going to fish.com to go to 4.3.2.1, I would specify the DNS domain as Fish.com and IP address: 4.3.2.1
+<br>
+<img class="zoom" src="/win-server-images/win-server133.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/win-server-images/win-server133.png">
+</div>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-08-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windows-server-2019/dns-windows-server/" data-title="DNS - Windows Server AD" data-hashtags="Windows Server"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windows-server-2019/dns-windows-server/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/windows-server/">Windows Server</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/windows-server-2019/creating-a-dhcp-server/" class="prev" rel="prev" title="Creating a DHCP Server"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Creating a DHCP Server</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
