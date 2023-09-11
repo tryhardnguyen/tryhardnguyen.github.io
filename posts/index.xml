@@ -13,6 +13,14 @@
     <description><![CDATA[This is going be a simple post. We are going learn how to configure our firewall to allow internet.]]></description>
 </item>
 <item>
+    <title>Enable Security Logging using GPO</title>
+    <link>/posts/cyber-homelabs/enable-security-logging/</link>
+    <pubDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/cyber-homelabs/enable-security-logging/</guid>
+    <description><![CDATA[In this article, we will learn how to enable Window logging.]]></description>
+</item>
+<item>
     <title>Deploying Sysmon through GPO</title>
     <link>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</link>
     <pubDate>Sun, 10 Sep 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/group-policy-processing/</guid>
     <description><![CDATA[Learning the Group Policy Processing order is very helpful. It will allow you to determine which policy can override the other and how each policy is layered on top of each other.]]></description>
-</item>
-<item>
-    <title>Policies or Preference</title>
-    <link>/posts/windows-server-2019/policies-or-preferences/</link>
-    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/policies-or-preferences/</guid>
-    <description><![CDATA[In Group Policy Management Editor, you might see that there is Computer Configuration and User configuration and inside each section there is policies and preferences. We are going cover the difference.]]></description>
 </item>
 </channel>
 </rss>

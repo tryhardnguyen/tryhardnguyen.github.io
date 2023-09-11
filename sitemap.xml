@@ -3,6 +3,7 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
             <loc>/posts/firewall-project/grant-internet-access/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/cyber-homelabs/enable-security-logging/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</loc><lastmod>2023-09-10T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/windows-server-2019/dns-windows-server/</loc><lastmod>2023-08-03T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/windows-server-2019/creating-a-dhcp-server/</loc><lastmod>2023-08-01T00:00:00&#43;00:00</lastmod></url><url>
@@ -70,9 +71,9 @@
             <loc>/categories/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/firewall/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/homelabs/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/modern-cyber-range/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/modern-cyber-range/</loc><lastmod>2023-09-10T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/windows-server/</loc><lastmod>2023-08-03T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/active-directory/</loc><lastmod>2023-08-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/windows-servers/</loc><lastmod>2023-08-01T00:00:00&#43;00:00</lastmod></url><url>

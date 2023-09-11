@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Enable Security Logging using GPO - </title><meta name="Description" content="In this article, we will learn how to enable Window logging."><meta property="og:title" content="Enable Security Logging using GPO" />
+<meta property="og:description" content="In this article, we will learn how to enable Window logging." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/cyber-homelabs/enable-security-logging/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-11T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Enable Security Logging using GPO"/>
+<meta name="twitter:description" content="In this article, we will learn how to enable Window logging."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/cyber-homelabs/enable-security-logging/" /><link rel="prev" href="/posts/cyber-homelabs/deploying-sysmon-through-gpo/" /><link rel="next" href="/posts/firewall-project/grant-internet-access/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Enable Security Logging using GPO",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/cyber-homelabs\/enable-security-logging\/"
+        },"genre": "posts","keywords": "Modern Cyber Range","wordcount":  749 ,
+        "url": "\/posts\/cyber-homelabs\/enable-security-logging\/","datePublished": "2023-09-11T00:00:00+00:00","dateModified": "2023-09-11T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "In this article, we will learn how to enable Window logging."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Enable Security Logging using GPO</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-11">2023-09-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;749 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-gpo-shell">Create GPO Shell</a></li>
+    <li><a href="#edit-the-gpo">Edit the GPO</a>
+      <ul>
+        <li><a href="#command-line-logging-with-arguments">Command Line Logging with arguments</a></li>
+        <li><a href="#enable-powershell-logging">Enable PowerShell Logging</a></li>
+        <li><a href="#enable-task-scheduler-logging">Enable Task Scheduler Logging</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="create-gpo-shell">Create GPO Shell</h2>
+<p>First thing we want to do is create an GPO and then modify it. First, open Server Manager -&gt; Tools -&gt; Group Policy Management.
+<br>
+<br>
+Right click the domain -&gt; Click on &ldquo;Create a GPO in this domain, and Link it here..&rdquo; -&gt; Time to name the GPO, I will name mine: &ldquo;Enable_SecurityLog&rdquo;. Now, our GPO is created.</p>
+<h2 id="edit-the-gpo">Edit the GPO</h2>
+<h3 id="command-line-logging-with-arguments">Command Line Logging with arguments</h3>
+<p>Right click on the GPO we just created -&gt; Edit.
+<br>
+<br>
+I&rsquo;m going to assume that you&rsquo;re in the Group Policy Management Editor. Under Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Advanced Audit Policy Configuration -&gt; Audit Policies -&gt; Detailed Tracking -&gt; Right click Audit Process Creation -&gt; Properties -&gt; Check &ldquo;Configure the&hellip;.&rdquo;,&ldquo;Success&rdquo; and &ldquo;Failure&rdquo;
+<br>
+<br>
+Next we are going to enable: &ldquo;Audit: Force audit policy subcategory setting&rdquo;. When you turn it <strong>on</strong> (enable it), it makes sure that if you want to track something specific on your server, like user logins, it will also track all the little details (subcategories), like who logged in and when.
+<br>
+<br>
+When you turn it <strong>off</strong> (disable it), you have to be very specific about what you want to track. If you only say, &ldquo;I want to know about logins,&rdquo; it won&rsquo;t automatically tell you who logged in; you have to set that up separately.
+<br>
+<br>
+Under Computer Configuration -&gt; Policies -&gt; Windows Setting -&gt; Security Settings -&gt; Local Policies -&gt; Security Options -&gt; Right click Audit: &ldquo;Force Audit Policy subcategory&hellip;&rdquo; -&gt; Properties -&gt; Click Define this policy and Enabled
+<br>
+<br>
+Next thing we are going to enable is &ldquo;Include command line in process creation events&rdquo;. To enable it, under computer configuration  -&gt; policies -&gt; Administrative Templates -&gt; System -&gt; Audit Process Creation -&gt; Right click: &ldquo;Include command line in process creation events&rdquo; -&gt; edit -&gt; Enabled.</p>
+<h3 id="enable-powershell-logging">Enable PowerShell Logging</h3>
+<p>Computer Configuration -&gt; Windows Components -&gt; Windows PowerShell -&gt; Enable Module Logging. Under Modules Names -&gt; Show -&gt; Put a * to log all -&gt; Apply, OK
+<br>
+<img class="zoom" src="/images/securitylogging1.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/securitylogging1.png">
+</div>
+<br>
+Then, Enable PowerShell Script Block Logging -> Check "Log Script block invocation...".
+<h3 id="enable-task-scheduler-logging">Enable Task Scheduler Logging</h3>
+<p>First, we will create a folder call &ldquo;EnableLog&rdquo;. Then, we will open a notepad and paste in the following command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wevtutil set-log Microsoft-Windows-TaskScheduler/Operational /enabled:true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<br>
+Then we will go to File -> Save As -> Make sure you save it as a .bat file in the EnableLog folder. After doing that, you should have a .bat program inside your EnableLog.
+<br>
+<br>
+Next, we need to create an group. This group will essentially hold all the computers we want the script to apply to. In server manager -> Tools -> Active Directory Users and Computers -> Right click Users -> New -> Group -> I will name it HardenComputer.
+<br>
+<img class="zoom" src="/images/securitylogging2.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/securitylogging2.png">
+</div>
+<br>
+After we created the group, we need to add the computer to the group. Right click "Harden Computer" -> Properties -> Members -> Add -> Object Types -> Uncheck everything and check Computers -> Now type the names of your workstation -> Check Names. Once you added all the workstation, click OK -> Apply.
+<br>
+<br>
+Now, we need to share the folder. Right click Enable Log -> Sharing -> Click the dropdown arrow -> Find People -> Type the group we recently created -> OK.
+<br>
+<img class="zoom" src="/images/securitylogging3.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/securitylogging3.png">
+</div>
+<br>
+Then click Share -> Done. Now, we move to the Advanced Sharing -> Check Share this Folder -> Click Permission -> Remove Everyone and Add the group we created. -> Click OK.
+<br>
+<img class="zoom" src="/images/securitylogging4.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/securitylogging4.png">
+</div>
+<br>
+First we will go to Tools -> Group Policy Management ->
+<p>Computer Configuration -&gt; Policies -&gt; Windows Setting -&gt; Scripts -&gt; Right click: Startup -&gt; Properties -&gt; Add -&gt; We are going name our script: Task Scheduler Logging -&gt; Right click &ldquo;Enable_SecurityLog&rdquo; -&gt; Edit.
+<br>
+<br>
+Inside Group Policy Management Editor -&gt; Computer Configuration -&gt; Policies -&gt; Windows Setting -&gt; Scripts (Startups) -&gt; Right click Startup -&gt; Properties -&gt; Add -&gt; Right click the folder that is storing &ldquo;enable_scheduler_history&rdquo; -&gt; Sharing -&gt; Copy the Network Path and at the end of the path add enable_scheduler_history.bat -&gt; Click Apply -&gt; OK.
+<br>
+<img class="zoom" src="/images/securitylogging5.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/securitylogging5.png">
+</div>
+<br>
+Now, that script should be running whenever the workstation start up.
+One more thing, We want to add the group that we created under SecurityFiltering on the GPO that enable logging.
+<br>
+<img class="zoom" src="/images/securitylogging6.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/securitylogging6.png">
+</div>
+<br>
+Next thing we want to do is go to the command line and type gpupdate /force. This will process all the gpo to be processed.
+<br>
+<br>
+As you can see from the picture, task scheduler history is enable.
+<br>
+<img class="zoom" src="/images/securitylogging7.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/securitylogging6.png">
+</div>
+<br>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+<pre><code>zooms.forEach(function(zoom) {
+	zoom.addEventListener('click', function() {
+		overlay.style.display = 'flex';
+		overlay.style.pointerEvents = 'auto';
+		zoomedImage.src = zoom.src;
+		zoomedImage.classList.add('zoomed');
+	});
+});
+
+overlay.addEventListener('click', function() {
+	overlay.style.display = 'none';
+	overlay.style.pointerEvents = 'none';
+	zoomedImage.classList.remove('zoomed');
+});
+</code></pre>
+<p></script></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-09-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/cyber-homelabs/enable-security-logging/" data-title="Enable Security Logging using GPO" data-hashtags="Modern Cyber Range"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/cyber-homelabs/enable-security-logging/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/modern-cyber-range/">Modern Cyber Range</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/cyber-homelabs/deploying-sysmon-through-gpo/" class="prev" rel="prev" title="Deploying Sysmon through GPO"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Deploying Sysmon through GPO</a>
+            <a href="/posts/firewall-project/grant-internet-access/" class="next" rel="next" title="Allow internet through firewall">Allow internet through firewall<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
