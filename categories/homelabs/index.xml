@@ -4,7 +4,23 @@
         <link>/categories/homelabs/</link>
         <description>Homelabs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/homelabs/" rel="self" type="application/rss+xml" /><item>
+    <title>Allow internet through firewall</title>
+    <link>/posts/firewall-project/grant-internet-access/</link>
+    <pubDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/firewall-project/grant-internet-access/</guid>
+    <description><![CDATA[This is going be a simple post. We are going learn how to configure our firewall to allow internet.]]></description>
+</item>
+<item>
+    <title>Deploying Sysmon through GPO</title>
+    <link>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</link>
+    <pubDate>Sun, 10 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</guid>
+    <description><![CDATA[Today, We will be learning how to deploy Sysmon Through GPO - Active Directory]]></description>
+</item>
+<item>
     <title>DNS - Windows Server AD</title>
     <link>/posts/windows-server-2019/dns-windows-server/</link>
     <pubDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</pubDate>
@@ -67,22 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/policies-or-preferences/</guid>
     <description><![CDATA[In Group Policy Management Editor, you might see that there is Computer Configuration and User configuration and inside each section there is policies and preferences. We are going cover the difference.]]></description>
-</item>
-<item>
-    <title>Deep Dive into GPO</title>
-    <link>/posts/windows-server-2019/deep-dive-into-gpo/</link>
-    <pubDate>Sun, 16 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/deep-dive-into-gpo/</guid>
-    <description><![CDATA[In this post, we will take a deep dive into Group Policy Object (GPO)]]></description>
-</item>
-<item>
-    <title>How to delete a VM in HyperV</title>
-    <link>/posts/hyperv/how-to-delete-a-vm-in-hyperv/</link>
-    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/hyperv/how-to-delete-a-vm-in-hyperv/</guid>
-    <description><![CDATA[In this post, we are going to review how to delete a VM completely in HyperV]]></description>
 </item>
 </channel>
 </rss>

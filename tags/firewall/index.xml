@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Firewall - Tag - </title>
+        <link>/tags/firewall/</link>
+        <description>Firewall - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/firewall/" rel="self" type="application/rss+xml" /><item>
+    <title>Allow internet through firewall</title>
+    <link>/posts/firewall-project/grant-internet-access/</link>
+    <pubDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/firewall-project/grant-internet-access/</guid>
+    <description><![CDATA[This is going be a simple post. We are going learn how to configure our firewall to allow internet.]]></description>
+</item>
+</channel>
+</rss>

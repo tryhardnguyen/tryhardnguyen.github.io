@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Deploying Sysmon through GPO - </title><meta name="Description" content="Today, We will be learning how to deploy Sysmon Through GPO - Active Directory"><meta property="og:title" content="Deploying Sysmon through GPO" />
+<meta property="og:description" content="Today, We will be learning how to deploy Sysmon Through GPO - Active Directory" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/cyber-homelabs/deploying-sysmon-through-gpo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-10T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deploying Sysmon through GPO"/>
+<meta name="twitter:description" content="Today, We will be learning how to deploy Sysmon Through GPO - Active Directory"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/cyber-homelabs/deploying-sysmon-through-gpo/" /><link rel="prev" href="/posts/windows-server-2019/dns-windows-server/" /><link rel="next" href="/posts/firewall-project/grant-internet-access/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Deploying Sysmon through GPO",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/cyber-homelabs\/deploying-sysmon-through-gpo\/"
+        },"genre": "posts","keywords": "Modern Cyber Range","wordcount":  757 ,
+        "url": "\/posts\/cyber-homelabs\/deploying-sysmon-through-gpo\/","datePublished": "2023-09-10T00:00:00+00:00","dateModified": "2023-09-10T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Today, We will be learning how to deploy Sysmon Through GPO - Active Directory"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Deploying Sysmon through GPO</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-10">2023-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;757 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#files-needed">Files needed:</a>
+      <ul>
+        <li><a href="#sysmon">Sysmon</a></li>
+        <li><a href="#sysmon-config">Sysmon Config</a></li>
+        <li><a href="#deploy_sysmon-bat-file">Deploy_sysmon bat file</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-a-user-group">Create a User Group</a></li>
+    <li><a href="#share-the-folder">Share the folder</a></li>
+    <li><a href="#edit-our-script">Edit our Script</a></li>
+    <li><a href="#create-a-gpo">Create a GPO</a></li>
+    <li><a href="#edit-the-gpo">Edit the GPO</a></li>
+    <li><a href="#moving-to-client-side">Moving to Client-Side</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="files-needed">Files needed:</h2>
+<h3 id="sysmon">Sysmon</h3>
+<p>You can download sysmon using this link: <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon" target="_blank" rel="noopener noreffer ">https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</a></p>
+<h3 id="sysmon-config">Sysmon Config</h3>
+<p>You can find the sysmon config here: <a href="https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml" target="_blank" rel="noopener noreffer ">https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml</a></p>
+<h3 id="deploy_sysmon-bat-file">Deploy_sysmon bat file</h3>
+<p>We will be using a bat file that allow us to install sysmon on  the workstation. Below is the script. Later we will edit this script.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">copy /z /y &#34;\\domain.com\apps\config.xml&#34; &#34;C:\&#34;
+</span></span><span class="line"><span class="cl">copy /z /y &#34;\\domain.com\apps\config.xml&#34; &#34;C:\&#34;
+</span></span><span class="line"><span class="cl">sysmon -c c:\windows\config.xml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sc query &#34;Sysmon&#34; | Find &#34;RUNNING&#34;
+</span></span><span class="line"><span class="cl">If &#34;%ERRORLEVEL%&#34; EQU &#34;1&#34; (
+</span></span><span class="line"><span class="cl">goto startsysmon
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">:startsysmon
+</span></span><span class="line"><span class="cl">sc start Sysmon
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">If &#34;%ERRORLEVEL%&#34; EQU &#34;1&#34; (
+</span></span><span class="line"><span class="cl">goto installsysmon
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">:installsysmon
+</span></span><span class="line"><span class="cl">&#34;c:\sysmon.exe&#34; /accepteula -i c:\sysmonconfig.xml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>or you can check the following link:
+<a href="https://www.syspanda.com/index.php/2017/02/28/deploying-sysmon-through-gpo/" target="_blank" rel="noopener noreffer ">https://www.syspanda.com/index.php/2017/02/28/deploying-sysmon-through-gpo/</a></p>
+<p>This is what you should have:
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo1.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo1.png">
+</div>
+<h2 id="create-a-user-group">Create a User Group</h2>
+<p>Open Server Manager -&gt; Active Directory Users and Computers. Right click on Users -&gt; New -&gt; Group -&gt; Name it anything you want. I will name mine auto-tool. After the group is created, right click it and go to Properties.
+<br>
+<br>
+Once you&rsquo;re in the properties panel click on Members and click add. Now, what we are trying to do is add our workstation into the group. Let click on Object Types and select only &ldquo;Computers&rdquo;. Now we are going to enter the computer name and click Apply.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo2.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo2.png">
+</div>
+<br>
+Side note: You can find the name of your computer by going to the command line and type hostname.
+<h2 id="share-the-folder">Share the folder</h2>
+<p>Right click on Sysmon and click on Properties. Click on Sharing and click Share&hellip; Then click on &ldquo;Find People&rdquo; and type the group we recently created.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo3.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo3.png">
+</div>
+<br>
+Now, the group should appear at the bottom of Administrator and click Share.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo4.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo4.png">
+</div>
+<br>
+Next we will click on "Advanced Sharing" -> Share this Folder -> Permission -> Add -> Add the group we just created. -> Remove Everyone -> Apply -> OK
+<h2 id="edit-our-script">Edit our Script</h2>
+<p>This is our original script:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">copy /z /y &#34;\\domain.com\apps\config.xml&#34; &#34;C:\&#34;
+</span></span><span class="line"><span class="cl">copy /z /y &#34;\\domain.com\apps\config.xml&#34; &#34;C:\&#34;
+</span></span><span class="line"><span class="cl">sysmon -c c:\windows\config.xml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sc query &#34;Sysmon&#34; | Find &#34;RUNNING&#34;
+</span></span><span class="line"><span class="cl">If &#34;%ERRORLEVEL%&#34; EQU &#34;1&#34; (
+</span></span><span class="line"><span class="cl">goto startsysmon
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">:startsysmon
+</span></span><span class="line"><span class="cl">sc start Sysmon
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">If &#34;%ERRORLEVEL%&#34; EQU &#34;1&#34; (
+</span></span><span class="line"><span class="cl">goto installsysmon
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">:installsysmon
+</span></span><span class="line"><span class="cl">&#34;c:\sysmon.exe&#34; /accepteula -i c:\sysmonconfig.xml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here are the changes:
+Replace &ldquo;\\domain.com\apps\config.xml&rdquo; with \\DOMAIN-NAME\Sysmon\sysmonconfig.xml
+<br>
+Replace &ldquo;\\domain.com\apps\config.xml&rdquo; with &ldquo;\\MONOCHIP-DC1\Sysmon\sysmon.exe&rdquo; &ldquo;C:\&rdquo;
+<br>
+Replace c:\windows\config.xml with c:\sysmonconfig.xml
+<br>
+<br>
+This is what you should have:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">copy /z /y &#34;\\MONOCHIP-DC1\Sysmon\sysmonconfig.xml&#34; &#34;C:\&#34;
+</span></span><span class="line"><span class="cl">copy /z /y &#34;\\MONOCHIP-DC1\Sysmon\sysmon.exe&#34; &#34;C:\&#34;
+</span></span><span class="line"><span class="cl">sysmon -c c:\sysmonconfig.xml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sc query &#34;Sysmon&#34; | Find &#34;RUNNING&#34;
+</span></span><span class="line"><span class="cl">If &#34;%ERRORLEVEL%&#34; EQU &#34;1&#34; (
+</span></span><span class="line"><span class="cl">goto startsysmon
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">:startsysmon
+</span></span><span class="line"><span class="cl">sc start Sysmon
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">If &#34;%ERRORLEVEL%&#34; EQU &#34;1&#34; (
+</span></span><span class="line"><span class="cl">goto installsysmon
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">:installsysmon
+</span></span><span class="line"><span class="cl">&#34;c:\sysmon.exe&#34; /accepteula -i c:\sysmonconfig.xml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="create-a-gpo">Create a GPO</h2>
+<p>In Server Manager -&gt; Tools -&gt; Group Policy Management. Right click on our domain and click on &ldquo;Create a GPO in this domain, and Link it here&hellip;&rdquo;. Then it will ask you to create a GPO with the name. I will name mine: &ldquo;DeploySysmon&rdquo;.
+<br>
+<br>
+Once we created the GPO, we will focus our attention on &ldquo;Security Filtering&rdquo; and click &ldquo;Add&rdquo; and we will put in the group we just recently created.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo5.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo5.png">
+</div>
+<br>
+<h2 id="edit-the-gpo">Edit the GPO</h2>
+<p>Now, let&rsquo;s right click on the GPO and click edit. Computer Configuration -&gt; Preferences -&gt; Control Panel Setting -&gt; Scheduled Tasks -&gt; New -&gt; Scheduled Task (At least Windows 7). Now copy your task just like what I have.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo6.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo6.png">
+</div>
+<br>
+<p>Now, let go to &ldquo;triggers&rdquo; section -&gt; New. Copy the setting that I have.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo7.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo7.png">
+</div>
+<br>
+Now, let move to Actions. Click New. Under PROGRAM/Script, copy this path but change the domain name to your domain name. \\MONOCHIP-DC1\\Sysmon\\sysmon.exe
+<br>
+<br>
+You should have something like this:
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo8.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo8.png">
+</div>
+<p>Let&rsquo;s move on to Settings. Copy the settings below.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo9.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo9.png">
+</div>
+Now click Apply -> Ok. You should see a task created.
+<h2 id="moving-to-client-side">Moving to Client-Side</h2>
+<p>On the workstation, I&rsquo;m going to login as the Domain Admin.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo10.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo10.png">
+</div>
+In the command line, let type gpupdate /force. Then restart the workstation.
+<br>
+<br>
+After the workstation is restarted, I will login in as the Domain Admin.
+<br>
+<br>
+Once we log in, We will use the search tab and search Task Scheduler. You should see the task that we created.
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo11.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo11.png">
+</div>
+<br>
+On the bottom right, You should see a Run button. Click the Run button and it will start the task.
+<br>
+After you run the task, Sysmon should be installed onto the device. To make sure Sysmon is installed, you can execute the following command: `sc query sysmon`.
+<br>
+<br>
+Expected result:
+<br>
+<img class="zoom" src="/images/deploy_sysmon_through_gpo12.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/deploy_sysmon_through_gpo12.png">
+</div>
+<br>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-09-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/cyber-homelabs/deploying-sysmon-through-gpo/" data-title="Deploying Sysmon through GPO" data-hashtags="Modern Cyber Range"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/cyber-homelabs/deploying-sysmon-through-gpo/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/modern-cyber-range/">Modern Cyber Range</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/windows-server-2019/dns-windows-server/" class="prev" rel="prev" title="DNS - Windows Server AD"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>DNS - Windows Server AD</a>
+            <a href="/posts/firewall-project/grant-internet-access/" class="next" rel="next" title="Allow internet through firewall">Allow internet through firewall<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

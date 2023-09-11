@@ -4,7 +4,23 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Firewall</title>
+    <link>/tags/firewall/</link>
+    <pubDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/firewall/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Modern Cyber Range</title>
+    <link>/tags/modern-cyber-range/</link>
+    <pubDate>Sun, 10 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/modern-cyber-range/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Windows Server</title>
     <link>/tags/windows-server/</link>
     <pubDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/windows/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Linux</title>
-    <link>/tags/linux/</link>
-    <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/linux/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Blue Team</title>
-    <link>/tags/blue-team/</link>
-    <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/blue-team/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
