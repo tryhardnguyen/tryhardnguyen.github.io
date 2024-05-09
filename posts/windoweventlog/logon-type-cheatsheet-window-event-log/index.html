@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Logon Type Cheatsheet - Window Event Log - </title><meta name="Description" content="This is a cheat sheet of Logon Type in Window Event Log"><meta property="og:title" content="Logon Type Cheatsheet - Window Event Log" />
+<meta property="og:description" content="This is a cheat sheet of Logon Type in Window Event Log" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/windoweventlog/logon-type-cheatsheet-window-event-log/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-24T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Logon Type Cheatsheet - Window Event Log"/>
+<meta name="twitter:description" content="This is a cheat sheet of Logon Type in Window Event Log"/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/windoweventlog/logon-type-cheatsheet-window-event-log/" /><link rel="prev" href="/posts/firewall-project/grant-internet-access/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Logon Type Cheatsheet - Window Event Log",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/windoweventlog\/logon-type-cheatsheet-window-event-log\/"
+        },"genre": "posts","keywords": "Modern Cyber Range","wordcount":  330 ,
+        "url": "\/posts\/windoweventlog\/logon-type-cheatsheet-window-event-log\/","datePublished": "2023-09-24T00:00:00+00:00","dateModified": "2023-09-24T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "This is a cheat sheet of Logon Type in Window Event Log"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Logon Type Cheatsheet - Window Event Log</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-24">2023-09-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;330 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#logon-number">Logon Number</a>
+      <ul>
+        <li><a href="#user-interactive-logon">User Interactive Logon:</a></li>
+      </ul>
+    </li>
+    <li><a href="#background-logon">Background Logon</a></li>
+    <li><a href="#cached-logon">Cached Logon</a></li>
+    <li><a href="#other">Other</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<h2 id="logon-number">Logon Number</h2>
+<p>Number, Logon Type, Example
+<br>
+<br></p>
+<h3 id="user-interactive-logon">User Interactive Logon:</h3>
+<p>Logon Number: 2
+<br>
+Logon Type: Interactive -&gt; User used a login page to log in.
+<br>
+Example: User entering credentials at the log page via keyboard.
+<br>
+<br>
+Logon Number: 3
+<br>
+Logon Type: Network -&gt; Used to access a Windows resource (e.g., shared folder) from a system on the network.
+<br>
+Example: Accessing a shared folder from the domain.
+<br>
+<br>
+Logon Number: 10
+<br>
+Logon Type: Remote Interactive -&gt; Log into computer via remote access protocol
+<br>
+Example: RDP</p>
+<h2 id="background-logon">Background Logon</h2>
+<p>Logon Number: 4
+<br>
+Logon Type: Batch Job -&gt; For a schedule task to run a task within an account, it would have to log into that account.
+<br>
+Example: Task Scheduler
+<br>
+<br>
+Logon Number: 5
+<br>
+Service: Used to run a service as a specified account.
+<br></p>
+<h2 id="cached-logon">Cached Logon</h2>
+<p>Logon Number: 11
+<br>
+Logon Type: CachedInteractive
+<br>
+Example: User entering credentials at the log page via keyboard.
+<br>
+<br>
+Logon Number: 11
+<br>
+Logon Type: CachedInteractive -&gt; Logon that uses cached domain credentials
+<br>
+Example: User logons to the computer without having to contact the domain controller, since the network credentials are locally stored on the computer.
+<br>
+<br>
+Logon Number: 12
+<br>
+Logon Type: CashedRemoteInteractive -&gt; Logon that uses cached RDP credentials
+<br>
+Example: User logons to the computer without having to contact the domain controller, since the network credentials are locally stored on the computer.
+<br>
+<br>
+Logon Number: 13
+<br>
+Logon Type: CachedUnlock -&gt; Logon that uses cached RDP credentials
+<br>
+Example: Remote system get unlock by simply waking up the computer.</p>
+<h2 id="other">Other</h2>
+<p>Logon Number: 9
+<br>
+Logon Type: NewCredentials -&gt; occurs when a user uses the &lsquo;RunAs&rsquo; command to run an application.
+<br>
+<br>
+Logon Number: 7
+<br>
+Logon Type: Unlock-&gt; Type of logon occurs when a user unlocks their machine.
+<br>
+Example: This type of logon occurs when a user unlocks their machine.
+<br>
+<br>
+Logon Number: 8
+<br>
+Logon Type: Network Cleartext -&gt; when a user or computer logs on to the computer from the network, and the password is sent in clear text.</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-09-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/windoweventlog/logon-type-cheatsheet-window-event-log/" data-title="Logon Type Cheatsheet - Window Event Log" data-hashtags="Modern Cyber Range"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/windoweventlog/logon-type-cheatsheet-window-event-log/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/modern-cyber-range/">Modern Cyber Range</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/firewall-project/grant-internet-access/" class="prev" rel="prev" title="Allow internet through firewall"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Allow internet through firewall</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
