@@ -8,15 +8,15 @@
 <meta property="og:description" content="In this module, we going explore activity that make process suspicious" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/suspiciousprocessactivity/suspicious-process-activity/" /><meta property="article:section" content="posts" />
-
-<meta property="og:site_name" content="SecurityNguyen Site" />
+<meta property="article:published_time" content="2024-05-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-09T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Suspicious Process Activity"/>
 <meta name="twitter:description" content="In this module, we going explore activity that make process suspicious"/>
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/suspiciousprocessactivity/suspicious-process-activity/" /><link rel="prev" href="/posts/templates/" /><link rel="next" href="/posts/useful-sysmon-id/learning-sysmon/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/suspiciousprocessactivity/suspicious-process-activity/" /><link rel="prev" href="/posts/windoweventlog/logon-type-cheatsheet-window-event-log/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -27,8 +27,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/suspiciousprocessactivity\/suspicious-process-activity\/"
-        },"genre": "posts","keywords": "Fundamental","wordcount":  13 ,
-        "url": "\/posts\/suspiciousprocessactivity\/suspicious-process-activity\/","publisher": {
+        },"genre": "posts","keywords": "Fundamental","wordcount":  51 ,
+        "url": "\/posts\/suspiciousprocessactivity\/suspicious-process-activity\/","datePublished": "2024-05-09T00:00:00+00:00","dateModified": "2024-05-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -69,14 +69,25 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Suspicious Process Activity</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/fundamental/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Fundamental</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;13 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-09">2024-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;51 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#techniques">Techniques:</a>
+      <ul>
+        <li><a href="#hiding-in-plain-sight">Hiding in Plain Sight</a></li>
+        <li><a href="#living-off-the-land-binaries-lolbas">Living off the Land Binaries (LOLBAS)</a></li>
+        <li><a href="#suspicious-parent-child-relationship">Suspicious Parent-Child Relationship</a></li>
+        <li><a href="#suspicious-binaries-path">Suspicious Binaries Path</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
 <style>
 	.zoom {
@@ -108,6 +119,20 @@
 	            transform: scale(1.5);
 	        }
 </style>
+<h2 id="techniques">Techniques:</h2>
+<h3 id="hiding-in-plain-sight">Hiding in Plain Sight</h3>
+<p>&ldquo;Hiding in Plain Sight&rdquo; is basically changing a letter of a process with like an number.
+<br>
+For example: svch0st.exe vs svchost.exe
+<br>
+<img class="zoom" src="/posts/SuspiciousProcessActivity/Images/hideInPlainSight"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/">
+</div>
+<br>
+<h3 id="living-off-the-land-binaries-lolbas">Living off the Land Binaries (LOLBAS)</h3>
+<h3 id="suspicious-parent-child-relationship">Suspicious Parent-Child Relationship</h3>
+<h3 id="suspicious-binaries-path">Suspicious Binaries Path</h3>
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
@@ -132,7 +157,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 0001-01-01</span>
+                <span>Updated on 2024-05-09</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -149,8 +174,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/templates/" class="prev" rel="prev" title="Title Name"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Title Name</a>
-            <a href="/posts/useful-sysmon-id/learning-sysmon/" class="next" rel="next" title="Learning Sysmon">Learning Sysmon<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/windoweventlog/logon-type-cheatsheet-window-event-log/" class="prev" rel="prev" title="Logon Type Cheatsheet - Window Event Log"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Logon Type Cheatsheet - Window Event Log</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

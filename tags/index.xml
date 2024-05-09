@@ -4,7 +4,15 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Sun, 24 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 09 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Fundamental</title>
+    <link>/tags/fundamental/</link>
+    <pubDate>Thu, 09 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/fundamental/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Modern Cyber Range</title>
     <link>/tags/modern-cyber-range/</link>
     <pubDate>Sun, 24 Sep 2023 00:00:00 &#43;0000</pubDate>
@@ -74,14 +82,6 @@
     <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/red-team/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Windows</title>
-    <link>/tags/windows/</link>
-    <pubDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/windows/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
