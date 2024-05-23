@@ -4,7 +4,23 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 09 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 23 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Fundamentals</title>
+    <link>/tags/fundamentals/</link>
+    <pubDate>Thu, 23 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/fundamentals/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>PowerShell</title>
+    <link>/tags/powershell/</link>
+    <pubDate>Thu, 23 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/powershell/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Fundamental</title>
     <link>/tags/fundamental/</link>
     <pubDate>Thu, 09 May 2024 00:00:00 &#43;0000</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/hyperv/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Virtualization</title>
-    <link>/tags/virtualization/</link>
-    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/virtualization/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Red Team</title>
-    <link>/tags/red-team/</link>
-    <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/red-team/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
