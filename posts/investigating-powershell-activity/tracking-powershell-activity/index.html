@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/investigating-powershell-activity\/tracking-powershell-activity\/"
-        },"genre": "posts","keywords": "Fundamentals, PowerShell","wordcount":  447 ,
+        },"genre": "posts","keywords": "Fundamentals, PowerShell","wordcount":  681 ,
         "url": "\/posts\/investigating-powershell-activity\/tracking-powershell-activity\/","datePublished": "2024-05-23T00:00:00+00:00","dateModified": "2024-05-23T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Investigating Powershell Activity</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/homelabs/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Homelabs</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-23">2024-05-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;447 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-23">2024-05-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;681 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -78,6 +78,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#logging-powershell-activity">Logging PowerShell Activity</a></li>
     <li><a href="#window-event-log">Window Event Log</a>
       <ul>
         <li><a href="#event-id-4688-process-has-been-created">Event ID: 4688 Process has been created</a></li>
@@ -127,7 +128,108 @@
 	        }
 </style>
 <p>In this blog post, we will cover how to track PowerShell activity. Let&rsquo;s start off with some Windows Event Log.</p>
-<h2 id="window-event-log">Window Event Log</h2>
+<h2 id="logging-powershell-activity">Logging PowerShell Activity</h2>
+<p>Majority of the PowerShell logging falls under Computer Configuration -&gt; Policies -&gt; Windows PowerShell.
+<br>
+Here are the options available to us:
+<br>
+<img class="zoom" src="/images/TrackingPSActivity/PowerShellLogging.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/TrackingPSActivity/PowerShellLogging.png">
+</div>
+<br>
+<br>
+Module Logging help with event id: 800 and event id: 4103.
+<br>
+<br>
+Turn on PowerShell Script Block Logging for event id: 4104.
+<br>
+<br>
+PowerShell Transcription record everything what the user do within the PowerShell session.
+<br>
+For example:
+<br>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">**********************
+</span></span><span class="line"><span class="cl">Windows PowerShell transcript start
+</span></span><span class="line"><span class="cl">Start time: 20240522143937
+</span></span><span class="line"><span class="cl">Username: TESTDUMMY\Administrator
+</span></span><span class="line"><span class="cl">RunAs User: TESTDUMMY\Administrator
+</span></span><span class="line"><span class="cl">Configuration Name: 
+</span></span><span class="line"><span class="cl">Machine: DUMMYC1 (Microsoft Windows NT 10.0.19045.0)
+</span></span><span class="line"><span class="cl">Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+</span></span><span class="line"><span class="cl">Process ID: 17368
+</span></span><span class="line"><span class="cl">PSVersion: 5.1.19041.4412
+</span></span><span class="line"><span class="cl">PSEdition: Desktop
+</span></span><span class="line"><span class="cl">PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.4412
+</span></span><span class="line"><span class="cl">BuildVersion: 10.0.19041.4412
+</span></span><span class="line"><span class="cl">CLRVersion: 4.0.30319.42000
+</span></span><span class="line"><span class="cl">WSManStackVersion: 3.0
+</span></span><span class="line"><span class="cl">PSRemotingProtocolVersion: 2.3
+</span></span><span class="line"><span class="cl">SerializationVersion: 1.1.0.1
+</span></span><span class="line"><span class="cl">**********************
+</span></span><span class="line"><span class="cl">**********************
+</span></span><span class="line"><span class="cl">Command start time: 20240522143956
+</span></span><span class="line"><span class="cl">**********************
+</span></span><span class="line"><span class="cl">PS C:\Users\Administrator&gt; ipconfig
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Windows IP Configuration
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Ethernet adapter Ethernet0:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   Connection-specific DNS Suffix  . : testdummy.com
+</span></span><span class="line"><span class="cl">   IPv4 Address. . . . . . . . . . . : 192.168.109.5
+</span></span><span class="line"><span class="cl">   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+</span></span><span class="line"><span class="cl">   Default Gateway . . . . . . . . . : 192.168.109.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Ethernet adapter Bluetooth Network Connection:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   Media State . . . . . . . . . . . : Media disconnected
+</span></span><span class="line"><span class="cl">   Connection-specific DNS Suffix  . :
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="window-event-log">Window Event Log</h2>
 <h3 id="event-id-4688-process-has-been-created">Event ID: 4688 Process has been created</h3>
 <p>Allow us to know when PowerShell was started.
 <br>
