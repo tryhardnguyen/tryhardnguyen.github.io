@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>/posts/persistence-technique/registry-runas/registry-run-key-persistence/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/investigating-powershell-activity/tracking-powershell-activity/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/suspiciousprocessactivity/suspicious-process-activity/</loc><lastmod>2024-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/windoweventlog/logon-type-cheatsheet-window-event-log/</loc><lastmod>2023-09-24T00:00:00&#43;00:00</lastmod></url><url>
@@ -70,13 +71,16 @@
             <loc>/posts/owasp-top-10-vulnerabilities-project/</loc><lastmod>2022-11-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/useful-sysmon-id/learning-sysmon/</loc></url><url>
             <loc>/posts/templates/</loc></url><url>
-            <loc>/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/blue-team/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/fundamentals/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/window-event-log/</loc><lastmod>2024-05-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/fundamentals/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/homelabs/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/powershell/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/fundamental/</loc><lastmod>2024-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/fundamental/</loc><lastmod>2024-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/modern-cyber-range/</loc><lastmod>2023-09-24T00:00:00&#43;00:00</lastmod></url><url>
@@ -91,7 +95,6 @@
             <loc>/tags/red-team/</loc><lastmod>2023-07-06T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/windows/</loc><lastmod>2023-07-04T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/linux/</loc><lastmod>2023-06-29T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/blue-team/</loc><lastmod>2023-06-08T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/nmap/</loc><lastmod>2023-06-08T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/detection-tools/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/hids/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
@@ -105,5 +108,4 @@
             <loc>/posts/phishing-analysis/</loc></url><url>
             <loc>/posts/untitled/</loc></url><url>
             <loc>/categories/documentation/</loc></url><url>
-            <loc>/categories/fundamentals/</loc></url><url>
             <loc>/tags/</loc></url></urlset>

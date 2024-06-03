@@ -4,7 +4,23 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 23 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 30 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Blue Team</title>
+    <link>/tags/blue-team/</link>
+    <pubDate>Thu, 30 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/blue-team/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Window Event Log</title>
+    <link>/tags/window-event-log/</link>
+    <pubDate>Thu, 30 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/window-event-log/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Fundamentals</title>
     <link>/tags/fundamentals/</link>
     <pubDate>Thu, 23 May 2024 00:00:00 &#43;0000</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/windows-servers/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Group Policy Object</title>
-    <link>/tags/group-policy-object/</link>
-    <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/group-policy-object/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>HyperV</title>
-    <link>/tags/hyperv/</link>
-    <pubDate>Sat, 15 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/hyperv/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

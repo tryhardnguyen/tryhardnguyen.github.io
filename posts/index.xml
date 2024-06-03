@@ -4,7 +4,15 @@
         <link>/posts/</link>
         <description>All Posts | </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 23 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 30 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Registry RunAs Persistence</title>
+    <link>/posts/persistence-technique/registry-runas/registry-run-key-persistence/</link>
+    <pubDate>Thu, 30 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/persistence-technique/registry-runas/registry-run-key-persistence/</guid>
+    <description><![CDATA[Registry RunAS allow program to run at user login. This can be used for attacker to maintain persistence]]></description>
+</item>
+<item>
     <title>Investigating Powershell Activity</title>
     <link>/posts/investigating-powershell-activity/tracking-powershell-activity/</link>
     <pubDate>Thu, 23 May 2024 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-server-2019/backing-up-your-gpos/</guid>
     <description><![CDATA[Let learn how to backup your GPOs and restore it]]></description>
-</item>
-<item>
-    <title>Starter GPOs</title>
-    <link>/posts/windows-server-2019/starter-gpo/</link>
-    <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/starter-gpo/</guid>
-    <description><![CDATA[We will learn what is a starter GPO and how to use it]]></description>
 </item>
 </channel>
 </rss>
