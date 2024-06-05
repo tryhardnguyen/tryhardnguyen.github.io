@@ -4,7 +4,15 @@
         <link>/categories/</link>
         <description>Categories - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 30 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 04 Jun 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Blue Team</title>
+    <link>/categories/blue-team/</link>
+    <pubDate>Tue, 04 Jun 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/categories/blue-team/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Fundamentals</title>
     <link>/categories/fundamentals/</link>
     <pubDate>Thu, 30 May 2024 00:00:00 &#43;0000</pubDate>

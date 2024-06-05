@@ -5,12 +5,12 @@
         <description>Window Event Log - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
             <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Thu, 30 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/window-event-log/" rel="self" type="application/rss+xml" /><item>
-    <title>Registry RunAs Persistence</title>
+    <title>Registry Run Key Persistence</title>
     <link>/posts/persistence-technique/registry-runas/registry-run-key-persistence/</link>
     <pubDate>Thu, 30 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/persistence-technique/registry-runas/registry-run-key-persistence/</guid>
-    <description><![CDATA[Registry RunAS allow program to run at user login. This can be used for attacker to maintain persistence]]></description>
+    <description><![CDATA[Registry Run Key allow program to run at user login. This can be used for attacker to maintain persistence]]></description>
 </item>
 </channel>
 </rss>

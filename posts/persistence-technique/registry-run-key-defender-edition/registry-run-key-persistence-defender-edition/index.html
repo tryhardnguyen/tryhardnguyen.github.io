@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Registry Run Key Persistence - Defender Edition - </title><meta name="Description" content="Have you ever wonder what artifacts are generated during a Registry Run Key from a defender point of view? We will find out in this module."><meta property="og:title" content="Registry Run Key Persistence - Defender Edition" />
+<meta property="og:description" content="Have you ever wonder what artifacts are generated during a Registry Run Key from a defender point of view? We will find out in this module." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/persistence-technique/registry-run-key-defender-edition/registry-run-key-persistence-defender-edition/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-04T00:00:00+00:00" /><meta property="og:site_name" content="SecurityNguyen Site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Registry Run Key Persistence - Defender Edition"/>
+<meta name="twitter:description" content="Have you ever wonder what artifacts are generated during a Registry Run Key from a defender point of view? We will find out in this module."/>
+<meta name="application-name" content="SecurityNguyen">
+<meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/persistence-technique/registry-run-key-defender-edition/registry-run-key-persistence-defender-edition/" /><link rel="prev" href="/posts/persistence-technique/registry-runas/registry-run-key-persistence/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Registry Run Key Persistence - Defender Edition",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/persistence-technique\/registry-run-key-defender-edition\/registry-run-key-persistence-defender-edition\/"
+        },"genre": "posts","keywords": "Blue Team","wordcount":  768 ,
+        "url": "\/posts\/persistence-technique\/registry-run-key-defender-edition\/registry-run-key-persistence-defender-edition\/","datePublished": "2024-06-04T00:00:00+00:00","dateModified": "2024-06-04T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Nguyen Nguyen"
+            },"description": "Have you ever wonder what artifacts are generated during a Registry Run Key from a defender point of view? We will find out in this module."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="">SecurityNguyen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="">SecurityNguyen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Registry Run Key Persistence - Defender Edition</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/blue-team/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Blue Team</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-06-04">2024-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;768 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#attacker-mindset">Attacker Mindset</a></li>
+    <li><a href="#starting-with-delivery-phase">Starting with Delivery Phase</a></li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#event-id-4688---a-new-process-has-been-created">Event ID: 4688 - A new process has been created</a>
+          <ul>
+            <li><a href="#creator-subject">Creator Subject</a></li>
+            <li><a href="#process-information">Process Information</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
+<style>
+	.zoom {
+	            transition: transform 0.3s;
+	            cursor: pointer;
+	        }
+	        
+	        .overlay {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background-color: rgba(0, 0, 0, 0.5);
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	            z-index: 999;
+	            pointer-events: none;
+	        }
+	        
+	        .zoomed-image {
+	            max-width: 80%;
+	            max-height: 80%;
+	            transition: transform 0.3s;
+	        }
+	        
+	        .zoomed-image.zoomed {
+	            transform: scale(1.5);
+	        }
+</style>
+<div class="details admonition warning">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>Warning<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Everything shown here is carried out in a virtualized environment that is hosted on my local machine.</div>
+        </div>
+    </div>
+<h2 id="attacker-mindset">Attacker Mindset</h2>
+<p>As an defender, we have to think from attacker point of view what they&rsquo;re going to do. Form a hypothesis and find any clues that support these hypothesis. There has to be series of steps that the attacker have to achieve before they can &ldquo;encrypt&rdquo; or &ldquo;exfiltration&rdquo; sensitive data.
+<br>
+<br>
+Think of it like eating your favorite food. You need to cook or make your favorite food before you can eat it. It doesn&rsquo;t suddenly appear.
+<br>
+<br>
+One useful framework that we can use to tell the story of what the attacker did is using the &ldquo;Cyber Kill Chain&rdquo; by Lockheed martin.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/cyber-kill-chain.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/cyber-kill-chain.png">
+</div>
+<br>
+For reference, Attacker_IP is 192.168.109.6 and Victim_IP is 192.168.109.5.
+<h2 id="starting-with-delivery-phase">Starting with Delivery Phase</h2>
+<p>In this phase, we are going to see if our victim machine reach out to an unknown IP and download an unknown application. Let&rsquo;s pretend we didn&rsquo;t know that the attacker_ip was 192.168.109.6.
+<br>
+<br>
+We can start by filtering traffic based on our source_ip. This is the query we can use: source_ip: &ldquo;192.168.109.5&rdquo;. This is will give me logs that came from IP address 192.168.109.5.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/findAttacker.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/findAttacker.png">
+</div>
+<br>
+As we can see from the picture above, 192.168.109.5 reached to two IP address: 192.168.109.5 and 192.168.109.2. Let's filter the result even more based on destination ip address.
+<br>
+<br>
+Query: 
+<p><code>source.ip : 192.168.109.5 and destination.ip: 192.168.109.6</code>
+<br>
+<br>
+The field we&rsquo;re going to focus is &ldquo;Process.name&rdquo;, &ldquo;event.action&rdquo;
+<br>
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/findAttacker.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/findAttacker.png">
+</div>
+<br>
+Looking at the picture above, we see that msedge.exe was being used to connect to 192.168.109.5. 
+We then can move into the event log to see more in depth what msedge.exe was doing. Our goal is to see what msedge.exe download. To accomplish this, we can use Sysmon event id 15: FilleCreateStreamHash using the query:
+<p><code>process.name: &quot;msedge.exe&quot; and event.code: &quot;15&quot;</code>
+<br>
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/malwareDownload.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/malwareDownload.png">
+</div>
+<br>
+Referring to the picture above, we can see that msedge.exe was used to download a file called svch0st.exe. The downloaded file/application is stored under: C:\Users\Administrator\Downloads\svch0st.exe. 
+<br>
+<br>
+Diving deeper into the other logs, under winlog.event_data.contents -> We see that the victim machine download an application at hxxp[://]192[.]168[.]109[.]6:9000/
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/malwareLink.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/malwareLink.png">
+</div>
+<br>
+<br>
+Now, as a defender, we want note these information down such as the process that was downloaded, the location of the application, and the IP address that victim machine reach out to. These information can help us discover more activity the attacker has carried out.
+<h2 id="installation">Installation</h2>
+<p>Let&rsquo;s see what artifacts are generated when an malware is executed on the victim machine.
+What we can do is filter our result based on the malicious process (svch0st.exe) that we saw.
+<br>
+<br>
+Query: <code>process.name: &quot;svch0st.exe&quot;</code></p>
+<h3 id="event-id-4688---a-new-process-has-been-created">Event ID: 4688 - A new process has been created</h3>
+<p>The activity we first see being generated is Event ID: 4688. What is 4688?
+<br>
+<br>
+Event 4688 documents each program that is executed, who the program ran as and the process that started this process. Think of &ldquo;created&rdquo; as running.
+<br>
+<br>
+Here&rsquo;s the event log. Let&rsquo;s break it down.
+<br></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">A new process has been created.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Creator Subject:
+</span></span><span class="line"><span class="cl">	Security ID:		S-1-5-21-518224448-692797076-3762862117-500
+</span></span><span class="line"><span class="cl">	Account Name:		Administrator
+</span></span><span class="line"><span class="cl">	Account Domain:		TESTDUMMY
+</span></span><span class="line"><span class="cl">	Logon ID:		0x106CAC
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target Subject:
+</span></span><span class="line"><span class="cl">	Security ID:		S-1-0-0
+</span></span><span class="line"><span class="cl">	Account Name:		-
+</span></span><span class="line"><span class="cl">	Account Domain:		-
+</span></span><span class="line"><span class="cl">	Logon ID:		0x0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Process Information:
+</span></span><span class="line"><span class="cl">	New Process ID:		0x140c
+</span></span><span class="line"><span class="cl">	New Process Name:	C:\Users\Administrator\Downloads\svch0st.exe
+</span></span><span class="line"><span class="cl">	Token Elevation Type:	%%1936
+</span></span><span class="line"><span class="cl">	Mandatory Label:		S-1-16-12288
+</span></span><span class="line"><span class="cl">	Creator Process ID:	0x2208
+</span></span><span class="line"><span class="cl">	Creator Process Name:	C:\Windows\explorer.exe
+</span></span><span class="line"><span class="cl">	Process Command Line:	&#34;C:\Users\Administrator\Downloads\svch0st.exe&#34; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Token Elevation Type indicates the type of token that was assigned to the new process in accordance with User Account Control policy.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Type 1 is a full token with no privileges removed or groups disabled.  A full token is only used if User Account Control is disabled or if the user is the built-in Administrator account or a service account.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Type 2 is an elevated token with no privileges removed or groups disabled.  An elevated token is used when User Account Control is enabled and the user chooses to start the program using Run as administrator.  An elevated token is also used when an application is configured to always require administrative privilege or to always require maximum privilege, and the user is a member of the Administrators group.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Type 3 is a limited token with administrative privileges removed and administrative groups disabled.  The limited token is used when User Account Control is enabled, the application does not require administrative privilege, and the user does not choose to start the program using Run as administrator.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="creator-subject">Creator Subject</h4>
+<h4 id="process-information">Process Information</h4>
+<!-- Zoom Animation Feature -->
+<script>
+	const zooms = document.querySelectorAll('.zoom');
+	const overlay = document.querySelector('.overlay');
+	const zoomedImage = document.querySelector('.zoomed-image');
+	
+	zooms.forEach(function(zoom) {
+		zoom.addEventListener('click', function() {
+			overlay.style.display = 'flex';
+			overlay.style.pointerEvents = 'auto';
+			zoomedImage.src = zoom.src;
+			zoomedImage.classList.add('zoomed');
+		});
+	});
+	
+	overlay.addEventListener('click', function() {
+		overlay.style.display = 'none';
+		overlay.style.pointerEvents = 'none';
+		zoomedImage.classList.remove('zoomed');
+	});
+</script></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-06-04</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/persistence-technique/registry-run-key-defender-edition/registry-run-key-persistence-defender-edition/" data-title="Registry Run Key Persistence - Defender Edition" data-hashtags="Blue Team"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="/posts/persistence-technique/registry-run-key-defender-edition/registry-run-key-persistence-defender-edition/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/blue-team/">Blue Team</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/persistence-technique/registry-runas/registry-run-key-persistence/" class="prev" rel="prev" title="Registry Run Key Persistence"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Registry Run Key Persistence</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tryhardnguyen" target="_blank">Nguyen Nguyen</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
