@@ -4,12 +4,28 @@
         <link>/tags/</link>
         <description>Tags - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 04 Jun 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 10 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Blue Team</title>
     <link>/tags/blue-team/</link>
-    <pubDate>Tue, 04 Jun 2024 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 10 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/blue-team/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Group Policy Object</title>
+    <link>/tags/group-policy-object/</link>
+    <pubDate>Wed, 10 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/group-policy-object/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Windows Server</title>
+    <link>/tags/windows-server/</link>
+    <pubDate>Wed, 10 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/tags/windows-server/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -61,27 +77,11 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Windows Server</title>
-    <link>/tags/windows-server/</link>
-    <pubDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/windows-server/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>Active Directory</title>
     <link>/tags/active-directory/</link>
     <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/tags/active-directory/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Windows Servers</title>
-    <link>/tags/windows-servers/</link>
-    <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/windows-servers/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

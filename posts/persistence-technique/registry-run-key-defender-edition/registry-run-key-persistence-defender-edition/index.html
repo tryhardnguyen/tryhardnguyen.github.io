@@ -16,7 +16,7 @@
 <meta name="application-name" content="SecurityNguyen">
 <meta name="apple-mobile-web-app-title" content="SecurityNguyen"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/persistence-technique/registry-run-key-defender-edition/registry-run-key-persistence-defender-edition/" /><link rel="prev" href="/posts/persistence-technique/registry-runas/registry-run-key-persistence/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/persistence-technique/registry-run-key-defender-edition/registry-run-key-persistence-defender-edition/" /><link rel="prev" href="/posts/persistence-technique/registry-runas/registry-run-key-persistence/" /><link rel="next" href="/posts/persistence-technique/windows-object-auditing/enable-windows-object-auditing/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/persistence-technique\/registry-run-key-defender-edition\/registry-run-key-persistence-defender-edition\/"
-        },"genre": "posts","keywords": "Blue Team","wordcount":  768 ,
+        },"genre": "posts","keywords": "Blue Team","wordcount":  1689 ,
         "url": "\/posts\/persistence-technique\/registry-run-key-defender-edition\/registry-run-key-persistence-defender-edition\/","datePublished": "2024-06-04T00:00:00+00:00","dateModified": "2024-06-04T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Registry Run Key Persistence - Defender Edition</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tryhardnguyen" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Nguyen Nguyen</a></span>&nbsp;<span class="post-category">included in <a href="/categories/blue-team/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Blue Team</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-06-04">2024-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;768 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-06-04">2024-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1689 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -80,16 +80,13 @@
   <ul>
     <li><a href="#attacker-mindset">Attacker Mindset</a></li>
     <li><a href="#starting-with-delivery-phase">Starting with Delivery Phase</a></li>
-    <li><a href="#installation">Installation</a>
+    <li><a href="#installation-phase">Installation Phase</a>
       <ul>
-        <li><a href="#event-id-4688---a-new-process-has-been-created">Event ID: 4688 - A new process has been created</a>
-          <ul>
-            <li><a href="#creator-subject">Creator Subject</a></li>
-            <li><a href="#process-information">Process Information</a></li>
-          </ul>
-        </li>
+        <li><a href="#event-id-4688---a-new-process-has-been-created">Event ID: 4688 - A new process has been created</a></li>
+        <li><a href="#sysmon-equivalent">Sysmon Equivalent</a></li>
       </ul>
     </li>
+    <li><a href="#command--control">Command &amp; Control</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>Note: If you need to zoom in, you can click on the image.</p>
@@ -150,14 +147,18 @@ For reference, Attacker_IP is 192.168.109.6 and Victim_IP is 192.168.109.5.
 <p>In this phase, we are going to see if our victim machine reach out to an unknown IP and download an unknown application. Let&rsquo;s pretend we didn&rsquo;t know that the attacker_ip was 192.168.109.6.
 <br>
 <br>
-We can start by filtering traffic based on our source_ip. This is the query we can use: source_ip: &ldquo;192.168.109.5&rdquo;. This is will give me logs that came from IP address 192.168.109.5.
+We can start by filtering traffic based on our source_ip. This is the query we can use:
+<code>source_ip: &quot;192.168.109.5&quot;</code>
+<br>
+<br>
+This is will give me logs that came from IP address 192.168.109.5
 <br>
 <img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/findAttacker.png"></p>
 <div class="overlay">
         <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/findAttacker.png">
 </div>
 <br>
-As we can see from the picture above, 192.168.109.5 reached to two IP address: 192.168.109.5 and 192.168.109.2. Let's filter the result even more based on destination ip address.
+As we can see from the picture above, 192.168.109.5 reached to two IP address: 192.168.109.6 and 192.168.109.2. Let's filter the result even more based on destination ip address.
 <br>
 <br>
 Query: 
@@ -167,12 +168,12 @@ Query:
 The field we&rsquo;re going to focus is &ldquo;Process.name&rdquo;, &ldquo;event.action&rdquo;
 <br>
 <br>
-<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/findAttacker.png"></p>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/networkconnection.png"></p>
 <div class="overlay">
-        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/findAttacker.png">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/networkconnection.png">
 </div>
 <br>
-Looking at the picture above, we see that msedge.exe was being used to connect to 192.168.109.5. 
+Looking at the picture above, we see that msedge.exe was being used to connect to 192.168.109.6. 
 We then can move into the event log to see more in depth what msedge.exe was doing. Our goal is to see what msedge.exe download. To accomplish this, we can use Sysmon event id 15: FilleCreateStreamHash using the query:
 <p><code>process.name: &quot;msedge.exe&quot; and event.code: &quot;15&quot;</code>
 <br>
@@ -193,8 +194,9 @@ Diving deeper into the other logs, under winlog.event_data.contents -> We see th
 </div>
 <br>
 <br>
-Now, as a defender, we want note these information down such as the process that was downloaded, the location of the application, and the IP address that victim machine reach out to. These information can help us discover more activity the attacker has carried out.
-<h2 id="installation">Installation</h2>
+Additionally, we wanted to quickly verify if this program was malicious, we can grab the hash of the program and plug it into virus total.
+<p>Now, as a defender, we want note these information down such as the process that was downloaded, where the application was stored, and the IP address that victim machine reach out to. These information can help us discover more activity the attacker has carried out.</p>
+<h2 id="installation-phase">Installation Phase</h2>
 <p>Let&rsquo;s see what artifacts are generated when an malware is executed on the victim machine.
 What we can do is filter our result based on the malicious process (svch0st.exe) that we saw.
 <br>
@@ -233,14 +235,6 @@ Here&rsquo;s the event log. Let&rsquo;s break it down.
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">A new process has been created.
@@ -249,7 +243,7 @@ Here&rsquo;s the event log. Let&rsquo;s break it down.
 </span></span><span class="line"><span class="cl">	Security ID:		S-1-5-21-518224448-692797076-3762862117-500
 </span></span><span class="line"><span class="cl">	Account Name:		Administrator
 </span></span><span class="line"><span class="cl">	Account Domain:		TESTDUMMY
-</span></span><span class="line"><span class="cl">	Logon ID:		0x106CAC
+</span></span><span class="line"><span class="cl">	Logon ID:		0x1758CD
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Target Subject:
 </span></span><span class="line"><span class="cl">	Security ID:		S-1-0-0
@@ -258,25 +252,236 @@ Here&rsquo;s the event log. Let&rsquo;s break it down.
 </span></span><span class="line"><span class="cl">	Logon ID:		0x0
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Process Information:
-</span></span><span class="line"><span class="cl">	New Process ID:		0x140c
+</span></span><span class="line"><span class="cl">	New Process ID:		0x28f8
 </span></span><span class="line"><span class="cl">	New Process Name:	C:\Users\Administrator\Downloads\svch0st.exe
 </span></span><span class="line"><span class="cl">	Token Elevation Type:	%%1936
 </span></span><span class="line"><span class="cl">	Mandatory Label:		S-1-16-12288
-</span></span><span class="line"><span class="cl">	Creator Process ID:	0x2208
-</span></span><span class="line"><span class="cl">	Creator Process Name:	C:\Windows\explorer.exe
+</span></span><span class="line"><span class="cl">	Creator Process ID:	0x2878
+</span></span><span class="line"><span class="cl">	Creator Process Name:	C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
 </span></span><span class="line"><span class="cl">	Process Command Line:	&#34;C:\Users\Administrator\Downloads\svch0st.exe&#34; 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Token Elevation Type indicates the type of token that was assigned to the new process in accordance with User Account Control policy.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Type 1 is a full token with no privileges removed or groups disabled.  A full token is only used if User Account Control is disabled or if the user is the built-in Administrator account or a service account.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Type 2 is an elevated token with no privileges removed or groups disabled.  An elevated token is used when User Account Control is enabled and the user chooses to start the program using Run as administrator.  An elevated token is also used when an application is configured to always require administrative privilege or to always require maximum privilege, and the user is a member of the Administrators group.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Type 3 is a limited token with administrative privileges removed and administrative groups disabled.  The limited token is used when User Account Control is enabled, the application does not require administrative privilege, and the user does not choose to start the program using Run as administrator.
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="creator-subject">Creator Subject</h4>
-<h4 id="process-information">Process Information</h4>
+</div><p>Focusing on the process Information section, we can see that msedge.exe was trying to start up svch0st.exe. This would make msedge.exe a parent process of svch0st.exe. As a SOC analyst, this should be a red flag for us because msedge downloading an random application is a bad sign.</p>
+<p>At this point, we identify the suspicious malicious process. The most important thing we can write down right now is the process id of svch0st.exe. This will be helpful for tracking the activity generated by svch0st.exe.</p>
+<h3 id="sysmon-equivalent">Sysmon Equivalent</h3>
+<p>Sysmon equivalent to event code: 4688 is Sysmon 1. Same type of information but overall the structure is different.
+<br>
+Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Process Create:
+</span></span><span class="line"><span class="cl">RuleName: technique_id=T1036,technique_name=Masquerading
+</span></span><span class="line"><span class="cl">UtcTime: 2024-07-11 09:59:45.693
+</span></span><span class="line"><span class="cl">ProcessGuid: {e58af071-ad11-668f-4001-000000004b00}
+</span></span><span class="line"><span class="cl">ProcessId: 10488
+</span></span><span class="line"><span class="cl">Image: C:\Users\Administrator\Downloads\svch0st.exe
+</span></span><span class="line"><span class="cl">FileVersion: 2.2.14
+</span></span><span class="line"><span class="cl">Description: ApacheBench command line utility
+</span></span><span class="line"><span class="cl">Product: Apache HTTP Server
+</span></span><span class="line"><span class="cl">Company: Apache Software Foundation
+</span></span><span class="line"><span class="cl">OriginalFileName: ab.exe
+</span></span><span class="line"><span class="cl">CommandLine: &#34;C:\Users\Administrator\Downloads\svch0st.exe&#34; 
+</span></span><span class="line"><span class="cl">CurrentDirectory: C:\Users\Administrator\Downloads\
+</span></span><span class="line"><span class="cl">User: TESTDUMMY\Administrator
+</span></span><span class="line"><span class="cl">LogonGuid: {e58af071-a9d7-668f-cd58-170000000000}
+</span></span><span class="line"><span class="cl">LogonId: 0x1758CD
+</span></span><span class="line"><span class="cl">TerminalSessionId: 1
+</span></span><span class="line"><span class="cl">IntegrityLevel: High
+</span></span><span class="line"><span class="cl">Hashes: SHA1=A5D0EBC16A1FDFC518E74C76600F444BF08A2B80,MD5=562A240FAF051DAB58C309DB165B13C8,SHA256=D7374152BF977F3465DC50C886D4C053E95F06F8B7691FE9E98E16CDC1B17B26,IMPHASH=481F47BBB2C9C21E108D65F52B04C448
+</span></span><span class="line"><span class="cl">ParentProcessGuid: {e58af071-aa1c-668f-e000-000000004b00}
+</span></span><span class="line"><span class="cl">ParentProcessId: 10360
+</span></span><span class="line"><span class="cl">ParentImage: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+</span></span><span class="line"><span class="cl">ParentCommandLine: &#34;C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe&#34; --no-startup-window
+</span></span><span class="line"><span class="cl">ParentUser: TESTDUMMY\Administrator
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As you can see there are no sections such as Creator Subject, Target Subject, Process Information.</p>
+<h2 id="command--control">Command &amp; Control</h2>
+<p>Once the attacker was able to set up his malware. What he want the malware to do is to radio back home and wait for further commands. We are going to find artifacts of this type of activity.
+<br>
+<br>
+For this type of activity, we want to go to the network log. This allow us to eliminate the noise and only focus on network activity.
+<br>
+<br>
+Now, we can carry out a search using the process name or process id. Either one works.
+<br>
+<br>
+Query: <code>process.name: &quot;svch0st.exe&quot; and process.pid: &quot;10488&quot;</code>
+<br>
+<br>
+Looking at a glance, we can see that svch0st.exe made a connection attempt! This is really bad news for us. I&rsquo;m shaking in my boots right now.
+<br>
+<br>
+Looking into the detail, we see that it made a connection with 192.168.109.6 (destination.ip) from 192.168.109.5.
+<br>
+<br>
+Now, if an environment is running sysmon, we can use sysmon id: 3. This id log TCP/UDP connections.
+<br>
+<br>
+Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Network connection detected:
+</span></span><span class="line"><span class="cl">RuleName: technique_id=T1036,technique_name=Masquerading
+</span></span><span class="line"><span class="cl">UtcTime: 2024-07-11 09:59:50.256
+</span></span><span class="line"><span class="cl">ProcessGuid: {e58af071-ad11-668f-4001-000000004b00}
+</span></span><span class="line"><span class="cl">ProcessId: 10488
+</span></span><span class="line"><span class="cl">Image: C:\Users\Administrator\Downloads\svch0st.exe
+</span></span><span class="line"><span class="cl">User: TESTDUMMY\Administrator
+</span></span><span class="line"><span class="cl">Protocol: tcp
+</span></span><span class="line"><span class="cl">Initiated: true
+</span></span><span class="line"><span class="cl">SourceIsIpv6: false
+</span></span><span class="line"><span class="cl">SourceIp: 192.168.109.5
+</span></span><span class="line"><span class="cl">SourceHostname: -
+</span></span><span class="line"><span class="cl">SourcePort: 50824
+</span></span><span class="line"><span class="cl">SourcePortName: -
+</span></span><span class="line"><span class="cl">DestinationIsIpv6: false
+</span></span><span class="line"><span class="cl">DestinationIp: 192.168.109.6
+</span></span><span class="line"><span class="cl">DestinationHostname: -
+</span></span><span class="line"><span class="cl">DestinationPort: 6777
+</span></span><span class="line"><span class="cl">DestinationPortName: -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Since we know that there&rsquo;s ongoing communication with 192.168.109.6. We need to see what activity were ran under svch0st.exe. We can do this by seeing the relationship between the parent (svch0st.exe) process and child process. The child process being the command.
+<br>
+<br>
+As shown in the picture below, we see that there is no result found.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/noParent.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/noParent.png">
+</div>
+<br>
+Look like our trail has gone cold. This is weird because there's no activity of svch0st.exe executing any commands. At this point, we may suspect that the attacker have carried out a process injection attack, in simpler term, move into a legitimate window process to further carry out their attack.
+<br>
+<br>
+Some other thing we can check is if the legitimate window process drop a suspicious application. This could be a sign of establishing persistence. One way we can check for this is using Sysmon. The event id we going hone in is 11.
+<br>
+<br>
+Query: 
+<p><code>event.code:&quot;11&quot; and process.name:&quot;*&quot;</code>
+<br>
+<br>
+This query allow us to see if a process drop an application. We are looking for suspicious application. As shown below, Runtimebroker.exe was seen creating a file called &ldquo;evilLink.exe&rdquo; which is located in C:\Windows\Temp\evilLink.exe.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/susApplication.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/susApplication.png">
+</div>
+<br>
+This proves our hypothesis that the attacker used process injection to disguise his traffic. We can add to our notes that RunTimeBroker.exe was seen being used in a malicious way and it's important to note the process id which is 8308 so that we can keep track of the process activity.
+<br>
+If we really want to prove if that the case, we can use this query:
+`event.code:"10" and process.name: "svch0st.exe" and winlog.event_data.TargetImage: C:\Windows\System32\RuntimeBroker.exe"
+<br>
+<br>
+This query allow us to see if svch0st.exe was trying to inject to RunetimeBroker.exe.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/process_injection.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/process_injection.png">
+</div>
+<br>
+Now, that we know that RuntimeBroker.exe was used in a malicious manner, we can keep track of the activity generated from this process. For now, the query we going to use is:
+<p><code>process.name:&quot;RuntimeBroker.exe&quot; and process.id:&quot;8308&quot;</code>
+<br>
+<br>
+Since, we don&rsquo;t have the time to look at all of these logs, we can get a general idea of what the logs are. To do that, we can go to the top left corner of the elastic siem and filter it by event.code.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/summary.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/summary.png">
+</div>
+<br>
+As from the picture above, we see that 61% of these logs contain information about Process Creation. 19% of these logs contain information about Sysmon 13 which is about Registry and so on. I'm going to choose event.code 13 because that's what stick out for me.
+<br>
+<br>
+Looking at the result, we didn't get anything useful. Well, Back to the drawing board. The next thing we can look for is what commands was run by Runtimebroker especially with process id "8308".
+<br>
+<br>
+Query:
+<p><code>process.parent.pid:&quot;8308&quot;</code>
+<br>
+As we can see from the result below, we see that multiple of command line were generated by RuntimeBroker.exe.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/cmdline_traffic.png"></p>
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/cmdline_traffic.png">
+</div>
+<br>
+The next thing we can do is use the process id of the command line to see what command were run.
+<br>
+Visual example:
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/example1.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/example1.png">
+</div>
+<br>
+As we can see from the picture below, RuntimeBroker.exe (8308) was seen invoking cmd.exe (6232) which is equivalent of opening command line. Then, we see cmd.exe (6232) invoking reg.exe (6184). This is what I called a chain of execution.
+<br>
+<img class="zoom" src="/images/PersistenceTech/RegistryRunkeyDefender/command_chain.png">
+<div class="overlay">
+        <img class="zoomed-image" src="/images/PersistenceTech/RegistryRunkey/command_chain.png">
+</div>
+<br>
+Let's further investigate what reg.exe was used for. According to the SIEM, reg.exe executed the following command: `reg  add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v backdoor /t REG_SZ /d "C:\Windows\Temp\evilLink.exe" /f`. Let's debunk this command.
+<br>
+<br>
+The first part of the command is "reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run ", we can conclude that this command is adding a value to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion which is in charge of system startup. We see that the command created a value called "backdoor" and it point to an application called evilLink.exe.
+<br>
+<br>
+In summary, evilLink.exe will execute every time whenever a system start up. This allow the attacker to have persistence access to the victim computer.
+<br>
+<br>
+This is the end of the walkthrough. Even though this walkthrough is a bit hindsight and the attack were easily spotted. It allow SOC analyst to see how different process interact with each other and what logs are generated from the following attack. 
 <!-- Zoom Animation Feature -->
 <script>
 	const zooms = document.querySelectorAll('.zoom');
@@ -318,7 +523,8 @@ Here&rsquo;s the event log. Let&rsquo;s break it down.
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/persistence-technique/registry-runas/registry-run-key-persistence/" class="prev" rel="prev" title="Registry Run Key Persistence"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Registry Run Key Persistence</a></div>
+    <div class="post-nav"><a href="/posts/persistence-technique/registry-runas/registry-run-key-persistence/" class="prev" rel="prev" title="Registry Run Key Persistence"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Registry Run Key Persistence</a>
+            <a href="/posts/persistence-technique/windows-object-auditing/enable-windows-object-auditing/" class="next" rel="next" title="Windows Object Logging">Windows Object Logging<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

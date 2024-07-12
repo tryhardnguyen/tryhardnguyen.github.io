@@ -4,7 +4,15 @@
         <link>/categories/logs/</link>
         <description>Logs - Category - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 09 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/logs/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Wed, 10 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/logs/" rel="self" type="application/rss+xml" /><item>
+    <title>Windows Object Logging</title>
+    <link>/posts/persistence-technique/windows-object-auditing/enable-windows-object-auditing/</link>
+    <pubDate>Wed, 10 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/persistence-technique/windows-object-auditing/enable-windows-object-auditing/</guid>
+    <description><![CDATA[This log allows us to keep track of what files, registry, and other system components were accessed.]]></description>
+</item>
+<item>
     <title>Install &amp; Enable Windows Defender Audit Logs</title>
     <link>/posts/windows-defender-audit-logs/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
