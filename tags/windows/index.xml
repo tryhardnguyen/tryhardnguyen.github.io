@@ -4,23 +4,7 @@
         <link>/tags/windows/</link>
         <description>Windows - Tag - </description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Securitynguyen@gmail.com (Nguyen Nguyen)</managingEditor>
-            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/windows/" rel="self" type="application/rss+xml" /><item>
-    <title>Unquoted Service Path - Windows Escalation</title>
-    <link>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</link>
-    <pubDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</guid>
-    <description><![CDATA[Let's learn how Unquoted Service Paths can lead to a Windows Escalation]]></description>
-</item>
-<item>
-    <title>Install &amp; Enable Windows Defender Audit Logs</title>
-    <link>/posts/windows-defender-audit-logs/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-defender-audit-logs/</guid>
-    <description><![CDATA[Windows Defender Audit Logs]]></description>
-</item>
-<item>
+            <webMaster>Securitynguyen@gmail.com (Nguyen Nguyen)</webMaster><lastBuildDate>Mon, 08 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/windows/" rel="self" type="application/rss+xml" /><item>
     <title>Enable Power Shell Logging</title>
     <link>/posts/log-visibility-powershell/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>

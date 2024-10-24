@@ -13,14 +13,6 @@
     <description><![CDATA[This log allows us to keep track of what files, registry, and other system components were accessed.]]></description>
 </item>
 <item>
-    <title>Install &amp; Enable Windows Defender Audit Logs</title>
-    <link>/posts/windows-defender-audit-logs/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-defender-audit-logs/</guid>
-    <description><![CDATA[Windows Defender Audit Logs]]></description>
-</item>
-<item>
     <title>Enable Power Shell Logging</title>
     <link>/posts/log-visibility-powershell/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>

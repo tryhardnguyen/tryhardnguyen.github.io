@@ -53,38 +53,36 @@
     <description><![CDATA[This is a cheat sheet of Logon Type in Window Event Log]]></description>
 </item>
 <item>
-    <title>Allow internet through firewall</title>
-    <link>/posts/firewall-project/grant-internet-access/</link>
-    <pubDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <title>Enable Power Shell Logging</title>
+    <link>/posts/log-visibility-powershell/</link>
+    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/firewall-project/grant-internet-access/</guid>
-    <description><![CDATA[This is going be a simple post. We are going learn how to configure our firewall to allow internet.]]></description>
+    <guid>/posts/log-visibility-powershell/</guid>
+    <description><![CDATA[Powershell Logging]]></description>
 </item>
 <item>
-    <title>Reverse Shell Dying? No problem try this.</title>
-    <link>/posts/windows-privilege-escalation/reverse-shell-dying/</link>
-    <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <title>Install &amp; Enable Sysmon</title>
+    <link>/posts/sysmon-logs/</link>
+    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-privilege-escalation/reverse-shell-dying/</guid>
-    <description><![CDATA[During my journey of learning Windows Escalation, I had my reverse shell dying when I tried to connect back to the service users. This really frustrate me. However, after a constant testing I figured an way to minimize the reverse shell from disconnectioning]]></description>
+    <guid>/posts/sysmon-logs/</guid>
+    <description><![CDATA[Install & Enable Sysmon]]></description>
 </item>
 <item>
-    <title>Unquoted Service Path - Windows Escalation</title>
-    <link>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</link>
-    <pubDate>Tue, 04 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</guid>
-    <description><![CDATA[Let's learn how Unquoted Service Paths can lead to a Windows Escalation]]></description>
+    <title>Learning Sysmon</title>
+    <link>/posts/useful-sysmon-id/learning-sysmon/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+    <author>CyberNguyen</author>
+    <guid>/posts/useful-sysmon-id/learning-sysmon/</guid>
+    <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>OS Detection/Traceroute</title>
-    <link>/posts/os-detection-and-traceroute/</link>
-    <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <title>Title Name</title>
+    <link>/posts/templates/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/os-detection-and-traceroute/</guid>
-    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
-OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
-Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
+    <guid>/posts/templates/</guid>
+    <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>

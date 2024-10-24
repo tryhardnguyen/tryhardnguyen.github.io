@@ -28,31 +28,5 @@
     <guid>/posts/persistence-technique/registry-runas/registry-run-key-persistence/</guid>
     <description><![CDATA[Registry Run Key allow program to run at user login. This can be used for attacker to maintain persistence]]></description>
 </item>
-<item>
-    <title>OS Detection/Traceroute</title>
-    <link>/posts/os-detection-and-traceroute/</link>
-    <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/os-detection-and-traceroute/</guid>
-    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
-OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
-Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
-</item>
-<item>
-    <title>Open-Closed Ports</title>
-    <link>/posts/open-closed-ports-nmap/</link>
-    <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/open-closed-ports-nmap/</guid>
-    <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
-</item>
-<item>
-    <title>Service Detection using Nmap</title>
-    <link>/posts/service-detection/</link>
-    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/service-detection/</guid>
-    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
-</item>
 </channel>
 </rss>

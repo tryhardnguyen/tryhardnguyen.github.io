@@ -69,19 +69,11 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Firewall</title>
-    <link>/tags/firewall/</link>
-    <pubDate>Mon, 11 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <title>Windows</title>
+    <link>/tags/windows/</link>
+    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/tags/firewall/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Red Team</title>
-    <link>/tags/red-team/</link>
-    <pubDate>Thu, 06 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/tags/red-team/</guid>
+    <guid>/tags/windows/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

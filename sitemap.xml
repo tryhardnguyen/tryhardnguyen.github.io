@@ -8,16 +8,6 @@
             <loc>/posts/investigating-powershell-activity/tracking-powershell-activity/</loc><lastmod>2024-05-23T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/suspiciousprocessactivity/suspicious-process-activity/</loc><lastmod>2024-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/windoweventlog/logon-type-cheatsheet-window-event-log/</loc><lastmod>2023-09-24T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/firewall-project/grant-internet-access/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/windows-privilege-escalation/reverse-shell-dying/</loc><lastmod>2023-07-06T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/windows-privilege-escalation/unquoted-service-path-windows-escalation/</loc><lastmod>2023-07-04T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/os-detection-and-traceroute/</loc><lastmod>2023-06-08T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/open-closed-ports-nmap/</loc><lastmod>2023-06-07T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/service-detection/</loc><lastmod>2023-06-06T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/securityonion-modern-cyber-range/</loc><lastmod>2023-05-18T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/creating-user-account-with-ad/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/domain-join/</loc><lastmod>2023-05-16T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/posts/windows-defender-audit-logs/</loc><lastmod>2023-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/log-visibility-powershell/</loc><lastmod>2023-05-08T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/sysmon-logs/</loc><lastmod>2023-05-08T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/posts/useful-sysmon-id/learning-sysmon/</loc></url><url>
@@ -39,11 +29,7 @@
             <loc>/tags/fundamental/</loc><lastmod>2024-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/categories/fundamental/</loc><lastmod>2024-05-09T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/tags/modern-cyber-range/</loc><lastmod>2023-09-24T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/firewall/</loc><lastmod>2023-09-11T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/categories/penetration-testing/</loc><lastmod>2023-07-06T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/red-team/</loc><lastmod>2023-07-06T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/windows/</loc><lastmod>2023-07-04T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>/tags/nmap/</loc><lastmod>2023-06-08T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/windows/</loc><lastmod>2023-05-08T00:00:00&#43;00:00</lastmod></url><url>
             <loc>/about/</loc><lastmod>2019-08-02T11:04:49&#43;08:00</lastmod></url><url>
             <loc>/categories/documentation/</loc></url><url>
             <loc>/tags/</loc></url></urlset>

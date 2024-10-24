@@ -13,30 +13,6 @@
     <description><![CDATA[This is a cheat sheet of Logon Type in Window Event Log]]></description>
 </item>
 <item>
-    <title>SecurityOnion - Modern Cyber Range</title>
-    <link>/posts/securityonion-modern-cyber-range/</link>
-    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/securityonion-modern-cyber-range/</guid>
-    <description><![CDATA[In this post, I will be testing if I'm able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices]]></description>
-</item>
-<item>
-    <title>Creating a User Account with AD</title>
-    <link>/posts/creating-user-account-with-ad/</link>
-    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/creating-user-account-with-ad/</guid>
-    <description><![CDATA[Step on creating user account with Active Directory]]></description>
-</item>
-<item>
-    <title>How to Domain Join - Windows Client</title>
-    <link>/posts/domain-join/</link>
-    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/domain-join/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>Install &amp; Enable Sysmon</title>
     <link>/posts/sysmon-logs/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
