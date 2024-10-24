@@ -21,72 +21,30 @@
     <description><![CDATA[Let's learn how Unquoted Service Paths can lead to a Windows Escalation]]></description>
 </item>
 <item>
-    <title>Capstone Challenge</title>
-    <link>/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/</link>
-    <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <title>OS Detection/Traceroute</title>
+    <link>/posts/os-detection-and-traceroute/</link>
+    <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/capstone-challenge-linux-escalation-privilege/</guid>
-    <description><![CDATA[Room: https://tryhackme.com/room/linprivesc
-You have gained SSH access to a large scientific facility. Try to elevate your privileges until you are Root.
-We designed this room to help you build a thorough methodology for Linux privilege escalation that will be very useful in exams such as OSCP and your penetration testing engagements.
-Leave no privilege escalation vector unexplored, privilege escalation is often more an art than a science.
-You can access the target machine over your browser or use the SSH credentials below.]]></description>
+    <guid>/posts/os-detection-and-traceroute/</guid>
+    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
+OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
+Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
 </item>
 <item>
-    <title>NFS - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</link>
-    <pubDate>Wed, 28 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <title>Open-Closed Ports</title>
+    <link>/posts/open-closed-ports-nmap/</link>
+    <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/nfs-linux-privilege-escalation/</guid>
-    <description><![CDATA[Today, I will learn what is NFS and how it's used to escalate privilege.]]></description>
+    <guid>/posts/open-closed-ports-nmap/</guid>
+    <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
 </item>
 <item>
-    <title>$PATH Hijacking - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</link>
-    <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <title>Service Detection using Nmap</title>
+    <link>/posts/service-detection/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/path-hijacking-linux-privilege-escalation/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a $PATH Hijacking. This post will be showcasing how to exploit PATH]]></description>
-</item>
-<item>
-    <title>Crob Job to Root - Linux Escalation Privilege</title>
-    <link>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</link>
-    <pubDate>Tue, 27 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/cron-jobs-linux-escalation-privilege/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a abusing the misconfiguration of a Cron Job. This post will be showcasing how cron job can lead to privilege escalation.]]></description>
-</item>
-<item>
-    <title>Capabilities - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</link>
-    <pubDate>Mon, 26 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/capabilities-linux-privilege-escalation/</guid>
-    <description><![CDATA[I am exploring what is capabilities and how to exploit it. To help me learn the material, I will be using TryHackMe room as my lab]]></description>
-</item>
-<item>
-    <title>Exploring SUID Exploit - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/suid-exploit-linux-privilege-escalation/</link>
-    <pubDate>Sun, 25 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/suid-exploit-linux-privilege-escalation/</guid>
-    <description><![CDATA[I am exploring SUID exploit which is often used in privilege escalation. To help me learn the material, I will be using TryHackMe room as my lab.]]></description>
-</item>
-<item>
-    <title>sudo - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/sudo-linux-privilege-escalation/</link>
-    <pubDate>Sat, 24 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/sudo-linux-privilege-escalation/</guid>
-    <description><![CDATA[Today, I'm taking a look at using sudo to escalate a local user privilege to a root (administrator) privilege.]]></description>
-</item>
-<item>
-    <title>Kernel Exploits - Linux Privilege Escalation</title>
-    <link>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</link>
-    <pubDate>Fri, 23 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/linux-privilege-escalation/kernel-exploits-linux-privilege-escalation/</guid>
-    <description><![CDATA[One of the paths to privilege escalation on Linux is a Kernal Exploit. This post will be showcasing how Kernel Exploit works.]]></description>
+    <guid>/posts/service-detection/</guid>
+    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
 </item>
 </channel>
 </rss>

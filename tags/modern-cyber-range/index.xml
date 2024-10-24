@@ -13,62 +13,6 @@
     <description><![CDATA[This is a cheat sheet of Logon Type in Window Event Log]]></description>
 </item>
 <item>
-    <title>Deploying Sysmon through GPO</title>
-    <link>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</link>
-    <pubDate>Sun, 10 Sep 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</guid>
-    <description><![CDATA[Today, We will be learning how to deploy Sysmon Through GPO - Active Directory]]></description>
-</item>
-<item>
-    <title>Reconnaissance (CKC) - Modern Cyber Range - Attacker PoV</title>
-    <link>/posts/recon/</link>
-    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/recon/</guid>
-    <description><![CDATA[In this post, I will be exploring what reconnaissance look like from an attacker point of view.]]></description>
-</item>
-<item>
-    <title>Story Backgound - Modern Cyber Range</title>
-    <link>/posts/storytelling/</link>
-    <pubDate>Thu, 25 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/storytelling/</guid>
-    <description><![CDATA[Modern Cyber Range is based off of this story.]]></description>
-</item>
-<item>
-    <title>Testing Endpoint Detection - Windows</title>
-    <link>/posts/testing-endpoint-detection-windows/</link>
-    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/testing-endpoint-detection-windows/</guid>
-    <description><![CDATA[The purpose of showcase the endpoint detection that I'm working with.]]></description>
-</item>
-<item>
-    <title>Create OU, GPO, Enable Logging within Windows Server</title>
-    <link>/posts/ou-gpo-cyberrange/</link>
-    <pubDate>Mon, 22 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/ou-gpo-cyberrange/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Test Scan on Metasploitable2</title>
-    <link>/posts/test-scan/</link>
-    <pubDate>Sun, 21 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/test-scan/</guid>
-    <description><![CDATA[After setting up my Kali Linux (Attacker) and my vulnerable server metasploitable2, I'm ready to try scanning it and see the network activity it generates.]]></description>
-</item>
-<item>
-    <title>Configure Metasploitable3</title>
-    <link>/posts/metasploitable2/</link>
-    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/metasploitable2/</guid>
-    <description><![CDATA[Today, I'm going configure Metasploitable3 (Linux) Network Configuration]]></description>
-</item>
-<item>
     <title>SecurityOnion - Modern Cyber Range</title>
     <link>/posts/securityonion-modern-cyber-range/</link>
     <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
@@ -83,6 +27,30 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/creating-user-account-with-ad/</guid>
     <description><![CDATA[Step on creating user account with Active Directory]]></description>
+</item>
+<item>
+    <title>How to Domain Join - Windows Client</title>
+    <link>/posts/domain-join/</link>
+    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/domain-join/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Install &amp; Enable Sysmon</title>
+    <link>/posts/sysmon-logs/</link>
+    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/sysmon-logs/</guid>
+    <description><![CDATA[Install & Enable Sysmon]]></description>
+</item>
+<item>
+    <title>Title Name</title>
+    <link>/posts/templates/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+    <author>Nguyen Nguyen</author>
+    <guid>/posts/templates/</guid>
+    <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>

@@ -29,60 +29,62 @@
     <description><![CDATA[This is going be a simple post. We are going learn how to configure our firewall to allow internet.]]></description>
 </item>
 <item>
-    <title>Deploying Sysmon through GPO</title>
-    <link>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</link>
-    <pubDate>Sun, 10 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <title>OS Detection/Traceroute</title>
+    <link>/posts/os-detection-and-traceroute/</link>
+    <pubDate>Thu, 08 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/cyber-homelabs/deploying-sysmon-through-gpo/</guid>
-    <description><![CDATA[Today, We will be learning how to deploy Sysmon Through GPO - Active Directory]]></description>
+    <guid>/posts/os-detection-and-traceroute/</guid>
+    <description><![CDATA[Note: If you need a better view of the image, you can right click on the image -&gt; Open image in a new tab.
+OS Detection To initiate a OS Detection with Nmap, you can use the -O For example: sudo nmap -O 192.168.233.139
+Traceroute If you want Nmap to find the routers between you and the target, you would add &ndash;traceroute For example: sudo nmap -sS --traceroute 192.168.233.139]]></description>
 </item>
 <item>
-    <title>DNS - Windows Server AD</title>
-    <link>/posts/windows-server-2019/dns-windows-server/</link>
-    <pubDate>Thu, 03 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <title>Open-Closed Ports</title>
+    <link>/posts/open-closed-ports-nmap/</link>
+    <pubDate>Wed, 07 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/dns-windows-server/</guid>
-    <description><![CDATA[Let's learn how to install and create a DNS server in Active Directory. Then we will learn how to create DNS zones]]></description>
+    <guid>/posts/open-closed-ports-nmap/</guid>
+    <description><![CDATA[In this post, I will establish rules to how to figure out which port are closed/open. No matter what type of scan you use. Additionally, we will cover scans to use against firewalls.]]></description>
 </item>
 <item>
-    <title>Creating a DHCP Server</title>
-    <link>/posts/windows-server-2019/creating-a-dhcp-server/</link>
-    <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <title>Service Detection using Nmap</title>
+    <link>/posts/service-detection/</link>
+    <pubDate>Tue, 06 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/creating-a-dhcp-server/</guid>
-    <description><![CDATA[Let's learn how to create a DHCP Server]]></description>
+    <guid>/posts/service-detection/</guid>
+    <description><![CDATA[Using Nmap, We will feature: service detection to investigate for any vulnerability in a service. Then, we will look at it from a wireshark perspective to see what it look like from a network point of view.]]></description>
 </item>
 <item>
-    <title>Active Directory Sites</title>
-    <link>/posts/windows-server-2019/active-directory-sites/</link>
-    <pubDate>Sun, 30 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <title>SecurityOnion - Modern Cyber Range</title>
+    <link>/posts/securityonion-modern-cyber-range/</link>
+    <pubDate>Thu, 18 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/active-directory-sites/</guid>
-    <description><![CDATA[Let's learn what an active directory site is and how to create it.]]></description>
+    <guid>/posts/securityonion-modern-cyber-range/</guid>
+    <description><![CDATA[In this post, I will be testing if I'm able to access the securityonion page, Check if my security onion have no access to the internet and check if it can communicate with other devices]]></description>
 </item>
 <item>
-    <title>Backup GPOs</title>
-    <link>/posts/windows-server-2019/backing-up-your-gpos/</link>
-    <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <title>Creating a User Account with AD</title>
+    <link>/posts/creating-user-account-with-ad/</link>
+    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/backing-up-your-gpos/</guid>
-    <description><![CDATA[Let learn how to backup your GPOs and restore it]]></description>
+    <guid>/posts/creating-user-account-with-ad/</guid>
+    <description><![CDATA[Step on creating user account with Active Directory]]></description>
 </item>
 <item>
-    <title>Starter GPOs</title>
-    <link>/posts/windows-server-2019/starter-gpo/</link>
-    <pubDate>Sat, 29 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <title>How to Domain Join - Windows Client</title>
+    <link>/posts/domain-join/</link>
+    <pubDate>Tue, 16 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/starter-gpo/</guid>
-    <description><![CDATA[We will learn what is a starter GPO and how to use it]]></description>
+    <guid>/posts/domain-join/</guid>
+    <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Alter the order of Group Policy</title>
-    <link>/posts/windows-server-2019/alter-the-order-of-group-policy/</link>
-    <pubDate>Fri, 28 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <title>Install &amp; Enable Windows Defender Audit Logs</title>
+    <link>/posts/windows-defender-audit-logs/</link>
+    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
-    <guid>/posts/windows-server-2019/alter-the-order-of-group-policy/</guid>
-    <description><![CDATA[You can change the order of how group policy is processed. Today, we will be learning some of the technique to manipulate the order.]]></description>
+    <guid>/posts/windows-defender-audit-logs/</guid>
+    <description><![CDATA[Windows Defender Audit Logs]]></description>
 </item>
 </channel>
 </rss>

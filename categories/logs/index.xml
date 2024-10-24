@@ -21,22 +21,6 @@
     <description><![CDATA[Windows Defender Audit Logs]]></description>
 </item>
 <item>
-    <title>Install Winlogbeat</title>
-    <link>/posts/install-winlogbeat/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/install-winlogbeat/</guid>
-    <description><![CDATA[Winlogbeat will be shipping sysmon to securityonion]]></description>
-</item>
-<item>
-    <title>Enable Firewall Logs</title>
-    <link>/posts/log_firewall/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/log_firewall/</guid>
-    <description><![CDATA[Firewall Logs in Windows]]></description>
-</item>
-<item>
     <title>Enable Power Shell Logging</title>
     <link>/posts/log-visibility-powershell/</link>
     <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
@@ -51,14 +35,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/sysmon-logs/</guid>
     <description><![CDATA[Install & Enable Sysmon]]></description>
-</item>
-<item>
-    <title>Install Wazuh EDR</title>
-    <link>/posts/install-wazuh-edr/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/install-wazuh-edr/</guid>
-    <description><![CDATA[Step by Step guide of installing Wazuh]]></description>
 </item>
 </channel>
 </rss>

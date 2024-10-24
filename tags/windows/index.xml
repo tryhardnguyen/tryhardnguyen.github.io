@@ -13,44 +13,12 @@
     <description><![CDATA[Let's learn how Unquoted Service Paths can lead to a Windows Escalation]]></description>
 </item>
 <item>
-    <title>Testing Endpoint Detection - Windows</title>
-    <link>/posts/testing-endpoint-detection-windows/</link>
-    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/testing-endpoint-detection-windows/</guid>
-    <description><![CDATA[The purpose of showcase the endpoint detection that I'm working with.]]></description>
-</item>
-<item>
     <title>Install &amp; Enable Windows Defender Audit Logs</title>
     <link>/posts/windows-defender-audit-logs/</link>
     <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
     <author>Nguyen Nguyen</author>
     <guid>/posts/windows-defender-audit-logs/</guid>
     <description><![CDATA[Windows Defender Audit Logs]]></description>
-</item>
-<item>
-    <title>Install OSquery</title>
-    <link>/posts/osquery/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/osquery/</guid>
-    <description><![CDATA[With OSquery, you can write SQL queries to retrieve data from the operating system, just as you would with a database.]]></description>
-</item>
-<item>
-    <title>Install Winlogbeat</title>
-    <link>/posts/install-winlogbeat/</link>
-    <pubDate>Tue, 09 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/install-winlogbeat/</guid>
-    <description><![CDATA[Winlogbeat will be shipping sysmon to securityonion]]></description>
-</item>
-<item>
-    <title>Enable Firewall Logs</title>
-    <link>/posts/log_firewall/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/log_firewall/</guid>
-    <description><![CDATA[Firewall Logs in Windows]]></description>
 </item>
 <item>
     <title>Enable Power Shell Logging</title>
@@ -67,14 +35,6 @@
     <author>Nguyen Nguyen</author>
     <guid>/posts/sysmon-logs/</guid>
     <description><![CDATA[Install & Enable Sysmon]]></description>
-</item>
-<item>
-    <title>Install Wazuh EDR</title>
-    <link>/posts/install-wazuh-edr/</link>
-    <pubDate>Mon, 08 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Nguyen Nguyen</author>
-    <guid>/posts/install-wazuh-edr/</guid>
-    <description><![CDATA[Step by Step guide of installing Wazuh]]></description>
 </item>
 </channel>
 </rss>
